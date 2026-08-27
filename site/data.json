@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "mortgage-broker-sydney-sydney",
+    "name": "Mortgage Broker Sydney",
+    "category": "Mortgage broker",
+    "city": "Sydney",
+    "suburb": "Sydney",
+    "state": "NSW",
+    "phone": "1300 983 670",
+    "score": 93
+  },
+  {
+    "slug": "mortgage-broker-melbourne-melbourne",
+    "name": "Mortgage Broker Melbourne",
+    "category": "Mortgage broker",
+    "city": "Melbourne",
+    "suburb": "Melbourne",
+    "state": "VIC",
+    "phone": "1800 111 626",
+    "score": 93
+  },
+  {
+    "slug": "mortgage-broker-brisbane-hunter-galloway-brisbane",
+    "name": "Mortgage Broker Brisbane - Hunter Galloway",
+    "category": "Mortgage broker",
+    "city": "Brisbane",
+    "suburb": "Brisbane City",
+    "state": "QLD",
+    "phone": "(07) 3554 1015",
+    "score": 93
+  },
+  {
+    "slug": "orange-mortgage-and-finance-brokers-perth-perth",
+    "name": "Orange Mortgage and Finance Brokers Perth",
+    "category": "Mortgage broker",
+    "city": "Perth",
+    "suburb": "North Perth",
+    "state": "WA",
+    "phone": "0425 212 636",
+    "score": 97
+  },
+  {
+    "slug": "palm-tree-finance-adelaide-mortgage-broker-adelaide",
+    "name": "Palm Tree Finance - Adelaide Mortgage Broker",
+    "category": "Mortgage broker",
+    "city": "Adelaide",
+    "suburb": "Adelaide",
+    "state": "SA",
+    "phone": "0430 583 666",
+    "score": 97
+  },
+  {
+    "slug": "clarity-home-loans-mortgage-broker-canberra-canberra",
+    "name": "Clarity Home Loans | Mortgage Broker Canberra",
+    "category": "Mortgage broker",
+    "city": "Canberra",
+    "suburb": "Canberra",
+    "state": "ACT",
+    "phone": "(02) 6209 1990",
+    "score": 93
+  },
+  {
+    "slug": "one-stone-finance-hobart",
+    "name": "One Stone Finance",
+    "category": "Mortgage broker",
+    "city": "Hobart",
+    "suburb": "Hobart",
+    "state": "TAS",
+    "phone": "(03) 6244 4646",
+    "score": 93
+  },
+  {
+    "slug": "darwin-mortgage-broker-darwin",
+    "name": "Darwin Mortgage Broker",
+    "category": "Mortgage broker",
+    "city": "Darwin",
+    "suburb": null,
+    "state": "NT",
+    "phone": "(08) 8914 0068",
+    "score": 80
+  },
+  {
+    "slug": "professional-lending-solutions-phil-verheijen-mortgage-broker-gold-coast-gold-coast",
+    "name": "Professional Lending Solutions - Phil Verheijen Mortgage Broker Gold Coast",
+    "category": "Mortgage broker",
+    "city": "Gold Coast",
+    "suburb": "Bundall",
+    "state": "QLD",
+    "phone": "0421 934 033",
+    "score": 93
+  },
+  {
+    "slug": "loan-market-direct-newcastle",
+    "name": "Loan Market Direct",
+    "category": "Mortgage broker",
+    "city": "Newcastle",
+    "suburb": "Newcastle",
+    "state": "NSW",
+    "phone": "(02) 4911 9299",
+    "score": 93
+  }
+]
