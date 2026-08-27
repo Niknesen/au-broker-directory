@@ -2,14 +2,18 @@
 """
 MVP build script for the broker directory.
 
-Reads data/sample10.json (10 brokers for the demo) and generates:
+Reads data/mortgage_finance_full.json (all 1,020 AU Mortgage & Finance
+brokers from the master spreadsheet) and generates:
   site/index.html            - homepage with client-side search
   site/data.json             - search index consumed by index.html
   site/broker/<slug>.html    - one static page per broker (SEO)
   site/sitemap.xml           - sitemap for the generated pages
 
-Scaling to the full ~11,600-row dataset means pointing SOURCE at the full
-sheet extract instead of sample10.json - the generation logic doesn't change.
+data/sample10.json is the original 10-broker demo fixture, kept for
+reference. Scaling further (the other 6 categories, ~10,600 more rows) means
+extracting them the same way and pointing SOURCE at the combined file - the
+generation logic doesn't change. Purely mechanical string templating, no
+LLM calls - generating all 1,020 pages takes well under a second.
 
 Design system: light, blue, Apple-adjacent conservative style for a 30-40+
 audience. No dark mode, no neon/glow - see build.py STYLE block for tokens.
@@ -20,7 +24,7 @@ import html
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SOURCE = ROOT / "data" / "sample10.json"
+SOURCE = ROOT / "data" / "mortgage_finance_full.json"
 SITE = ROOT / "site"
 SITE_URL = "https://brokers.example.com.au"  # placeholder domain
 
@@ -54,7 +58,9 @@ def compute_trust_score(b):
 
 
 for b in brokers:
-    b["slug"] = f"{slugify(b['name'])}-{slugify(b['city'])}"
+    # Record ID suffix guarantees uniqueness even when name+city collide
+    # (e.g. two branches of the same franchise in one city).
+    b["slug"] = f"{slugify(b['name'])}-{slugify(b['city'])}-{b['id']}"
     b["email_display"] = first_email(b["email"])
     b["initial"] = (b["name"][0] or "?").upper()
     b["trust_score"] = compute_trust_score(b)
@@ -115,9 +121,7 @@ header.site .bar {
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; color: var(--text); }
 .brand .mark {
-  width: 30px; height: 30px; border-radius: 8px; background: var(--accent);
-  color: #fff; display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 14px; flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; display: block;
 }
 .brand:hover { color: var(--text); }
 
@@ -422,7 +426,7 @@ PAGE_HEAD = """<!doctype html>
 <body>
 <header class="site">
   <div class="bar">
-    <a class="brand" href="{home}"><span class="mark">AU</span>Broker Directory</a>
+    <a class="brand" href="{home}"><img class="mark" src="../assets/favicon-32.png" alt="" width="30" height="30">Broker Directory</a>
   </div>
 </header>
 <main>
@@ -819,7 +823,7 @@ INDEX_HTML = f"""<!doctype html>
 <body>
 <header class="site">
   <div class="bar">
-    <a class="brand" href="index.html"><span class="mark">AU</span>Broker Directory</a>
+    <a class="brand" href="index.html"><img class="mark" src="assets/favicon-32.png" alt="" width="30" height="30">Broker Directory</a>
   </div>
 </header>
 <main>

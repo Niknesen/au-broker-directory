@@ -50,9 +50,7 @@ header.site .bar {
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; color: var(--text); }
 .brand .mark {
-  width: 30px; height: 30px; border-radius: 8px; background: var(--accent);
-  color: #fff; display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 14px; flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; display: block;
 }
 .brand:hover { color: var(--text); }
 
@@ -328,7 +326,7 @@ details.form-disclosure summary::-webkit-details-marker { display: none; }
 <body>
 <header class="site">
   <div class="bar">
-    <a class="brand" href="index.html"><span class="mark">AU</span>Broker Directory</a>
+    <a class="brand" href="index.html"><img class="mark" src="assets/favicon-32.png" alt="" width="30" height="30">Broker Directory</a>
   </div>
 </header>
 <main>
