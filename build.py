@@ -875,10 +875,10 @@ function render(query) {{
   if (!q) {{ renderEmpty(); return; }}
 
   let matches = data.filter(b =>
-    b.name.toLowerCase().includes(q) ||
-    b.city.toLowerCase().includes(q) ||
+    (b.name || '').toLowerCase().includes(q) ||
+    (b.city || '').toLowerCase().includes(q) ||
     (b.suburb || '').toLowerCase().includes(q) ||
-    b.state.toLowerCase().includes(q) ||
+    (b.state || '').toLowerCase().includes(q) ||
     (b.phone || '').replace(/\\s/g,'').includes(q.replace(/\\s/g,''))
   );
   matches.sort((a, b) => b.score - a.score);
@@ -906,7 +906,7 @@ function render(query) {{
           <span class="name">${{b.name}}</span>
           <span class="score-pill" style="background:${{tier.bg}};color:${{tier.fg}};">${{b.score}}%</span>
         </div>
-        <div class="meta">${{b.category}} · ${{b.suburb || b.city}}, ${{b.state}}${{phoneFlag ? ' · ' + phoneFlag : ''}}</div>
+        <div class="meta">${{b.category}} · ${{[b.suburb || b.city, b.state].filter(Boolean).join(', ')}}${{phoneFlag ? ' · ' + phoneFlag : ''}}</div>
       </div>
       {CHEVRON_ICON}
     </a>
