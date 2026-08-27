@@ -24,7 +24,7 @@ import html
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SOURCE = ROOT / "data" / "mortgage_finance_full.json"
+SOURCE = ROOT / "data" / "all_brokers_full.json"
 SITE = ROOT / "site"
 SITE_URL = "https://brokers.example.com.au"  # placeholder domain
 
@@ -60,21 +60,21 @@ def compute_trust_score(b):
 for b in brokers:
     # Record ID suffix guarantees uniqueness even when name+city collide
     # (e.g. two branches of the same franchise in one city).
-    b["slug"] = f"{slugify(b['name'])}-{slugify(b['city'])}-{b['id']}"
+    b["slug"] = f"{slugify(b['name'])}-{slugify(b['city'])}-{slugify(str(b['id']))}"
     b["email_display"] = first_email(b["email"])
     b["initial"] = (b["name"][0] or "?").upper()
     b["trust_score"] = compute_trust_score(b)
 
-# Full breadth of the master spreadsheet, shown as a "browse by category" row
-# even though only Mortgage & Finance has generated pages so far.
+# Full breadth of the master spreadsheet - all 7 categories now have
+# generated pages, so all show as available.
 CATEGORIES = [
     {"name": "Mortgage & Finance", "count": 1020, "active": True},
-    {"name": "Insurance", "count": 811, "active": False},
-    {"name": "Real Estate & Buyers", "count": 2300, "active": False},
-    {"name": "Business Sales & Franchise", "count": 422, "active": False},
-    {"name": "Asset & Equipment Finance", "count": 1193, "active": False},
-    {"name": "Customs & Freight", "count": 2103, "active": False},
-    {"name": "Wealth & Investment", "count": 3754, "active": False},
+    {"name": "Insurance", "count": 811, "active": True},
+    {"name": "Real Estate & Buyers", "count": 2300, "active": True},
+    {"name": "Business Sales & Franchise", "count": 422, "active": True},
+    {"name": "Asset & Equipment Finance", "count": 1193, "active": True},
+    {"name": "Customs & Freight", "count": 2103, "active": True},
+    {"name": "Wealth & Investment", "count": 3754, "active": True},
 ]
 
 # ---------------------------------------------------------------------------
@@ -547,7 +547,11 @@ def broker_page(b):
         if not value:
             return "—"
         field_id = f"{kind}-{b['slug']}"
-        value_esc = html.escape(value)
+        # Strip tracking query strings (?utm_source=... etc.) from the
+        # displayed value - the copy-paste text shouldn't carry the source
+        # site's own analytics params.
+        display_value = value.split("?")[0].split("#")[0] if not href_prefix else value
+        value_esc = html.escape(display_value)
         if href_prefix:
             # tel: / mailto: - fine to click, opens the phone/mail app rather than navigating away.
             value_html = f'<a href="{href_prefix}{value_esc}" id="{field_id}" class="reveal-value">{value_esc}</a>'
@@ -853,8 +857,7 @@ let data = [];
 fetch('data.json').then(r => r.json()).then(d => {{ data = d; renderEmpty(); }});
 
 function renderEmpty() {{
-  document.getElementById('hint').textContent =
-    `Start typing a suburb, name or phone number to search ${{data.length}} mortgage brokers.`;
+  document.getElementById('hint').textContent = '';
   document.getElementById('results').innerHTML = '';
 }}
 
