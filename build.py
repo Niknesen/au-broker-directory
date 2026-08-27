@@ -68,10 +68,10 @@ for b in brokers:
 # Full breadth of the master spreadsheet - all 7 categories now have
 # generated pages, so all show as available.
 CATEGORIES = [
-    {"name": "Mortgage & Finance", "count": 1020, "active": True},
+    {"name": "Mortgage & Finance", "count": 1360, "active": True},
     {"name": "Insurance", "count": 811, "active": True},
     {"name": "Real Estate & Buyers", "count": 2300, "active": True},
-    {"name": "Business Sales & Franchise", "count": 422, "active": True},
+    {"name": "Business Sales & Franchise", "count": 627, "active": True},
     {"name": "Asset & Equipment Finance", "count": 1193, "active": True},
     {"name": "Customs & Freight", "count": 2103, "active": True},
     {"name": "Wealth & Investment", "count": 3754, "active": True},
