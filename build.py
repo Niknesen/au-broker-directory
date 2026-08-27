@@ -414,6 +414,9 @@ PAGE_HEAD = """<!doctype html>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
 <meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
 <style>{style}</style>
 </head>
 <body>
@@ -808,6 +811,9 @@ INDEX_HTML = f"""<!doctype html>
 <title>AU Broker Directory — Find a broker near you</title>
 <meta name="description" content="Search Australian mortgage, finance and insurance brokers by name, phone or city.">
 <meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <style>{STYLE}</style>
 </head>
 <body>
