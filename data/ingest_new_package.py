@@ -5,9 +5,18 @@ businesses, matched by Google Place ID - a hard dedup key the previous
 ~12,148-row dataset never had, which is why it turned out to be only ~5,620
 truly unique records under the hood).
 
-Replaces data/all_brokers_full.json entirely - this new file supersedes the
-old one, it does not merge with it (merging would risk reintroducing the
-duplicates this package was built to remove).
+Replaces data/all_brokers_full.json - this new file supersedes the old one
+for anything sourced from the Google Places master spreadsheet (merging
+would risk reintroducing the duplicates this package was built to remove).
+
+The one thing it DOES carry over from the old file: the 545 rows with an
+"outreach-*" id, a separate one-off batch merged in earlier from an AIEX
+outreach list (brokersemailoutreach.xlsx) that was never part of the
+Places-sourced master spreadsheet at all, so this package can't regenerate
+it. 335 of those 545 turned out to already exist in the new package (same
+business, matched by phone) and are skipped; the other 210 - including
+ACY Securities - only exist in that old outreach batch and are appended
+back in with fresh "outreach-N" ids.
 
 Also writes data/reviews_by_place.json: real Google review text (rating,
 text, reviewer, relative time), grouped by Place ID, for the broker detail
@@ -149,15 +158,72 @@ def main():
             "license_detail": None,
         })
 
+    added_outreach = merge_outreach_batch(out, bucket_counts)
+
     with open(OUT, "w") as f:
         json.dump(out, f, indent=2, ensure_ascii=False)
 
-    print(f"Wrote {len(out)} brokers to {OUT}")
+    print(f"Wrote {len(out)} brokers to {OUT} ({added_outreach} from the outreach batch)")
     print(f"Dropped: {dropped_closed} closed, {dropped_bad_address} bad address")
     for name, count in bucket_counts.most_common():
         print(f"  {name}: {count}")
 
     ingest_reviews(wb)
+
+
+def norm_phone(p):
+    return re.sub(r"\D", "", p or "")[-9:]
+
+
+def merge_outreach_batch(out, bucket_counts):
+    """Bring back the ~210 businesses that only ever existed in the old
+    one-off outreach merge (see module docstring) - skip the ones that
+    turned out to already be in the new package under the same phone
+    number."""
+    old_path = ROOT / "all_brokers_full.json.bak-pre-16k"
+    if not old_path.exists():
+        print("No pre-16k backup found - skipping outreach-batch merge.")
+        return 0
+
+    with open(old_path) as f:
+        old = json.load(f)
+    outreach = [b for b in old if str(b.get("id", "")).startswith("outreach-")]
+
+    existing_phones = {norm_phone(b.get("phone")) for b in out if b.get("phone")}
+    added = 0
+    for b in outreach:
+        phone_key = norm_phone(b.get("phone"))
+        if phone_key and phone_key in existing_phones:
+            continue
+        sheet = b.get("sheet") or "Mortgage & Finance"
+        bucket_counts[sheet] += 1
+        out.append({
+            "id": f"outreach-{added + 1}",
+            "sheet": sheet,
+            "name": b["name"],
+            "category": b.get("category") or sheet,
+            "phone": b.get("phone"),
+            "email": b.get("email"),
+            "website": b.get("website"),
+            "address": b.get("address"),
+            "suburb": b.get("suburb"),
+            "city": b.get("city"),
+            "state": b.get("state"),
+            "postcode": b.get("postcode"),
+            "rating": b.get("rating"),
+            "reviews": b.get("reviews") or 0,
+            "maps_url": b.get("maps_url"),
+            "place_id": None,
+            "about": None,
+            "about_source": None,
+            "team": [],
+            "license_disclosed": False,
+            "license_detail": None,
+        })
+        if phone_key:
+            existing_phones.add(phone_key)
+        added += 1
+    return added
 
 
 def ingest_reviews(wb):
