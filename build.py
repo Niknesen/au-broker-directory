@@ -21,6 +21,7 @@ audience. No dark mode, no neon/glow - see build.py STYLE block for tokens.
 import json
 import re
 import html
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -66,15 +67,21 @@ for b in brokers:
     b["trust_score"] = compute_trust_score(b)
 
 # Full breadth of the master spreadsheet - all 7 categories now have
-# generated pages, so all show as available.
+# generated pages, so all show as available. Counts are computed from the
+# live dataset (not hardcoded) so they never drift out of sync again.
+_CATEGORY_ORDER = [
+    "Mortgage & Finance",
+    "Insurance",
+    "Real Estate & Buyers",
+    "Business Sales & Franchise",
+    "Asset & Equipment Finance",
+    "Customs & Freight",
+    "Wealth & Investment",
+]
+_sheet_counts = Counter(b["sheet"] for b in brokers)
 CATEGORIES = [
-    {"name": "Mortgage & Finance", "count": 1360, "active": True},
-    {"name": "Insurance", "count": 811, "active": True},
-    {"name": "Real Estate & Buyers", "count": 2300, "active": True},
-    {"name": "Business Sales & Franchise", "count": 627, "active": True},
-    {"name": "Asset & Equipment Finance", "count": 1193, "active": True},
-    {"name": "Customs & Freight", "count": 2103, "active": True},
-    {"name": "Wealth & Investment", "count": 3754, "active": True},
+    {"name": name, "count": _sheet_counts.get(name, 0), "active": True}
+    for name in _CATEGORY_ORDER
 ]
 
 # ---------------------------------------------------------------------------
@@ -487,7 +494,7 @@ details.form-disclosure summary::-webkit-details-marker { display: none; }
 }
 
 @media (max-width: 640px) {
-  .hero { padding: 48px 0 28px; }
+  .hero { padding: 48px 16px 28px; }
   .fact-grid { grid-template-columns: 1fr; }
   .profile-card { padding: 24px; }
   .result .meta { white-space: normal; }
