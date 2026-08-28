@@ -131,7 +131,11 @@ header.site .bar {
   max-width: 1040px; margin: 0 auto; display: flex; align-items: center;
   justify-content: space-between; gap: 16px;
 }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; color: var(--text); }
+.brand {
+  display: flex; align-items: center; gap: 10px; font-size: 17px; color: var(--text);
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700; letter-spacing: -0.01em;
+}
 .brand .mark {
   width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; display: block;
 }
@@ -593,12 +597,15 @@ PAGE_HEAD = """<!doctype html>
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>{style}</style>
 </head>
 <body>
 <header class="site">
   <div class="bar">
-    <a class="brand" href="{home}"><img class="mark" src="../assets/favicon-32.png" alt="" width="30" height="30">Broker Directory</a>
+    <a class="brand" href="{home}"><img class="mark" src="../assets/favicon-32.png" alt="" width="30" height="30">Best Brokers Australia</a>
   </div>
 </header>
 <main>
@@ -684,7 +691,7 @@ def site_footer(prefix=""):
     <a href="{prefix}contact.html">Contact</a>
     <a href="{prefix}privacy.html">Privacy</a>
   </nav>
-  AU Broker Directory &mdash; independent directory, not affiliated with any listed business.
+  Best Brokers Australia &mdash; independent directory, not affiliated with any listed business.
 </footer>"""
 
 
@@ -710,12 +717,15 @@ def static_page(title, description, body_html):
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>{STYLE}</style>
 </head>
 <body>
 <header class="site">
   <div class="bar">
-    <a class="brand" href="index.html"><img class="mark" src="assets/favicon-32.png" alt="" width="30" height="30">Broker Directory</a>
+    <a class="brand" href="index.html"><img class="mark" src="assets/favicon-32.png" alt="" width="30" height="30">Best Brokers Australia</a>
     <span class="tagline">Australia's independent broker index</span>
   </div>
 </header>
@@ -731,10 +741,10 @@ def static_page(title, description, body_html):
 
 
 ABOUT_PAGE_HTML = static_page(
-    "About — AU Broker Directory",
+    "About — Best Brokers Australia",
     "Why we built an independent directory of Australian mortgage, finance and insurance brokers.",
     """
-<h1>About AU Broker Directory</h1>
+<h1>About Best Brokers Australia</h1>
 <p class="static-lede">An independent index of Australian mortgage, finance, insurance and property brokers - built so people can find someone to trust without wading through paid rankings.</p>
 
 <h2>Why this exists</h2>
@@ -743,7 +753,7 @@ ABOUT_PAGE_HTML = static_page(
 <p>The goal is simple: help Australians looking for a mortgage broker, insurance broker or finance professional find one worth calling, based on what's actually publicly known about them.</p>
 
 <h2>Who built it</h2>
-<p>AU Broker Directory is designed and built by the <strong>AIEX Forward Deployed Engineering team</strong> - the applied engineering group at <a class="contact-link" href="https://aiex.team">AIEX</a> that ships production tools and data systems for real businesses, not just prototypes.</p>
+<p>Best Brokers Australia is designed and built by the <strong>AIEX Forward Deployed Engineering team</strong> - the applied engineering group at <a class="contact-link" href="https://aiex.team">AIEX</a> that ships production tools and data systems for real businesses, not just prototypes.</p>
 
 <h2>A work in progress</h2>
 <p>The directory currently covers thousands of brokers across mortgage &amp; finance, insurance, real estate, business sales, asset finance, customs &amp; freight, and wealth &amp; investment. Listings are refreshed as better data becomes available, and any broker (or client) can flag a correction - see <a class="contact-link" href="contact.html">Contact</a>.</p>
@@ -751,7 +761,7 @@ ABOUT_PAGE_HTML = static_page(
 )
 
 CONTACT_PAGE_HTML = static_page(
-    "Contact — AU Broker Directory",
+    "Contact — Best Brokers Australia",
     "Get in touch about a listing, a correction, or a partnership enquiry.",
     """
 <h1>Contact</h1>
@@ -772,14 +782,14 @@ CONTACT_PAGE_HTML = static_page(
 )
 
 PRIVACY_PAGE_HTML = static_page(
-    "Privacy — AU Broker Directory",
-    "How AU Broker Directory collects, uses and protects information.",
+    "Privacy — Best Brokers Australia",
+    "How Best Brokers Australia collects, uses and protects information.",
     """
 <h1>Privacy Policy</h1>
 <p class="static-lede">Plain English summary: the business listings on this site come from public records, not from you. If you submit a review or a real case, we use what you give us to publish it (with your permission) and to follow up if needed.</p>
 
 <h2>1. Who we are</h2>
-<p>AU Broker Directory is an independent broker index designed and operated by the AIEX Forward Deployed Engineering team, part of AI Executive Systems ("AIEX"). This policy covers data handling across this website and any forms, reviews or case submissions made through it.</p>
+<p>Best Brokers Australia is an independent broker index designed and operated by the AIEX Forward Deployed Engineering team, part of AI Executive Systems ("AIEX"). This policy covers data handling across this website and any forms, reviews or case submissions made through it.</p>
 
 <h2>2. What we collect</h2>
 <p>Two different kinds of information exist on this site:</p>
@@ -813,7 +823,7 @@ PRIVACY_PAGE_HTML = static_page(
 
 
 def broker_page(b):
-    title = f"{b['name']} — {b['category']} in {b['city']}, {b['state']} | AU Broker Directory"
+    title = f"{b['name']} — {b['category']} in {b['city']}, {b['state']} | Best Brokers Australia"
     desc = f"Contact details for {b['name']}, a {b['category'].lower()} based in {b['suburb'] or b['city']}, {b['state']}."
     canonical = f"{SITE_URL}/broker/{b['slug']}.html"
 
@@ -1156,19 +1166,22 @@ INDEX_HTML = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AU Broker Directory — Find a broker near you</title>
+<title>Best Brokers Australia — Find a broker near you</title>
 <meta name="description" content="Search Australian mortgage, finance and insurance brokers by name, phone or city.">
 <meta name="color-scheme" content="light">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>{STYLE}</style>
 </head>
 <body class="homepage">
 <div class="hero-viewport">
 <header class="site">
   <div class="bar">
-    <a class="brand" href="index.html"><img class="mark" src="assets/favicon-32.png" alt="" width="30" height="30">Broker Directory</a>
+    <a class="brand" href="index.html"><img class="mark" src="assets/favicon-32.png" alt="" width="30" height="30">Best Brokers Australia</a>
     <span class="tagline">Australia's independent broker index</span>
   </div>
 </header>
