@@ -173,17 +173,26 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 24px 80px; }
 @media (max-width: 640px) {
   .categories { gap: 8px; margin: 24px 0 8px; }
   .chip { padding: 7px 13px; font-size: 13px; min-height: 34px; }
-  /* Mobile: keep only the headline + search visible above the portrait on
-     load - everything else reappears once the user interacts. */
-  .categories, .trust-badges, .explore, footer.site { display: none; }
-  body.searched .categories { display: flex; }
-  body.searched .trust-badges { display: flex; }
-  body.searched .explore { display: block; }
-  body.searched footer.site { display: block; }
-  /* Nothing scrolls behind the portrait now that the sections above are
-     hidden, so it can be truly transparent instead of paper-matched. */
-  .hero-visual-wrap { background: transparent; }
 }
+
+/* Keep only the headline + search visible above the portrait on load -
+   everything else reappears once the user interacts. Needed on every
+   screen size, not just mobile: a short/wide browser window lets the fixed
+   portrait's 50vh reach up over the categories/explore/footer text just as
+   easily as a phone does. Scoped to body.homepage only - this markup
+   (.categories/.trust-badges/.explore) doesn't exist on broker/static
+   pages, but footer.site does, and it must never be hidden there. */
+body.homepage .categories,
+body.homepage .trust-badges,
+body.homepage .explore,
+body.homepage footer.site { display: none; }
+body.homepage.searched .categories { display: flex; }
+body.homepage.searched .trust-badges { display: flex; }
+body.homepage.searched .explore { display: block; }
+body.homepage.searched footer.site { display: block; }
+/* Nothing scrolls behind the portrait now that the sections above are
+   hidden, so it can be truly transparent instead of paper-matched. */
+.hero-visual-wrap { background: transparent; }
 
 /* Explore Australia */
 .explore { max-width: 720px; margin: 56px auto 0; text-align: center; }
