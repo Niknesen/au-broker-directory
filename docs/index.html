@@ -596,7 +596,7 @@ function render(query) {
     (b.state || '').toLowerCase().includes(q) ||
     (b.phone || '').replace(/\s/g,'').includes(q.replace(/\s/g,''))
   );
-  matches.sort((a, b) => b.score - a.score);
+  matches.sort((a, b) => (b.has_reviews - a.has_reviews) || (b.score - a.score));
 
   const shown = matches.slice(0, LIMIT);
   hint.textContent = matches.length > LIMIT

@@ -1267,7 +1267,7 @@ function render(query) {{
     (b.state || '').toLowerCase().includes(q) ||
     (b.phone || '').replace(/\\s/g,'').includes(q.replace(/\\s/g,''))
   );
-  matches.sort((a, b) => b.score - a.score);
+  matches.sort((a, b) => (b.has_reviews - a.has_reviews) || (b.score - a.score));
 
   const shown = matches.slice(0, LIMIT);
   hint.textContent = matches.length > LIMIT
@@ -1350,7 +1350,7 @@ search_index = [
     {
         "slug": b["slug"], "name": b["name"], "category": b["category"],
         "city": b["city"], "suburb": b["suburb"], "state": b["state"], "phone": b["phone"],
-        "score": b["trust_score"],
+        "score": b["trust_score"], "has_reviews": bool(b.get("google_reviews")),
     }
     for b in brokers
 ]
