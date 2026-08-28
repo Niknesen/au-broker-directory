@@ -124,50 +124,150 @@ header.site .bar {
   width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; display: block;
 }
 .brand:hover { color: var(--text); }
+.tagline { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+@media (max-width: 640px) {
+  .tagline { display: none; }
+}
 
 main { max-width: 1040px; margin: 0 auto; padding: 0 24px 80px; }
 
-/* Hero */
-.hero { text-align: center; padding: 72px 0 40px; }
-.hero h1 {
-  font-size: clamp(30px, 4.5vw, 44px); font-weight: 700; letter-spacing: -0.02em;
-  margin: 0 0 12px; color: var(--text);
+/* Ticker - a slow, quiet "this is a live index" signal, not a stock-crash marquee */
+.ticker-wrap {
+  overflow: hidden; border-bottom: 1px solid var(--border); background: var(--surface-alt);
 }
-.hero p.lede { color: var(--text-muted); font-size: 18px; max-width: 520px; margin: 0 auto 32px; }
+.ticker-track { display: flex; width: max-content; animation: ticker-scroll 55s linear infinite; }
+.ticker-seg { padding: 8px 48px 8px 0; font-size: 12.5px; color: var(--text-muted); letter-spacing: .01em; white-space: nowrap; }
+.ticker-seg b { color: var(--text); font-weight: 600; }
+@keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
 
-.search-wrap { max-width: 560px; margin: 0 auto; position: relative; }
+/* Hero */
+.hero { text-align: center; padding: 24px 0 20px; }
+.hero h1 {
+  font-size: clamp(28px, 4.2vw, 42px); font-weight: 800; letter-spacing: -0.03em;
+  margin: 0 0 8px; color: var(--text); line-height: 1.1;
+}
+.hero p.lede { color: var(--text-muted); font-size: 16px; max-width: 560px; margin: 0 auto 4px; }
+@media (max-width: 640px) {
+  .hero { padding: 20px 16px 20px; }
+  .hero p.lede { padding: 0 8px; margin: 0 auto 8px; }
+}
+
+/* Hero stack: a big, tightly cropped portrait (zoomed in, cut off at the
+   chest - not a neatly contained thumbnail) with real broker cards floating
+   around it, that gets out of the way once you start searching. One-way -
+   it doesn't come back until the page reloads. */
+.hero-stack { display: flex; flex-direction: column; align-items: center; }
+/* Fixed overlay - adds zero document height (so it never forces extra
+   scroll), floats above header/ticker/hero on load, flush to the bottom of
+   the viewport. A scroll listener fades it out once the hero scrolls out of
+   view so it can't sit on top of later page content; typing in search
+   slides it away for good (one-way, until reload). No box-shadow/border - a
+   flat cutout, not a card. */
+.hero-visual-wrap {
+  position: fixed; bottom: 0; left: 0; right: 0; margin: 0 auto;
+  height: calc(50vh + 3px); width: calc(50vh * 1305 / 1195); overflow: hidden;
+  background: var(--bg);
+  z-index: 100; pointer-events: none; opacity: 1;
+  transform: translateZ(0); isolation: isolate; backface-visibility: hidden;
+  transition: transform 550ms cubic-bezier(.22,1,.36,1), opacity 300ms ease;
+}
+.hero-visual-wrap.scrolled-past { opacity: 0; }
+.hero-visual-wrap.search-active { transform: translateY(120%); }
+.hero-visual {
+  display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center;
+}
+
+/* Broker cards: normal page content, not glued to the portrait */
+.card-row { order: 1; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin: 20px 0 8px; max-width: 900px; }
+@media (max-width: 640px) {
+  /* Mobile: the stacked cards push the search bar off-screen under the
+     portrait - drop them so search is visible on load. */
+  .card-row { display: none; }
+  .hero-visual-wrap { height: calc(46vh + 3px); width: calc(46vh * 1305 / 1195); }
+}
+.collage-card {
+  width: 190px; background: var(--surface); border: 1px solid var(--border);
+  border-left-width: 4px; border-radius: 12px; padding: 12px 14px; box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+.collage-card .cc-top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.collage-card .cc-avatar {
+  width: 26px; height: 26px; border-radius: 7px; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 11px; flex-shrink: 0;
+}
+.collage-card .cc-name { font-size: 12.5px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.collage-card .cc-meta { font-size: 10.5px; color: var(--text-muted); margin-top: 1px; }
+.collage-card .cc-score {
+  display: inline-block; margin-top: 7px; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px;
+}
+
+.search-wrap { order: 2; width: 100%; max-width: 820px; margin: 0 auto; position: relative; }
 .search-wrap svg {
-  position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+  position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
   width: 20px; height: 20px; color: var(--text-muted); pointer-events: none;
 }
 #q {
-  width: 100%; padding: 16px 18px 16px 48px; font-size: 16px; border-radius: 999px;
+  width: 100%; padding: 19px 22px 19px 52px; font-size: 17px; border-radius: 999px;
   border: 1px solid var(--border); background: var(--surface); color: var(--text);
   outline: none; box-shadow: var(--shadow-sm); transition: box-shadow 200ms ease, border-color 200ms ease;
 }
 #q:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
 #q::placeholder { color: #94a3b8; }
 
-.policy-ribbon {
-  display: inline-flex; align-items: center; gap: 8px; margin: 24px 0 0; padding: 8px 16px;
-  border-radius: 999px; background: var(--surface-alt); border: 1px solid var(--border);
-  color: var(--text-muted); font-size: 13px; font-weight: 500;
+.trust-badges {
+  order: 4; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 28px 0 0;
 }
-.policy-ribbon svg { color: var(--accent); flex-shrink: 0; }
+.trust-badges span {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; color: var(--text-muted); font-weight: 500;
+  white-space: nowrap; text-align: left;
+}
+.trust-badges svg { width: 15px; height: 15px; color: var(--accent); flex-shrink: 0; }
+.trust-badges b { color: var(--text); font-weight: 600; }
 
 /* Category chips */
-.categories { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 32px 0 8px; }
+.categories { order: 3; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 32px 0 8px; }
 .chip {
-  display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px;
+  display: inline-flex; align-items: center; gap: 7px; padding: 11px 19px;
   border-radius: 999px; border: 1px solid var(--border); background: var(--surface);
-  font-size: 14px; font-weight: 500; color: var(--text-muted);
-  transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
-  min-height: 40px;
+  font-size: 14.5px; font-weight: 500; color: var(--text-muted);
+  transition: border-color 200ms ease, color 200ms ease, background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  min-height: 44px;
 }
 .chip .count { color: #94a3b8; font-weight: 400; }
 .chip.active { background: var(--accent-soft); border-color: #bae6fd; color: var(--accent-hover); cursor: pointer; }
-.chip.active:hover { border-color: var(--accent); }
+.chip.active:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: 0 6px 16px -6px rgba(3,105,161,.35); }
 .chip.disabled { opacity: .55; cursor: default; }
+@media (max-width: 640px) {
+  .categories { gap: 8px; margin: 24px 0 8px; }
+  .chip { padding: 7px 13px; font-size: 13px; min-height: 34px; }
+  /* Mobile: keep only the headline + search visible above the portrait on
+     load - everything else reappears once the user interacts. */
+  .categories, .trust-badges, .explore, footer.site { display: none; }
+  body.searched .categories { display: flex; }
+  body.searched .trust-badges { display: flex; }
+  body.searched .explore { display: block; }
+  body.searched footer.site { display: block; }
+  /* Nothing scrolls behind the portrait now that the sections above are
+     hidden, so it can be truly transparent instead of paper-matched. */
+  .hero-visual-wrap { background: transparent; }
+}
+
+/* Explore Australia */
+.explore { max-width: 720px; margin: 56px auto 0; text-align: center; }
+.explore h2 {
+  font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;
+  letter-spacing: .06em; margin: 0 0 14px;
+}
+.explore-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 6px; font-size: 14.5px; }
+.explore-links a {
+  color: var(--text); font-weight: 500; padding: 4px 2px; border-radius: 4px;
+  transition: color 150ms ease;
+}
+.explore-links a:hover { color: var(--accent); }
+.explore-links .sep { color: #cbd5e1; }
 
 /* Results */
 .results-head { display: flex; align-items: baseline; justify-content: space-between; margin: 40px 0 16px; flex-wrap: wrap; gap: 8px;}
@@ -199,7 +299,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 24px 80px; }
 
 .empty { text-align: center; color: var(--text-muted); padding: 56px 0; }
 
-footer.site { text-align: center; padding: 40px 24px; color: #94a3b8; font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
+footer.site { text-align: center; padding: 40px 24px; color: #94a3b8; font-size: 13px; margin-top: 40px; }
 
 /* Broker page */
 .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text-muted); margin: 28px 0 20px; }
@@ -811,6 +911,44 @@ def category_chips_html():
     return "".join(out)
 
 
+# Real, existing listings used as floating card mockups in the hero collage -
+# never invented content, just a live sample of what's actually in the directory.
+COLLAGE_BROKER_IDS = [
+    "Mortgage & Finance-1",   # Mortgage Broker Sydney
+    "Insurance-2",            # Omnisure
+    "Business Sales & Franchise-6",  # Bsale Australia Pty Ltd
+    "Real Estate & Buyers-4", # PropertyFox Pty Ltd
+]
+
+
+def collage_cards_html():
+    by_id = {b["id"]: b for b in brokers}
+    out = []
+    for i, bid in enumerate(COLLAGE_BROKER_IDS, start=1):
+        b = by_id.get(bid)
+        if not b:
+            continue
+        score = b["trust_score"]
+        if score >= 85:
+            bg, fg = "#dcfce7", "#16a34a"
+        elif score >= 70:
+            bg, fg = "#fef3c7", "#d97706"
+        else:
+            bg, fg = "#fee2e2", "#dc2626"
+        out.append(f"""
+<div class="collage-card" style="border-left-color:{fg};">
+  <div class="cc-top">
+    <div class="cc-avatar" style="background:{bg};color:{fg};">{html.escape(b['initial'])}</div>
+    <div>
+      <div class="cc-name">{html.escape(b['name'])}</div>
+      <div class="cc-meta">{html.escape(b['city'] or '')}, {html.escape(b['state'] or '')}</div>
+    </div>
+  </div>
+  <span class="cc-score" style="background:{bg};color:{fg};">{score}% trust score</span>
+</div>""")
+    return "".join(out)
+
+
 INDEX_HTML = f"""<!doctype html>
 <html lang="en-AU">
 <head>
@@ -825,15 +963,28 @@ INDEX_HTML = f"""<!doctype html>
 <style>{STYLE}</style>
 </head>
 <body>
+<div class="hero-viewport">
 <header class="site">
   <div class="bar">
     <a class="brand" href="index.html"><img class="mark" src="assets/favicon-32.png" alt="" width="30" height="30">Broker Directory</a>
+    <span class="tagline">Australia's independent broker index</span>
   </div>
 </header>
-<main>
-  <section class="hero">
-    <h1>Find a broker you can trust</h1>
-    <p class="lede">Search Australian mortgage &amp; finance brokers by name, suburb or phone number.</p>
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-seg">Recently updated: <b>Sydney</b> &middot; <b>Melbourne</b> &middot; <b>Brisbane</b> &middot; <b>Perth</b> &middot; <b>Adelaide</b> &middot; <b>Gold Coast</b> &middot; <b>Canberra</b> &middot; <b>Hobart</b> &middot; <b>Darwin</b> &middot; <b>Newcastle</b> &rarr;</span>
+    <span class="ticker-seg">Recently updated: <b>Sydney</b> &middot; <b>Melbourne</b> &middot; <b>Brisbane</b> &middot; <b>Perth</b> &middot; <b>Adelaide</b> &middot; <b>Gold Coast</b> &middot; <b>Canberra</b> &middot; <b>Hobart</b> &middot; <b>Darwin</b> &middot; <b>Newcastle</b> &rarr;</span>
+  </div>
+</div>
+<section class="hero">
+  <h1>Find a broker you can trust</h1>
+  <p class="lede">Search Australian mortgage &amp; finance brokers by name, suburb or phone number.</p>
+
+  <div class="hero-stack" id="heroStack">
+    <div class="card-row">
+      {collage_cards_html()}
+    </div>
+
     <div class="search-wrap">
       {SEARCH_ICON}
       <input id="q" type="text" placeholder="Try “Sydney”, a broker's name, or a phone number…" autocomplete="off" aria-label="Search brokers">
@@ -841,7 +992,22 @@ INDEX_HTML = f"""<!doctype html>
     <div class="categories">
       {category_chips_html()}
     </div>
-    <p class="policy-ribbon">{SHIELD_ICON} Independent listings — brokers can't pay for a better rank or to remove a review.</p>
+    <div class="trust-badges">
+      <span>{SHIELD_ICON} Independent listings &mdash; brokers can't pay for a better rank or to remove a review.</span>
+    </div>
+  </div>
+</section>
+
+<div class="hero-visual-wrap" id="heroPortraitFixed">
+  <img class="hero-visual" src="assets/broker-portrait.png" alt="" loading="eager">
+</div>
+</div>
+
+<main>
+
+  <section class="explore">
+    <h2>Browse brokers across Australia</h2>
+    <div class="explore-links" id="explore-links"></div>
   </section>
 
   <div class="results-head">
@@ -852,9 +1018,27 @@ INDEX_HTML = f"""<!doctype html>
 <footer class="site">AU Broker Directory &mdash; independent directory, not affiliated with any listed business.</footer>
 <script>
 const LIMIT = 9;
+const EXPLORE_CITIES = ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide', 'Canberra', 'Hobart', 'Darwin', 'Gold Coast', 'Newcastle'];
 let data = [];
 
-fetch('data.json').then(r => r.json()).then(d => {{ data = d; renderEmpty(); }});
+document.getElementById('explore-links').innerHTML = EXPLORE_CITIES.map(function (c, i) {{
+  var sep = i < EXPLORE_CITIES.length - 1 ? '<span class="sep"> &middot; </span>' : '';
+  return '<a href="?q=' + encodeURIComponent(c) + '">' + c + '</a>' + sep;
+}}).join('');
+
+fetch('data.json').then(r => r.json()).then(d => {{
+  data = d;
+  const params = new URLSearchParams(location.search);
+  const initialQuery = params.get('q');
+  if (initialQuery) {{
+    document.getElementById('q').value = initialQuery;
+    render(initialQuery);
+    const portrait = document.getElementById('heroPortraitFixed');
+    if (portrait) portrait.classList.add('search-active');
+  }} else {{
+    renderEmpty();
+  }}
+}});
 
 function renderEmpty() {{
   document.getElementById('hint').textContent = '';
@@ -915,6 +1099,26 @@ function render(query) {{
 }}
 
 document.getElementById('q').addEventListener('input', e => render(e.target.value));
+(function () {{
+  var portrait = document.getElementById('heroPortraitFixed');
+  if (!portrait) return;
+  function dismiss() {{ portrait.classList.add('search-active'); document.body.classList.add('searched'); }}
+  document.getElementById('q').addEventListener('focus', dismiss, {{ once: true }});
+  document.getElementById('q').addEventListener('input', dismiss, {{ once: true }});
+}})();
+
+(function () {{
+  var portrait = document.getElementById('heroPortraitFixed');
+  var hero = document.querySelector('.hero');
+  if (!portrait || !hero) return;
+  function updateScrollState() {{
+    if (portrait.classList.contains('search-active')) return;
+    var pastHero = hero.getBoundingClientRect().bottom < 0;
+    portrait.classList.toggle('scrolled-past', pastHero);
+  }}
+  window.addEventListener('scroll', updateScrollState, {{ passive: true }});
+  updateScrollState();
+}})();
 </script>
 </body>
 </html>
