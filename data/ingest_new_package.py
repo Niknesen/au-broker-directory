@@ -9,12 +9,13 @@ Replaces data/all_brokers_full.json entirely - this new file supersedes the
 old one, it does not merge with it (merging would risk reintroducing the
 duplicates this package was built to remove).
 
+Also writes data/reviews_by_place.json: real Google review text (rating,
+text, reviewer, relative time), grouped by Place ID, for the broker detail
+pages to render. The first package this was built from had a scraper bug
+where every review's text was literally the string "[object Object]" - this
+run is against the corrected re-export where 96% of rows have real text.
+
 What this does NOT do, and why:
-  - Does not import review text. Every row in the source workbook's Reviews
-    sheet has Review Text/Original Text == "[object Object]" (a scraper bug
-    that serialized a JS object instead of its string) or null - 100% of
-    22,189 review rows are unusable. Only the aggregate Rating/Reviews count
-    on the Brokers sheet is real and gets used (same as before).
   - Does not carry over the old `about` text. The old dataset had no stable
     join key (no Place ID) to match old rows to new ones reliably, and only
     a minority of old rows had `about` populated anyway. Every row here
@@ -31,8 +32,11 @@ from pathlib import Path
 import openpyxl
 
 ROOT = Path(__file__).parent
-SOURCE_XLSX = Path("/Users/nick/Downloads/ALL BROKERS/final-australian-broker-package.xlsx")
+SOURCE_XLSX = Path("/Users/nick/Downloads/final-australian-broker-package (1).xlsx")
 OUT = ROOT / "all_brokers_full.json"
+REVIEWS_OUT = ROOT / "reviews_by_place.json"
+MAX_REVIEWS_PER_BUSINESS = 12
+MAX_REVIEW_CHARS = 700
 
 ADDR_RE = re.compile(r"([A-Za-z0-9 '\.-]+?)\s+(NSW|VIC|QLD|WA|SA|TAS|ACT|NT)\s+(\d{4})")
 
@@ -137,6 +141,7 @@ def main():
             "rating": row[idx["Rating"]],
             "reviews": row[idx["Reviews"]] or 0,
             "maps_url": row[idx["Google Maps URL"]],
+            "place_id": row[idx["Place ID"]],
             "about": None,
             "about_source": None,
             "team": [],
@@ -151,6 +156,43 @@ def main():
     print(f"Dropped: {dropped_closed} closed, {dropped_bad_address} bad address")
     for name, count in bucket_counts.most_common():
         print(f"  {name}: {count}")
+
+    ingest_reviews(wb)
+
+
+def ingest_reviews(wb):
+    ws = wb["Reviews"]
+    it = ws.iter_rows(values_only=True)
+    header = list(next(it))
+    idx = {name: i for i, name in enumerate(header)}
+
+    by_place = {}
+    total = 0
+    skipped_no_text = 0
+    for row in it:
+        total += 1
+        text = (row[idx["Review Text"]] or "").strip()
+        if not text:
+            skipped_no_text += 1
+            continue
+        if len(text) > MAX_REVIEW_CHARS:
+            text = text[:MAX_REVIEW_CHARS].rsplit(" ", 1)[0] + "…"
+        place_id = row[idx["Place ID"]]
+        bucket = by_place.setdefault(place_id, [])
+        if len(bucket) >= MAX_REVIEWS_PER_BUSINESS:
+            continue
+        bucket.append({
+            "rating": row[idx["Review Rating"]],
+            "text": text,
+            "reviewer": row[idx["Reviewer"]] or "Google user",
+            "relative_time": row[idx["Relative Time"]],
+        })
+
+    with open(REVIEWS_OUT, "w") as f:
+        json.dump(by_place, f, indent=2, ensure_ascii=False)
+
+    print(f"\nWrote reviews for {len(by_place)} businesses to {REVIEWS_OUT}")
+    print(f"Reviews processed: {total}, skipped (no text): {skipped_no_text}")
 
 
 if __name__ == "__main__":

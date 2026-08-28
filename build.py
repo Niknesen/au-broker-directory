@@ -26,11 +26,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 SOURCE = ROOT / "data" / "all_brokers_full.json"
+REVIEWS_SOURCE = ROOT / "data" / "reviews_by_place.json"
 SITE = ROOT / "site"
 SITE_URL = "https://brokers.example.com.au"  # placeholder domain
 
 with open(SOURCE) as f:
     brokers = json.load(f)
+
+with open(REVIEWS_SOURCE) as f:
+    reviews_by_place = json.load(f)
 
 
 def slugify(text):
@@ -65,6 +69,7 @@ for b in brokers:
     b["email_display"] = first_email(b["email"])
     b["initial"] = (b["name"][0] or "?").upper()
     b["trust_score"] = compute_trust_score(b)
+    b["google_reviews"] = reviews_by_place.get(b.get("place_id"), [])
 
 # Full breadth of the master spreadsheet - all 7 categories now have
 # generated pages, so all show as available. Counts are computed from the
@@ -516,6 +521,43 @@ PHOTO_ICON = """<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strok
 PLAY_ICON = """<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16" fill="currentColor" stroke="none"/></svg>"""
 STAR_PICKER_ICON = """<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.63 22 9.24 16.5 14.14 18.18 21 12 17.27 5.82 21 7.5 14.14 2 9.24 8.91 8.63"/></svg>"""
 
+
+def render_google_reviews(reviews):
+    """Real, imported Google review text - not user-submitted (see the
+    separate 'Write a review' form below for that). Shows the first 3, rest
+    tucked behind a details/summary so the page doesn't balloon."""
+    if not reviews:
+        return ""
+
+    def card(r):
+        stars = round(float(r.get("rating") or 0))
+        stars_html = "".join(STAR_FILLED if i < stars else STAR_EMPTY for i in range(5))
+        reviewer = html.escape(r.get("reviewer") or "Google user")
+        initial = (reviewer[0] or "?").upper()
+        text = html.escape(r.get("text") or "").replace("\n", "<br>")
+        when = html.escape(r.get("relative_time") or "")
+        return f"""
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">{initial}</div>
+          <span class="review-name">{reviewer}</span>
+          <span class="review-stars">{stars_html}</span>
+          <span class="review-date">{when}</span>
+        </div>
+        <p class="review-text">{text}</p>
+      </div>"""
+
+    visible, rest = reviews[:3], reviews[3:]
+    out = ['<div class="google-reviews" style="margin-top:20px;">']
+    out.extend(card(r) for r in visible)
+    if rest:
+        out.append('<details class="more-reviews">')
+        out.append(f'<summary><span class="label-closed">Show {len(rest)} more reviews</span><span class="label-open">Show fewer reviews</span></summary>')
+        out.extend(card(r) for r in rest)
+        out.append("</details>")
+    out.append("</div>")
+    return "".join(out)
+
 PAGE_HEAD = """<!doctype html>
 <html lang="en-AU">
 <head>
@@ -759,12 +801,14 @@ def broker_page(b):
   </div>
 </div>"""
 
-    # --- Reputation section: real aggregate score + a real submission form.
-    # No sample/mock reviews - honest empty state until real ones exist.
+    # --- Reputation section: real aggregate score, real imported Google
+    # reviews where we have them, and a real submission form. No sample/mock
+    # content anywhere - honest empty states until real data exists.
     if b.get("rating"):
         rating = float(b["rating"])
         full_stars = round(rating)
         summary_stars = "".join(STAR_FILLED if i < full_stars else STAR_EMPTY for i in range(5))
+        google_reviews_html = render_google_reviews(b.get("google_reviews") or [])
 
         reputation_html = f"""
 <div class="section">
@@ -778,6 +822,7 @@ def broker_page(b):
         <div class="count">{b.get('reviews') or 0} reviews on Google</div>
       </div>
     </div>
+    {google_reviews_html}
     <div class="empty-state" style="margin-top:20px;">
       <p>No reviews published on our site yet for {name_esc}. Be the first to share yours.</p>
     </div>
