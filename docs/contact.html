@@ -97,7 +97,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 24px 80px; }
    flat cutout, not a card. */
 .hero-visual-wrap {
   position: fixed; bottom: 0; left: 0; right: 0; margin: 0 auto;
-  height: calc(50vh + 3px); width: calc(50vh * 1305 / 1195); overflow: hidden;
+  height: 50vh; width: calc(50vh * 1305 / 1195); overflow: hidden;
   background: var(--bg);
   z-index: 100; pointer-events: none; opacity: 1;
   transform: translateZ(0); isolation: isolate; backface-visibility: hidden;
@@ -115,7 +115,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 24px 80px; }
   /* Mobile: the stacked cards push the search bar off-screen under the
      portrait - drop them so search is visible on load. */
   .card-row { display: none; }
-  .hero-visual-wrap { height: calc(46vh + 3px); width: calc(46vh * 1305 / 1195); }
+  .hero-visual-wrap { height: 46vh; width: calc(46vh * 1305 / 1195); }
 }
 .collage-card {
   width: 190px; background: var(--surface); border: 1px solid var(--border);
