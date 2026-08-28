@@ -230,6 +230,20 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 24px 80px; }
 .empty { text-align: center; color: var(--text-muted); padding: 56px 0; }
 
 footer.site { text-align: center; padding: 40px 24px; color: #94a3b8; font-size: 13px; margin-top: 40px; }
+.footer-nav { display: flex; justify-content: center; gap: 20px; margin-bottom: 12px; }
+.footer-nav a { color: var(--text-muted); font-weight: 500; }
+.footer-nav a:hover { color: var(--accent); }
+
+/* Static content pages: About / Contact / Privacy */
+.static-page { max-width: 720px; margin: 40px auto 0; }
+.static-page h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+.static-page .static-lede { color: var(--text-muted); font-size: 15.5px; margin: 0 0 28px; }
+.static-page h2 { font-size: 18px; font-weight: 700; margin: 28px 0 10px; }
+.static-page p { color: var(--text); font-size: 15px; line-height: 1.7; margin: 0 0 14px; }
+.static-page a.contact-link { font-weight: 600; }
+.static-page ul { padding-left: 20px; margin: 0 0 14px; }
+.static-page li { color: var(--text); font-size: 15px; line-height: 1.7; margin-bottom: 6px; }
+.static-page .updated { color: #94a3b8; font-size: 13px; margin-top: 32px; }
 
 /* Broker page */
 .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text-muted); margin: 28px 0 20px; }
@@ -695,6 +709,13 @@ document.querySelectorAll('.submit-another').forEach(function (link) {
 </script>
 
 </main>
-<footer class="site">AU Broker Directory &mdash; independent directory, not affiliated with any listed business.</footer>
+<footer class="site">
+  <nav class="footer-nav">
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../privacy.html">Privacy</a>
+  </nav>
+  AU Broker Directory &mdash; independent directory, not affiliated with any listed business.
+</footer>
 </body>
 </html>

@@ -312,6 +312,20 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 24px 80px; }
 .empty { text-align: center; color: var(--text-muted); padding: 56px 0; }
 
 footer.site { text-align: center; padding: 40px 24px; color: #94a3b8; font-size: 13px; margin-top: 40px; }
+.footer-nav { display: flex; justify-content: center; gap: 20px; margin-bottom: 12px; }
+.footer-nav a { color: var(--text-muted); font-weight: 500; }
+.footer-nav a:hover { color: var(--accent); }
+
+/* Static content pages: About / Contact / Privacy */
+.static-page { max-width: 720px; margin: 40px auto 0; }
+.static-page h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+.static-page .static-lede { color: var(--text-muted); font-size: 15.5px; margin: 0 0 28px; }
+.static-page h2 { font-size: 18px; font-weight: 700; margin: 28px 0 10px; }
+.static-page p { color: var(--text); font-size: 15px; line-height: 1.7; margin: 0 0 14px; }
+.static-page a.contact-link { font-weight: 600; }
+.static-page ul { padding-left: 20px; margin: 0 0 14px; }
+.static-page li { color: var(--text); font-size: 15px; line-height: 1.7; margin-bottom: 6px; }
+.static-page .updated { color: #94a3b8; font-size: 13px; margin-top: 32px; }
 
 /* Broker page */
 .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text-muted); margin: 28px 0 20px; }
@@ -654,12 +668,139 @@ document.querySelectorAll('.submit-another').forEach(function (link) {
 });
 """
 
-PAGE_FOOT = """
+def site_footer(prefix=""):
+    return f"""<footer class="site">
+  <nav class="footer-nav">
+    <a href="{prefix}about.html">About</a>
+    <a href="{prefix}contact.html">Contact</a>
+    <a href="{prefix}privacy.html">Privacy</a>
+  </nav>
+  AU Broker Directory &mdash; independent directory, not affiliated with any listed business.
+</footer>"""
+
+
+PAGE_FOOT = f"""
 </main>
-<footer class="site">AU Broker Directory &mdash; independent directory, not affiliated with any listed business.</footer>
+{site_footer("../")}
 </body>
 </html>
 """
+
+
+def static_page(title, description, body_html):
+    """About / Contact / Privacy - simple content pages living at the site
+    root (same level as index.html), sharing the header/footer chrome."""
+    return f"""<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content="{description}">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<style>{STYLE}</style>
+</head>
+<body>
+<header class="site">
+  <div class="bar">
+    <a class="brand" href="index.html"><img class="mark" src="assets/favicon-32.png" alt="" width="30" height="30">Broker Directory</a>
+    <span class="tagline">Australia's independent broker index</span>
+  </div>
+</header>
+<main>
+<div class="static-page">
+{body_html}
+</div>
+</main>
+{site_footer()}
+</body>
+</html>
+"""
+
+
+ABOUT_PAGE_HTML = static_page(
+    "About — AU Broker Directory",
+    "Why we built an independent directory of Australian mortgage, finance and insurance brokers.",
+    """
+<h1>About AU Broker Directory</h1>
+<p class="static-lede">An independent index of Australian mortgage, finance, insurance and property brokers - built so people can find someone to trust without wading through paid rankings.</p>
+
+<h2>Why this exists</h2>
+<p>Most "best broker" lists online are pay-to-play: brokers buy a spot, buy a badge, or buy their way out of a bad review. We built this directory the other way around. Every listing here is sourced from public business records and real Google reputation data - the same rating and review count anyone can see on Google Maps, brought together in one place and made searchable by name, suburb or phone number.</p>
+<p>Brokers can't pay us for a better rank, a higher trust score, or to have a review removed. The Trust Score on every profile is calculated the same way for everyone, from the same public signals - it isn't a subjective opinion and it isn't for sale.</p>
+<p>The goal is simple: help Australians looking for a mortgage broker, insurance broker or finance professional find one worth calling, based on what's actually publicly known about them.</p>
+
+<h2>Who built it</h2>
+<p>AU Broker Directory is designed and built by the <strong>AIEX Forward Deployed Engineering team</strong> - the applied engineering group at <a class="contact-link" href="https://aiex.team">AIEX</a> that ships production tools and data systems for real businesses, not just prototypes.</p>
+
+<h2>A work in progress</h2>
+<p>The directory currently covers thousands of brokers across mortgage &amp; finance, insurance, real estate, business sales, asset finance, customs &amp; freight, and wealth &amp; investment. Listings are refreshed as better data becomes available, and any broker (or client) can flag a correction - see <a class="contact-link" href="contact.html">Contact</a>.</p>
+""",
+)
+
+CONTACT_PAGE_HTML = static_page(
+    "Contact — AU Broker Directory",
+    "Get in touch about a listing, a correction, or a partnership enquiry.",
+    """
+<h1>Contact</h1>
+<p class="static-lede">Questions about a listing, a correction to your business's details, or anything else - we read everything sent here.</p>
+
+<h2>General enquiries</h2>
+<p>Email <a class="contact-link" href="mailto:nick@aiex.team">nick@aiex.team</a> and we'll get back to you directly.</p>
+
+<h2>If you're a broker</h2>
+<p>If a listing has the wrong phone number, address or category, or you'd like to add a description of your business, email us with the business name and what needs updating - we'll fix it. Listings are sourced from public business records, not submitted by brokers, so this is the fastest way to correct something.</p>
+
+<h2>If you're a client</h2>
+<p>Had a good or bad experience with a broker listed here? Use the "Write a review" or "Share a real case" option on that broker's page, or email us directly if you'd rather not post publicly.</p>
+
+<h2>Everything else</h2>
+<p>Partnerships, data questions, press - same address: <a class="contact-link" href="mailto:nick@aiex.team">nick@aiex.team</a>.</p>
+""",
+)
+
+PRIVACY_PAGE_HTML = static_page(
+    "Privacy — AU Broker Directory",
+    "How AU Broker Directory collects, uses and protects information.",
+    """
+<h1>Privacy Policy</h1>
+<p class="static-lede">Plain English summary: the business listings on this site come from public records, not from you. If you submit a review or a real case, we use what you give us to publish it (with your permission) and to follow up if needed.</p>
+
+<h2>1. Who we are</h2>
+<p>AU Broker Directory is an independent broker index designed and operated by the AIEX Forward Deployed Engineering team, part of AI Executive Systems ("AIEX"). This policy covers data handling across this website and any forms, reviews or case submissions made through it.</p>
+
+<h2>2. What we collect</h2>
+<p>Two different kinds of information exist on this site:</p>
+<ul>
+  <li><strong>Business listing data</strong> - name, category, address, phone, website, and Google rating/review information for brokers, sourced from public business records and public Google Business listings. This is not personal information about an individual submitted to us; it's published business information.</li>
+  <li><strong>Information you submit</strong> - if you write a review or share a real case, we collect the name, email and text you provide, plus a star rating where relevant.</li>
+</ul>
+
+<h2>3. How we use it</h2>
+<p>Submitted reviews and cases are checked before publishing and used only for that purpose - to display on the relevant broker's page - and, where you've given an email, to follow up if we need to verify what you've submitted. We don't use your email for marketing.</p>
+<p>Business listing data is used to power search, display trust scores, and let visitors find and compare brokers. Trust Scores are calculated the same way for every listing from public rating and review-volume data - they are not influenced by payment.</p>
+
+<h2>4. Who we share it with</h2>
+<p>We do not sell personal information or contact lists. Submitted review/case content is shared only in the form you intend - published (with attribution as you provide it) on the relevant broker's page after review. We may share information with service providers who help us run this site (hosting, form processing, analytics), only as needed to operate it.</p>
+
+<h2>5. Listing accuracy and removal</h2>
+<p>If you're a broker and believe your listing is inaccurate, outdated, or you'd like it removed, email us - see <a class="contact-link" href="contact.html">Contact</a> - and we'll correct or remove it.</p>
+
+<h2>6. Keeping information secure and for how long</h2>
+<p>We use reasonable safeguards to protect information submitted through this site. Submitted reviews/cases are retained as long as the listing they relate to is published, unless you ask us to remove them sooner.</p>
+
+<h2>7. Your choices and rights</h2>
+<p>You can request access to, correction of, or deletion of anything you've submitted by emailing <a class="contact-link" href="mailto:nick@aiex.team">nick@aiex.team</a>. Australian residents may also raise a complaint with the Office of the Australian Information Commissioner at <a class="contact-link" href="https://oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a>.</p>
+
+<h2>8. Changes to this policy</h2>
+<p>We may update this policy as the site or our obligations change. Updates will be published on this page.</p>
+
+<p class="updated">Last updated: 28 August 2026</p>
+""",
+)
 
 
 def broker_page(b):
@@ -1067,7 +1208,7 @@ INDEX_HTML = f"""<!doctype html>
   </div>
   <div class="results-list" id="results"></div>
 </main>
-<footer class="site">AU Broker Directory &mdash; independent directory, not affiliated with any listed business.</footer>
+{site_footer()}
 <script>
 const LIMIT = 9;
 const EXPLORE_CITIES = ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide', 'Canberra', 'Hobart', 'Darwin', 'Gold Coast', 'Newcastle'];
@@ -1189,6 +1330,13 @@ SITE.mkdir(exist_ok=True)
 with open(SITE / "index.html", "w") as f:
     f.write(INDEX_HTML)
 
+with open(SITE / "about.html", "w") as f:
+    f.write(ABOUT_PAGE_HTML)
+with open(SITE / "contact.html", "w") as f:
+    f.write(CONTACT_PAGE_HTML)
+with open(SITE / "privacy.html", "w") as f:
+    f.write(PRIVACY_PAGE_HTML)
+
 search_index = [
     {
         "slug": b["slug"], "name": b["name"], "category": b["category"],
@@ -1204,7 +1352,10 @@ for b in brokers:
     with open(SITE / "broker" / f"{b['slug']}.html", "w") as f:
         f.write(broker_page(b))
 
-urls = [f"{SITE_URL}/index.html"] + [f"{SITE_URL}/broker/{b['slug']}.html" for b in brokers]
+urls = (
+    [f"{SITE_URL}/index.html", f"{SITE_URL}/about.html", f"{SITE_URL}/contact.html", f"{SITE_URL}/privacy.html"]
+    + [f"{SITE_URL}/broker/{b['slug']}.html" for b in brokers]
+)
 sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 sitemap += "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
 sitemap += "</urlset>\n"
