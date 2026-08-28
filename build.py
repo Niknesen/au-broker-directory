@@ -1132,6 +1132,12 @@ document.getElementById('q').addEventListener('input', e => render(e.target.valu
 """
 
 # --- write output ---
+# Wipe broker/ first - otherwise pages from a broker whose slug changed (or
+# who dropped out of the dataset entirely, e.g. a dedup pass) never get
+# deleted, they just pile up alongside the new ones.
+import shutil
+if (SITE / "broker").exists():
+    shutil.rmtree(SITE / "broker")
 SITE.mkdir(exist_ok=True)
 (SITE / "broker").mkdir(exist_ok=True)
 
