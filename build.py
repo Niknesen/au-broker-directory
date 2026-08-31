@@ -27,6 +27,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SOURCE = ROOT / "data" / "all_brokers_full.json"
 REVIEWS_SOURCE = ROOT / "data" / "reviews_by_place.json"
+MANUAL_REVIEWS_SOURCE = ROOT / "data" / "manual_reviews.json"
 SITE = ROOT / "site"
 SITE_URL = "https://brokers.example.com.au"  # placeholder domain
 
@@ -35,6 +36,9 @@ with open(SOURCE) as f:
 
 with open(REVIEWS_SOURCE) as f:
     reviews_by_place = json.load(f)
+
+with open(MANUAL_REVIEWS_SOURCE) as f:
+    manual_reviews_by_id = json.load(f)
 
 
 def slugify(text):
@@ -70,6 +74,7 @@ for b in brokers:
     b["initial"] = (b["name"][0] or "?").upper()
     b["trust_score"] = compute_trust_score(b)
     b["google_reviews"] = reviews_by_place.get(b.get("place_id"), [])
+    b["google_reviews"] += manual_reviews_by_id.get(str(b["id"]), [])
 
 # Full breadth of the master spreadsheet - all 7 categories now have
 # generated pages, so all show as available. Counts are computed from the
