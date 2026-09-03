@@ -388210,8 +388210,9 @@
     "reviews": 99,
     "maps_url": null,
     "place_id": null,
-    "about": null,
-    "about_source": null,
+    "about": "ACY Securities says it began in 2011 in Chatswood, Sydney, founded by CEO Jimmy Ye and CRO Winson Cao. The brokerage provides access to more than 2,200 trading products, trading education through webinars and courses, and account-management support for new registrations. ACY says its account managers help clients understand trading basics, economic fundamentals and platform navigation, while the business connects traders with liquidity providers including banks and institutions.",
+    "about_source": "information supplied by ACY Securities",
+    "case_studies": [{"title": "A trading approach built around the client's life", "badge": "Anonymous client example", "text": "ACY Securities supplied this anonymised example: a Sydney family-business owner had been trading for approximately three years but was struggling to achieve consistent results. After an account manager spent around two hours understanding the client's work, family responsibilities, experience, mindset and goals, the discussion identified a gap in economic fundamentals, news and geopolitical analysis. ACY says it helped the client review his strategy and consider an approach better suited to his available time, with the client subsequently reporting improved profitability and a healthier mental relationship with trading.", "source": "Supplied by ACY Securities; not independently verified."}],
     "team": [],
     "license_disclosed": false,
     "license_detail": null

@@ -1034,11 +1034,16 @@ def broker_page(b):
     # --- Real cases section: honest empty state + submission form for both sides.
     # Photos/video stay as a described-but-not-yet-built upload path - the
     # placeholder the case format was designed around, not fabricated content.
-    stories_html = f"""
-<div class="section">
-  <div class="section-card">
-    <h2>Real cases</h2>
-    <p class="source-note">Real examples of how {name_esc} has helped people — shared by clients or the brokerage itself.</p>
+    case_cards = ""
+    for case in b.get("case_studies") or []:
+        case_cards += f"""
+    <article class="case-card">
+      <div class="case-badge client">{html.escape(case.get('badge') or 'Case study')}</div>
+      <h3 class="case-title">{html.escape(case.get('title') or 'Client example')}</h3>
+      <p class="case-text">{html.escape(case.get('text') or '')}</p>
+      <p class="source-note">{html.escape(case.get('source') or '')}</p>
+    </article>"""
+    case_intro = "<div class=\"case-list\">" + case_cards + "</div>" if case_cards else f"""
     <div class="empty-state">
       <p>No real cases shared yet for {name_esc}. A case is a short story of what happened, plus photos or a video once uploads are live — be the first to add one.</p>
       <div class="media-row" style="justify-content:center;">
@@ -1047,7 +1052,13 @@ def broker_page(b):
         <div class="media-tile">{PHOTO_ICON}<span>Photo</span></div>
         <div class="media-tile video">{PLAY_ICON}<span>Video</span></div>
       </div>
-    </div>
+    </div>"""
+    stories_html = f"""
+<div class="section">
+  <div class="section-card">
+    <h2>Real cases</h2>
+    <p class="source-note">Anonymised examples supplied by {name_esc}. These are not independently verified and do not represent typical results.</p>
+    {case_intro}
     <details class="form-disclosure">
       <summary>+ Share a real case</summary>
       <div class="form-box">
