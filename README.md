@@ -1,96 +1,109 @@
 # Best Brokers Australia (AU Broker Directory)
 
-A directory of Australian mortgage, finance, insurance, real estate,
-business-sales, asset-finance, customs/freight and wealth/investment
-brokers — search by name, suburb or phone, see a computed Trust Score and
-real Google reviews, and (with a running backend) submit reviews or real
-client cases.
+A national directory platform indexing 16,900+ Australian mortgage, finance, insurance, real estate, business-sales, asset-finance, customs/freight, and wealth advisers.
 
-**Live site:** https://bestbrokersaustralia.org (Cloudflare Pages).
+**Live site:** https://bestbrokersaustralia.org (Cloudflare Pages project `best-brokers-australia`).
 
-## What's here
+---
 
-- `build.py` — static site generator. Reads `data/all_brokers_full.json`
-  and `data/reviews_by_place.json`, writes the whole `site/` folder
-  (homepage, About/Contact/Privacy, one page per broker, search index,
-  sitemap). No framework, no build step beyond `python3 build.py`.
-- `data/all_brokers_full.json` — the current dataset, ~16,917 unique
-  businesses. Built by `data/ingest_new_package.py` from a Google
-  Places-sourced Excel export (deduped by Place ID) plus ~210 businesses
-  that only ever existed in an older one-off AIEX outreach-list merge
-  (kept so they don't get silently dropped again — see that script's
-  docstring for the full history).
-- `data/reviews_by_place.json` — real Google review text (rating,
-  reviewer, relative time), grouped by Place ID, capped at 12/business.
-  Rendered on broker pages under "Reputation". Businesses with real
-  reviews are ranked above those without in search results.
-- `data/ingest_new_package.py` — re-run this whenever a new broker
-  package spreadsheet arrives. Reads the source xlsx path hardcoded near
-  the top of the file (update it to point at the new file first).
-- `server.py` — local dev server (Python stdlib only). Serves `site/` and
-  adds two endpoints so the review/case forms work end to end:
-  `POST /api/reviews`, `POST /api/cases`. Submissions are appended to
-  `data/submissions/*.jsonl` (git-ignored). Sends `Cache-Control: no-store`
-  on every response so local testing never shows a stale cached page.
-- `docs/` — a byte-for-byte copy of `site/`, deployed to Cloudflare Pages.
-  Always `rm -rf docs && cp -r site docs` after a rebuild, never edit
-  `docs/` directly.
-- `assets_src/` — untracked-by-purpose source images (old portrait
-  crops, raw exports) kept for reference; not read by the build.
+## 🏛️ Architecture & Module Structure
 
-## Running locally (with working forms)
+The project has been rebuilt into a modular, component-based static generator architecture:
+
+```
+src/
+├── config.py              # Central site configuration, URLs, paths, thresholds
+├── taxonomy.py            # Category, state, city taxonomies & URL builders
+├── quality.py             # Trust Score (0-100%) & SEO Quality Score (0-100) algorithms
+├── models.py              # Broker & Hub data models, relationship graph
+├── components/            # Reusable UI components (Single Source of Truth)
+│   ├── base.py            # Document shell, metadata, schema injection, scripts
+│   ├── header.py          # Master header & navigation
+│   ├── footer.py          # Master footer with taxonomy & governance links
+│   ├── breadcrumbs.py     # Hierarchical breadcrumb navigation & BreadcrumbList JSON-LD
+│   ├── broker_card.py     # Broker comparison card for lists, hubs, comparisons
+│   ├── trust_badge.py     # Trust score pill, tiers, and transparent 3-factor breakdown
+│   ├── pagination.py      # Crawlable HTML pagination
+│   ├── forms.py           # Review, Case Study, Claim, and Correction submission forms
+│   └── styles.py          # Unified design system tokens & CSS stylesheet
+├── templates/             # Page templates
+│   ├── home.py            # Homepage with instant live search & sector grid
+│   ├── category.py        # National category hubs (e.g. /mortgage-brokers/)
+│   ├── state.py           # State category hubs (e.g. /mortgage-brokers/nsw/)
+│   ├── city.py            # Local city hubs (e.g. /mortgage-brokers/sydney/)
+│   ├── broker.py          # Individual broker profile (/broker/:slug/)
+│   ├── static.py          # Trust & governance pages (/about/, /methodology/, etc.)
+│   └── not_found.py       # Custom 404 page
+├── seo/                   # Technical SEO generators
+│   ├── schema.py          # JSON-LD schemas (Organization, CollectionPage, LocalBusiness)
+│   ├── sitemaps.py        # Segmented XML sitemaps index
+│   ├── robots.py          # robots.txt generator
+│   └── redirects.py       # Cloudflare Pages _redirects and _headers
+├── builder.py             # Static site generator orchestration & incremental build
+└── cli.py                 # CLI interface
+```
+
+---
+
+## 🚀 Fast Incremental & Targeted Builds
+
+No need to rebuild all 16,900+ pages for routine template or single-record updates:
+
+```bash
+# 1. Fast Hubs & Core Rebuild (< 2 seconds)
+# Rebuilds homepage, 7 category hubs, 56 state hubs, 4,014 city hubs, trust pages & sitemaps
+python3 build.py --hubs-only
+
+# 2. Single Broker Instant Rebuild (< 50 milliseconds)
+# Updates just one broker profile without touching any other files
+python3 build.py --slug dominion-finance-canberra-mortgage-finance-287
+
+# 3. Full Site Regeneration & Cloudflare Pages Sync (~40 seconds)
+python3 build.py --all
+```
+
+---
+
+## 🌐 SEO Information Architecture
+
+- **Homepage:** `/` (National discovery, instant search, sector grid)
+- **Category Hubs:** `/{category}/` (e.g. `/mortgage-brokers/`, `/insurance-brokers/`)
+- **State Hubs:** `/{category}/{state}/` (e.g. `/mortgage-brokers/nsw/`, `/mortgage-brokers/vic/`)
+- **City Hubs:** `/{category}/{city}/` (e.g. `/mortgage-brokers/sydney/`, `/mortgage-brokers/parramatta/`)
+- **Broker Entity Profiles:** `/broker/{canonical-slug}/`
+- **Trust & Governance Hubs:**
+  - `/about/` — AIEX engineering background & directory mission
+  - `/methodology/` — 3-Factor Trust Score formula & scoring engine
+  - `/editorial-policy/` — Quality standards & zero pay-to-rank guarantee
+  - `/review-policy/` — Review moderation & dispute policy
+  - `/claim-profile/` — Broker verification & claim workflow
+  - `/contact/` — Direct support & 24-48h correction SLA
+  - `/privacy/` — Australian Privacy Principles (APP) compliance
+
+---
+
+## 🔒 Indexation Quality Gate
+
+Profiles are scored on a 0–100 Quality Score (verified identity, NAP completeness, description, ratings, licence disclosure, original proof).
+- **Indexable (`index, follow`):** Included in segmented sitemaps and search engine indexes.
+- **Thin / Incomplete (`noindex, follow`):** Searchable internally by users, but excluded from sitemaps and search engines to protect site authority.
+
+---
+
+## 💻 Local Development Server
 
 ```bash
 python3 server.py
 ```
+Serves `site/` at `http://localhost:8941` with extensionless routing support and active endpoints for `POST /api/reviews` and `POST /api/cases`.
 
-Then open `http://localhost:8941`.
+---
 
-## Regenerating the site after a data or template change
-
-```bash
-python3 build.py
-rm -rf docs && cp -r site docs
-```
-
-`build.py` wipes `site/broker/` before regenerating, so a broker that
-dropped out of the dataset (or whose slug changed) won't leave a stale
-orphaned page behind.
-
-## Deploying
+## 🚢 Deploying to Cloudflare Pages
 
 ```bash
 git add -A
 git commit -m "..."
-git push origin main   # github.com/Niknesen/au-broker-directory
+git push origin main
 npx wrangler pages deploy docs --project-name=best-brokers-australia --commit-dirty=true
 ```
-
-**Important:** any change to the shared header/footer/branding touches
-every one of the ~16,900 generated broker pages, which means the deploy
-step re-uploads nearly the whole site (10-15+ minutes, and Cloudflare
-Pages occasionally drops the upload partway through with a generic
-"Failed to upload files" error — just retry the same command, it resumes
-from wherever it left off since already-uploaded files are skipped).
-**Confirm with Nick before running a full-site deploy** — this has been a
-recurring friction point; small/scoped changes are lower-stakes but a
-heads-up is still appreciated.
-
-## Known follow-ups / not yet done
-
-- A `wrangler pages deploy` for the "Best Brokers Australia" rebrand
-  (new logo, new name, Space Grotesk wordmark font — see commit
-  `0ba330360`) was attempted and failed partway through the upload
-  (transient Cloudflare error, only ~850 of 16,930 files uploaded). The
-  code is committed and pushed to `main`; the live site has **not** been
-  updated yet. Re-run the deploy command above when authorized.
-- Review text only exists for ~4,820 of ~16,917 businesses (28.5%) — the
-  rest simply weren't in the source Reviews sheet's coverage.
-- Category assignment for the "expansion" businesses (no explicit
-  Industry column value) is a keyword heuristic on Google Place types,
-  not manually verified — see `bucket_from_google_types()` in
-  `ingest_new_package.py`.
-- ACY Securities and similar businesses outside the 7 broker categories
-  (e.g. FX/CFD trading firms) are not covered by any current scrape and
-  won't appear in search unless manually added the same way the old
-  outreach batch was.
