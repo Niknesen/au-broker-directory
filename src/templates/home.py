@@ -57,8 +57,8 @@ def render_homepage(data) -> str:
         </a>
         """)
 
-    # 3. Top Featured Brokers (highest trust score + real reviews)
-    featured_brokers = [b for b in data.brokers if b.is_indexable and len(b.google_reviews) > 0][:6]
+    # 3. Top Featured Brokers (highest trust score + real reviews, capped at 9)
+    featured_brokers = [b for b in data.brokers if b.is_indexable and len(b.google_reviews) > 0][:9]
     featured_cards_html = "".join(render_broker_card(b) for b in featured_brokers)
 
     content = f"""
@@ -197,7 +197,7 @@ def render_homepage(data) -> str:
                (b.city || '').toLowerCase().indexOf(q) !== -1 ||
                (b.suburb || '').toLowerCase().indexOf(q) !== -1 ||
                (b.phone || '').replace(/\\s/g,'').indexOf(q.replace(/\\s/g,'')) !== -1;
-      }}).slice(0, 8);
+      }}).slice(0, 9);
 
       if (matches.length === 0) {{
         resultsBox.innerHTML = '<div style="padding:1rem;color:var(--text-muted);font-size:0.875rem;">No brokers found matching "' + q + '".</div>';

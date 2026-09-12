@@ -33,8 +33,8 @@ QUALITY_SCORE_CONDITIONAL_MIN = 50
 MIN_BROKERS_FOR_CITY_HUB = 5
 MIN_BROKERS_FOR_SUBURB_HUB = 3
 
-# Hub pagination size
-BROKERS_PER_PAGE = 24
+# Hub pagination size (maximum 9 results per view/industry)
+BROKERS_PER_PAGE = 9
 
 # Data sources
 BROKERS_SOURCE = DATA_DIR / "all_brokers_full.json"
