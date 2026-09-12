@@ -1,8 +1,9 @@
 """
 Individual Broker Profile Template for Best Brokers Australia.
-Implements Blueprint Section 5.2 (Broker profile).
+Implements Blueprint Section 5.2 (Broker profile) with enhanced interactive reveal cards.
 """
 import html
+import re
 from typing import List, Dict
 from ..config import SITE_NAME, SITE_URL
 from ..taxonomy import (
@@ -82,45 +83,83 @@ def render_broker_profile(b) -> str:
         )
         about_source = ""
 
-    # Contact reveal boxes
-    phone_reveal = f"""
-    <div class="reveal-box">
-      <div class="reveal-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Phone Number
-      </div>
-      <div>
-        <span class="reveal-value" data-value="{html.escape(b.phone or 'Not listed')}" style="display:none;"></span>
-        <button type="button" class="reveal-btn">Click to Reveal</button>
-      </div>
-    </div>
-    """ if b.phone else '<div class="reveal-box"><div class="reveal-label">Phone</div><div style="font-size:0.875rem;color:var(--text-muted);">Available upon request</div></div>'
+    # Formatted Contact Reveal Boxes
+    if b.phone:
+        clean_phone_digits = re.sub(r"\D", "", b.phone)
+        phone_reveal = f"""
+        <div class="reveal-box" data-type="phone" data-value="{html.escape(b.phone)}">
+          <div class="reveal-header-row">
+            <div class="reveal-label">
+              <svg class="reveal-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Phone Number</span>
+            </div>
+            <button type="button" class="reveal-btn">Click to Reveal</button>
+          </div>
+          <div class="reveal-unfolded" style="display:none;">
+            <a href="tel:{clean_phone_digits}" class="reveal-active-link">{html.escape(b.phone)}</a>
+            <button type="button" class="copy-action-btn" title="Copy to clipboard">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        """
+    else:
+        phone_reveal = """
+        <div class="reveal-box">
+          <div class="reveal-header-row">
+            <div class="reveal-label">
+              <svg class="reveal-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Phone Number</span>
+            </div>
+            <span style="font-size:0.8125rem;color:var(--text-muted);">Available upon request</span>
+          </div>
+        </div>
+        """
 
-    email_reveal = f"""
-    <div class="reveal-box">
-      <div class="reveal-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Email Address
-      </div>
-      <div>
-        <span class="reveal-value" data-value="{html.escape(b.email)}" style="display:none;"></span>
-        <button type="button" class="reveal-btn">Click to Reveal</button>
-      </div>
-    </div>
-    """ if b.email else ""
+    if b.email:
+        email_reveal = f"""
+        <div class="reveal-box" data-type="email" data-value="{html.escape(b.email)}">
+          <div class="reveal-header-row">
+            <div class="reveal-label">
+              <svg class="reveal-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Email Address</span>
+            </div>
+            <button type="button" class="reveal-btn">Click to Reveal</button>
+          </div>
+          <div class="reveal-unfolded" style="display:none;">
+            <a href="mailto:{html.escape(b.email)}" class="reveal-active-link">{html.escape(b.email)}</a>
+            <button type="button" class="copy-action-btn" title="Copy to clipboard">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        """
+    else:
+        email_reveal = ""
 
-    website_reveal = f"""
-    <div class="reveal-box">
-      <div class="reveal-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Official Website
-      </div>
-      <div>
-        <span class="reveal-value" data-value="{html.escape(b.website)}" style="display:none;font-size:0.8125rem;"></span>
-        <button type="button" class="reveal-btn">Reveal Website URL</button>
-      </div>
-    </div>
-    """ if b.website else ""
+    if b.website:
+        website_reveal = f"""
+        <div class="reveal-box" data-type="website" data-value="{html.escape(b.website)}">
+          <div class="reveal-header-row">
+            <div class="reveal-label">
+              <svg class="reveal-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>Official Website</span>
+            </div>
+            <button type="button" class="reveal-btn">Click to Reveal</button>
+          </div>
+          <div class="reveal-unfolded" style="display:none;">
+            <a href="{html.escape(b.website)}" target="_blank" rel="noopener nofollow" class="reveal-active-link">{html.escape(b.website)}</a>
+            <button type="button" class="copy-action-btn" title="Copy URL">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        """
+    else:
+        website_reveal = ""
 
     content = f"""
 {render_breadcrumbs(breadcrumbs)}

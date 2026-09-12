@@ -299,11 +299,103 @@ button, input, select, textarea { font: inherit; }
 .card-subtitle { font-size: 0.8125rem; color: var(--text-muted); }
 
 /* Reveal Fields */
-.reveal-box { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.875rem 1rem; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; }
-.reveal-label { font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; display: flex; align-items: center; gap: 0.4rem; }
-.reveal-value { font-size: 0.9375rem; font-weight: 600; color: var(--text); user-select: all; }
-.reveal-btn { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.3rem 0.75rem; font-size: 0.8125rem; font-weight: 600; color: var(--primary); cursor: pointer; transition: all 0.15s; }
-.reveal-btn:hover { background: var(--primary-light); border-color: var(--primary-border); }
+.reveal-box {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.875rem 1.125rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.2s ease;
+}
+.reveal-box.is-revealed {
+  background: #fff;
+  border-color: var(--primary-border);
+  box-shadow: var(--shadow-sm);
+}
+.reveal-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.reveal-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.reveal-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+.reveal-btn {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.reveal-btn:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-border);
+}
+.reveal-unfolded {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  animation: fadeIn 0.2s ease;
+}
+.reveal-active-link {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  word-break: break-all;
+}
+.reveal-active-link:hover {
+  text-decoration: underline;
+  color: var(--primary-hover);
+}
+.copy-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+.copy-action-btn:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary-border);
+}
+.copy-action-btn.copied {
+  background: var(--success-bg);
+  color: var(--success);
+  border-color: var(--success);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* Reviews & Testimonials */
 .review-item { padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
@@ -757,41 +849,59 @@ button, input, select, textarea { font: inherit; }
       <div class="card">
         <h3 class="card-title" style="margin-bottom:1rem;">Contact Details</h3>
         
-    <div class="reveal-box">
-      <div class="reveal-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Phone Number
-      </div>
-      <div>
-        <span class="reveal-value" data-value="0416 286 129" style="display:none;"></span>
-        <button type="button" class="reveal-btn">Click to Reveal</button>
-      </div>
-    </div>
-    
+        <div class="reveal-box" data-type="phone" data-value="0416 286 129">
+          <div class="reveal-header-row">
+            <div class="reveal-label">
+              <svg class="reveal-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Phone Number</span>
+            </div>
+            <button type="button" class="reveal-btn">Click to Reveal</button>
+          </div>
+          <div class="reveal-unfolded" style="display:none;">
+            <a href="tel:0416286129" class="reveal-active-link">0416 286 129</a>
+            <button type="button" class="copy-action-btn" title="Copy to clipboard">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+        </div>
         
-    <div class="reveal-box">
-      <div class="reveal-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Email Address
-      </div>
-      <div>
-        <span class="reveal-value" data-value="info@noonanproperty.com.au" style="display:none;"></span>
-        <button type="button" class="reveal-btn">Click to Reveal</button>
-      </div>
-    </div>
-    
         
-    <div class="reveal-box">
-      <div class="reveal-label">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Official Website
-      </div>
-      <div>
-        <span class="reveal-value" data-value="http://www.noonanproperty.com.au/" style="display:none;font-size:0.8125rem;"></span>
-        <button type="button" class="reveal-btn">Reveal Website URL</button>
-      </div>
-    </div>
-    
+        <div class="reveal-box" data-type="email" data-value="info@noonanproperty.com.au">
+          <div class="reveal-header-row">
+            <div class="reveal-label">
+              <svg class="reveal-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Email Address</span>
+            </div>
+            <button type="button" class="reveal-btn">Click to Reveal</button>
+          </div>
+          <div class="reveal-unfolded" style="display:none;">
+            <a href="mailto:info@noonanproperty.com.au" class="reveal-active-link">info@noonanproperty.com.au</a>
+            <button type="button" class="copy-action-btn" title="Copy to clipboard">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        
+        
+        <div class="reveal-box" data-type="website" data-value="http://www.noonanproperty.com.au/">
+          <div class="reveal-header-row">
+            <div class="reveal-label">
+              <svg class="reveal-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>Official Website</span>
+            </div>
+            <button type="button" class="reveal-btn">Click to Reveal</button>
+          </div>
+          <div class="reveal-unfolded" style="display:none;">
+            <a href="http://www.noonanproperty.com.au/" target="_blank" rel="noopener nofollow" class="reveal-active-link">http://www.noonanproperty.com.au/</a>
+            <button type="button" class="copy-action-btn" title="Copy URL">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+        </div>
+        
 
         <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);">
           <div style="font-size:0.8125rem;font-weight:600;color:var(--text-muted);margin-bottom:0.35rem;">Office Address:</div>
@@ -879,19 +989,35 @@ button, input, select, textarea { font: inherit; }
 
 
   <script>
-  // Reveal field interactions
+  // Reveal & Clipboard Interactions
   document.addEventListener('click', function(e) {
-    var btn = e.target.closest('.reveal-btn');
-    if (!btn) return;
-    var box = btn.closest('.reveal-box');
-    if (!box) return;
-    var target = box.querySelector('.reveal-value');
-    if (target) {
-      var val = target.getAttribute('data-value');
-      if (val) {
-        target.textContent = val;
-        target.style.display = 'inline';
-        btn.style.display = 'none';
+    var revealBtn = e.target.closest('.reveal-btn');
+    if (revealBtn) {
+      var box = revealBtn.closest('.reveal-box');
+      if (!box) return;
+      box.classList.add('is-revealed');
+      revealBtn.style.display = 'none';
+      var unfolded = box.querySelector('.reveal-unfolded');
+      if (unfolded) {
+        unfolded.style.display = 'flex';
+      }
+      return;
+    }
+
+    var copyBtn = e.target.closest('.copy-action-btn');
+    if (copyBtn) {
+      var box = copyBtn.closest('.reveal-box');
+      var val = box ? box.dataset.value : '';
+      if (val && navigator.clipboard) {
+        navigator.clipboard.writeText(val).then(function() {
+          var origHtml = copyBtn.innerHTML;
+          copyBtn.innerHTML = '✓ Copied!';
+          copyBtn.classList.add('copied');
+          setTimeout(function() {
+            copyBtn.innerHTML = origHtml;
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        });
       }
     }
   });

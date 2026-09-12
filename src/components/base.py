@@ -87,19 +87,35 @@ def render_page(
   {render_footer()}
 
   <script>
-  // Reveal field interactions
+  // Reveal & Clipboard Interactions
   document.addEventListener('click', function(e) {{
-    var btn = e.target.closest('.reveal-btn');
-    if (!btn) return;
-    var box = btn.closest('.reveal-box');
-    if (!box) return;
-    var target = box.querySelector('.reveal-value');
-    if (target) {{
-      var val = target.getAttribute('data-value');
-      if (val) {{
-        target.textContent = val;
-        target.style.display = 'inline';
-        btn.style.display = 'none';
+    var revealBtn = e.target.closest('.reveal-btn');
+    if (revealBtn) {{
+      var box = revealBtn.closest('.reveal-box');
+      if (!box) return;
+      box.classList.add('is-revealed');
+      revealBtn.style.display = 'none';
+      var unfolded = box.querySelector('.reveal-unfolded');
+      if (unfolded) {{
+        unfolded.style.display = 'flex';
+      }}
+      return;
+    }}
+
+    var copyBtn = e.target.closest('.copy-action-btn');
+    if (copyBtn) {{
+      var box = copyBtn.closest('.reveal-box');
+      var val = box ? box.dataset.value : '';
+      if (val && navigator.clipboard) {{
+        navigator.clipboard.writeText(val).then(function() {{
+          var origHtml = copyBtn.innerHTML;
+          copyBtn.innerHTML = '✓ Copied!';
+          copyBtn.classList.add('copied');
+          setTimeout(function() {{
+            copyBtn.innerHTML = origHtml;
+            copyBtn.classList.remove('copied');
+          }}, 2000);
+        }});
       }}
     }}
   }});
