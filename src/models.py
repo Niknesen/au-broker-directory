@@ -411,7 +411,7 @@ def _build_hubs(data: DirectoryData):
 
     # 3. City Hubs
     for (cat_slug, city_slug), c_brokers in data.brokers_by_category_city.items():
-        if not c_brokers:
+        if len(c_brokers) < MIN_BROKERS_FOR_CITY_HUB:
             continue
         cat_info = get_category_info(cat_slug)
         sample_b = c_brokers[0]

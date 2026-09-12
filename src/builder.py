@@ -36,10 +36,31 @@ class SiteBuilder:
         self.data = data or load_all_data()
 
     def ensure_directories(self):
-        """Ensures all necessary output base directories exist."""
+        """Ensures all necessary output base directories exist and cleans up legacy files."""
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        (self.output_dir / "broker").mkdir(parents=True, exist_ok=True)
+        broker_dir = self.output_dir / "broker"
+        broker_dir.mkdir(parents=True, exist_ok=True)
         
+        # Remove legacy flat .html files in broker/ so they don't duplicate with broker/:slug/index.html
+        for legacy_html in broker_dir.glob("*.html"):
+            try: legacy_html.unlink()
+            except OSError: pass
+
+        # Clean category dirs so stale hubs don't accumulate
+        from .taxonomy import CATEGORIES
+        for cat in CATEGORIES.values():
+            cat_p = self.output_dir / cat["slug"]
+            if cat_p.exists():
+                try: shutil.rmtree(cat_p)
+                except OSError: pass
+
+        # Remove legacy root .html pages
+        for root_legacy in ["about.html", "contact.html", "privacy.html", "methodology.html", "editorial-policy.html", "review-policy.html", "claim-profile.html"]:
+            p = self.output_dir / root_legacy
+            if p.exists():
+                try: p.unlink()
+                except OSError: pass
+
         # Ensure static assets are copied
         src_assets = SITE_DIR / "assets"
         dst_assets = self.output_dir / "assets"
