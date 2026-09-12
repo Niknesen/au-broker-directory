@@ -1,13 +1,13 @@
 """
 Centralized Header component for Best Brokers Australia.
-Uses the brand logo image from assets.
+Includes brand logo, live running ticker banner, and master navigation.
 """
 from ..config import SITE_NAME
 from ..taxonomy import CATEGORIES, url_for_home, url_for_category, url_for_page
 
 
 def render_header(active_path: str = "") -> str:
-    """Renders the single canonical source of truth for the site header."""
+    """Renders the single canonical source of truth for the site header with dynamic running text ticker."""
     top_categories = [
         ("Mortgage", "mortgage-brokers"),
         ("Insurance", "insurance-brokers"),
@@ -30,7 +30,29 @@ def render_header(active_path: str = "") -> str:
     nav_items_html.append(f'<li><a href="/about/" class="{is_about_active}">About</a></li>')
     nav_items_html.append(f'<li><a href="/contact/" class="{is_contact_active}">Contact</a></li>')
 
+    ticker_content = """
+    <span class="ticker-item">★ <strong>16,917 Verified Australian Brokers</strong></span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Independent 3-Factor Trust Scores</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item"><strong>Sydney &middot; Melbourne &middot; Brisbane &middot; Perth &middot; Adelaide &middot; Canberra &middot; Gold Coast</strong></span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Zero Pay-To-Rank Guarantee</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Real Google Maps Reviews Verified</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Mortgage &middot; Insurance &middot; Real Estate &middot; Commercial &middot; Wealth</span>
+    <span class="ticker-sep">&bull;</span>
+    """
+
     return f"""
+<div class="ticker-wrap" aria-label="Directory Live Data Stream">
+  <div class="ticker-track">
+    {ticker_content}
+    {ticker_content}
+  </div>
+</div>
+
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{url_for_home()}">

@@ -73,6 +73,50 @@ button, input, select, textarea { font: inherit; }
 
 .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
 
+/* Live Running Text Marquee / Ticker */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: #0f172a;
+  color: #94a3b8;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #1e293b;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  z-index: 60;
+}
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 32s linear infinite;
+  will-change: transform;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+.ticker-item {
+  padding: 0 1.25rem;
+  color: #e2e8f0;
+  letter-spacing: 0.02em;
+}
+.ticker-item strong {
+  color: #38bdf8;
+}
+.ticker-sep {
+  color: #3b82f6;
+  opacity: 0.8;
+  font-size: 0.875rem;
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
 /* Header & Nav */
 .site-header { background: var(--bg-surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
@@ -476,6 +520,39 @@ button, input, select, textarea { font: inherit; }
 </head>
 <body>
   
+<div class="ticker-wrap" aria-label="Directory Live Data Stream">
+  <div class="ticker-track">
+    
+    <span class="ticker-item">★ <strong>16,917 Verified Australian Brokers</strong></span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Independent 3-Factor Trust Scores</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item"><strong>Sydney &middot; Melbourne &middot; Brisbane &middot; Perth &middot; Adelaide &middot; Canberra &middot; Gold Coast</strong></span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Zero Pay-To-Rank Guarantee</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Real Google Maps Reviews Verified</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Mortgage &middot; Insurance &middot; Real Estate &middot; Commercial &middot; Wealth</span>
+    <span class="ticker-sep">&bull;</span>
+    
+    
+    <span class="ticker-item">★ <strong>16,917 Verified Australian Brokers</strong></span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Independent 3-Factor Trust Scores</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item"><strong>Sydney &middot; Melbourne &middot; Brisbane &middot; Perth &middot; Adelaide &middot; Canberra &middot; Gold Coast</strong></span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Zero Pay-To-Rank Guarantee</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Real Google Maps Reviews Verified</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item">Mortgage &middot; Insurance &middot; Real Estate &middot; Commercial &middot; Wealth</span>
+    <span class="ticker-sep">&bull;</span>
+    
+  </div>
+</div>
+
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/">
