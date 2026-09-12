@@ -126,6 +126,8 @@ def render_broker_profile(b) -> str:
 {render_breadcrumbs(breadcrumbs)}
 
 <div class="profile-header">
+  <div class="dynamic-line-glow" aria-hidden="true"></div>
+  <div class="dynamic-line-vertical" aria-hidden="true"></div>
   <div class="container">
     <div class="profile-hero">
       <div class="profile-title-area">

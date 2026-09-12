@@ -63,6 +63,9 @@ def render_homepage(data) -> str:
 
     content = f"""
 <div class="hero">
+  <div class="dynamic-line-glow" aria-hidden="true"></div>
+  <div class="dynamic-line-vertical" aria-hidden="true"></div>
+  <div class="dynamic-line-vertical-2" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-grid">
       <div>

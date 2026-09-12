@@ -93,8 +93,86 @@ button, input, select, textarea { font: inherit; }
 .breadcrumbs-list .sep { color: var(--text-light); }
 .breadcrumbs-list .current { color: var(--text); font-weight: 500; }
 
-/* Hero sections */
-.hero { background: var(--bg-surface); border-bottom: 1px solid var(--border); padding: 3.5rem 0 3rem; }
+/* Hero & Profile Header with Dynamic Moving Lines */
+.hero, .profile-header {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 85% 15%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 10% 90%, rgba(2, 132, 199, 0.04) 0%, transparent 45%),
+              var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  padding: 3.5rem 0 3rem;
+}
+
+.hero::before, .profile-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(90deg, rgba(37, 99, 235, 0.035) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(37, 99, 235, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 30%, transparent 85%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dynamic-line-glow {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, 0) 20%, rgba(37, 99, 235, 0.7) 50%, rgba(2, 132, 199, 0.9) 60%, transparent 100%);
+  animation: moveBeam 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dynamic-line-vertical {
+  position: absolute;
+  top: -100%;
+  right: 18%;
+  width: 2px;
+  height: 200%;
+  background: linear-gradient(180deg, transparent 0%, rgba(2, 132, 199, 0) 30%, rgba(37, 99, 235, 0.6) 60%, transparent 100%);
+  animation: moveVerticalBeam 11s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dynamic-line-vertical-2 {
+  position: absolute;
+  top: -100%;
+  left: 12%;
+  width: 2px;
+  height: 200%;
+  background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.4) 50%, transparent 100%);
+  animation: moveVerticalBeam 14s ease-in-out 3s infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes moveBeam {
+  0% { transform: translateX(-30%); opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 0.8; }
+  100% { transform: translateX(50%); opacity: 0; }
+}
+
+@keyframes moveVerticalBeam {
+  0% { transform: translateY(-30%); opacity: 0; }
+  35% { opacity: 0.7; }
+  65% { opacity: 0.6; }
+  100% { transform: translateY(50%); opacity: 0; }
+}
+
+.hero > .container, .profile-header > .container {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; align-items: center; }
 .hero-category-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-light); color: var(--primary); padding: 0.35rem 0.85rem; border-radius: var(--radius-full); font-size: 0.8125rem; font-weight: 600; margin-bottom: 1rem; }
 .hero h1 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; color: var(--text); margin-bottom: 1rem; }
@@ -335,6 +413,8 @@ button, input, select, textarea { font: inherit; }
 
 
 <div class="profile-header">
+  <div class="dynamic-line-glow" aria-hidden="true"></div>
+  <div class="dynamic-line-vertical" aria-hidden="true"></div>
   <div class="container">
     <div class="profile-hero">
       <div class="profile-title-area">
