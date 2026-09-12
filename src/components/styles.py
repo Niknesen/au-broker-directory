@@ -125,6 +125,10 @@ button, input, select, textarea { font: inherit; }
 .trust-pill.high { background: var(--success-bg); color: var(--success); }
 .trust-pill.mid { background: var(--warning-bg); color: var(--warning); }
 .trust-pill.low { background: var(--bg-subtle); color: var(--text-muted); }
+
+.trust-circle-wrap { display: inline-flex; flex-direction: column; align-items: center; gap: 0.2rem; flex-shrink: 0; }
+.trust-circle-svg { display: block; overflow: visible; }
+.trust-circle-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
 .broker-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0; }
 .badge-item { font-size: 0.75rem; font-weight: 500; background: var(--bg-subtle); color: var(--text-muted); padding: 0.25rem 0.55rem; border-radius: var(--radius-sm); }
 .broker-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--border); margin-top: auto; }

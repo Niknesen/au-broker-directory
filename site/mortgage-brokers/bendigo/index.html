@@ -152,6 +152,10 @@ button, input, select, textarea { font: inherit; }
 .trust-pill.high { background: var(--success-bg); color: var(--success); }
 .trust-pill.mid { background: var(--warning-bg); color: var(--warning); }
 .trust-pill.low { background: var(--bg-subtle); color: var(--text-muted); }
+
+.trust-circle-wrap { display: inline-flex; flex-direction: column; align-items: center; gap: 0.2rem; flex-shrink: 0; }
+.trust-circle-svg { display: block; overflow: visible; }
+.trust-circle-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
 .broker-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0; }
 .badge-item { font-size: 0.75rem; font-weight: 500; background: var(--bg-subtle); color: var(--text-muted); padding: 0.25rem 0.55rem; border-radius: var(--radius-sm); }
 .broker-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--border); margin-top: auto; }
@@ -492,7 +496,22 @@ button, input, select, textarea { font: inherit; }
         <span itemprop="address">Bendigo, VIC</span>
       </div>
     </div>
-    <span class="trust-pill mid" title="Computed Trust Score: 80% (Verified Trust)">80% Trust Score</span>
+    
+<div class="trust-circle-wrap" title="Trust Score: 80% (High Trust)">
+  <svg width="40" height="40" viewBox="0 0 40 40" class="trust-circle-svg">
+    <!-- Track -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+    <!-- Progress Arc -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#16a34a" stroke-width="3.5"
+            stroke-dasharray="106.8" stroke-dashoffset="21.4"
+            stroke-linecap="round"
+            transform="rotate(-90 20.0 20.0)" />
+    <!-- Center Text -->
+    <text x="20.0" y="24.0" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#16a34a">80%</text>
+  </svg>
+  <span class="trust-circle-label" style="color:#16a34a;">High Trust</span>
+</div>
+
   </div>
 
   <div class="broker-badges">
@@ -523,7 +542,22 @@ button, input, select, textarea { font: inherit; }
         <span itemprop="address">Bendigo, VIC</span>
       </div>
     </div>
-    <span class="trust-pill mid" title="Computed Trust Score: 80% (Verified Trust)">80% Trust Score</span>
+    
+<div class="trust-circle-wrap" title="Trust Score: 80% (High Trust)">
+  <svg width="40" height="40" viewBox="0 0 40 40" class="trust-circle-svg">
+    <!-- Track -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+    <!-- Progress Arc -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#16a34a" stroke-width="3.5"
+            stroke-dasharray="106.8" stroke-dashoffset="21.4"
+            stroke-linecap="round"
+            transform="rotate(-90 20.0 20.0)" />
+    <!-- Center Text -->
+    <text x="20.0" y="24.0" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#16a34a">80%</text>
+  </svg>
+  <span class="trust-circle-label" style="color:#16a34a;">High Trust</span>
+</div>
+
   </div>
 
   <div class="broker-badges">
@@ -554,7 +588,22 @@ button, input, select, textarea { font: inherit; }
         <span itemprop="address">Bendigo, VIC</span>
       </div>
     </div>
-    <span class="trust-pill mid" title="Computed Trust Score: 80% (Verified Trust)">80% Trust Score</span>
+    
+<div class="trust-circle-wrap" title="Trust Score: 80% (High Trust)">
+  <svg width="40" height="40" viewBox="0 0 40 40" class="trust-circle-svg">
+    <!-- Track -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+    <!-- Progress Arc -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#16a34a" stroke-width="3.5"
+            stroke-dasharray="106.8" stroke-dashoffset="21.4"
+            stroke-linecap="round"
+            transform="rotate(-90 20.0 20.0)" />
+    <!-- Center Text -->
+    <text x="20.0" y="24.0" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#16a34a">80%</text>
+  </svg>
+  <span class="trust-circle-label" style="color:#16a34a;">High Trust</span>
+</div>
+
   </div>
 
   <div class="broker-badges">
@@ -585,7 +634,22 @@ button, input, select, textarea { font: inherit; }
         <span itemprop="address">Bendigo, VIC</span>
       </div>
     </div>
-    <span class="trust-pill mid" title="Computed Trust Score: 80% (Verified Trust)">80% Trust Score</span>
+    
+<div class="trust-circle-wrap" title="Trust Score: 80% (High Trust)">
+  <svg width="40" height="40" viewBox="0 0 40 40" class="trust-circle-svg">
+    <!-- Track -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+    <!-- Progress Arc -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#16a34a" stroke-width="3.5"
+            stroke-dasharray="106.8" stroke-dashoffset="21.4"
+            stroke-linecap="round"
+            transform="rotate(-90 20.0 20.0)" />
+    <!-- Center Text -->
+    <text x="20.0" y="24.0" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#16a34a">80%</text>
+  </svg>
+  <span class="trust-circle-label" style="color:#16a34a;">High Trust</span>
+</div>
+
   </div>
 
   <div class="broker-badges">
@@ -616,7 +680,22 @@ button, input, select, textarea { font: inherit; }
         <span itemprop="address">Bendigo, VIC</span>
       </div>
     </div>
-    <span class="trust-pill mid" title="Computed Trust Score: 75% (Verified Trust)">75% Trust Score</span>
+    
+<div class="trust-circle-wrap" title="Trust Score: 75% (Verified Trust)">
+  <svg width="40" height="40" viewBox="0 0 40 40" class="trust-circle-svg">
+    <!-- Track -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+    <!-- Progress Arc -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#d97706" stroke-width="3.5"
+            stroke-dasharray="106.8" stroke-dashoffset="26.7"
+            stroke-linecap="round"
+            transform="rotate(-90 20.0 20.0)" />
+    <!-- Center Text -->
+    <text x="20.0" y="24.0" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#b45309">75%</text>
+  </svg>
+  <span class="trust-circle-label" style="color:#b45309;">Verified Trust</span>
+</div>
+
   </div>
 
   <div class="broker-badges">
@@ -647,7 +726,22 @@ button, input, select, textarea { font: inherit; }
         <span itemprop="address">Bendigo, VIC</span>
       </div>
     </div>
-    <span class="trust-pill mid" title="Computed Trust Score: 75% (Verified Trust)">75% Trust Score</span>
+    
+<div class="trust-circle-wrap" title="Trust Score: 75% (Verified Trust)">
+  <svg width="40" height="40" viewBox="0 0 40 40" class="trust-circle-svg">
+    <!-- Track -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+    <!-- Progress Arc -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#d97706" stroke-width="3.5"
+            stroke-dasharray="106.8" stroke-dashoffset="26.7"
+            stroke-linecap="round"
+            transform="rotate(-90 20.0 20.0)" />
+    <!-- Center Text -->
+    <text x="20.0" y="24.0" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#b45309">75%</text>
+  </svg>
+  <span class="trust-circle-label" style="color:#b45309;">Verified Trust</span>
+</div>
+
   </div>
 
   <div class="broker-badges">
@@ -678,7 +772,22 @@ button, input, select, textarea { font: inherit; }
         <span itemprop="address">Bendigo, VIC</span>
       </div>
     </div>
-    <span class="trust-pill mid" title="Computed Trust Score: 74% (Verified Trust)">74% Trust Score</span>
+    
+<div class="trust-circle-wrap" title="Trust Score: 74% (Verified Trust)">
+  <svg width="40" height="40" viewBox="0 0 40 40" class="trust-circle-svg">
+    <!-- Track -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+    <!-- Progress Arc -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#d97706" stroke-width="3.5"
+            stroke-dasharray="106.8" stroke-dashoffset="27.8"
+            stroke-linecap="round"
+            transform="rotate(-90 20.0 20.0)" />
+    <!-- Center Text -->
+    <text x="20.0" y="24.0" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#b45309">74%</text>
+  </svg>
+  <span class="trust-circle-label" style="color:#b45309;">Verified Trust</span>
+</div>
+
   </div>
 
   <div class="broker-badges">
@@ -709,7 +818,22 @@ button, input, select, textarea { font: inherit; }
         <span itemprop="address">Bendigo, VIC</span>
       </div>
     </div>
-    <span class="trust-pill mid" title="Computed Trust Score: 75% (Verified Trust)">75% Trust Score</span>
+    
+<div class="trust-circle-wrap" title="Trust Score: 75% (Verified Trust)">
+  <svg width="40" height="40" viewBox="0 0 40 40" class="trust-circle-svg">
+    <!-- Track -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+    <!-- Progress Arc -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#d97706" stroke-width="3.5"
+            stroke-dasharray="106.8" stroke-dashoffset="26.7"
+            stroke-linecap="round"
+            transform="rotate(-90 20.0 20.0)" />
+    <!-- Center Text -->
+    <text x="20.0" y="24.0" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#b45309">75%</text>
+  </svg>
+  <span class="trust-circle-label" style="color:#b45309;">Verified Trust</span>
+</div>
+
   </div>
 
   <div class="broker-badges">
@@ -740,7 +864,22 @@ button, input, select, textarea { font: inherit; }
         <span itemprop="address">Bendigo, VIC</span>
       </div>
     </div>
-    <span class="trust-pill mid" title="Computed Trust Score: 75% (Verified Trust)">75% Trust Score</span>
+    
+<div class="trust-circle-wrap" title="Trust Score: 75% (Verified Trust)">
+  <svg width="40" height="40" viewBox="0 0 40 40" class="trust-circle-svg">
+    <!-- Track -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+    <!-- Progress Arc -->
+    <circle cx="20.0" cy="20.0" r="17.0" fill="none" stroke="#d97706" stroke-width="3.5"
+            stroke-dasharray="106.8" stroke-dashoffset="26.7"
+            stroke-linecap="round"
+            transform="rotate(-90 20.0 20.0)" />
+    <!-- Center Text -->
+    <text x="20.0" y="24.0" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#b45309">75%</text>
+  </svg>
+  <span class="trust-circle-label" style="color:#b45309;">Verified Trust</span>
+</div>
+
   </div>
 
   <div class="broker-badges">
