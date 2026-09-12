@@ -64,36 +64,51 @@ def render_homepage(data) -> str:
     content = f"""
 <div class="hero">
   <div class="container">
-    <span class="hero-category-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Independent Australian Directory
-    </span>
-    <h1>{SITE_TAGLINE}</h1>
-    <p class="hero-lead">
-      Compare {data.total_brokers:,} Australian brokers across 7 industry sectors. 
-      Every listing features an independently computed Trust Score, verified client feedback, 
-      and direct contact details.
-    </p>
+    <div class="hero-grid">
+      <div>
+        <span class="hero-category-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Independent Australian Directory
+        </span>
+        <h1>{SITE_TAGLINE}</h1>
+        <p class="hero-lead">
+          Compare {data.total_brokers:,} Australian brokers across 7 industry sectors. 
+          Every listing features an independently computed Trust Score, verified client feedback, 
+          and direct contact details.
+        </p>
 
-    <!-- Instant Search Bar -->
-    <div class="search-wrapper">
-      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="site-search" class="search-input" placeholder="Search by broker name, suburb, city or phone..." autocomplete="off">
-      <div id="search-results" class="search-results-box"></div>
-    </div>
+        <!-- Instant Search Bar -->
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="site-search" class="search-input" placeholder="Search by broker name, suburb, city or phone..." autocomplete="off">
+          <div id="search-results" class="search-results-box"></div>
+        </div>
 
-    <div class="hero-stats">
-      <div class="hero-stat-item">
-        <strong>{data.total_brokers:,}</strong> Verified Entities
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <strong>{data.total_brokers:,}</strong> Verified Entities
+          </div>
+          <div class="hero-stat-item">
+            <strong>7</strong> Sectors
+          </div>
+          <div class="hero-stat-item">
+            <strong>100%</strong> Independent
+          </div>
+          <div class="hero-stat-item">
+            <strong>Zero</strong> Pay-to-Rank
+          </div>
+        </div>
       </div>
-      <div class="hero-stat-item">
-        <strong>7</strong> Professional Sectors
-      </div>
-      <div class="hero-stat-item">
-        <strong>100%</strong> Independent &amp; Ad-Free
-      </div>
-      <div class="hero-stat-item">
-        <strong>Zero</strong> Pay-to-Rank
+
+      <div class="hero-image-card">
+        <img src="/assets/broker-portrait.png" alt="Verified Australian Broker Specialist" class="hero-portrait-img" loading="eager" width="380" height="440">
+        <div class="hero-image-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div>
+            <strong>Independent Trust Scoring</strong>
+            <span>Verified Australian Industry Profiles</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 """
 Centralized Header component for Best Brokers Australia.
+Uses the brand logo image from assets.
 """
 from ..config import SITE_NAME
 from ..taxonomy import CATEGORIES, url_for_home, url_for_category, url_for_page
@@ -33,11 +34,7 @@ def render_header(active_path: str = "") -> str:
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{url_for_home()}">
-      <svg class="brand-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="36" height="36" rx="8" fill="#2563EB"/>
-        <path d="M10 24L18 10L26 24H10Z" fill="white" fill-opacity="0.9"/>
-        <path d="M15 24L18 18L21 24H15Z" fill="#1D4ED8"/>
-      </svg>
+      <img class="brand-mark" src="/assets/favicon-32.png" alt="Best Brokers Australia Logo" width="32" height="32">
       <span>{SITE_NAME}</span>
     </a>
     <nav>
