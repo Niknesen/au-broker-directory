@@ -1,22 +1,18 @@
 """
 City Hub Template for Best Brokers Australia.
-Implements Blueprint Section 5.1 (City/category hub).
+Implements Blueprint Section 5.1 (City/category hub) — Top 9 verified specialists.
 """
-import math
-from ..config import SITE_NAME, SITE_URL, BROKERS_PER_PAGE
+from ..config import SITE_NAME, SITE_URL
 from ..components.base import render_page
 from ..components.breadcrumbs import render_breadcrumbs, breadcrumbs_jsonld
 from ..components.broker_card import render_broker_card
-from ..components.pagination import render_pagination
 from ..seo.schema import hub_collection_schema
 
 
 def render_city_page(hub, page: int = 1) -> str:
-    """Renders a city category hub page with local broker cards and nearby navigation."""
+    """Renders a city category hub page with local top 9 broker cards and nearby navigation."""
     total_brokers = len(hub.brokers)
-    total_pages = max(1, math.ceil(total_brokers / BROKERS_PER_PAGE))
-    start_idx = (page - 1) * BROKERS_PER_PAGE
-    page_brokers = hub.brokers[start_idx : start_idx + BROKERS_PER_PAGE]
+    page_brokers = hub.brokers[:9]
 
     # Nearby cities chips
     nearby_chips_html = "".join(
@@ -34,9 +30,6 @@ def render_city_page(hub, page: int = 1) -> str:
       <p class="faq-a">{faq['a']}</p>
     </div>
     """ for faq in hub.faqs)
-
-    pagination_html = render_pagination(hub.canonical_url, page, total_pages)
-    page_canonical = hub.canonical_url if page == 1 else f"{hub.canonical_url.rstrip('/')}/?page={page}"
 
     content = f"""
 {render_breadcrumbs(hub.breadcrumbs)}
@@ -81,16 +74,14 @@ def render_city_page(hub, page: int = 1) -> str:
   <div class="container">
     <div class="section-header">
       <div>
-        <h2 class="section-title">Verified {hub.category_short} in {hub.city_name}</h2>
-        <p class="section-subtitle">Showing {len(page_brokers)} of {total_brokers:,} local specialists ranked by Trust Score</p>
+        <h2 class="section-title">Top 9 Verified {hub.category_short} in {hub.city_name}</h2>
+        <p class="section-subtitle">Ranked by independent Trust Score (Google rating + review volume + licence disclosures)</p>
       </div>
     </div>
     
     <div class="broker-grid">
       {cards_html}
     </div>
-
-    {pagination_html}
   </div>
 </section>
 
@@ -107,10 +98,10 @@ def render_city_page(hub, page: int = 1) -> str:
     return render_page(
         title=hub.title,
         meta_description=hub.meta_description,
-        canonical_url=page_canonical,
+        canonical_url=hub.canonical_url,
         content_html=content,
         active_nav=hub.canonical_url,
-        is_indexable=hub.is_indexable and (page == 1),
+        is_indexable=hub.is_indexable,
         schema_jsonld=[
             hub_collection_schema(hub),
             breadcrumbs_jsonld(hub.breadcrumbs),
