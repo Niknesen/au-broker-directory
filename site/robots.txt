@@ -1,0 +1,15 @@
+# Best Brokers Australia robots.txt
+User-agent: *
+Allow: /
+
+# Disallow internal search & API submission endpoints
+Disallow: /search/
+Disallow: /api/
+
+# Disallow parameter combinations that create duplicate crawl traps
+Disallow: /*?q=*
+Disallow: /*?rating=*
+Disallow: /*?sort=*
+
+# Sitemap Index
+Sitemap: https://bestbrokersaustralia.org/sitemap.xml

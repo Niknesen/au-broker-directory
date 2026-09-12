@@ -1,0 +1,18 @@
+# Best Brokers Australia Cloudflare Pages Redirects
+# 301 Permanent Redirects for legacy .html pages to canonical clean paths
+
+/index.html                     /                           301
+/about.html                     /about/                     301
+/contact.html                   /contact/                   301
+/privacy.html                   /privacy/                   301
+/methodology.html               /methodology/               301
+/editorial-policy.html          /editorial-policy/          301
+/review-policy.html             /review-policy/             301
+/claim-profile.html             /claim-profile/             301
+
+# Wildcard pattern for legacy broker .html pages
+/broker/:slug.html              /broker/:slug/              301
+
+# Clean search redirect
+/search/index.html              /                           301
+/search                         /                           302
