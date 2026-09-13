@@ -23,6 +23,7 @@ OPERATOR_URL = "https://aiex.team"
 CONTACT_EMAIL = "nick@aiex.team"
 
 # Analytics & Tracking Pixels
+GTM_CONTAINER_ID = "GTM-PNGJR452"
 META_PIXEL_ID = "1256510258585870"  # Nick pixel
 
 # Local dev server
