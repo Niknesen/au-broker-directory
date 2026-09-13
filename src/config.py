@@ -36,7 +36,7 @@ QUALITY_SCORE_INDEX_MIN = 70
 QUALITY_SCORE_CONDITIONAL_MIN = 50
 
 # Minimum brokers required to generate an indexable city hub page (Blueprint Section 2)
-MIN_BROKERS_FOR_CITY_HUB = 5
+MIN_BROKERS_FOR_CITY_HUB = 3
 MIN_BROKERS_FOR_SUBURB_HUB = 3
 
 # Hub pagination size (maximum 9 results per view/industry)
