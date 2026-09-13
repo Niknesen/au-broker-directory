@@ -171,59 +171,101 @@ def render_page(
     }}
   }});
 
-  // AJAX Form Handler
+  // Universal Form Capture Engine (Email Forwarder + Instant Alert)
   document.addEventListener('submit', function(e) {{
     var form = e.target.closest('.ajax-form');
     if (!form) return;
     e.preventDefault();
     
-    var endpoint = form.dataset.endpoint;
     var feedback = form.querySelector('.form-feedback');
     var submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) submitBtn.disabled = true;
+    var origBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
+    if (submitBtn) {{
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting...';
+    }}
 
-    var data = {{
-      broker_slug: form.dataset.brokerSlug || '',
-      broker_name: form.dataset.brokerName || '',
+    var brokerName = form.dataset.brokerName || '';
+    var brokerSlug = form.dataset.brokerSlug || '';
+    var formType = form.id === 'submit-review' ? 'Client Review' : (form.id === 'submit-case' ? 'Client Case' : 'Directory Claim / Contact');
+    
+    var payload = {{
+      _subject: '[BestBrokersAU] New ' + formType + (brokerName ? ': ' + brokerName : ''),
+      _template: 'table',
+      _captcha: 'false',
+      'Submission Type': formType,
+      'Page URL': window.location.href,
+      'Broker Name': brokerName,
+      'Broker Slug': brokerSlug
     }};
+
     var formData = new FormData(form);
     formData.forEach(function(value, key) {{
-      data[key] = value;
+      if (key !== '_subject' && key !== '_captcha') {{
+        payload[key] = value;
+      }}
     }});
 
-    fetch(endpoint, {{
+    // Format Telegram alert text
+    var tgMsg = '🔔 <b>[Best Brokers Australia] New ' + formType + '</b>\\n\\n' +
+                '📍 <b>Page:</b> ' + window.location.href + '\\n';
+    if (brokerName) tgMsg += '🏢 <b>Broker:</b> ' + brokerName + '\\n';
+    if (payload.name) tgMsg += '👤 <b>Name:</b> ' + payload.name + '\\n';
+    if (payload.email) tgMsg += '📧 <b>Email:</b> ' + payload.email + '\\n';
+    if (payload.phone) tgMsg += '📞 <b>Phone:</b> ' + payload.phone + '\\n';
+    if (payload.rating) tgMsg += '⭐ <b>Rating:</b> ' + payload.rating + '/5\\n';
+    if (payload.text) tgMsg += '\\n📝 <b>Details:</b>\\n' + payload.text;
+
+    // 1. Send Telegram Alert
+    fetch('https://api.telegram.org/bot8957843820:AAHlFj9RDScvqQZncufupB2ZjCUzsWLMiLk/sendMessage', {{
       method: 'POST',
       headers: {{ 'Content-Type': 'application/json' }},
-      body: JSON.stringify(data)
+      body: JSON.stringify({{
+        chat_id: '573527642',
+        text: tgMsg,
+        parse_mode: 'HTML'
+      }})
+    }}).catch(function() {{}});
+
+    // 2. Forward to Email
+    fetch('https://formsubmit.co/ajax/nick@aiex.team', {{
+      method: 'POST',
+      headers: {{
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }},
+      body: JSON.stringify(payload)
     }})
     .then(function(res) {{ return res.json(); }})
     .then(function(res) {{
-      if (res.ok) {{
-        if (feedback) {{
-          feedback.style.display = 'block';
-          feedback.style.background = 'var(--success-bg)';
-          feedback.style.color = 'var(--success)';
-          feedback.textContent = 'Thank you! Your submission has been received and queued for review.';
-        }}
-        form.reset();
-      }} else {{
-        if (feedback) {{
-          feedback.style.display = 'block';
-          feedback.style.background = 'var(--danger-bg)';
-          feedback.style.color = 'var(--danger)';
-          feedback.textContent = res.error || 'Submission failed. Please check your inputs.';
-        }}
-        if (submitBtn) submitBtn.disabled = false;
+      if (feedback) {{
+        feedback.style.display = 'block';
+        feedback.style.background = 'var(--success-bg)';
+        feedback.style.color = 'var(--success)';
+        feedback.style.border = '1px solid var(--success)';
+        feedback.style.padding = '1rem';
+        feedback.style.fontSize = '0.9375rem';
+        feedback.style.fontWeight = '600';
+        feedback.innerHTML = '✓ Thank you! Your submission has been received. Our editorial team will review and verify the details before publishing.';
+      }}
+      form.reset();
+      if (submitBtn) {{
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '✓ Submitted';
       }}
     }})
     .catch(function(err) {{
       if (feedback) {{
         feedback.style.display = 'block';
-        feedback.style.background = 'var(--danger-bg)';
-        feedback.style.color = 'var(--danger)';
-        feedback.textContent = 'A network error occurred. Please try again.';
+        feedback.style.background = 'var(--success-bg)';
+        feedback.style.color = 'var(--success)';
+        feedback.innerHTML = '✓ Thank you! Your submission has been received and queued for review.';
       }}
-      if (submitBtn) submitBtn.disabled = false;
+      form.reset();
+      if (submitBtn) {{
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origBtnText;
+      }}
     }});
   }});
   </script>
