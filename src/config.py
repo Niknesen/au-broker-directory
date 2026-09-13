@@ -22,6 +22,9 @@ OPERATOR_NAME = "AIEX Forward Deployed Engineering"
 OPERATOR_URL = "https://aiex.team"
 CONTACT_EMAIL = "nick@aiex.team"
 
+# Analytics & Tracking Pixels
+META_PIXEL_ID = "1256510258585870"  # Nick pixel
+
 # Local dev server
 PORT = 8941
 
