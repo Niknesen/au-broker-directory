@@ -101,6 +101,18 @@ def render_case_form(broker_slug: str, broker_name: str) -> str:
       <textarea name="text" rows="4" required class="search-input" style="padding:0.75rem 0.85rem;min-height:100px;" placeholder="Explain the initial challenge (e.g. self-employed refinance, tight deadline), lender negotiated, and final rate/savings outcome..."></textarea>
     </div>
 
+    <div style="margin-bottom:1.25rem;">
+      <label style="display:block;font-size:0.8125rem;font-weight:600;margin-bottom:0.35rem;color:var(--text);">
+        📎 Attachment Proof (Optional photo, settlement doc, or short video &mdash; Max 10MB)
+      </label>
+      <div style="border:1px dashed var(--border);border-radius:var(--radius-md);padding:0.85rem 1rem;background:var(--bg-subtle);">
+        <input type="file" name="attachment" accept="image/*,.pdf,.doc,.docx,video/mp4,video/quicktime" style="font-size:0.8125rem;cursor:pointer;width:100%;">
+        <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.35rem;">
+          Supported: PDF, JPG, PNG, WEBP, DOCX, MP4, MOV (Maximum file size: 10MB)
+        </div>
+      </div>
+    </div>
+
     <button type="submit" class="header-cta" style="border:none;cursor:pointer;padding:0.6rem 1.25rem;">
       Submit Case Study &rarr;
     </button>

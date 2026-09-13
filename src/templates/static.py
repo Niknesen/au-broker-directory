@@ -315,6 +315,18 @@ def render_claim_page() -> str:
           <textarea name="text" rows="4" required class="search-input" style="padding:0.75rem 0.85rem;min-height:100px;" placeholder="Provide your Australian Credit Licence (ACL) number or Credit Representative (CR) number, and any requested updates to your profile..."></textarea>
         </div>
 
+        <div style="margin-bottom:1.25rem;">
+          <label style="display:block;font-size:0.8125rem;font-weight:600;margin-bottom:0.35rem;color:var(--text);">
+            📎 Verification Document / Licence Certificate (Optional &mdash; Max 10MB)
+          </label>
+          <div style="border:1px dashed var(--border);border-radius:var(--radius-md);padding:0.85rem 1rem;background:var(--bg-subtle);">
+            <input type="file" name="attachment" accept="image/*,.pdf,.doc,.docx" style="font-size:0.8125rem;cursor:pointer;width:100%;">
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.35rem;">
+              Upload ACL certificate, company letterhead, or ID verification (PDF, PNG, JPG up to 10MB)
+            </div>
+          </div>
+        </div>
+
         <button type="submit" class="header-cta" style="border:none;cursor:pointer;padding:0.75rem 1.5rem;font-size:0.9375rem;">
           Submit Verification Request &rarr;
         </button>

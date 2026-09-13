@@ -171,7 +171,7 @@ def render_page(
     }}
   }});
 
-  // Universal Form Capture Engine (Email Forwarder + Instant Alert)
+  // Universal Form Capture Engine (Email Forwarder + File Attachment + Instant Alert)
   document.addEventListener('submit', function(e) {{
     var form = e.target.closest('.ajax-form');
     if (!form) return;
@@ -180,41 +180,51 @@ def render_page(
     var feedback = form.querySelector('.form-feedback');
     var submitBtn = form.querySelector('button[type="submit"]');
     var origBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
+
+    // File validation: Maximum 10MB
+    var fileInput = form.querySelector('input[type="file"]');
+    var attachedFile = fileInput && fileInput.files && fileInput.files.length > 0 ? fileInput.files[0] : null;
+    if (attachedFile && attachedFile.size > 10 * 1024 * 1024) {{
+      if (feedback) {{
+        feedback.style.display = 'block';
+        feedback.style.background = 'var(--danger-bg)';
+        feedback.style.color = 'var(--danger)';
+        feedback.style.border = '1px solid var(--danger)';
+        feedback.style.padding = '0.75rem 1rem';
+        feedback.style.borderRadius = 'var(--radius-md)';
+        feedback.textContent = 'Attached file is too large (' + (attachedFile.size / (1024*1024)).toFixed(1) + 'MB). Please upload a file under 10MB.';
+      }}
+      return;
+    }}
+
     if (submitBtn) {{
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Submitting...';
+      submitBtn.innerHTML = 'Submitting & Uploading...';
     }}
 
     var brokerName = form.dataset.brokerName || '';
     var brokerSlug = form.dataset.brokerSlug || '';
-    var formType = form.id === 'submit-review' ? 'Client Review' : (form.id === 'submit-case' ? 'Client Case' : 'Directory Claim / Contact');
+    var formType = form.id === 'submit-review' ? 'Client Review' : (form.id === 'submit-case' ? 'Client Case / Deal' : 'Directory Claim / Contact');
     
-    var payload = {{
-      _subject: '[BestBrokersAU] New ' + formType + (brokerName ? ': ' + brokerName : ''),
-      _template: 'table',
-      _captcha: 'false',
-      'Submission Type': formType,
-      'Page URL': window.location.href,
-      'Broker Name': brokerName,
-      'Broker Slug': brokerSlug
-    }};
-
     var formData = new FormData(form);
-    formData.forEach(function(value, key) {{
-      if (key !== '_subject' && key !== '_captcha') {{
-        payload[key] = value;
-      }}
-    }});
+    formData.append('_subject', '[BestBrokersAU] New ' + formType + (brokerName ? ': ' + brokerName : ''));
+    formData.append('_template', 'table');
+    formData.append('_captcha', 'false');
+    formData.append('Submission Type', formType);
+    formData.append('Page URL', window.location.href);
+    if (brokerName) formData.append('Broker Name', brokerName);
+    if (brokerSlug) formData.append('Broker Slug', brokerSlug);
 
     // Format Telegram alert text
     var tgMsg = '🔔 <b>[Best Brokers Australia] New ' + formType + '</b>\\n\\n' +
                 '📍 <b>Page:</b> ' + window.location.href + '\\n';
     if (brokerName) tgMsg += '🏢 <b>Broker:</b> ' + brokerName + '\\n';
-    if (payload.name) tgMsg += '👤 <b>Name:</b> ' + payload.name + '\\n';
-    if (payload.email) tgMsg += '📧 <b>Email:</b> ' + payload.email + '\\n';
-    if (payload.phone) tgMsg += '📞 <b>Phone:</b> ' + payload.phone + '\\n';
-    if (payload.rating) tgMsg += '⭐ <b>Rating:</b> ' + payload.rating + '/5\\n';
-    if (payload.text) tgMsg += '\\n📝 <b>Details:</b>\\n' + payload.text;
+    if (formData.get('name')) tgMsg += '👤 <b>Name:</b> ' + formData.get('name') + '\\n';
+    if (formData.get('email')) tgMsg += '📧 <b>Email:</b> ' + formData.get('email') + '\\n';
+    if (formData.get('phone')) tgMsg += '📞 <b>Phone:</b> ' + formData.get('phone') + '\\n';
+    if (formData.get('rating')) tgMsg += '⭐ <b>Rating:</b> ' + formData.get('rating') + '/5\\n';
+    if (attachedFile) tgMsg += '📎 <b>Attachment:</b> ' + attachedFile.name + ' (' + (attachedFile.size / (1024*1024)).toFixed(2) + ' MB)\\n';
+    if (formData.get('text')) tgMsg += '\\n📝 <b>Details:</b>\\n' + formData.get('text');
 
     // 1. Send Telegram Alert
     fetch('https://api.telegram.org/bot8957843820:AAHlFj9RDScvqQZncufupB2ZjCUzsWLMiLk/sendMessage', {{
@@ -227,14 +237,11 @@ def render_page(
       }})
     }}).catch(function() {{}});
 
-    // 2. Forward to Email
+    // 2. Forward to Email (supports file attachments automatically via multipart)
     fetch('https://formsubmit.co/ajax/nick@aiex.team', {{
       method: 'POST',
-      headers: {{
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }},
-      body: JSON.stringify(payload)
+      headers: {{ 'Accept': 'application/json' }},
+      body: formData
     }})
     .then(function(res) {{ return res.json(); }})
     .then(function(res) {{
@@ -246,7 +253,8 @@ def render_page(
         feedback.style.padding = '1rem';
         feedback.style.fontSize = '0.9375rem';
         feedback.style.fontWeight = '600';
-        feedback.innerHTML = '✓ Thank you! Your submission has been received. Our editorial team will review and verify the details before publishing.';
+        feedback.style.borderRadius = 'var(--radius-md)';
+        feedback.innerHTML = '✓ Thank you! Your case details and files have been securely received. Our team will verify and publish them.';
       }}
       form.reset();
       if (submitBtn) {{
@@ -259,6 +267,8 @@ def render_page(
         feedback.style.display = 'block';
         feedback.style.background = 'var(--success-bg)';
         feedback.style.color = 'var(--success)';
+        feedback.style.padding = '1rem';
+        feedback.style.borderRadius = 'var(--radius-md)';
         feedback.innerHTML = '✓ Thank you! Your submission has been received and queued for review.';
       }}
       form.reset();
