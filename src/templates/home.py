@@ -104,7 +104,10 @@ def render_homepage(data) -> str:
       </div>
 
       <div class="hero-image-card">
-        <img src="/assets/broker-portrait.png" alt="Verified Australian Broker Specialist" class="hero-portrait-img" loading="eager" width="380" height="440">
+        <picture>
+          <source srcset="/assets/broker-portrait.webp" type="image/webp">
+          <img src="/assets/broker-portrait.webp" alt="Verified Australian Broker Specialist" class="hero-portrait-img" fetchpriority="high" loading="eager" decoding="async" width="380" height="440">
+        </picture>
         <div class="hero-image-badge">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <div>
@@ -254,4 +257,5 @@ def render_homepage(data) -> str:
         active_nav="/",
         is_indexable=True,
         schema_jsonld=[organization_schema()],
+        extra_head='<link rel="preload" as="image" href="/assets/broker-portrait.webp" type="image/webp" fetchpriority="high">',
     )
