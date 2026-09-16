@@ -203,30 +203,34 @@
     .hero-eyebrow {
       font-family: var(--font-sans);
       font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--ink-muted);
+      font-weight: 800;
+      color: #5ca701;
+      background: #edf8e1;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      display: inline-block;
       letter-spacing: -0.01em;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
     .hero-center h1 {
       font-family: var(--font-display);
-      font-size: 3.2rem;
-      font-weight: 700;
-      line-height: 1.12;
+      font-size: 3.4rem;
+      font-weight: 800;
+      line-height: 1.1;
       color: var(--ink);
       letter-spacing: -0.035em;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     .hero-center h1 .highlight-blue {
-      color: var(--cobalt);
+      color: #5ca701;
       font-family: inherit;
-      font-weight: 700;
+      font-weight: 800;
     }
     .hero-center p {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--ink-muted);
-      max-width: 660px;
-      margin: 0 auto 28px;
+      max-width: 680px;
+      margin: 0 auto 34px;
       line-height: 1.5;
     }
 
@@ -252,7 +256,7 @@
       font-family: var(--font-sans);
       font-size: 0.78rem;
       font-weight: 600;
-      color: var(--cobalt);
+      color: #5ca701;
       animation: floatTooltip 2.5s ease-in-out infinite alternate;
     }
     @keyframes floatTooltip {
@@ -263,18 +267,18 @@
     /* Google Omnibar Container */
     .google-omnibar-box {
       background: #ffffff;
-      border: 1.5px solid var(--border);
+      border: 1.5px solid #e2e8f0;
       border-radius: 999px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0,0,0,0.02);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0,0,0,0.02);
       display: flex;
       align-items: center;
-      padding: 6px 8px 6px 22px;
+      padding: 8px 10px 8px 24px;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }
     .google-omnibar-box:focus-within {
-      border-color: var(--cobalt);
-      box-shadow: 0 20px 50px rgba(0, 113, 227, 0.12), 0 0 0 3px rgba(0, 113, 227, 0.1);
+      border-color: #5ca701;
+      box-shadow: 0 20px 50px rgba(92, 167, 1, 0.15), 0 0 0 3px rgba(92, 167, 1, 0.1);
     }
     
     /* Clean Vector Icons (Zero Emojis) */
@@ -1750,11 +1754,9 @@
   <!-- TOP LAB SELECTOR -->
   <div class="lab-nav">
     <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
-    <a href="immersive-funnel.html" class="lab-pill" style="border-color:#38bdf8; color:#7dd3fc; background:rgba(56,189,248,0.15);">⚡ 3D Tunnel Funnel (New)</a>
-    <a href="google-omni.html" class="lab-pill active">Level 1: Homepage (Omnibar + AI)</a>
-    <a href="state/nsw.html" class="lab-pill">Level 2: State Hub (NSW)</a>
-    <a href="suburbs/sydney.html" class="lab-pill">Level 3: District Hub (Top 3)</a>
-    <a href="broker/mortgage-pros-sample.html" class="lab-pill">Level 4: Directory Dossier</a>
+    <a href="labliven.html" class="lab-pill" style="border-color:#10b981; color:#a7f3d0; background:rgba(16,185,129,0.15);">🌿 LabLiven (Visceral Sanctuary)</a>
+    <a href="google-omni.html" class="lab-pill active">🔍 Check upon Broker (Omni Search)</a>
+    <a href="immersive-funnel.html" class="lab-pill" style="border-color:#38bdf8; color:#7dd3fc; background:rgba(56,189,248,0.15);">⚡ 3D Tunnel Funnel</a>
     <a href="broker/david-chi-tran.html" class="lab-pill" style="border-color:#f59e0b; color:#fbbf24;">Option A: VSL (David)</a>
     <a href="broker/marcus-vance.html" class="lab-pill" style="border-color:#38bdf8; color:#7dd3fc;">Option B: VSL (Marcus)</a>
   </div>
@@ -1790,16 +1792,22 @@
   </div>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <a href="google-omni.html" class="brand-wrap">
-      <div class="brand-logo-seal">B</div>
-      <span class="brand-title">Best Brokers Australia</span>
-    </a>
-    <div style="display:flex; align-items:center; gap:16px;">
-      <a href="#claim" onclick="openClaimModal(); return false;" class="btn-claim-profile">
-        <svg class="svg-icon" viewBox="0 0 24 24" style="width:14px; height:14px; color:var(--cobalt);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        <span>Claim Profile</span>
+  <nav class="navbar" style="background:transparent; border:none; padding:16px 24px; max-width:1180px; margin:0 auto;">
+    <div style="background:#ffffff; border-radius:9999px; padding:10px 16px 10px 32px; display:flex; align-items:center; justify-content:space-between; width:100%; box-shadow:0 14px 40px rgba(0,0,0,0.06); border:1px solid #e6edf2;">
+      <a href="labliven.html" class="brand-wrap" style="text-decoration:none;">
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:1.65rem; font-weight:800; color:#5ca701; letter-spacing:-0.5px;">best<span style="color:#1b2932;">brokers</span></span>
       </a>
+      <div style="display:flex; align-items:center; gap:28px;">
+        <a href="labliven.html#how-it-works" style="color:#1b2932; text-decoration:none; font-size:0.95rem; font-weight:600;">How it works</a>
+        <a href="labliven.html#specialists" style="color:#1b2932; text-decoration:none; font-size:0.95rem; font-weight:600;">Specialists</a>
+        <a href="labliven.html#goals" style="color:#1b2932; text-decoration:none; font-size:0.95rem; font-weight:600;">Goals</a>
+        <a href="labliven.html#reviews" style="color:#1b2932; text-decoration:none; font-size:0.95rem; font-weight:600;">Reviews</a>
+        <a href="calculator/index.html" style="color:#1b2932; text-decoration:none; font-size:0.95rem; font-weight:600;">Calculator</a>
+        <a href="labliven.html#faq" style="color:#1b2932; text-decoration:none; font-size:0.95rem; font-weight:600;">FAQs</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="labliven.html" style="background:#5ca701; color:#ffffff; padding:14px 30px; border-radius:9999px; font-size:1rem; font-weight:700; text-decoration:none; box-shadow:0 4px 14px rgba(92,167,1,0.35); display:inline-flex; align-items:center; justify-content:center;">Get started</a>
+      </div>
     </div>
   </nav>
 

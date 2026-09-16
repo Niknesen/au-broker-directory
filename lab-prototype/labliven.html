@@ -140,6 +140,31 @@
     }
     .nav-item-link:hover { color: var(--liven-green); }
 
+    /* LIVEN SEARCH BUTTON (Check upon broker) */
+    .nav-search-btn {
+      background: #f4f8fa;
+      color: var(--liven-dark);
+      border: 1.5px solid var(--liven-border);
+      padding: 12px 22px;
+      min-height: 52px;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+    .nav-search-btn:hover {
+      background: #ffffff;
+      border-color: var(--liven-green);
+      color: var(--liven-green);
+      box-shadow: 0 4px 14px rgba(92, 167, 1, 0.18);
+      transform: translateY(-2px);
+    }
+
     /* LIVEN PILL BUTTONS (Chunky, tall height & generous vertical breathing room) */
     .nav-btn-green {
       background: var(--liven-green);
@@ -1228,7 +1253,16 @@
         <a href="calculator/index.html" class="nav-item-link">Calculator</a>
         <a href="#faq" class="nav-item-link">FAQs</a>
       </div>
-      <button class="nav-btn-green" onclick="openDiagnosticModal()">Get started</button>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="google-omni.html" class="nav-search-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Check upon broker</span>
+        </a>
+        <button class="nav-btn-green" onclick="openDiagnosticModal()">Get started</button>
+      </div>
     </nav>
 
     <!-- Hero Two-Column Grid -->
