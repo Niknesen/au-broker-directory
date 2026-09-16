@@ -114,17 +114,29 @@
     }
     .nav-brand-logo {
       font-family: var(--font-display);
-      font-size: 1.65rem;
+      font-size: 1.55rem;
       font-weight: 800;
       color: var(--liven-green);
       text-decoration: none;
       letter-spacing: -0.5px;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      white-space: nowrap;
     }
-    .nav-brand-logo span {
+    .nav-brand-logo span.brand-dark {
       color: var(--liven-dark);
+    }
+    .nav-brand-logo span.brand-au {
+      font-family: var(--font-main);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #0369a1;
+      background: #e0f2fe;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
     .nav-links-cluster {
       display: flex;
@@ -1301,12 +1313,12 @@
 
   <!-- Top Lab Switcher Bar -->
   <nav class="lab-nav">
-    <a href="labliven.html" class="lab-pill active">🌿 LabLiven (Exact Liven Design)</a>
-    <a href="liven-test.html" class="lab-pill" style="background:var(--liven-green); color:#fff; border-color:#7dd322; box-shadow:0 0 12px rgba(92,167,1,0.4);">⚡ Liven 3D Matcher Test (New)</a>
-    <a href="immersive-funnel.html" class="lab-pill">⚡ 3D Tunnel Funnel (Dark)</a>
-    <a href="google-omni.html" class="lab-pill">Level 1: Google Omni</a>
-    <a href="broker/david-chi-tran.html" class="lab-pill">🎬 David Chi Tran (Verified Desk)</a>
-    <a href="calculator/index.html" class="lab-pill">🧮 Mortgage Calculator</a>
+    <a href="labliven.html" class="lab-pill active">LabLiven Sanctuary Hub</a>
+    <a href="liven-test.html" class="lab-pill" style="background:var(--liven-green); color:#fff; border-color:#7dd322;">Liven 3D Matcher</a>
+    <a href="liven-search.html" class="lab-pill">Check Up on Broker</a>
+    <a href="google-omni.html" class="lab-pill">Google Omni</a>
+    <a href="broker/david-chi-tran.html" class="lab-pill">David Chi Tran Desk</a>
+    <a href="calculator/index.html" class="lab-pill">Mortgage Calculator</a>
   </nav>
 
   <!-- ============================================================ -->
@@ -1317,7 +1329,7 @@
     <!-- Floating White Navbar -->
     <nav class="floating-nav-pill">
       <a href="labliven.html" class="nav-brand-logo">
-        best<span>brokers</span>
+        best<span class="brand-dark">brokers</span> <span class="brand-au">australia</span>
       </a>
       <div class="nav-links-cluster">
         <a href="#how-it-works" class="nav-item-link">How it works</a>
@@ -1329,13 +1341,13 @@
         <a href="#faq" class="nav-item-link">FAQs</a>
       </div>
       <div style="display:flex; align-items:center; gap:12px;">
-        <a href="google-omni.html" class="nav-search-btn" title="Search & Check upon Broker" aria-label="Search brokers">
+        <a href="liven-search.html" class="nav-search-btn" title="Search & Check upon Broker" aria-label="Search brokers">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
         </a>
-        <button class="nav-btn-green" onclick="openDiagnosticModal()">Get started</button>
+        <a href="liven-test.html" class="nav-btn-green" style="text-decoration:none;">Get started</a>
       </div>
     </nav>
 
@@ -1691,8 +1703,8 @@
   <section class="section-reviews" id="reviews">
     <div class="reviews-container-centered">
       <div style="font-size: 2.4rem; margin-bottom: 12px;">🇦🇺</div>
-      <h2 class="how-title" style="margin-bottom: 12px;">What Australian homeowners say about Best Brokers</h2>
-      <p style="color: #64748b; font-size: 1.15rem;">Real stories from buyers and families who unlocked their front door, slashed their rates, and got their life back.</p>
+      <h2 class="how-title" style="margin-bottom: 12px;">What owners say about Best Brokers Australia</h2>
+      <p style="color: #64748b; font-size: 1.15rem;">Real stories from Australian homeowners and business owners who got their finance sorted.</p>
     </div>
 
     <!-- DENSE Horizontal Overflowing Reel Stream -->
@@ -2177,7 +2189,7 @@
   <footer class="liven-dark-footer">
     <div class="footer-inner">
       <div>
-        <div style="font-family:var(--font-display); font-size:1.7rem; font-weight:800; color:#fff; margin-bottom:16px;">bestbrokers</div>
+        <div style="font-family:var(--font-display); font-size:1.7rem; font-weight:800; color:#fff; margin-bottom:16px;">bestbrokers <span style="color:#5ca701;">australia</span></div>
         <div style="font-size:0.88rem; margin-bottom:22px; line-height:1.6;">&copy; 2026 Best Brokers Australia.<br>All rights reserved.</div>
       </div>
 
@@ -2352,21 +2364,16 @@
 
   <script>
     function openDiagnosticModal(context) {
-      const modal = document.getElementById('diagnostic-modal');
-      const form = document.getElementById('modal-step-form');
-      const res = document.getElementById('modal-step-results');
-      form.style.display = 'block';
-      res.style.display = 'none';
-      modal.classList.add('open');
+      window.location.href = 'liven-test.html';
     }
 
     function closeDiagnosticModal() {
-      document.getElementById('diagnostic-modal').classList.remove('open');
+      const modal = document.getElementById('diagnostic-modal');
+      if (modal) modal.classList.remove('open');
     }
 
     function showMatchResults() {
-      document.getElementById('modal-step-form').style.display = 'none';
-      document.getElementById('modal-step-results').style.display = 'block';
+      window.location.href = 'liven-test.html';
     }
   </script>
 </body>
