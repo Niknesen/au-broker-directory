@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Your Home & Loan Matcher — Best Brokers Australia</title>
+  <title>Australian Lending & Outcome Matcher — Best Brokers Australia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -30,15 +30,16 @@
       --emerald-glow: rgba(16, 185, 129, 0.25);
       --gold: #f59e0b;
       --rose: #f43f5e;
+      --purple: #8b5cf6;
       
       --radius-sm: 10px;
       --radius: 18px;
       --radius-lg: 26px;
       --radius-full: 9999px;
       
-      --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-display: "Space Grotesk", system-ui, sans-serif;
-      --font-mono: "JetBrains Mono", monospace;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -311,7 +312,7 @@
       line-height: 1.5;
     }
 
-    /* Carousel Deck (Rocket Mortgage Inspired) */
+    /* Carousel Deck */
     .carousel-wrap {
       background: var(--surface-card);
       border: 1px solid var(--border);
@@ -910,7 +911,7 @@
   <!-- LAB NAV BAR -->
   <div class="lab-nav">
     <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
-    <a href="immersive-funnel.html" class="lab-pill active">⚡ 3D Tunnel Funnel (Outcome-First)</a>
+    <a href="immersive-funnel.html" class="lab-pill active">⚡ 3D Multi-Branch Funnel</a>
     <a href="google-omni.html" class="lab-pill">Level 1: Google Omni</a>
     <a href="state/nsw.html" class="lab-pill">Level 2: State Hub</a>
     <a href="broker/david-chi-tran.html" class="lab-pill" style="border-color:#f59e0b; color:#fbbf24;">VSL: David Tran</a>
@@ -936,11 +937,11 @@
 
       <div class="brand-badge">
         <span class="brand-dot"></span>
-        <span>BEST BROKERS</span>
+        <span id="funnel-brand-title">BEST BROKERS</span>
       </div>
 
       <div class="live-policy-pill" id="live-header-badge">
-        <span>●</span> BID VERIFIED
+        <span>●</span> ASIC BID COMPLIANT
       </div>
     </header>
 
@@ -952,35 +953,35 @@
     <!-- 3D SCENE STACK -->
     <div class="scene-container">
 
-      <!-- SCENE 0: HERO ENTRY / HOOK WITH CAROUSEL -->
+      <!-- ================= SCENE 0: UNIVERSAL ENTRY / 4-PILLAR ROUTER ================= -->
       <section class="scene active" id="scene-0">
-        <div class="scene-tag">⚡ INSTANT BORROWING POWER & RATE MATCH</div>
-        <h1 class="scene-title">Turning "Someday" Into Settlement Day.</h1>
-        <p class="scene-desc">Calculate your true borrowing capacity, unlock government 5% grants, and see real bank rate discounts across 35+ Australian lenders in 60 seconds.</p>
+        <div class="scene-tag">⚡ 60-SECOND APRA POLICY & RATE MATCHER</div>
+        <h1 class="scene-title">What is your #1 lending outcome today?</h1>
+        <p class="scene-desc">Select your exact mission to scan 35+ Australian bank & specialist lending panels with zero credit score impact.</p>
 
-        <!-- Visual Lifestyle Carousel -->
+        <!-- Carousel -->
         <div class="carousel-wrap">
           <div class="carousel-slide active" id="c-slide-1">
             <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80" alt="Home" class="carousel-img">
             <div class="carousel-body">
-              <div class="carousel-title">Understand Your True Options</div>
-              <div class="carousel-desc">Customise and compare 35+ Australian bank panels to find the highest borrowing power without damaging your credit file.</div>
+              <div class="carousel-title">Buy Your Next Property</div>
+              <div class="carousel-desc">Access 5% First Home Guarantee schemes, state stamp duty exemptions & maximum borrowing power.</div>
             </div>
           </div>
 
           <div class="carousel-slide" id="c-slide-2">
-            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1000&q=80" alt="Specialist" class="carousel-img">
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1000&q=80" alt="Refinance" class="carousel-img">
             <div class="carousel-body">
-              <div class="carousel-title">Help When You Need It Fast</div>
-              <div class="carousel-desc">Direct line to ASIC-licensed senior credit advisors available on weekends and auction days.</div>
+              <div class="carousel-title">Slash Existing Mortgage Rates</div>
+              <div class="carousel-desc">Save $400–$800/mo on repayments and claim up to $3,000 in direct bank refinance cashbacks.</div>
             </div>
           </div>
 
           <div class="carousel-slide" id="c-slide-3">
-            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1000&q=80" alt="Keys" class="carousel-img">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Commercial" class="carousel-img">
             <div class="carousel-body">
-              <div class="carousel-title">Recommended by 98% of Borrowers</div>
-              <div class="carousel-desc">Zero pay-to-rank bias. Strict ASIC Best Interests Duty (BID) guarantee.</div>
+              <div class="carousel-title">Self-Employed & Commercial</div>
+              <div class="carousel-desc">1-Yr ABN Alt-Doc BAS policies, commercial property, and equipment financing panels.</div>
             </div>
           </div>
 
@@ -995,101 +996,118 @@
           </div>
         </div>
 
+        <!-- 4 Primary Outcomes -->
         <div class="options-grid">
-          <div class="option-card" onclick="selectGoal('buy')">
+          <div class="option-card" onclick="startFlow('buy')">
             <div class="card-left">
               <div class="card-icon-wrap">🏡</div>
               <div class="card-text-group">
                 <div class="card-label">I want to buy a home</div>
-                <div class="card-subtext">First home buyer, next home, or building</div>
+                <div class="card-subtext">First home buyer, next home upgrader, or building</div>
               </div>
             </div>
             <div class="card-radio"></div>
           </div>
 
-          <div class="option-card" onclick="selectGoal('refi')">
+          <div class="option-card" onclick="startFlow('refi')">
             <div class="card-left">
               <div class="card-icon-wrap">📉</div>
               <div class="card-text-group">
-                <div class="card-label">I want to slash my existing rate</div>
-                <div class="card-subtext">Lower monthly repayments & claim cashback</div>
+                <div class="card-label">I want to refinance & slash my rate</div>
+                <div class="card-subtext">Lower monthly repayments, cash out equity, or consolidate debt</div>
               </div>
             </div>
             <div class="card-radio"></div>
           </div>
 
-          <div class="option-card" onclick="selectGoal('invest')">
+          <div class="option-card" onclick="startFlow('invest')">
             <div class="card-left">
               <div class="card-icon-wrap">📈</div>
               <div class="card-text-group">
-                <div class="card-label">I want to unlock equity or invest</div>
-                <div class="card-subtext">Grow portfolio, renovate, or leverage wealth</div>
+                <div class="card-label">I want to invest & build wealth</div>
+                <div class="card-subtext">Extract home equity, rentvesting, or scale property portfolio</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="startFlow('commercial')">
+            <div class="card-left">
+              <div class="card-icon-wrap">💼</div>
+              <div class="card-text-group">
+                <div class="card-label">Self-Employed / Commercial Finance</div>
+                <div class="card-subtext">1-yr ABN Alt-Doc, commercial warehouses, or business cashflow</div>
               </div>
             </div>
             <div class="card-radio"></div>
           </div>
         </div>
 
-        <div class="cta-trust-note" style="margin-top: 8px;">
-          🔒 100% ASIC Best Interests Duty (BID) Compliant • 0% Bank Kickback Bias
+        <div class="cta-trust-note" style="margin-top: 6px;">
+          🔒 100% ASIC Best Interests Duty (BID) Guarantee • 0% Bank Kickback Bias
         </div>
       </section>
 
-      <!-- SCENE 1: BUYING STAGE -->
-      <section class="scene" id="scene-stage">
-        <div class="scene-tag">STEP 1 OF 5 • JOURNEY STAGE</div>
+
+      <!-- ========================================================================= -->
+      <!-- FLOW 1: BUY A HOME SCENES                                                 -->
+      <!-- ========================================================================= -->
+
+      <!-- BUY 1: STAGE -->
+      <section class="scene" id="scene-buy-stage">
+        <div class="scene-tag">HOME BUYER • STEP 1 OF 5</div>
         <h2 class="scene-title">Where are you in your home buying journey?</h2>
-        <p class="scene-desc">This helps tailor approval speed and pre-qualification urgency.</p>
+        <p class="scene-desc">This lets us calibrate pre-qualification urgency and formal approval turnaround speed.</p>
 
         <div class="options-grid">
-          <div class="option-card" onclick="selectStage('browsing', 'Just researching borrowing power')">
+          <div class="option-card" onclick="pickBuyStage('browsing', 'Just researching borrowing power')">
             <div class="card-left">
               <div class="card-icon-wrap">🔍</div>
               <div class="card-text-group">
-                <div class="card-label">Looking at homes & listings</div>
+                <div class="card-label">Looking at listings & calculating capacity</div>
                 <div class="card-subtext">Planning ahead 3–6 months out</div>
               </div>
             </div>
             <div class="card-radio"></div>
           </div>
 
-          <div class="option-card" onclick="selectStage('inspecting', 'Actively inspecting & making offers')">
+          <div class="option-card" onclick="pickBuyStage('inspecting', 'Actively attending open homes & making offers')">
             <div class="card-left">
               <div class="card-icon-wrap">🏘️</div>
               <div class="card-text-group">
-                <div class="card-label">Actively inspecting properties</div>
-                <div class="card-subtext">Making offers within 30–60 days</div>
+                <div class="card-label">Actively inspecting properties & bidding</div>
+                <div class="card-subtext">Need solid pre-approval within 30–60 days</div>
               </div>
             </div>
             <div class="card-radio"></div>
           </div>
 
-          <div class="option-card" onclick="selectStage('signed', 'Contract signed / Upcoming Auction')">
+          <div class="option-card" onclick="pickBuyStage('signed', 'Contract signed / Upcoming Auction')">
             <div class="card-left">
               <div class="card-icon-wrap">✍️</div>
               <div class="card-text-group">
                 <div class="card-label">Signed contract / Auction coming up</div>
-                <div class="card-subtext">Need urgent formal finance approval</div>
+                <div class="card-subtext">Urgent formal finance clause (<5 days SLA)</div>
               </div>
             </div>
             <div class="card-radio"></div>
           </div>
         </div>
 
-        <div class="micro-feedback-box" id="stage-feedback" style="display: none;">
+        <div class="micro-feedback-box" id="buy-stage-feedback" style="display: none;">
           <span>💡</span>
-          <div id="stage-feedback-text"></div>
+          <div id="buy-stage-feedback-text"></div>
         </div>
       </section>
 
-      <!-- SCENE 2: PROPERTY TYPE -->
-      <section class="scene" id="scene-property-type">
-        <div class="scene-tag">STEP 2 OF 5 • PROPERTY TYPE</div>
+      <!-- BUY 2: PROPERTY TYPE -->
+      <section class="scene" id="scene-buy-property">
+        <div class="scene-tag">HOME BUYER • STEP 2 OF 5</div>
         <h2 class="scene-title">What type of home are you targeting?</h2>
-        <p class="scene-desc">Certain lenders offer specific rate discounts and LVR advantages depending on dwelling structure.</p>
+        <p class="scene-desc">Lenders have different valuation policies and postcode density rules for houses vs strata.</p>
 
         <div class="options-grid cols-2">
-          <div class="photo-card" onclick="selectPropertyType('house', 'Freestanding House')">
+          <div class="photo-card" onclick="pickBuyProperty('house', 'Freestanding House')">
             <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="House">
             <div class="photo-card-overlay">
               <div class="photo-card-title">
@@ -1100,7 +1118,7 @@
             </div>
           </div>
 
-          <div class="photo-card" onclick="selectPropertyType('unit', 'Apartment / Unit')">
+          <div class="photo-card" onclick="pickBuyProperty('unit', 'Apartment / Strata')">
             <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" alt="Apartment">
             <div class="photo-card-overlay">
               <div class="photo-card-title">
@@ -1111,7 +1129,7 @@
             </div>
           </div>
 
-          <div class="photo-card" onclick="selectPropertyType('townhouse', 'Townhouse / Duplex')">
+          <div class="photo-card" onclick="pickBuyProperty('townhouse', 'Townhouse / Duplex')">
             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Townhouse">
             <div class="photo-card-overlay">
               <div class="photo-card-title">
@@ -1122,7 +1140,7 @@
             </div>
           </div>
 
-          <div class="photo-card" onclick="selectPropertyType('build', 'House & Land / Build')">
+          <div class="photo-card" onclick="pickBuyProperty('build', 'House & Land / Build')">
             <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Construction">
             <div class="photo-card-overlay">
               <div class="photo-card-title">
@@ -1135,110 +1153,110 @@
         </div>
       </section>
 
-      <!-- SCENE 3: FINANCIAL NUMBERS -->
-      <section class="scene" id="scene-financials">
-        <div class="scene-tag">STEP 3 OF 5 • BUDGET & DEPOSIT</div>
+      <!-- BUY 3: BUDGET & DEPOSIT -->
+      <section class="scene" id="scene-buy-financials">
+        <div class="scene-tag">HOME BUYER • STEP 3 OF 5</div>
         <h2 class="scene-title">What is your estimated budget & deposit?</h2>
-        <p class="scene-desc">Slide or tap presets to calibrate loan-to-value ratio (LVR) and grant eligibility.</p>
+        <p class="scene-desc">Live calculation of Loan-to-Value (LVR), Lenders Mortgage Insurance (LMI), and government scheme caps.</p>
 
         <div class="amount-display-card">
           <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">TARGET PROPERTY PRICE</div>
-          <div class="amount-num-huge" id="price-display">$850,000</div>
+          <div class="amount-num-huge" id="buy-price-display">$850,000</div>
           
-          <input type="range" min="350000" max="3000000" step="25000" value="850000" class="amount-slider" id="price-slider" oninput="updatePrice(this.value)">
+          <input type="range" min="350000" max="3000000" step="25000" value="850000" class="amount-slider" id="buy-price-slider" oninput="updateBuyPrice(this.value)">
 
           <div class="chips-row">
-            <button class="chip-btn" onclick="setPricePreset(550000)">$550k</button>
-            <button class="chip-btn active" onclick="setPricePreset(850000)">$850k</button>
-            <button class="chip-btn" onclick="setPricePreset(1200000)">$1.2M</button>
-            <button class="chip-btn" onclick="setPricePreset(1800000)">$1.8M+</button>
+            <button class="chip-btn" onclick="setBuyPricePreset(550000)">$550k</button>
+            <button class="chip-btn active" onclick="setBuyPricePreset(850000)">$850k</button>
+            <button class="chip-btn" onclick="setBuyPricePreset(1200000)">$1.2M</button>
+            <button class="chip-btn" onclick="setBuyPricePreset(1800000)">$1.8M+</button>
           </div>
         </div>
 
         <div style="margin-top: 8px;">
           <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85rem; font-weight: 700;">
-            <span>ESTIMATED DEPOSIT SAVED</span>
-            <span style="color: #38bdf8;" id="deposit-val-display">20% ($170,000)</span>
+            <span>ESTIMATED DEPOSIT SAVINGS</span>
+            <span style="color: #38bdf8;" id="buy-deposit-display">20% ($170,000)</span>
           </div>
 
           <div class="chips-row">
-            <button class="chip-btn" id="dep-5" onclick="setDepositPct(5)">5% (Grant Scheme)</button>
-            <button class="chip-btn" id="dep-10" onclick="setDepositPct(10)">10%</button>
-            <button class="chip-btn active" id="dep-20" onclick="setDepositPct(20)">20% (Zero LMI)</button>
-            <button class="chip-btn" id="dep-30" onclick="setDepositPct(30)">30%+</button>
+            <button class="chip-btn" id="bdep-5" onclick="setBuyDeposit(5)">5% (Grant Route)</button>
+            <button class="chip-btn" id="bdep-10" onclick="setBuyDeposit(10)">10%</button>
+            <button class="chip-btn active" id="bdep-20" onclick="setBuyDeposit(20)">20% (Zero LMI)</button>
+            <button class="chip-btn" id="bdep-30" onclick="setBuyDeposit(30)">30%+</button>
           </div>
         </div>
 
-        <div class="micro-feedback-box" id="finance-feedback">
+        <div class="micro-feedback-box" id="buy-finance-feedback">
           <span>🎯</span>
-          <div id="finance-feedback-text">
-            <strong>20% Deposit (80% LVR):</strong> You bypass Lenders Mortgage Insurance (saving approx. $16,400) and qualify for top-tier discounted bank rates.
+          <div id="buy-finance-feedback-text">
+            <strong>20% Deposit (80% LVR):</strong> You bypass Lenders Mortgage Insurance (saving approx. $16,400) and unlock wholesale discounted rates.
           </div>
         </div>
 
         <div class="cta-container">
-          <button class="primary-cta-btn" onclick="proceedFromFinancials()">
-            <span>Next: Location & Income</span>
+          <button class="primary-cta-btn" onclick="advanceScene()">
+            <span>Next: State & Grants</span>
             <span>→</span>
           </button>
         </div>
       </section>
 
-      <!-- SCENE 4: STATE & POSTCODE -->
-      <section class="scene" id="scene-location">
-        <div class="scene-tag">STEP 4 OF 5 • STATE & LOCATION</div>
+      <!-- BUY 4: STATE & POSTCODE -->
+      <section class="scene" id="scene-buy-location">
+        <div class="scene-tag">HOME BUYER • STEP 4 OF 5</div>
         <h2 class="scene-title">Which state are you buying in?</h2>
-        <p class="scene-desc">State policies dictate stamp duty concessions and first home grant caps.</p>
+        <p class="scene-desc">State policies dictate stamp duty concessions and first home owner grant thresholds.</p>
 
         <div class="states-grid">
-          <div class="state-pill selected" onclick="selectState('NSW')">NSW</div>
-          <div class="state-pill" onclick="selectState('VIC')">VIC</div>
-          <div class="state-pill" onclick="selectState('QLD')">QLD</div>
-          <div class="state-pill" onclick="selectState('WA')">WA</div>
-          <div class="state-pill" onclick="selectState('SA')">SA</div>
-          <div class="state-pill" onclick="selectState('TAS')">TAS</div>
-          <div class="state-pill" onclick="selectState('ACT')">ACT</div>
-          <div class="state-pill" onclick="selectState('NT')">NT</div>
+          <div class="state-pill selected" onclick="pickBuyState('NSW')">NSW</div>
+          <div class="state-pill" onclick="pickBuyState('VIC')">VIC</div>
+          <div class="state-pill" onclick="pickBuyState('QLD')">QLD</div>
+          <div class="state-pill" onclick="pickBuyState('WA')">WA</div>
+          <div class="state-pill" onclick="pickBuyState('SA')">SA</div>
+          <div class="state-pill" onclick="pickBuyState('TAS')">TAS</div>
+          <div class="state-pill" onclick="pickBuyState('ACT')">ACT</div>
+          <div class="state-pill" onclick="pickBuyState('NT')">NT</div>
         </div>
 
         <div style="margin-top: 6px;">
-          <input type="text" class="funnel-input" id="postcode-input" placeholder="Enter target suburb or postcode (e.g. 2150, Parramatta)" value="Sydney, NSW">
+          <input type="text" class="funnel-input" id="buy-postcode-input" placeholder="Enter target suburb or postcode (e.g. 2150, Parramatta)" value="Sydney, NSW">
         </div>
 
-        <div class="micro-feedback-box" id="state-feedback">
+        <div class="micro-feedback-box" id="buy-state-feedback">
           <span>🏛️</span>
-          <div id="state-feedback-text">
-            <strong>NSW First Home Buyer Policy:</strong> Full transfer stamp duty exemption up to $800,000 and concessions up to $1,000,000.
+          <div id="buy-state-feedback-text">
+            <strong>NSW First Home Policy:</strong> Full transfer stamp duty exemption up to $800,000 and concessions up to $1,000,000.
           </div>
         </div>
 
         <div class="cta-container">
-          <button class="primary-cta-btn" onclick="proceedFromLocation()">
-            <span>Next: Income Setup</span>
+          <button class="primary-cta-btn" onclick="advanceScene()">
+            <span>Next: Income Assessment</span>
             <span>→</span>
           </button>
         </div>
       </section>
 
-      <!-- SCENE 5: INCOME & EMPLOYMENT -->
-      <section class="scene" id="scene-income">
-        <div class="scene-tag">STEP 5 OF 5 • EMPLOYMENT & INCOME</div>
+      <!-- BUY 5: INCOME -->
+      <section class="scene" id="scene-buy-income">
+        <div class="scene-tag">HOME BUYER • STEP 5 OF 5</div>
         <h2 class="scene-title">How do you earn your income?</h2>
         <p class="scene-desc">Different lenders have wildly varying servicing policies for PAYG, ABN, and professions.</p>
 
         <div class="options-grid">
-          <div class="option-card" onclick="selectIncome('payg', 'Standard PAYG Employee')">
+          <div class="option-card" onclick="pickBuyIncome('payg', 'Standard PAYG Employee')">
             <div class="card-left">
               <div class="card-icon-wrap">👔</div>
               <div class="card-text-group">
                 <div class="card-label">Standard Full / Part-Time PAYG</div>
-                <div class="card-subtext">Permanent employment with payslips</div>
+                <div class="card-subtext">Permanent employment with regular payslips</div>
               </div>
             </div>
             <div class="card-radio"></div>
           </div>
 
-          <div class="option-card" onclick="selectIncome('abn', 'Self-Employed / 1-Yr ABN')">
+          <div class="option-card" onclick="pickBuyIncome('abn', 'Self-Employed / 1-Yr ABN')">
             <div class="card-left">
               <div class="card-icon-wrap">💼</div>
               <div class="card-text-group">
@@ -1249,18 +1267,18 @@
             <div class="card-radio"></div>
           </div>
 
-          <div class="option-card" onclick="selectIncome('medico', 'Doctor / Lawyer / Mining Pro')">
+          <div class="option-card" onclick="pickBuyIncome('medico', 'Doctor / Lawyer / Mining Pro')">
             <div class="card-left">
               <div class="card-icon-wrap">🩺</div>
               <div class="card-text-group">
                 <div class="card-label">Doctor, Lawyer or Mining Professional</div>
-                <div class="card-subtext">Eligible for 90–95% LMI Fee Waivers</div>
+                <div class="card-subtext">Eligible for 90–95% LMI Fee Waivers ($0 LMI)</div>
               </div>
             </div>
             <div class="card-radio"></div>
           </div>
 
-          <div class="option-card" onclick="selectIncome('casual', 'Casual / Contractor / Gig')">
+          <div class="option-card" onclick="pickBuyIncome('casual', 'Casual / Contractor / Gig')">
             <div class="card-left">
               <div class="card-icon-wrap">🔀</div>
               <div class="card-text-group">
@@ -1273,7 +1291,519 @@
         </div>
       </section>
 
-      <!-- SCENE 6: LIVE AI SCANNER INTERSTITIAL -->
+
+      <!-- ========================================================================= -->
+      <!-- FLOW 2: REFINANCE & RATE SLASH SCENES                                     -->
+      <!-- ========================================================================= -->
+
+      <!-- REFI 1: OBJECTIVE -->
+      <section class="scene" id="scene-refi-goal">
+        <div class="scene-tag">REFINANCE • STEP 1 OF 4</div>
+        <h2 class="scene-title">What is your primary refinancing goal?</h2>
+        <p class="scene-desc">We match bank panels specifically to maximize your rate cut, equity release, or cashback bonus.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="pickRefiGoal('lower-rate', 'Slash Monthly Repayments')">
+            <div class="card-left">
+              <div class="card-icon-wrap">📉</div>
+              <div class="card-text-group">
+                <div class="card-label">Slash my interest rate & monthly repayments</div>
+                <div class="card-subtext">Reduce monthly cashflow squeeze & interest bill</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickRefiGoal('cashout', 'Cash-out Equity for Renovations/Investing')">
+            <div class="card-left">
+              <div class="card-icon-wrap">💰</div>
+              <div class="card-text-group">
+                <div class="card-label">Cash-out home equity</div>
+                <div class="card-subtext">Fund renovations, personal buffer, or property deposit</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickRefiGoal('consolidate', 'Debt Consolidation')">
+            <div class="card-left">
+              <div class="card-icon-wrap">💳</div>
+              <div class="card-text-group">
+                <div class="card-label">Consolidate high-interest debts</div>
+                <div class="card-subtext">Roll car loans & credit cards into a low 5% home rate</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickRefiGoal('offset', 'Add 100% Offset / Split Loan')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🔄</div>
+              <div class="card-text-group">
+                <div class="card-label">Switch to 100% Offset Account / Split Loan</div>
+                <div class="card-subtext">Park savings to reduce daily mortgage interest</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REFI 2: HOME VALUE & LOAN BALANCE -->
+      <section class="scene" id="scene-refi-numbers">
+        <div class="scene-tag">REFINANCE • STEP 2 OF 4</div>
+        <h2 class="scene-title">What is your home value and remaining loan balance?</h2>
+        <p class="scene-desc">Live calculation of your usable equity buffer and loan-to-value ratio (LVR).</p>
+
+        <div class="amount-display-card">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">ESTIMATED CURRENT PROPERTY VALUE</div>
+          <div class="amount-num-huge" id="refi-val-display">$950,000</div>
+          <input type="range" min="400000" max="3500000" step="25000" value="950000" class="amount-slider" id="refi-val-slider" oninput="updateRefiVal(this.value)">
+
+          <div class="chips-row">
+            <button class="chip-btn" onclick="setRefiVal(650000)">$650k</button>
+            <button class="chip-btn active" onclick="setRefiVal(950000)">$950k</button>
+            <button class="chip-btn" onclick="setRefiVal(1400000)">$1.4M</button>
+            <button class="chip-btn" onclick="setRefiVal(2000000)">$2.0M+</button>
+          </div>
+        </div>
+
+        <div class="amount-display-card" style="margin-top: 8px;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">REMAINING MORTGAGE BALANCE</div>
+          <div class="amount-num-huge" style="color: #38bdf8; font-size: 2.3rem;" id="refi-loan-display">$620,000</div>
+          <input type="range" min="150000" max="2500000" step="20000" value="620000" class="amount-slider" id="refi-loan-slider" oninput="updateRefiLoan(this.value)">
+        </div>
+
+        <div class="micro-feedback-box" id="refi-equity-feedback">
+          <span>💰</span>
+          <div id="refi-equity-feedback-text">
+            <strong>Usable Equity: ~$140,000 (at 80% LVR)</strong> with zero LMI fee. You qualify for Tier-1 major bank refinance rates.
+          </div>
+        </div>
+
+        <div class="cta-container">
+          <button class="primary-cta-btn" onclick="advanceScene()">
+            <span>Next: Current Interest Rate</span>
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- REFI 3: CURRENT RATE & SAVINGS PREVIEW -->
+      <section class="scene" id="scene-refi-rate">
+        <div class="scene-tag">REFINANCE • STEP 3 OF 4</div>
+        <h2 class="scene-title">What interest rate are you paying right now?</h2>
+        <p class="scene-desc">Most Australian banks quietly expand profit margins on existing loans after year 2.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="pickRefiRate(6.65, 'Above 6.50% (High Margin)')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🔴</div>
+              <div class="card-text-group">
+                <div class="card-label">Above 6.50% p.a.</div>
+                <div class="card-subtext">Overpaying significantly compared to current market specials</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickRefiRate(6.25, '6.15% – 6.49%')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🟡</div>
+              <div class="card-text-group">
+                <div class="card-label">6.15% – 6.49% p.a.</div>
+                <div class="card-subtext">Standard retail bank loyalty tax tier</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickRefiRate(5.95, '5.85% – 6.14%')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🟢</div>
+              <div class="card-text-group">
+                <div class="card-label">5.85% – 6.14% p.a.</div>
+                <div class="card-subtext">Competitive, but cashback or lower tier rates still available</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickRefiRate(6.30, 'Not Sure / Standard Variable')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🔍</div>
+              <div class="card-text-group">
+                <div class="card-label">I'm not sure / need a rate audit</div>
+                <div class="card-subtext">We'll benchmark against the top 35 lenders for you</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+        </div>
+
+        <div class="micro-feedback-box" id="refi-savings-box" style="display: none;">
+          <span>⚡</span>
+          <div id="refi-savings-text"></div>
+        </div>
+      </section>
+
+      <!-- REFI 4: CURRENT LENDER -->
+      <section class="scene" id="scene-refi-lender">
+        <div class="scene-tag">REFINANCE • STEP 4 OF 4</div>
+        <h2 class="scene-title">Who is your current mortgage with?</h2>
+        <p class="scene-desc">Allows us to isolate fast-track external refinance rebate cashback policies ($2k–$3k).</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="pickRefiLender('big4', 'Big 4 Bank (CBA, Westpac, ANZ, NAB)')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🏦</div>
+              <div class="card-text-group">
+                <div class="card-label">Big 4 Bank (CBA, Westpac, ANZ, NAB)</div>
+                <div class="card-subtext">Prime targets for external competitor rate matching & cashbacks</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickRefiLender('mid', 'Mid-Tier Bank (Macquarie, ING, Bankwest, Suncorp)')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🏢</div>
+              <div class="card-text-group">
+                <div class="card-label">Mid-Tier Bank (Macquarie, ING, Bankwest, Suncorp)</div>
+                <div class="card-subtext">Great products with alternative pricing discounts</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickRefiLender('nonbank', 'Non-Bank / Online Lender')">
+            <div class="card-left">
+              <div class="card-icon-wrap">💻</div>
+              <div class="card-text-group">
+                <div class="card-label">Non-Bank, Credit Union or Online Lender</div>
+                <div class="card-subtext">Pepper, Liberty, Athena, Tiimely, Heritage</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ========================================================================= -->
+      <!-- FLOW 3: PROPERTY INVESTMENT & EQUITY SCENES                              -->
+      <!-- ========================================================================= -->
+
+      <!-- INVEST 1: PORTFOLIO -->
+      <section class="scene" id="scene-invest-portfolio">
+        <div class="scene-tag">INVESTOR • STEP 1 OF 4</div>
+        <h2 class="scene-title">What is your current property portfolio?</h2>
+        <p class="scene-desc">Different lenders provide significantly higher borrowing capacity when utilizing rental shading buffers.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="pickInvestPortfolio('own-home', 'Homeowner with Equity')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🏠</div>
+              <div class="card-text-group">
+                <div class="card-label">I own my home with equity</div>
+                <div class="card-subtext">Ready to leverage equity into my 1st or 2nd investment</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickInvestPortfolio('rentvest', 'Rentvestor (Renting home, buying investment)')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🏙️</div>
+              <div class="card-text-group">
+                <div class="card-label">I rent where I live & want to "Rentvest"</div>
+                <div class="card-subtext">Buy where I can afford, rent where I want to live</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickInvestPortfolio('multi', 'Multiple Properties (3+ Portfolio)')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🏢</div>
+              <div class="card-text-group">
+                <div class="card-label">Experienced Investor (Own 2+ Properties)</div>
+                <div class="card-subtext">Need specialist multi-bank servicing & cashflow expansion</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INVEST 2: STRATEGY -->
+      <section class="scene" id="scene-invest-strategy">
+        <div class="scene-tag">INVESTOR • STEP 2 OF 4</div>
+        <h2 class="scene-title">What is your investment strategy focus?</h2>
+        <p class="scene-desc">Loan structuring (Interest-Only vs P&I) should strictly follow your tax and yield goals.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="pickInvestStrategy('growth', 'High Capital Growth (Metro)')">
+            <div class="card-left">
+              <div class="card-icon-wrap">📈</div>
+              <div class="card-text-group">
+                <div class="card-label">High Capital Growth</div>
+                <div class="card-subtext">Metro freestanding homes with strong historical land appreciation</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickInvestStrategy('yield', 'High Rental Yield / Positive Cashflow')">
+            <div class="card-left">
+              <div class="card-icon-wrap">💵</div>
+              <div class="card-text-group">
+                <div class="card-label">High Rental Cashflow & Yield</div>
+                <div class="card-subtext">Regional, dual-occupancy, rooming house, or NDIS/SDA</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickInvestStrategy('tax', 'Tax Optimization / Negative Gearing')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🛡️</div>
+              <div class="card-text-group">
+                <div class="card-label">Tax Deduction & Negative Gearing</div>
+                <div class="card-subtext">Offset high taxable personal salary with depreciation deductions</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INVEST 3: BUDGET & EQUITY -->
+      <section class="scene" id="scene-invest-budget">
+        <div class="scene-tag">INVESTOR • STEP 3 OF 4</div>
+        <h2 class="scene-title">What is your target investment purchase budget?</h2>
+        <p class="scene-desc">Calculate borrowing power with 80% rental income shading added back.</p>
+
+        <div class="amount-display-card">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">INVESTMENT PURCHASE PRICE</div>
+          <div class="amount-num-huge" id="invest-budget-display">$750,000</div>
+          <input type="range" min="400000" max="2500000" step="25000" value="750000" class="amount-slider" id="invest-budget-slider" oninput="updateInvestBudget(this.value)">
+
+          <div class="chips-row">
+            <button class="chip-btn" onclick="setInvestBudget(550000)">$550k</button>
+            <button class="chip-btn active" onclick="setInvestBudget(750000)">$750k</button>
+            <button class="chip-btn" onclick="setInvestBudget(1100000)">$1.1M</button>
+            <button class="chip-btn" onclick="setInvestBudget(1600000)">$1.6M+</button>
+          </div>
+        </div>
+
+        <div class="micro-feedback-box" style="margin-top: 8px;">
+          <span>💡</span>
+          <div>
+            <strong>Rental Shading Policy:</strong> We factor in ~$650/week projected rental income to boost your serviceability borrowing buffer by ~$110k.
+          </div>
+        </div>
+
+        <div class="cta-container">
+          <button class="primary-cta-btn" onclick="advanceScene()">
+            <span>Next: Loan Structuring</span>
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- INVEST 4: STRUCTURING -->
+      <section class="scene" id="scene-invest-structure">
+        <div class="scene-tag">INVESTOR • STEP 4 OF 4</div>
+        <h2 class="scene-title">What loan structure do you prefer?</h2>
+        <p class="scene-desc">Protecting your family home and keeping tax deductions clean.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="pickInvestStructure('io-uncrossed', 'Interest-Only + Uncrossed Security')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🛡️</div>
+              <div class="card-text-group">
+                <div class="card-label">Interest-Only (5-Yr) & Uncrossed Security</div>
+                <div class="card-subtext">Maximize cashflow, tax deductions & prevent lender cross-collateralization</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickInvestStructure('pi', 'Principal & Interest (P&I)')">
+            <div class="card-left">
+              <div class="card-icon-wrap">📉</div>
+              <div class="card-text-group">
+                <div class="card-label">Principal & Interest (Lower Rate Tier)</div>
+                <div class="card-subtext">Pay down the loan balance with lower interest margins</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ========================================================================= -->
+      <!-- FLOW 4: SELF-EMPLOYED & COMMERCIAL / BUSINESS SCENES                      -->
+      <!-- ========================================================================= -->
+
+      <!-- COMM 1: TYPE -->
+      <section class="scene" id="scene-comm-type">
+        <div class="scene-tag">COMMERCIAL & ABN • STEP 1 OF 4</div>
+        <h2 class="scene-title">What type of finance does your business require?</h2>
+        <p class="scene-desc">Matching you with accredited commercial and Alt-Doc specialists across non-bank and private panels.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="pickCommType('res-abn', 'Residential Home Loan using ABN/Business Income')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🏡</div>
+              <div class="card-text-group">
+                <div class="card-label">Residential Home Loan (Using ABN Income)</div>
+                <div class="card-subtext">Self-employed borrower buying personal home or investment property</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickCommType('comm-prop', 'Commercial Property Purchase (Warehouse/Office)')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🏢</div>
+              <div class="card-text-group">
+                <div class="card-label">Commercial Property Purchase</div>
+                <div class="card-subtext">Warehouse, industrial factory, office, medical suite, or retail</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickCommType('equip-working', 'Equipment / Asset / Working Capital')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🚚</div>
+              <div class="card-text-group">
+                <div class="card-label">Equipment, Vehicles & Working Capital</div>
+                <div class="card-subtext">Trucks, machinery, fit-out finance, or revolving overdraft</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMM 2: ABN TENURE -->
+      <section class="scene" id="scene-comm-abn">
+        <div class="scene-tag">COMMERCIAL & ABN • STEP 2 OF 4</div>
+        <h2 class="scene-title">How long has your ABN been registered and GST active?</h2>
+        <p class="scene-desc">Helps isolate whether you need standard 2-year full doc or 1-year Alt-Doc specialist lending.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="pickCommAbn('2plus', '2+ Years Active ABN')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🏆</div>
+              <div class="card-text-group">
+                <div class="card-label">2+ Years Active ABN & GST</div>
+                <div class="card-subtext">Eligible for both major banks and wholesale non-bank panels</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickCommAbn('1year', '1–2 Years ABN (Fast Alt-Doc)')">
+            <div class="card-left">
+              <div class="card-icon-wrap">⚡</div>
+              <div class="card-text-group">
+                <div class="card-label">1–2 Years Active ABN</div>
+                <div class="card-subtext">Requires Alt-Doc / 12-Month BAS lenders without 2-year tax wait</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickCommAbn('under1', 'Less than 1 Year / New Entity')">
+            <div class="card-left">
+              <div class="card-icon-wrap">🌱</div>
+              <div class="card-text-group">
+                <div class="card-label">Less than 12 Months ABN</div>
+                <div class="card-subtext">Specialist / Private lending or prior industry experience credit policy</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMM 3: DOCS -->
+      <section class="scene" id="scene-comm-docs">
+        <div class="scene-tag">COMMERCIAL & ABN • STEP 3 OF 4</div>
+        <h2 class="scene-title">What documentation can you provide for income verification?</h2>
+        <p class="scene-desc">Different lenders provide write-backs for depreciation, interest, and director salaries.</p>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="pickCommDocs('bas', '12 Months BAS & Business Bank Statements')">
+            <div class="card-left">
+              <div class="card-icon-wrap">📊</div>
+              <div class="card-text-group">
+                <div class="card-label">12 Months BAS Statements (Alt-Doc)</div>
+                <div class="card-subtext">No completed tax return required • Fast approval turnaround</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickCommDocs('full', '2 Years Full Company & Personal Tax Returns')">
+            <div class="card-left">
+              <div class="card-icon-wrap">📑</div>
+              <div class="card-text-group">
+                <div class="card-label">Full 2 Years Tax Returns & Financials</div>
+                <div class="card-subtext">Standard Full-Doc bank rate discounts unlocked</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+
+          <div class="option-card" onclick="pickCommDocs('acct', 'Accountant Declaration Letter')">
+            <div class="card-left">
+              <div class="card-icon-wrap">✍️</div>
+              <div class="card-text-group">
+                <div class="card-label">Accountant Letter / Low-Doc</div>
+                <div class="card-subtext">Certified accountant certificate of capacity & cashflow</div>
+              </div>
+            </div>
+            <div class="card-radio"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMM 4: LOAN SIZE -->
+      <section class="scene" id="scene-comm-amount">
+        <div class="scene-tag">COMMERCIAL & ABN • STEP 4 OF 4</div>
+        <h2 class="scene-title">What is your target commercial / business loan facility?</h2>
+        <p class="scene-desc">Calculated against non-bank servicing multipliers and security LVR limits.</p>
+
+        <div class="amount-display-card">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">TARGET FACILITY AMOUNT</div>
+          <div class="amount-num-huge" id="comm-amount-display">$900,000</div>
+          <input type="range" min="200000" max="5000000" step="50000" value="900000" class="amount-slider" id="comm-amount-slider" oninput="updateCommAmount(this.value)">
+
+          <div class="chips-row">
+            <button class="chip-btn" onclick="setCommAmount(400000)">$400k</button>
+            <button class="chip-btn active" onclick="setCommAmount(900000)">$900k</button>
+            <button class="chip-btn" onclick="setCommAmount(1750000)">$1.75M</button>
+            <button class="chip-btn" onclick="setCommAmount(3500000)">$3.5M+</button>
+          </div>
+        </div>
+
+        <div class="cta-container">
+          <button class="primary-cta-btn" onclick="startScannerSequence()">
+            <span>Scan 35+ Business & Commercial Panels →</span>
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ========================================================================= -->
+      <!-- UNIVERSAL SCANNER INTERSTITIAL                                            -->
+      <!-- ========================================================================= -->
       <section class="scene scanner-scene" id="scene-scanner">
         <div class="radar-circle-wrap">
           <div class="radar-pulse-ring"></div>
@@ -1283,12 +1813,12 @@
         </div>
 
         <div>
-          <h2 class="scene-title" style="font-size: 1.5rem; margin-bottom: 6px;">Analyzing 35+ Australian Bank Panels...</h2>
-          <p class="scene-desc">Matching your budget, LVR, and income against live APRA credit matrices.</p>
+          <h2 class="scene-title" id="scanner-title" style="font-size: 1.5rem; margin-bottom: 6px;">Analyzing 35+ Australian Lending Panels...</h2>
+          <p class="scene-desc" id="scanner-desc">Cross-referencing your scenario with APRA servicing buffers & verified ASIC specialists.</p>
         </div>
 
         <div class="scanner-log-terminal" id="scanner-terminal">
-          <div class="log-line">> Initializing Australian Credit Guideline scanner...</div>
+          <div class="log-line">> Initializing APRA credit guideline matrix...</div>
         </div>
 
         <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #38bdf8;" id="scan-progress-num">
@@ -1296,31 +1826,34 @@
         </div>
       </section>
 
-      <!-- SCENE 7: OUTCOME DOSSIER & LEAD CAPTURE -->
+
+      <!-- ========================================================================= -->
+      <!-- UNIVERSAL OUTCOME DOSSIER & LEAD CAPTURE                                  -->
+      <!-- ========================================================================= -->
       <section class="scene" id="scene-outcome">
-        <div class="scene-tag" style="color: #34d399;">⚡ ASSESSMENT MATCH CONFIRMED</div>
-        <h2 class="scene-title">Your Tailored Lending Scenario is Ready</h2>
-        <p class="scene-desc">Based on your answers, here is your estimated borrowing power and matched bank policy tier:</p>
+        <div class="scene-tag" style="color: #34d399;">⚡ ASSESSMENT MATCH READY</div>
+        <h2 class="scene-title" id="outcome-heading">Your Tailored Lending Scenario is Ready</h2>
+        <p class="scene-desc" id="outcome-subhead">Based on your exact numbers, here is your calculated borrowing capability & rate tier:</p>
 
         <div class="dossier-card">
-          <div class="dossier-badge">
+          <div class="dossier-badge" id="outcome-badge">
             ● 100% ASIC BID COMPLIANT MATCH
           </div>
 
           <div class="metrics-grid">
             <div class="metric-pill-box">
-              <div class="label">Est. Borrowing Power</div>
-              <div class="val" id="res-borrowing-val">$780k – $860k</div>
+              <div class="label" id="metric-label-1">Est. Borrowing Power</div>
+              <div class="val" id="res-metric-1">$780k – $860k</div>
             </div>
             <div class="metric-pill-box">
-              <div class="label">Indicative Best Rate</div>
-              <div class="val" style="color: #38bdf8;" id="res-rate-val">5.74% p.a.</div>
+              <div class="label" id="metric-label-2">Indicative Best Rate</div>
+              <div class="val" style="color: #38bdf8;" id="res-metric-2">5.74% p.a.</div>
             </div>
           </div>
 
           <div class="micro-feedback-box" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
             <span>🛡️</span>
-            <div id="res-strategy-text">
+            <div id="outcome-strategy-text">
               <strong>Strategy Unlocked:</strong> Tier-1 Major + Non-Bank Alt-Doc panel with zero LMI penalty and priority express SLA approval.
             </div>
           </div>
@@ -1328,8 +1861,8 @@
           <div class="broker-match-preview">
             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Specialist" class="broker-avatar">
             <div>
-              <div style="font-weight: 800; font-size: 0.95rem; color: #fff;">Marcus Vance (CRN #482910)</div>
-              <div style="font-size: 0.78rem; color: #94a3b8;">Top-Rated ASIC Verified Specialist • 5.0 ★ (184 Reviews)</div>
+              <div style="font-weight: 800; font-size: 0.95rem; color: #fff;" id="matched-broker-name">Marcus Vance (CRN #482910)</div>
+              <div style="font-size: 0.78rem; color: #94a3b8;" id="matched-broker-creds">Top-Rated ASIC Verified Specialist • 5.0 ★ (184 Reviews)</div>
               <div style="font-size: 0.74rem; color: #34d399; font-weight: 600; margin-top: 2px;">✓ $0 Fee Pledge (Paid by lender at settlement)</div>
             </div>
           </div>
@@ -1346,22 +1879,25 @@
         </div>
 
         <div class="cta-trust-note">
-          🔒 No spam. Strictly protected by Australian Privacy Principles (APP).
+          🔒 Strictly protected by Australian Privacy Principles (APP) • Zero Spam Guarantee
         </div>
       </section>
 
-      <!-- SCENE 8: CELEBRATION / SUBMISSION SUCCESS -->
+
+      <!-- ========================================================================= -->
+      <!-- UNIVERSAL CELEBRATION / SUBMISSION SUCCESS                                -->
+      <!-- ========================================================================= -->
       <section class="scene" id="scene-success" style="text-align: center; gap: 20px;">
         <div style="width: 80px; height: 80px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 20px auto 0; box-shadow: 0 0 40px rgba(16, 185, 129, 0.6);">
           ✓
         </div>
         <h2 class="scene-title">Dossier Dispatched!</h2>
-        <p class="scene-desc" id="success-desc">We have generated your tailored Australian borrowing assessment and sent a priority copy to your mobile & email.</p>
+        <p class="scene-desc" id="success-desc">We have generated your tailored Australian lending assessment and sent a priority copy to your mobile & email.</p>
 
         <div class="micro-feedback-box" style="text-align: left; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3);">
           <span>📱</span>
           <div>
-            <strong>Instant SMS Verification Sent:</strong> Marcus Vance will review your exact property scenario and reach out with your verified pre-approval strategy within 15 minutes.
+            <strong>Instant SMS Verification Sent:</strong> Your matched senior credit specialist will review your exact numbers and provide your formal approval strategy within 15 minutes.
           </div>
         </div>
 
@@ -1373,6 +1909,10 @@
     </div>
   </main>
 
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT ENGINE (AUDIO, 3D TUNNEL & MULTI-FLOW LOGIC)                   -->
+  <!-- ========================================================================= -->
   <script>
     let audioCtx = null;
     let soundEnabled = true;
@@ -1461,39 +2001,104 @@
     }
 
     // STATE STORE
-    const funnelData = {
-      goal: "buy",
-      stage: "browsing",
-      stageLabel: "",
-      propertyType: "house",
-      propertyLabel: "Freestanding House",
-      price: 850000,
-      depositPct: 20,
-      state: "NSW",
-      postcode: "2000, Sydney",
-      incomeType: "payg",
-      incomeLabel: "Standard Full PAYG"
+    const appState = {
+      flow: "buy", // "buy" | "refi" | "invest" | "commercial"
+      history: ["scene-0"],
+      
+      // Buy Flow Data
+      buyStage: "browsing",
+      buyStageLabel: "Researching Capacity",
+      buyProperty: "house",
+      buyPropertyLabel: "Freestanding House",
+      buyPrice: 850000,
+      buyDepositPct: 20,
+      buyState: "NSW",
+      buyPostcode: "2000, Sydney",
+      buyIncome: "payg",
+      buyIncomeLabel: "Standard Full PAYG",
+
+      // Refinance Flow Data
+      refiGoal: "lower-rate",
+      refiGoalLabel: "Slash Monthly Repayments",
+      refiHomeVal: 950000,
+      refiLoanBal: 620000,
+      refiCurrentRate: 6.25,
+      refiRateLabel: "6.15% - 6.49%",
+      refiLender: "big4",
+      refiLenderLabel: "Big 4 Bank",
+
+      // Invest Flow Data
+      investPortfolio: "own-home",
+      investPortfolioLabel: "Homeowner with Equity",
+      investStrategy: "growth",
+      investStrategyLabel: "Capital Growth",
+      investBudget: 750000,
+      investStructure: "io-uncrossed",
+      investStructureLabel: "Interest-Only & Uncrossed",
+
+      // Commercial Flow Data
+      commType: "res-abn",
+      commTypeLabel: "Residential via ABN",
+      commAbnTenure: "2plus",
+      commAbnLabel: "2+ Years ABN",
+      commDocs: "bas",
+      commDocsLabel: "12-Month BAS Statements",
+      commAmount: 900000
     };
 
-    const SCENES = [
-      "scene-0",
-      "scene-stage",
-      "scene-property-type",
-      "scene-financials",
-      "scene-location",
-      "scene-income",
-      "scene-scanner",
-      "scene-outcome",
-      "scene-success"
-    ];
+    // FLOW SCENE SEQUENCES
+    const FLOW_SEQUENCES = {
+      buy: [
+        "scene-0",
+        "scene-buy-stage",
+        "scene-buy-property",
+        "scene-buy-financials",
+        "scene-buy-location",
+        "scene-buy-income",
+        "scene-scanner",
+        "scene-outcome",
+        "scene-success"
+      ],
+      refi: [
+        "scene-0",
+        "scene-refi-goal",
+        "scene-refi-numbers",
+        "scene-refi-rate",
+        "scene-refi-lender",
+        "scene-scanner",
+        "scene-outcome",
+        "scene-success"
+      ],
+      invest: [
+        "scene-0",
+        "scene-invest-portfolio",
+        "scene-invest-strategy",
+        "scene-invest-budget",
+        "scene-invest-structure",
+        "scene-scanner",
+        "scene-outcome",
+        "scene-success"
+      ],
+      commercial: [
+        "scene-0",
+        "scene-comm-type",
+        "scene-comm-abn",
+        "scene-comm-docs",
+        "scene-comm-amount",
+        "scene-scanner",
+        "scene-outcome",
+        "scene-success"
+      ]
+    };
 
-    let currentSceneIndex = 0;
+    // 3D TUNNEL TRANSITION
+    function transitionScene(targetSceneId, isBack = false) {
+      const currentSceneId = appState.history[appState.history.length - 1];
+      if (currentSceneId === targetSceneId) return;
 
-    function transitionToScene(nextIdx, isBack = false) {
-      if (nextIdx < 0 || nextIdx >= SCENES.length) return;
-
-      const currentEl = document.getElementById(SCENES[currentSceneIndex]);
-      const nextEl = document.getElementById(SCENES[nextIdx]);
+      const currentEl = document.getElementById(currentSceneId);
+      const nextEl = document.getElementById(targetSceneId);
+      if (!currentEl || !nextEl) return;
 
       playSwooshSound(isBack ? 220 : 360);
 
@@ -1503,6 +2108,7 @@
       if (!isBack) {
         currentEl.classList.add("exit-forward");
         nextEl.classList.add("enter-forward");
+        appState.history.push(targetSceneId);
       } else {
         currentEl.classList.add("exit-backward");
         nextEl.classList.add("enter-backward");
@@ -1513,177 +2119,366 @@
       setTimeout(() => {
         nextEl.classList.remove("enter-forward", "enter-backward");
         nextEl.classList.add("active");
-        currentSceneIndex = nextIdx;
         updateHeaderAndProgress();
       }, 50);
 
       setTimeout(() => {
         currentEl.classList.remove("exit-forward", "exit-backward");
-      }, 600);
+      }, 580);
+    }
+
+    function advanceScene() {
+      const seq = FLOW_SEQUENCES[appState.flow];
+      const currentSceneId = appState.history[appState.history.length - 1];
+      const currentIdx = seq.indexOf(currentSceneId);
+      if (currentIdx !== -1 && currentIdx < seq.length - 1) {
+        const nextSceneId = seq[currentIdx + 1];
+        if (nextSceneId === "scene-scanner") {
+          transitionScene("scene-scanner");
+          startScannerSequence();
+        } else {
+          transitionScene(nextSceneId);
+        }
+      }
     }
 
     function navigateBack() {
-      if (currentSceneIndex > 0 && currentSceneIndex < SCENES.length - 1) {
-        transitionToScene(currentSceneIndex - 1, true);
+      if (appState.history.length > 1) {
+        const currentSceneId = appState.history.pop();
+        const prevSceneId = appState.history[appState.history.length - 1];
+        
+        const currentEl = document.getElementById(currentSceneId);
+        const prevEl = document.getElementById(prevSceneId);
+
+        playSwooshSound(220);
+
+        currentEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
+        prevEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
+
+        currentEl.classList.add("exit-backward");
+        prevEl.classList.add("enter-backward");
+
+        void prevEl.offsetWidth;
+
+        setTimeout(() => {
+          prevEl.classList.remove("enter-forward", "enter-backward");
+          prevEl.classList.add("active");
+          updateHeaderAndProgress();
+        }, 50);
+
+        setTimeout(() => {
+          currentEl.classList.remove("exit-forward", "exit-backward");
+        }, 580);
       }
     }
 
     function updateHeaderAndProgress() {
       const backBtn = document.getElementById("back-btn");
       const progressBar = document.getElementById("progress-bar");
-      
-      if (currentSceneIndex > 0 && currentSceneIndex < 7) {
+      const currentSceneId = appState.history[appState.history.length - 1];
+
+      // Back button visibility
+      if (appState.history.length > 1 && currentSceneId !== "scene-scanner" && currentSceneId !== "scene-success") {
         backBtn.classList.add("visible");
       } else {
         backBtn.classList.remove("visible");
       }
 
-      const totalSteps = 7;
-      const pct = Math.min(100, Math.max(12, (currentSceneIndex / (totalSteps - 1)) * 100));
-      progressBar.style.width = pct + "%";
-    }
-
-    function selectGoal(goalKey) {
-      funnelData.goal = goalKey;
-
-      // Adapt dynamic titles & tags based on user outcome
-      const stageScene = document.getElementById("scene-stage");
-      const stageTitle = stageScene.querySelector(".scene-title");
-      const stageDesc = stageScene.querySelector(".scene-desc");
-
-      const finScene = document.getElementById("scene-financials");
-      const finTitle = finScene.querySelector(".scene-title");
-
-      if (goalKey === "refi") {
-        stageTitle.innerText = "What is your primary refinancing goal?";
-        stageDesc.innerText = "We will optimize bank panel selection to maximize your rate drop and cashback.";
-        finTitle.innerText = "What is your current estimated property value & loan balance?";
-      } else if (goalKey === "invest") {
-        stageTitle.innerText = "Where are you in your investment journey?";
-        stageDesc.innerText = "Tailoring leverage ratios, tax-deductible debt structures, and portfolio buffers.";
-        finTitle.innerText = "What is your target investment property price & available equity?";
+      // Progress bar calculation
+      const seq = FLOW_SEQUENCES[appState.flow] || FLOW_SEQUENCES.buy;
+      const currentIdx = seq.indexOf(currentSceneId);
+      if (currentIdx <= 0) {
+        progressBar.style.width = "12%";
       } else {
-        stageTitle.innerText = "Where are you in your home buying journey?";
-        stageDesc.innerText = "This helps tailor approval speed and pre-qualification urgency.";
-        finTitle.innerText = "What is your estimated budget & deposit?";
+        const pct = Math.min(100, Math.max(15, (currentIdx / (seq.length - 1)) * 100));
+        progressBar.style.width = pct + "%";
       }
-
-      transitionToScene(1);
     }
 
-    function selectStage(stageKey, label) {
-      funnelData.stage = stageKey;
-      funnelData.stageLabel = label;
+    // =========================================================================
+    // FLOW SELECTOR (SCENE 0)
+    // =========================================================================
+    function startFlow(flowKey) {
+      appState.flow = flowKey;
+      appState.history = ["scene-0"];
+      const firstStepId = FLOW_SEQUENCES[flowKey][1];
+      transitionScene(firstStepId);
+    }
 
-      const feedbackBox = document.getElementById("stage-feedback");
-      const feedbackText = document.getElementById("stage-feedback-text");
-      feedbackBox.style.display = "flex";
+    // =========================================================================
+    // FLOW 1 (BUY) ACTIONS
+    // =========================================================================
+    function pickBuyStage(stageKey, label) {
+      appState.buyStage = stageKey;
+      appState.buyStageLabel = label;
+
+      const fbBox = document.getElementById("buy-stage-feedback");
+      const fbText = document.getElementById("buy-stage-feedback-text");
+      fbBox.style.display = "flex";
 
       if (stageKey === "signed") {
-        feedbackText.innerHTML = "<strong>Priority Fast-Track Flagged:</strong> We will match you with specialists who hold 48-hour formal SLA approval turnarounds.";
+        fbText.innerHTML = "<strong>Express SLA Flagged:</strong> We will prioritize specialists holding 48-hour formal bank SLA approval times.";
       } else if (stageKey === "inspecting") {
-        feedbackText.innerHTML = "<strong>Ready to Make Offers:</strong> Getting pre-qualified now prevents missing out on private sales and auction weekends.";
+        fbText.innerHTML = "<strong>Pre-Approval Ready:</strong> Protect yourself from missing out on auction weekend private treaties.";
       } else {
-        feedbackText.innerHTML = "<strong>Smart Planning:</strong> Calculate your exact borrowing envelope before falling in love with a property above your ceiling.";
+        fbText.innerHTML = "<strong>Borrowing Envelope:</strong> Lock in your maximum price ceiling before falling in love with a property.";
       }
 
       setTimeout(() => {
-        transitionToScene(2);
+        advanceScene();
       }, 350);
     }
 
-    function selectPropertyType(propKey, label) {
-      funnelData.propertyType = propKey;
-      funnelData.propertyLabel = label;
-      transitionToScene(3);
+    function pickBuyProperty(propKey, label) {
+      appState.buyProperty = propKey;
+      appState.buyPropertyLabel = label;
+      advanceScene();
     }
 
-    function updatePrice(val) {
-      funnelData.price = parseInt(val, 10);
-      document.getElementById("price-display").innerText = "$" + funnelData.price.toLocaleString("en-AU");
-      recalcDepositFeedback();
+    function updateBuyPrice(val) {
+      appState.buyPrice = parseInt(val, 10);
+      document.getElementById("buy-price-display").innerText = "$" + appState.buyPrice.toLocaleString("en-AU");
+      recalcBuyDepositFeedback();
     }
 
-    function setPricePreset(val) {
-      document.getElementById("price-slider").value = val;
-      updatePrice(val);
-      document.querySelectorAll(".chips-row .chip-btn").forEach(btn => btn.classList.remove("active"));
+    function setBuyPricePreset(val) {
+      document.getElementById("buy-price-slider").value = val;
+      updateBuyPrice(val);
+      document.querySelectorAll("#scene-buy-financials .chips-row .chip-btn").forEach(b => b.classList.remove("active"));
       event.currentTarget.classList.add("active");
     }
 
-    function setDepositPct(pct) {
-      funnelData.depositPct = pct;
-      ["dep-5", "dep-10", "dep-20", "dep-30"].forEach(id => {
+    function setBuyDeposit(pct) {
+      appState.buyDepositPct = pct;
+      ["bdep-5", "bdep-10", "bdep-20", "bdep-30"].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.classList.remove("active");
       });
-      document.getElementById("dep-" + pct).classList.add("active");
-      recalcDepositFeedback();
+      document.getElementById("bdep-" + pct).classList.add("active");
+      recalcBuyDepositFeedback();
     }
 
-    function recalcDepositFeedback() {
-      const depositVal = Math.round(funnelData.price * (funnelData.depositPct / 100));
-      document.getElementById("deposit-val-display").innerText = `${funnelData.depositPct}% ($${depositVal.toLocaleString("en-AU")})`;
+    function recalcBuyDepositFeedback() {
+      const depositVal = Math.round(appState.buyPrice * (appState.buyDepositPct / 100));
+      document.getElementById("buy-deposit-display").innerText = `${appState.buyDepositPct}% ($${depositVal.toLocaleString("en-AU")})`;
 
-      const fb = document.getElementById("finance-feedback-text");
-      if (funnelData.depositPct >= 20) {
-        fb.innerHTML = `<strong>${funnelData.depositPct}% Deposit (${100 - funnelData.depositPct}% LVR):</strong> You completely bypass Lenders Mortgage Insurance (saving approx. $${Math.round(funnelData.price * 0.022).toLocaleString("en-AU")}) and unlock wholesale discounted rates.`;
-      } else if (funnelData.depositPct === 5) {
-        fb.innerHTML = "<strong>5% Low Deposit Scheme:</strong> You may qualify for the Federal Government Home Guarantee Scheme (5% deposit, 0% LMI) if capped within state price thresholds.";
+      const fb = document.getElementById("buy-finance-feedback-text");
+      if (appState.buyDepositPct >= 20) {
+        fb.innerHTML = `<strong>${appState.buyDepositPct}% Deposit (80% LVR):</strong> You completely bypass LMI (saving approx. $${Math.round(appState.buyPrice * 0.022).toLocaleString("en-AU")}) and unlock wholesale discounted bank rates.`;
+      } else if (appState.buyDepositPct === 5) {
+        fb.innerHTML = "<strong>5% Low Deposit Scheme:</strong> You may qualify for the Federal Government Home Guarantee Scheme (5% deposit, $0 LMI) within state price limits.";
       } else {
-        fb.innerHTML = `<strong>${funnelData.depositPct}% Deposit (${100 - funnelData.depositPct}% LVR):</strong> Moderate LMI tier with competitive major bank tier-2 cashbacks and sub-6% rates available.`;
+        fb.innerHTML = `<strong>${appState.buyDepositPct}% Deposit (${100 - appState.buyDepositPct}% LVR):</strong> Moderate LMI tier with competitive major bank tier-2 cashbacks and sub-5.8% rates available.`;
       }
     }
 
-    function proceedFromFinancials() {
-      transitionToScene(4);
-    }
-
-    function selectState(stateCode) {
-      funnelData.state = stateCode;
-      document.querySelectorAll(".state-pill").forEach(pill => pill.classList.remove("selected"));
+    function pickBuyState(st) {
+      appState.buyState = st;
+      document.querySelectorAll("#scene-buy-location .state-pill").forEach(p => p.classList.remove("selected"));
       event.currentTarget.classList.add("selected");
 
-      const fb = document.getElementById("state-feedback-text");
-      if (stateCode === "NSW") {
-        fb.innerHTML = "<strong>NSW First Home Buyer Policy:</strong> Full transfer stamp duty exemption up to $800,000 and concessions up to $1,000,000.";
-      } else if (stateCode === "VIC") {
+      const fb = document.getElementById("buy-state-feedback-text");
+      if (st === "NSW") {
+        fb.innerHTML = "<strong>NSW First Home Policy:</strong> Full transfer stamp duty exemption up to $800,000 and concessions up to $1,000,000.";
+      } else if (st === "VIC") {
         fb.innerHTML = "<strong>VIC Stamp Duty Exemption:</strong> 100% stamp duty exemption up to $600,000, concessions up to $750,000.";
-      } else if (stateCode === "QLD") {
+      } else if (st === "QLD") {
         fb.innerHTML = "<strong>QLD $30k First Home Grant:</strong> $30,000 grant for new builds and transfer duty relief up to $700,000.";
-      } else if (stateCode === "WA") {
+      } else if (st === "WA") {
         fb.innerHTML = "<strong>WA First Home Concession:</strong> Zero transfer duty up to $450,000 with reduced rates up to $600,000.";
       } else {
-        fb.innerHTML = `<strong>${stateCode} State Policies Applied:</strong> Local First Home Owner Grants & stamp duty concession brackets active.`;
+        fb.innerHTML = `<strong>${st} State Policies Applied:</strong> Local First Home Owner Grants & stamp duty concession brackets active.`;
       }
     }
 
-    function proceedFromLocation() {
-      const pc = document.getElementById("postcode-input").value.trim();
-      if (pc) funnelData.postcode = pc;
-      transitionToScene(5);
+    function pickBuyIncome(incomeKey, label) {
+      appState.buyIncome = incomeKey;
+      appState.buyIncomeLabel = label;
+      advanceScene();
     }
 
-    function selectIncome(incomeKey, label) {
-      funnelData.incomeType = incomeKey;
-      funnelData.incomeLabel = label;
-      
-      transitionToScene(6);
-      startScannerSequence();
+    // =========================================================================
+    // FLOW 2 (REFINANCE) ACTIONS
+    // =========================================================================
+    function pickRefiGoal(goalKey, label) {
+      appState.refiGoal = goalKey;
+      appState.refiGoalLabel = label;
+      advanceScene();
     }
 
+    function updateRefiVal(val) {
+      appState.refiHomeVal = parseInt(val, 10);
+      document.getElementById("refi-val-display").innerText = "$" + appState.refiHomeVal.toLocaleString("en-AU");
+      recalcRefiEquity();
+    }
+
+    function setRefiVal(val) {
+      document.getElementById("refi-val-slider").value = val;
+      updateRefiVal(val);
+      document.querySelectorAll("#scene-refi-numbers .chips-row .chip-btn").forEach(b => b.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+    }
+
+    function updateRefiLoan(val) {
+      appState.refiLoanBal = parseInt(val, 10);
+      document.getElementById("refi-loan-display").innerText = "$" + appState.refiLoanBal.toLocaleString("en-AU");
+      recalcRefiEquity();
+    }
+
+    function recalcRefiEquity() {
+      const max80Loan = Math.round(appState.refiHomeVal * 0.8);
+      const usableEquity = Math.max(0, max80Loan - appState.refiLoanBal);
+      const lvr = Math.round((appState.refiLoanBal / appState.refiHomeVal) * 100);
+
+      const fb = document.getElementById("refi-equity-feedback-text");
+      if (usableEquity > 0) {
+        fb.innerHTML = `<strong>Usable Equity: ~$${usableEquity.toLocaleString("en-AU")}</strong> (at ${lvr}% LVR without LMI penalty). Perfect for renovations, debt consolidation, or cash buffer.`;
+      } else {
+        fb.innerHTML = `<strong>Current LVR: ${lvr}%:</strong> High equity tier eligible for specialized rate squeeze and fee waiver refinancing.`;
+      }
+    }
+
+    function pickRefiRate(rateVal, label) {
+      appState.refiCurrentRate = rateVal;
+      appState.refiRateLabel = label;
+
+      const fbBox = document.getElementById("refi-savings-box");
+      const fbText = document.getElementById("refi-savings-text");
+      fbBox.style.display = "flex";
+
+      const targetRate = 5.69;
+      const rateDiff = Math.max(0.3, rateVal - targetRate);
+      const monthlySavings = Math.round((appState.refiLoanBal * (rateDiff / 100)) / 12);
+      const annualSavings = monthlySavings * 12;
+
+      fbText.innerHTML = `<strong>Estimated Savings: ~$${monthlySavings.toLocaleString("en-AU")}/month ($${annualSavings.toLocaleString("en-AU")}/year)</strong> when switched to prime 5.69% tier.`;
+
+      setTimeout(() => {
+        advanceScene();
+      }, 400);
+    }
+
+    function pickRefiLender(lenderKey, label) {
+      appState.refiLender = lenderKey;
+      appState.refiLenderLabel = label;
+      advanceScene();
+    }
+
+    // =========================================================================
+    // FLOW 3 (INVESTOR) ACTIONS
+    // =========================================================================
+    function pickInvestPortfolio(portKey, label) {
+      appState.investPortfolio = portKey;
+      appState.investPortfolioLabel = label;
+      advanceScene();
+    }
+
+    function pickInvestStrategy(stratKey, label) {
+      appState.investStrategy = stratKey;
+      appState.investStrategyLabel = label;
+      advanceScene();
+    }
+
+    function updateInvestBudget(val) {
+      appState.investBudget = parseInt(val, 10);
+      document.getElementById("invest-budget-display").innerText = "$" + appState.investBudget.toLocaleString("en-AU");
+    }
+
+    function setInvestBudget(val) {
+      document.getElementById("invest-budget-slider").value = val;
+      updateInvestBudget(val);
+      document.querySelectorAll("#scene-invest-budget .chips-row .chip-btn").forEach(b => b.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+    }
+
+    function pickInvestStructure(structKey, label) {
+      appState.investStructure = structKey;
+      appState.investStructureLabel = label;
+      advanceScene();
+    }
+
+    // =========================================================================
+    // FLOW 4 (COMMERCIAL & ABN) ACTIONS
+    // =========================================================================
+    function pickCommType(typeKey, label) {
+      appState.commType = typeKey;
+      appState.commTypeLabel = label;
+      advanceScene();
+    }
+
+    function pickCommAbn(abnKey, label) {
+      appState.commAbnTenure = abnKey;
+      appState.commAbnLabel = label;
+      advanceScene();
+    }
+
+    function pickCommDocs(docKey, label) {
+      appState.commDocs = docKey;
+      appState.commDocsLabel = label;
+      advanceScene();
+    }
+
+    function updateCommAmount(val) {
+      appState.commAmount = parseInt(val, 10);
+      document.getElementById("comm-amount-display").innerText = "$" + appState.commAmount.toLocaleString("en-AU");
+    }
+
+    function setCommAmount(val) {
+      document.getElementById("comm-amount-slider").value = val;
+      updateCommAmount(val);
+      document.querySelectorAll("#scene-comm-amount .chips-row .chip-btn").forEach(b => b.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+    }
+
+    // =========================================================================
+    // SCANNER & OUTCOME GENERATOR
+    // =========================================================================
     function startScannerSequence() {
+      transitionScene("scene-scanner");
+
       const terminal = document.getElementById("scanner-terminal");
       const progressNum = document.getElementById("scan-progress-num");
-      terminal.innerHTML = `<div class="log-line">> Initiating APRA lending policy scan for ${funnelData.state}...</div>`;
+      const scanTitle = document.getElementById("scanner-title");
+      terminal.innerHTML = `<div class="log-line">> Initiating APRA lending matrices for [${appState.flow.toUpperCase()}]...</div>`;
 
-      const logs = [
-        { pct: 28, text: `> Filtering 35+ bank panels for ${funnelData.propertyLabel}...` },
-        { pct: 54, text: `> Analyzing borrowing policy for ${funnelData.incomeLabel}...` },
-        { pct: 76, text: `> Calculating ${funnelData.depositPct}% LVR buffer & LMI waiver tiers...` },
-        { pct: 92, text: `> Matching top ASIC-licensed specialist broker with 5.0★ rating...` },
-        { pct: 100, text: `> MATCH COMPLETE: Optimal borrowing scenario generated.` }
-      ];
+      let logs = [];
+      if (appState.flow === "buy") {
+        scanTitle.innerText = "Analyzing 35+ Home Buyer Bank Panels...";
+        logs = [
+          { pct: 25, text: `> Filtering 35+ bank panels for ${appState.buyPropertyLabel}...` },
+          { pct: 50, text: `> Calculating ${appState.buyState} First Home stamp duty relief...` },
+          { pct: 75, text: `> Evaluating ${appState.buyDepositPct}% LVR buffer & LMI waiver policy...` },
+          { pct: 90, text: `> Matching ASIC-licensed senior credit specialist (CRN verified)...` },
+          { pct: 100, text: `> MATCH COMPLETE: Optimal borrowing envelope generated.` }
+        ];
+      } else if (appState.flow === "refi") {
+        scanTitle.innerText = "Scanning 35+ Refinance Rate & Cashback Panels...";
+        logs = [
+          { pct: 25, text: `> Auditing current ${appState.refiCurrentRate}% rate vs market wholesale...` },
+          { pct: 50, text: `> Calculating equity release buffer (~$${Math.round(appState.refiHomeVal*0.8 - appState.refiLoanBal).toLocaleString("en-AU")})...` },
+          { pct: 75, text: `> Locating $2k–$3k direct refinance rebate specials...` },
+          { pct: 90, text: `> Matching accredited rate-negotiation broker specialist...` },
+          { pct: 100, text: `> MATCH COMPLETE: Annual savings & cashback strategy ready.` }
+        ];
+      } else if (appState.flow === "invest") {
+        scanTitle.innerText = "Scanning Multi-Bank Investor Servicing Panels...";
+        logs = [
+          { pct: 25, text: `> Factoring in 80% rental shading for $${appState.investBudget.toLocaleString("en-AU")} budget...` },
+          { pct: 50, text: `> Formulating uncrossed security standalone mortgage tranches...` },
+          { pct: 75, text: `> Optimizing 5-year Interest-Only tax deduction capacity...` },
+          { pct: 90, text: `> Matching property investment mortgage specialist...` },
+          { pct: 100, text: `> MATCH COMPLETE: Portfolio scaling scenario generated.` }
+        ];
+      } else {
+        scanTitle.innerText = "Scanning Commercial & Alt-Doc ABN Panels...";
+        logs = [
+          { pct: 25, text: `> Isolating ${appState.commAbnLabel} specialist non-bank panels...` },
+          { pct: 50, text: `> Applying ${appState.commDocsLabel} income add-back matrix...` },
+          { pct: 75, text: `> Verifying facility capacity for $${appState.commAmount.toLocaleString("en-AU")}...` },
+          { pct: 90, text: `> Matching commercial credit broker specialist...` },
+          { pct: 100, text: `> MATCH COMPLETE: Commercial & Alt-Doc facility matched.` }
+        ];
+      }
 
       let logIdx = 0;
       const interval = setInterval(() => {
@@ -1695,66 +2490,110 @@
           line.innerText = item.text;
           terminal.appendChild(line);
           terminal.scrollTop = terminal.scrollHeight;
-          playSwooshSound(300 + (logIdx * 50));
+          playSwooshSound(280 + (logIdx * 55));
           logIdx++;
         } else {
           clearInterval(interval);
           setTimeout(() => {
-            populateDossier();
-            transitionToScene(7);
+            populateOutcomeDossier();
+            transitionScene("scene-outcome");
           }, 600);
         }
       }, 450);
     }
 
-    function populateDossier() {
-      const metricLabel1 = document.querySelector(".metric-pill-box:first-child .label");
-      const strat = document.getElementById("res-strategy-text");
+    function populateOutcomeDossier() {
+      const heading = document.getElementById("outcome-heading");
+      const subhead = document.getElementById("outcome-subhead");
+      const label1 = document.getElementById("metric-label-1");
+      const val1 = document.getElementById("res-metric-1");
+      const label2 = document.getElementById("metric-label-2");
+      const val2 = document.getElementById("res-metric-2");
+      const strat = document.getElementById("outcome-strategy-text");
+      const brokerName = document.getElementById("matched-broker-name");
+      const brokerCreds = document.getElementById("matched-broker-creds");
 
-      if (funnelData.goal === "refi") {
-        if (metricLabel1) metricLabel1.innerText = "Est. Annual Savings";
-        const estSavings = Math.round((funnelData.price * 0.0065) + 1200);
-        document.getElementById("res-borrowing-val").innerText = `$${estSavings.toLocaleString("en-AU")}/yr`;
-        document.getElementById("res-rate-val").innerText = "5.69% p.a.";
-        strat.innerHTML = "<strong>Rate Squeeze & Cashback Optimization:</strong> Dropping your loan margin to 5.69% unlocks approx. $380/month in cashflow relief plus up to $2,000 in bank refinance rebate credits.";
-      } else if (funnelData.goal === "invest") {
-        if (metricLabel1) metricLabel1.innerText = "Portfolio Capacity";
-        const highBorrow = Math.round(funnelData.price * 1.15);
-        document.getElementById("res-borrowing-val").innerText = `$${(funnelData.price / 1000).toFixed(0)}k – $${(highBorrow / 1000).toFixed(0)}k`;
-        document.getElementById("res-rate-val").innerText = "5.89% p.a. (Inv)";
-        strat.innerHTML = "<strong>Tax-Effective Leverage Structuring:</strong> Equity extraction via offset / interest-only tranche to maximize tax deductibility and protect personal home security.";
-      } else {
-        if (metricLabel1) metricLabel1.innerText = "Est. Borrowing Power";
-        const baseBorrow = Math.round(funnelData.price * 0.95);
-        const highBorrow = Math.round(funnelData.price * 1.08);
+      if (appState.flow === "buy") {
+        heading.innerText = "Your Home Buying Approval Scenario";
+        subhead.innerText = `Calibrated for ${appState.buyPropertyLabel} in ${appState.buyState} with ${appState.buyDepositPct}% deposit:`;
+        label1.innerText = "Est. Borrowing Power";
+        const base = Math.round(appState.buyPrice * 0.95);
+        const high = Math.round(appState.buyPrice * 1.08);
+        val1.innerText = `$${(base/1000).toFixed(0)}k – $${(high/1000).toFixed(0)}k`;
 
-        document.getElementById("res-borrowing-val").innerText = 
-          `$${(baseBorrow / 1000).toFixed(0)}k – $${(highBorrow / 1000).toFixed(0)}k`;
+        label2.innerText = "Indicative Prime Rate";
+        let r = "5.74% p.a.";
+        if (appState.buyDepositPct >= 20) r = "5.64% p.a.";
+        if (appState.buyIncome === "medico") r = "5.59% p.a.";
+        val2.innerText = r;
 
-        let rate = "5.74% p.a.";
-        if (funnelData.depositPct >= 20) rate = "5.64% p.a.";
-        if (funnelData.incomeType === "medico") rate = "5.59% p.a.";
-        document.getElementById("res-rate-val").innerText = rate;
-
-        if (funnelData.incomeType === "medico") {
-          strat.innerHTML = "<strong>Doctor / Medico Advantage:</strong> 90–95% LVR approved with 100% LMI fee waiver ($0 mortgage insurance) and wholesale tier rate.";
-        } else if (funnelData.incomeType === "abn") {
-          strat.innerHTML = "<strong>Alt-Doc Specialist Panel:</strong> Matched with lenders accepting 1-year ABN and 12-month BAS statements without 2 full tax return delays.";
-        } else if (funnelData.depositPct === 5) {
-          strat.innerHTML = "<strong>Federal 5% Guarantee Route:</strong> Prioritized under the First Home Guarantee quota to avoid $18k+ in LMI.";
+        if (appState.buyIncome === "medico") {
+          strat.innerHTML = "<strong>Doctor / Medico Advantage:</strong> 90–95% LVR approved with 100% LMI fee waiver ($0 insurance penalty) and wholesale tier rate.";
+        } else if (appState.buyDepositPct === 5) {
+          strat.innerHTML = "<strong>Federal 5% Scheme Quota:</strong> Priority fast-track to avoid $18k+ in LMI under the First Home Guarantee quota.";
         } else {
-          strat.innerHTML = "<strong>Prime Tier-1 Portfolio:</strong> Direct pass through to major bank discounted broker channel with fastest pre-approval SLA.";
+          strat.innerHTML = "<strong>Tier-1 Major Bank Panel:</strong> Pre-approval routed to lender with fastest 48-hour formal credit turnaround.";
         }
+        brokerName.innerText = "Marcus Vance (CRN #482910)";
+        brokerCreds.innerText = "First Home & Residential Specialist • 5.0 ★ (184 Reviews)";
+
+      } else if (appState.flow === "refi") {
+        heading.innerText = "Your Rate Cut & Cashback Scenario";
+        subhead.innerText = `Calculated on $${appState.refiLoanBal.toLocaleString("en-AU")} remaining balance on $${appState.refiHomeVal.toLocaleString("en-AU")} property:`;
+        
+        label1.innerText = "Est. Annual Savings";
+        const monthlySavings = Math.round((appState.refiLoanBal * (Math.max(0.35, appState.refiCurrentRate - 5.69) / 100)) / 12);
+        val1.innerText = `$${(monthlySavings * 12).toLocaleString("en-AU")}/yr`;
+
+        label2.innerText = "New Lower Rate Tier";
+        val2.innerText = "5.69% p.a.";
+
+        const max80 = Math.round(appState.refiHomeVal * 0.8);
+        const eq = Math.max(0, max80 - appState.refiLoanBal);
+        strat.innerHTML = `<strong>Rate Drop & Cashflow Relief:</strong> Saving ~$${monthlySavings.toLocaleString("en-AU")}/month ($${(monthlySavings * 12).toLocaleString("en-AU")}/year) + ~$${eq.toLocaleString("en-AU")} usable equity buffer and up to $2,000 bank cashback.`;
+        brokerName.innerText = "David Chi Tran (CRN #510492)";
+        brokerCreds.innerText = "Refinance & Debt Restructuring Specialist • 5.0 ★ (216 Reviews)";
+
+      } else if (appState.flow === "invest") {
+        heading.innerText = "Your Investment Portfolio Blueprint";
+        subhead.innerText = `Structured for $${appState.investBudget.toLocaleString("en-AU")} investment purchase with tax-effective leverage:`;
+
+        label1.innerText = "Portfolio Capacity";
+        const maxInvest = Math.round(appState.investBudget * 1.15);
+        val1.innerText = `$${(appState.investBudget/1000).toFixed(0)}k – $${(maxInvest/1000).toFixed(0)}k`;
+
+        label2.innerText = "Investor Rate Tier";
+        val2.innerText = "5.84% p.a. (IO)";
+
+        strat.innerHTML = "<strong>Standalone Uncrossed Structure:</strong> 5-Year Interest-Only facility with offset account to maximize tax deductions while keeping family home unencumbered.";
+        brokerName.innerText = "Marcus Vance (CRN #482910)";
+        brokerCreds.innerText = "Strategic Property Investor Specialist • 5.0 ★ (184 Reviews)";
+
+      } else {
+        heading.innerText = "Your Commercial & ABN Financing Facility";
+        subhead.innerText = `Matched for ${appState.commTypeLabel} with ${appState.commDocsLabel}:`;
+
+        label1.innerText = "Facility Approval Size";
+        val1.innerText = `$${(appState.commAmount/1000).toFixed(0)}k Facility`;
+
+        label2.innerText = "Commercial Rate Tier";
+        val2.innerText = "6.14% p.a.";
+
+        strat.innerHTML = `<strong>Alt-Doc Policy Matrix:</strong> Approved using 12-Month BAS add-backs with non-bank commercial panel bypassing full 2-year tax return delays.`;
+        brokerName.innerText = "Hunter Galloway Commercial (ACL #389104)";
+        brokerCreds.innerText = "Commercial & Alt-Doc ABN Specialist • 5.0 ★ (340 Reviews)";
       }
     }
 
+    // =========================================================================
+    // SUBMISSION & CONFETTI
+    // =========================================================================
     function submitLead() {
       const name = document.getElementById("lead-name").value.trim();
       const phone = document.getElementById("lead-phone").value.trim();
-      const email = document.getElementById("lead-email").value.trim();
 
       if (!name || !phone) {
-        alert("Please enter your name and phone number so we can deliver your tailored borrowing dossier.");
+        alert("Please enter your name and phone number to deliver your tailored borrowing dossier.");
         return;
       }
 
@@ -1762,14 +2601,13 @@
       triggerConfetti();
 
       document.getElementById("success-desc").innerText = 
-        `Great job ${name.split(" ")[0]}! Your tailored ${funnelData.state} borrowing scenario has been dispatched.`;
+        `Great job ${name.split(" ")[0]}! Your tailored Australian lending assessment has been dispatched.`;
 
-      transitionToScene(8);
+      transitionScene("scene-success");
     }
 
     function resetFunnel() {
-      funnelData.goal = "buy";
-      currentSceneIndex = 0;
+      appState.history = ["scene-0"];
       document.querySelectorAll(".scene").forEach(s => s.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward"));
       document.getElementById("scene-0").classList.add("active");
       updateHeaderAndProgress();
@@ -1782,19 +2620,19 @@
       canvas.height = window.innerHeight;
 
       const particles = [];
-      const colors = ["#38bdf8", "#10b981", "#f59e0b", "#ffffff", "#ec4899"];
+      const colors = ["#38bdf8", "#10b981", "#f59e0b", "#ffffff", "#ec4899", "#8b5cf6"];
 
-      for (let i = 0; i < 90; i++) {
+      for (let i = 0; i < 100; i++) {
         particles.push({
           x: canvas.width / 2,
           y: canvas.height / 2,
-          vx: (Math.random() - 0.5) * 16,
-          vy: (Math.random() - 0.5) * 16 - 4,
+          vx: (Math.random() - 0.5) * 18,
+          vy: (Math.random() - 0.5) * 18 - 4,
           size: Math.random() * 8 + 4,
           color: colors[Math.floor(Math.random() * colors.length)],
           alpha: 1,
           rot: Math.random() * 360,
-          vRot: (Math.random() - 0.5) * 10
+          vRot: (Math.random() - 0.5) * 12
         });
       }
 
@@ -1804,7 +2642,7 @@
         particles.forEach(p => {
           p.x += p.vx;
           p.y += p.vy;
-          p.vy += 0.35;
+          p.vy += 0.38;
           p.alpha -= 0.012;
           p.rot += p.vRot;
 

@@ -80,33 +80,41 @@
     }
 
     /* ============================================================ */
-    /* 1. HERO: SKY CANVAS + SWEET HOME ROOFLINE VIBES             */
+    /* 1. HERO: SKY CANVAS WITH ROUNDED CORNERS & ROOF SANCTUARY    */
     /* ============================================================ */
     .hero-sky-container {
-      background: linear-gradient(180deg, #2a83cb 0%, #54a7e6 40%, #7ec2f4 70%, #cce7fc 95%),
-                  radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.45) 0%, transparent 50%),
-                  radial-gradient(circle at 18% 35%, rgba(255, 255, 255, 0.3) 0%, transparent 45%);
-      min-height: 760px;
-      padding: 36px 36px 140px;
+      background: linear-gradient(180deg, #2d85ce 0%, #56a9e8 42%, #85c8f6 75%, #d8edfc 100%);
+      background-image: 
+        radial-gradient(circle at 80% 25%, rgba(255, 255, 255, 0.45) 0%, transparent 50%),
+        radial-gradient(circle at 18% 35%, rgba(255, 255, 255, 0.3) 0%, transparent 45%),
+        linear-gradient(180deg, #2a82cc 0%, #52a6e6 42%, #80c4f5 75%, #d8edfc 100%);
+      min-height: 740px;
+      padding: 36px 36px 90px;
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      border-radius: 0 0 54px 54px; /* Smooth rounded bottom corners like Liven! */
       overflow: hidden;
+      box-shadow: 0 16px 45px rgba(45, 133, 206, 0.12);
     }
 
-    /* Architectural Roofline Graphic Silhouette at bottom of Sky */
-    .hero-roofline-silhouette {
+    /* Sweet Home Roof Peak Image Layer (Bottom-Right against Clouds) */
+    .hero-home-roof-layer {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 140px;
+      bottom: -15px;
+      right: 2%;
+      width: clamp(340px, 38vw, 560px);
+      height: clamp(260px, 30vw, 420px);
       pointer-events: none;
-      z-index: 1;
-      opacity: 0.92;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' fill='%23ffffff'%3E%3Cpath d='M0,160 L0,110 L120,60 L240,110 L280,95 L340,65 L400,95 L460,50 L560,110 L680,40 L800,110 L920,55 L960,75 L1040,35 L1160,105 L1260,50 L1380,110 L1440,85 L1440,160 Z' fill='%23ffffff'/%3E%3Cpath d='M80,60 L95,60 L95,35 L80,35 Z M640,40 L655,40 L655,20 L640,20 Z M1010,35 L1025,35 L1025,15 L1010,15 Z' fill='%23ffffff' opacity='0.7'/%3E%3C/svg%3E") bottom center/cover no-repeat;
+      z-index: 2;
+      opacity: 0.95;
+      background: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80') center bottom/cover no-repeat;
+      mask-image: radial-gradient(circle at 65% 65%, black 45%, transparent 85%), linear-gradient(180deg, transparent 0%, black 25%, black 100%);
+      -webkit-mask-image: radial-gradient(circle at 65% 65%, black 45%, transparent 85%), linear-gradient(180deg, transparent 0%, black 25%, black 100%);
+      border-radius: 0 0 44px 0;
+      filter: saturate(1.1) contrast(1.05);
     }
 
     /* Floating White Navbar Pill */
@@ -191,7 +199,8 @@
     @media (max-width: 920px) {
       .hero-content-grid { grid-template-columns: 1fr; }
       .nav-links-cluster { display: none; }
-      .hero-sky-container { min-height: auto; padding-bottom: 80px; }
+      .hero-sky-container { min-height: auto; padding-bottom: 60px; }
+      .hero-home-roof-layer { display: none; }
     }
 
     .hero-left-copy {
@@ -234,9 +243,9 @@
 
     /* Hero Right: Big Frosted 2x2 Question Card */
     .hero-frosted-card {
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.26);
       backdrop-filter: blur(26px);
-      border: 1.5px solid rgba(255, 255, 255, 0.48);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
       border-radius: var(--radius-4xl);
       padding: 28px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
@@ -788,7 +797,7 @@
     }
 
     /* ============================================================ */
-    /* 6. FEATURES: REAL HUMANS IN SCENARIOS + FROSTED UI WIDGETS   */
+    /* 6. FEATURES: REAL HUMANS IN SANCTUARY + FROSTED UI WIDGETS  */
     /* ============================================================ */
     .section-features-giant {
       padding: 110px 0;
@@ -816,7 +825,7 @@
       position: relative;
       overflow: hidden;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.15fr 0.85fr;
       align-items: center;
       flex-shrink: 0;
       box-shadow: 0 18px 50px rgba(27, 41, 50, 0.1);
@@ -836,7 +845,7 @@
     .giant-feature-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(17, 29, 40, 0.92) 0%, rgba(17, 29, 40, 0.65) 55%, rgba(17, 29, 40, 0.15) 100%);
+      background: linear-gradient(90deg, rgba(17, 29, 40, 0.94) 0%, rgba(17, 29, 40, 0.68) 55%, rgba(17, 29, 40, 0.18) 100%);
     }
 
     /* Left Copy Column */
@@ -893,19 +902,19 @@
     .giant-frosted-ui-overlay {
       position: relative;
       z-index: 2;
-      padding: 40px;
+      padding: 30px 40px 30px 10px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
     .frosted-glass-widget {
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(20px);
-      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(24px);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
       border-radius: var(--radius-3xl);
       padding: 24px;
       width: 100%;
-      max-width: 280px;
+      max-width: 270px;
       box-shadow: 0 16px 36px rgba(0,0,0,0.25);
     }
     .widget-metric-badge {
@@ -917,7 +926,7 @@
     }
     .widget-sub {
       font-size: 0.78rem;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.88);
       margin-bottom: 14px;
     }
     .widget-progress-bar {
@@ -1215,7 +1224,7 @@
   </nav>
 
   <!-- ============================================================ -->
-  <!-- 1. HERO SECTION: SKY CANVAS WITH SWEET HOME ROOFLINE         -->
+  <!-- 1. HERO SECTION: SKY CANVAS WITH ROUNDED CORNERS & ROOF PEAK -->
   <!-- ============================================================ -->
   <section class="hero-sky-container">
     
@@ -1292,8 +1301,8 @@
 
     </div>
 
-    <!-- Architectural Roofline Silhouette (Sweet Home Sanctuary Vibes) -->
-    <div class="hero-roofline-silhouette"></div>
+    <!-- Sweet Home Roof Peak Layer (Smooth silhouette on bottom right) -->
+    <div class="hero-home-roof-layer"></div>
   </section>
 
   <!-- ============================================================ -->
