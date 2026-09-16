@@ -129,39 +129,40 @@
     .nav-links-cluster {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
+      white-space: nowrap;
     }
     .nav-item-link {
       color: var(--liven-dark);
       text-decoration: none;
       font-size: 0.98rem;
       font-weight: 600;
+      white-space: nowrap;
       transition: color 0.15s;
     }
     .nav-item-link:hover { color: var(--liven-green); }
 
-    /* LIVEN SEARCH BUTTON (Check upon broker) */
+    /* LIVEN SEARCH BUTTON (Clean Icon-Only Pill) */
     .nav-search-btn {
       background: #f4f8fa;
       color: var(--liven-dark);
       border: 1.5px solid var(--liven-border);
-      padding: 12px 22px;
+      width: 52px;
+      height: 52px;
       min-height: 52px;
       border-radius: var(--radius-full);
-      font-size: 0.95rem;
-      font-weight: 700;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
       transition: all 0.2s ease;
-      line-height: 1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
     .nav-search-btn:hover {
       background: #ffffff;
       border-color: var(--liven-green);
       color: var(--liven-green);
-      box-shadow: 0 4px 14px rgba(92, 167, 1, 0.18);
+      box-shadow: 0 4px 14px rgba(92, 167, 1, 0.22);
       transform: translateY(-2px);
     }
 
@@ -1287,12 +1288,11 @@
         <a href="#faq" class="nav-item-link">FAQs</a>
       </div>
       <div style="display:flex; align-items:center; gap:12px;">
-        <a href="google-omni.html" class="nav-search-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+        <a href="google-omni.html" class="nav-search-btn" title="Search & Check upon Broker" aria-label="Search brokers">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <span>Check upon broker</span>
         </a>
         <button class="nav-btn-green" onclick="openDiagnosticModal()">Get started</button>
       </div>
