@@ -293,8 +293,41 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 4px;
     }
-    .tile-icon { font-size: 1.6rem; }
+    .tile-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease;
+    }
+    .question-tile:hover .tile-icon-badge {
+      transform: scale(1.06);
+    }
+    .tile-badge-blue {
+      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+    }
+    .tile-badge-orange {
+      background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+      color: #ea580c;
+      border: 1px solid #fed7aa;
+    }
+    .tile-badge-purple {
+      background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+      color: #7c3aed;
+      border: 1px solid #ddd6fe;
+    }
+    .tile-badge-green {
+      background: linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 100%);
+      color: #059669;
+      border: 1px solid #a7f3d0;
+    }
     .tile-arrow {
       width: 26px;
       height: 26px;
@@ -1280,36 +1313,61 @@
         <div class="frosted-card-header">Pick where to start</div>
         <div class="hero-2x2-grid">
           
+          <!-- Tile 1: Key / First Home -->
           <div class="question-tile" onclick="openDiagnosticModal('rent')">
             <div class="tile-top-row">
-              <span class="tile-icon">🗝️</span>
+              <div class="tile-icon-badge tile-badge-blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 2l-2 2m-1.5 1.5L14 9l-1.5-1.5-2 2 1.5 1.5-2 2 1.5 1.5-2 2L6 20a4 4 0 1 1-5.66-5.66L12 2.66l2 2 1.5-1.5 2 2 1.5-1.5 2 2z"></path>
+                  <circle cx="7.5" cy="16.5" r="1.5" fill="currentColor"></circle>
+                </svg>
+              </div>
               <span class="tile-arrow">&rsaquo;</span>
             </div>
             <div class="tile-title">Tired of renting?</div>
             <div class="tile-desc">See what unlocks your 5% deposit.</div>
           </div>
 
+          <!-- Tile 2: Relief Flame -->
           <div class="question-tile" onclick="openDiagnosticModal('rates')">
             <div class="tile-top-row">
-              <span class="tile-icon">🔥</span>
+              <div class="tile-icon-badge tile-badge-orange">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 23c-4.97 0-9-4.03-9-9 0-4.04 2.87-7.84 6.74-9.35a1 1 0 0 1 1.34 1.13c-.38 1.9.36 3.86 1.92 5.02 1.56-1.16 2.3-3.12 1.92-5.02a1 1 0 0 1 1.34-1.13C20.13 6.16 23 9.96 23 14c0 4.97-4.03 9-9 9zm0-15.17C9.37 9.87 8 12.43 8 14.5a4 4 0 0 0 8 0c0-2.07-1.37-4.63-4-6.67z"/>
+                </svg>
+              </div>
               <span class="tile-arrow">&rsaquo;</span>
             </div>
             <div class="tile-title">Rates pinching lately?</div>
             <div class="tile-desc">Claw back monthly breathing room.</div>
           </div>
 
+          <!-- Tile 3: Portfolio / Business -->
           <div class="question-tile" onclick="openDiagnosticModal('abn')">
             <div class="tile-top-row">
-              <span class="tile-icon">💼</span>
+              <div class="tile-icon-badge tile-badge-purple">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  <circle cx="12" cy="14" r="1.5" fill="currentColor"></circle>
+                </svg>
+              </div>
               <span class="tile-arrow">&rsaquo;</span>
             </div>
             <div class="tile-title">Self-employed hurdles?</div>
             <div class="tile-desc">Get approved on actual cash flow.</div>
           </div>
 
+          <!-- Tile 4: Family Home Sanctuary -->
           <div class="question-tile" onclick="openDiagnosticModal('upsize')">
             <div class="tile-top-row">
-              <span class="tile-icon">🏡</span>
+              <div class="tile-icon-badge tile-badge-green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  <path d="M19 4v3" stroke-linecap="round"></path>
+                </svg>
+              </div>
               <span class="tile-arrow">&rsaquo;</span>
             </div>
             <div class="tile-title">Growing family needs?</div>
