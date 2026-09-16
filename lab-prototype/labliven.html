@@ -80,41 +80,21 @@
     }
 
     /* ============================================================ */
-    /* 1. HERO: SKY CANVAS WITH ROUNDED CORNERS & ROOF SANCTUARY    */
+    /* 1. HERO: REAL AUSTRALIAN HOME ROOFLINE & SKY BANNER          */
     /* ============================================================ */
     .hero-sky-container {
-      background: linear-gradient(180deg, #2d85ce 0%, #56a9e8 42%, #85c8f6 75%, #d8edfc 100%);
-      background-image: 
-        radial-gradient(circle at 80% 25%, rgba(255, 255, 255, 0.45) 0%, transparent 50%),
-        radial-gradient(circle at 18% 35%, rgba(255, 255, 255, 0.3) 0%, transparent 45%),
-        linear-gradient(180deg, #2a82cc 0%, #52a6e6 42%, #80c4f5 75%, #d8edfc 100%);
-      min-height: 740px;
+      background: linear-gradient(180deg, rgba(8, 26, 45, 0.22) 0%, rgba(8, 26, 45, 0.05) 50%, rgba(0, 0, 0, 0.12) 100%),
+                  url('assets/images/hero-roof-banner.png') center bottom/cover no-repeat;
+      min-height: 760px;
       padding: 36px 36px 90px;
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      border-radius: 0 0 54px 54px; /* Smooth rounded bottom corners like Liven! */
+      border-radius: 0 0 54px 54px; /* Smooth rounded bottom corners */
       overflow: hidden;
-      box-shadow: 0 16px 45px rgba(45, 133, 206, 0.12);
-    }
-
-    /* Sweet Home Roof Peak Image Layer (Bottom-Right against Clouds) */
-    .hero-home-roof-layer {
-      position: absolute;
-      bottom: -15px;
-      right: 2%;
-      width: clamp(340px, 38vw, 560px);
-      height: clamp(260px, 30vw, 420px);
-      pointer-events: none;
-      z-index: 2;
-      opacity: 0.95;
-      background: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80') center bottom/cover no-repeat;
-      mask-image: radial-gradient(circle at 65% 65%, black 45%, transparent 85%), linear-gradient(180deg, transparent 0%, black 25%, black 100%);
-      -webkit-mask-image: radial-gradient(circle at 65% 65%, black 45%, transparent 85%), linear-gradient(180deg, transparent 0%, black 25%, black 100%);
-      border-radius: 0 0 44px 0;
-      filter: saturate(1.1) contrast(1.05);
+      box-shadow: 0 18px 50px rgba(17, 41, 60, 0.14);
     }
 
     /* Floating White Navbar Pill */
@@ -201,7 +181,6 @@
       .hero-content-grid { grid-template-columns: 1fr; }
       .nav-links-cluster { display: none; }
       .hero-sky-container { min-height: auto; padding-bottom: 60px; }
-      .hero-home-roof-layer { display: none; }
     }
 
     .hero-left-copy {
@@ -1223,10 +1202,10 @@
   <!-- Top Lab Switcher Bar -->
   <nav class="lab-nav">
     <a href="labliven.html" class="lab-pill active">🌿 LabLiven (Exact Liven Design)</a>
-    <a href="index.html" class="lab-pill">🏛️ Lab V1 (Directory Home)</a>
+    <a href="liven-test.html" class="lab-pill" style="background:var(--liven-green); color:#fff; border-color:#7dd322; box-shadow:0 0 12px rgba(92,167,1,0.4);">⚡ Liven 3D Matcher Test (New)</a>
+    <a href="immersive-funnel.html" class="lab-pill">⚡ 3D Tunnel Funnel (Dark)</a>
+    <a href="google-omni.html" class="lab-pill">Level 1: Google Omni</a>
     <a href="broker/david-chi-tran.html" class="lab-pill">🎬 David Chi Tran (Verified Desk)</a>
-    <a href="broker/mortgage-pros-sample.html" class="lab-pill">📊 Mortgage Pros (Verified Desk)</a>
-    <a href="immersive-funnel.html" class="lab-pill">⚡ 3D Tunnel Funnel</a>
     <a href="calculator/index.html" class="lab-pill">🧮 Mortgage Calculator</a>
   </nav>
 
@@ -1307,9 +1286,6 @@
       </div>
 
     </div>
-
-    <!-- Sweet Home Roof Peak Layer (Smooth silhouette on bottom right) -->
-    <div class="hero-home-roof-layer"></div>
   </section>
 
   <!-- ============================================================ -->
