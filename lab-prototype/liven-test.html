@@ -55,7 +55,7 @@
       position: relative;
     }
 
-    /* Roofline Graphic Silhouette at Background Base */
+    /* Roofline Silhouette Graphic */
     .roofline-bg {
       position: fixed;
       bottom: 0;
@@ -99,43 +99,12 @@
       box-shadow: 0 0 14px rgba(92, 167, 1, 0.4);
     }
 
-    /* Audio Toggle Pill */
-    .audio-toggle-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 900;
-      background: #ffffff;
-      border: 1px solid var(--liven-border);
-      color: var(--liven-gray);
-      border-radius: var(--radius-full);
-      padding: 9px 16px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      transition: all 0.2s;
-    }
-    .audio-toggle-btn:hover {
-      color: var(--liven-green);
-      border-color: var(--liven-green);
-      transform: translateY(-2px);
-    }
-    .audio-toggle-btn.on {
-      color: var(--liven-green);
-      border-color: var(--liven-green);
-      background: #ffffff;
-    }
-
     /* 3D Viewport Stage */
     .viewport-3d {
       perspective: 1200px;
       perspective-origin: 50% 45%;
       width: 100%;
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       flex: 1;
       display: flex;
@@ -146,27 +115,80 @@
     }
 
     /* Floating White Navbar Pill */
-    .funnel-header-pill {
+    .floating-nav-pill {
       background: #ffffff;
       border-radius: var(--radius-full);
-      padding: 8px 16px 8px 20px;
+      padding: 8px 14px 8px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
       box-shadow: 0 10px 30px rgba(13, 30, 43, 0.1);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       position: relative;
       z-index: 50;
     }
+    .brand-logo-wrap {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--liven-green);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .brand-logo-wrap span {
+      color: var(--liven-dark);
+    }
+    .nav-actions-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Search Button to Check Up On A Broker */
+    .nav-search-btn {
+      background: var(--liven-gray-light);
+      border: 1.5px solid var(--liven-border);
+      color: var(--liven-dark);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-search-btn:hover {
+      background: #ffffff;
+      border-color: var(--liven-green);
+      color: var(--liven-green);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(92, 167, 1, 0.15);
+    }
+    .nav-search-icon {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
     .back-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       background: var(--liven-gray-light);
-      border: 1px solid var(--liven-border);
+      border: 1.5px solid var(--liven-border);
       color: var(--liven-dark);
-      padding: 6px 14px;
+      padding: 8px 14px;
       border-radius: var(--radius-full);
       font-size: 0.82rem;
       font-weight: 700;
@@ -185,34 +207,8 @@
       background: #e2e8f0;
       color: #0f172a;
     }
-    .brand-logo-wrap {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--liven-green);
-      letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .brand-logo-wrap span {
-      color: var(--liven-dark);
-    }
-    .live-policy-pill {
-      font-size: 0.72rem;
-      font-family: var(--font-mono);
-      background: var(--liven-green-soft);
-      color: var(--liven-green);
-      border: 1px solid var(--liven-green-border);
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
 
-    /* Progress Bar */
+    /* Progress Track */
     .progress-track {
       width: 100%;
       height: 6px;
@@ -231,7 +227,7 @@
       box-shadow: 0 0 10px rgba(92, 167, 1, 0.5);
     }
 
-    /* Scene Container */
+    /* 3D Scene Container */
     .scene-container {
       position: relative;
       flex: 1;
@@ -292,16 +288,38 @@
       filter: blur(12px);
     }
 
-    /* Liven White Sanctuary Card (Main Card Envelope) */
+    /* Liven White Sanctuary Card */
     .liven-white-card {
       background: #ffffff;
       border-radius: var(--radius-3xl);
-      padding: 30px 28px;
+      padding: 32px 28px;
       box-shadow: var(--shadow-liven);
       border: 1px solid rgba(255, 255, 255, 0.8);
       display: flex;
       flex-direction: column;
       gap: 16px;
+    }
+
+    /* SVG Icon General Styling */
+    .svg-icon {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .svg-icon-lg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
     }
 
     /* Scene Titles */
@@ -318,7 +336,7 @@
     }
     .scene-title {
       font-family: var(--font-display);
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.03em;
@@ -338,7 +356,7 @@
       padding: 14px 16px;
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
       font-size: 0.88rem;
       color: #274d08;
       line-height: 1.45;
@@ -346,6 +364,15 @@
     }
     .micro-feedback-box strong {
       color: #1f3d05;
+    }
+    .micro-feedback-icon {
+      width: 20px;
+      height: 20px;
+      stroke: var(--liven-green);
+      fill: none;
+      stroke-width: 2.2;
+      margin-top: 2px;
+      flex-shrink: 0;
     }
     @keyframes feedbackPulse {
       0% { opacity: 0; transform: translateY(-4px) scale(0.98); }
@@ -415,15 +442,20 @@
       height: 46px;
       border-radius: var(--radius-lg);
       background: var(--liven-gray-light);
+      color: var(--liven-gray);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
       flex-shrink: 0;
       transition: all 0.2s;
     }
     .option-card:hover .card-icon-wrap {
       background: var(--liven-green-soft);
+      color: var(--liven-green);
+    }
+    .option-card.selected .card-icon-wrap {
+      background: #ffffff;
+      color: var(--liven-green);
     }
     .card-text-group {
       display: flex;
@@ -694,7 +726,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
       box-shadow: 0 6px 20px rgba(92, 167, 1, 0.4);
       z-index: 2;
     }
@@ -717,48 +748,108 @@
     .log-line { opacity: 0.9; }
     .log-line.highlight { color: #ffffff; font-weight: 700; }
 
-    /* Dossier Metrics */
-    .metrics-grid {
+    /* Dossier Layout (Matched to labliven.html Top 2 Specialists) */
+    .dossier-results-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .matched-brokers-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 16px;
     }
-    .metric-pill-box {
-      background: var(--liven-gray-light);
-      border: 1px solid var(--liven-border);
-      border-radius: var(--radius-xl);
-      padding: 14px;
+    @media (max-width: 640px) {
+      .matched-brokers-grid { grid-template-columns: 1fr; }
     }
-    .metric-pill-box .label {
-      font-size: 0.74rem;
-      color: var(--liven-gray);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 700;
-    }
-    .metric-pill-box .val {
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: var(--liven-dark);
-      margin-top: 2px;
-    }
-
-    .broker-match-preview {
+    .matched-broker-card {
+      background: #ffffff;
+      border: 1.5px solid var(--liven-border);
+      border-top: 5px solid var(--liven-green);
+      border-radius: var(--radius-2xl);
+      padding: 22px;
       display: flex;
-      align-items: center;
-      gap: 14px;
-      background: var(--liven-gray-light);
-      border: 1px solid var(--liven-border);
-      border-radius: var(--radius-xl);
-      padding: 14px;
+      flex-direction: column;
+      box-shadow: 0 6px 20px rgba(13, 30, 43, 0.04);
     }
-    .broker-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
+    .matched-broker-card.alt-accent {
+      border-top-color: #0284c7;
+    }
+    .broker-option-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      width: fit-content;
+      margin-bottom: 14px;
+    }
+    .broker-header-row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .broker-avatar-img {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
       object-fit: cover;
-      border: 2px solid var(--liven-green);
+    }
+    .broker-name-h {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--liven-dark);
+    }
+    .broker-sub-id {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .broker-stat-box-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .mini-stat-cell {
+      background: var(--liven-gray-light);
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 8px 10px;
+    }
+    .mini-stat-val {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--liven-dark);
+    }
+    .mini-stat-lbl {
+      font-size: 0.7rem;
+      color: #64748b;
+    }
+    .broker-profile-cta-btn {
+      background: var(--liven-green);
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 12px;
+      border-radius: var(--radius-full);
+      margin-top: auto;
+      display: block;
+      transition: all 0.2s;
+    }
+    .broker-profile-cta-btn:hover {
+      background: var(--liven-green-hover);
+      transform: translateY(-1px);
+    }
+    .broker-profile-cta-btn.blue {
+      background: #0284c7;
+    }
+    .broker-profile-cta-btn.blue:hover {
+      background: #0369a1;
     }
 
     #confetti-canvas {
@@ -782,20 +873,14 @@
 
   <!-- TOP LAB SELECTOR -->
   <div class="lab-nav">
-    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
-    <a href="labliven.html" class="lab-pill">🌿 Liven Sanctuary Hub</a>
-    <a href="liven-test.html" class="lab-pill active">⚡ Liven 3D Matcher</a>
-    <a href="google-omni.html" class="lab-pill">Level 1: Google Omni</a>
+    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">TACTILE LAB:</span>
+    <a href="labliven.html" class="lab-pill">LabLiven Sanctuary Hub</a>
+    <a href="liven-test.html" class="lab-pill active">Liven 3D Matcher</a>
+    <a href="liven-search.html" class="lab-pill" style="background:var(--liven-green); color:#fff; border-color:#7dd322;">Check Up on Broker</a>
+    <a href="google-omni.html" class="lab-pill">Google Omni</a>
     <a href="state/nsw.html" class="lab-pill">Level 2: State Hub</a>
     <a href="broker/david-chi-tran.html" class="lab-pill">VSL: David Tran</a>
-    <a href="broker/marcus-vance.html" class="lab-pill">VSL: Marcus Vance</a>
   </div>
-
-  <!-- SOUND TOGGLE -->
-  <button class="audio-toggle-btn on" id="sound-btn" onclick="toggleSound()">
-    <span id="sound-icon">🔊</span>
-    <span id="sound-text">Sound ON</span>
-  </button>
 
   <div class="roofline-bg"></div>
   <canvas id="confetti-canvas"></canvas>
@@ -803,18 +888,23 @@
   <!-- 3D TUNNEL VIEWPORT -->
   <main class="viewport-3d">
 
-    <!-- TOP FLOATING HEADER PILL -->
-    <header class="funnel-header-pill">
+    <!-- FLOATING NAVBAR PILL -->
+    <header class="floating-nav-pill">
       <button class="back-btn" id="back-btn" onclick="navigateBack()">
-        ← Back
+        <svg class="svg-icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span>Back</span>
       </button>
 
-      <div class="brand-logo-wrap">
-        Best<span>Brokers</span>
-      </div>
+      <a href="labliven.html" class="brand-logo-wrap">
+        best<span>brokers</span>
+      </a>
 
-      <div class="live-policy-pill">
-        <span>●</span> ASIC BID COMPLIANT
+      <div class="nav-actions-group">
+        <!-- Search Symbol to Check Up on Broker -->
+        <a href="liven-search.html" class="nav-search-btn" title="Check up on a broker">
+          <svg class="nav-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Check broker</span>
+        </a>
       </div>
     </header>
 
@@ -829,14 +919,19 @@
       <!-- ================= SCENE 0: UNIVERSAL ENTRY / 4-PILLAR ROUTER ================= -->
       <section class="scene active" id="scene-0">
         <div class="liven-white-card">
-          <div class="scene-tag">🌿 60-SECOND FINANCIAL SANCTUARY MATCH</div>
+          <div class="scene-tag">
+            <svg class="svg-icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            <span>60-SECOND FINANCIAL SANCTUARY MATCH</span>
+          </div>
           <h1 class="scene-title">What is your #1 lending mission today?</h1>
           <p class="scene-desc">Stop carrying the loan stress alone. Select your scenario to scan 35+ Australian bank panels with zero credit score impact.</p>
 
           <div class="options-grid">
             <div class="option-card" onclick="startFlow('buy')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏡</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">I want to buy a home</div>
                   <div class="card-subtext">First home buyer, next home upgrader, or building</div>
@@ -847,7 +942,9 @@
 
             <div class="option-card" onclick="startFlow('refi')">
               <div class="card-left">
-                <div class="card-icon-wrap">📉</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">I want to refinance & slash my rate</div>
                   <div class="card-subtext">Lower repayments, cash out equity, or debt consolidation</div>
@@ -858,7 +955,9 @@
 
             <div class="option-card" onclick="startFlow('invest')">
               <div class="card-left">
-                <div class="card-icon-wrap">📈</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">I want to invest & build wealth</div>
                   <div class="card-subtext">Extract equity, rentvesting, or scale property portfolio</div>
@@ -869,7 +968,9 @@
 
             <div class="option-card" onclick="startFlow('commercial')">
               <div class="card-left">
-                <div class="card-icon-wrap">💼</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Self-Employed / Commercial Finance</div>
                   <div class="card-subtext">1-yr ABN Alt-Doc, commercial warehouses, or working capital</div>
@@ -880,7 +981,7 @@
           </div>
 
           <div class="micro-feedback-box" style="margin-top: 4px;">
-            <span>🛡️</span>
+            <svg class="micro-feedback-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             <div>
               <strong>100% ASIC Best Interests Duty (BID) Guarantee:</strong> Brokers are legally mandated to work exclusively for your benefit, not bank profits.
             </div>
@@ -900,7 +1001,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickBuyStage('browsing', 'Researching Capacity')">
               <div class="card-left">
-                <div class="card-icon-wrap">🔍</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Looking at listings & calculating budget</div>
                   <div class="card-subtext">Planning ahead 3–6 months out</div>
@@ -911,7 +1014,9 @@
 
             <div class="option-card" onclick="pickBuyStage('inspecting', 'Attending Open Homes')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏘️</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Actively inspecting properties & bidding</div>
                   <div class="card-subtext">Need solid pre-approval within 30–60 days</div>
@@ -922,7 +1027,9 @@
 
             <div class="option-card" onclick="pickBuyStage('signed', 'Contract Signed / Auction')">
               <div class="card-left">
-                <div class="card-icon-wrap">✍️</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Signed contract / Auction coming up</div>
                   <div class="card-subtext">Urgent formal finance clause (<5 days SLA)</div>
@@ -933,7 +1040,7 @@
           </div>
 
           <div class="micro-feedback-box" id="buy-stage-feedback" style="display: none;">
-            <span>💡</span>
+            <svg class="micro-feedback-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
             <div id="buy-stage-feedback-text"></div>
           </div>
         </div>
@@ -1030,7 +1137,7 @@
           </div>
 
           <div class="micro-feedback-box" id="buy-finance-feedback">
-            <span>🎯</span>
+            <svg class="micro-feedback-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
             <div id="buy-finance-feedback-text">
               <strong>20% Deposit (80% LVR):</strong> You bypass Lenders Mortgage Insurance (saving approx. $16,400) and qualify for top-tier discounted bank rates.
             </div>
@@ -1065,7 +1172,7 @@
           </div>
 
           <div class="micro-feedback-box" id="buy-state-feedback">
-            <span>🏛️</span>
+            <svg class="micro-feedback-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
             <div id="buy-state-feedback-text">
               <strong>NSW First Home Policy:</strong> Full transfer stamp duty exemption up to $800,000 and concessions up to $1,000,000.
             </div>
@@ -1087,7 +1194,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickBuyIncome('payg', 'Standard PAYG Employee')">
               <div class="card-left">
-                <div class="card-icon-wrap">👔</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Standard Full / Part-Time PAYG</div>
                   <div class="card-subtext">Permanent employment with regular payslips</div>
@@ -1098,7 +1207,9 @@
 
             <div class="option-card" onclick="pickBuyIncome('abn', 'Self-Employed / 1-Yr ABN')">
               <div class="card-left">
-                <div class="card-icon-wrap">💼</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Self-Employed / Sole Trader / Company</div>
                   <div class="card-subtext">1-yr ABN, BAS statements, Alt-Doc</div>
@@ -1109,7 +1220,9 @@
 
             <div class="option-card" onclick="pickBuyIncome('medico', 'Doctor / Lawyer / Mining Pro')">
               <div class="card-left">
-                <div class="card-icon-wrap">🩺</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Doctor, Lawyer or Mining Professional</div>
                   <div class="card-subtext">Eligible for 90–95% LMI Fee Waivers ($0 LMI)</div>
@@ -1120,7 +1233,9 @@
 
             <div class="option-card" onclick="pickBuyIncome('casual', 'Casual / Contractor / Gig')">
               <div class="card-left">
-                <div class="card-icon-wrap">🔀</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Contractor, Casual or Overtime Heavy</div>
                   <div class="card-subtext">Needs flexible non-standard shading</div>
@@ -1144,7 +1259,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickRefiGoal('lower-rate', 'Slash Monthly Repayments')">
               <div class="card-left">
-                <div class="card-icon-wrap">📉</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Slash my interest rate & monthly repayments</div>
                   <div class="card-subtext">Reduce monthly cashflow squeeze & interest bill</div>
@@ -1155,7 +1272,9 @@
 
             <div class="option-card" onclick="pickRefiGoal('cashout', 'Cash-out Equity for Renovations/Investing')">
               <div class="card-left">
-                <div class="card-icon-wrap">💰</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Cash-out home equity</div>
                   <div class="card-subtext">Fund renovations, personal buffer, or property deposit</div>
@@ -1166,7 +1285,9 @@
 
             <div class="option-card" onclick="pickRefiGoal('consolidate', 'Debt Consolidation')">
               <div class="card-left">
-                <div class="card-icon-wrap">💳</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Consolidate high-interest debts</div>
                   <div class="card-subtext">Roll car loans & credit cards into a low 5% home rate</div>
@@ -1177,7 +1298,9 @@
 
             <div class="option-card" onclick="pickRefiGoal('offset', 'Add 100% Offset / Split Loan')">
               <div class="card-left">
-                <div class="card-icon-wrap">🔄</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Switch to 100% Offset Account / Split Loan</div>
                   <div class="card-subtext">Park savings to reduce daily mortgage interest</div>
@@ -1216,7 +1339,7 @@
           </div>
 
           <div class="micro-feedback-box" id="refi-equity-feedback">
-            <span>💰</span>
+            <svg class="micro-feedback-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M16 12l-4-4-4 4"></path></svg>
             <div id="refi-equity-feedback-text">
               <strong>Usable Equity: ~$140,000 (at 80% LVR)</strong> with zero LMI fee. You qualify for Tier-1 major bank refinance rates.
             </div>
@@ -1238,7 +1361,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickRefiRate(6.65, 'Above 6.50% (High Margin)')">
               <div class="card-left">
-                <div class="card-icon-wrap">🔴</div>
+                <div class="card-icon-wrap" style="color:#ef4444;">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Above 6.50% p.a.</div>
                   <div class="card-subtext">Overpaying significantly compared to current market specials</div>
@@ -1249,7 +1374,9 @@
 
             <div class="option-card" onclick="pickRefiRate(6.25, '6.15% – 6.49%')">
               <div class="card-left">
-                <div class="card-icon-wrap">🟡</div>
+                <div class="card-icon-wrap" style="color:#f59e0b;">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">6.15% – 6.49% p.a.</div>
                   <div class="card-subtext">Standard retail bank loyalty tax tier</div>
@@ -1260,7 +1387,9 @@
 
             <div class="option-card" onclick="pickRefiRate(5.95, '5.85% – 6.14%')">
               <div class="card-left">
-                <div class="card-icon-wrap">🟢</div>
+                <div class="card-icon-wrap" style="color:var(--liven-green);">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 12 15 16 10"></polyline></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">5.85% – 6.14% p.a.</div>
                   <div class="card-subtext">Competitive, but cashback or lower tier rates still available</div>
@@ -1271,7 +1400,9 @@
 
             <div class="option-card" onclick="pickRefiRate(6.30, 'Not Sure / Standard Variable')">
               <div class="card-left">
-                <div class="card-icon-wrap">🔍</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">I'm not sure / need a rate audit</div>
                   <div class="card-subtext">We'll benchmark against the top 35 lenders for you</div>
@@ -1282,7 +1413,7 @@
           </div>
 
           <div class="micro-feedback-box" id="refi-savings-box" style="display: none;">
-            <span>⚡</span>
+            <svg class="micro-feedback-icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>
             <div id="refi-savings-text"></div>
           </div>
         </div>
@@ -1298,7 +1429,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickRefiLender('big4', 'Big 4 Bank (CBA, Westpac, ANZ, NAB)')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏦</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V10"></path><path d="M19 21V10"></path><path d="M9 21v-4"></path><path d="M15 21v-4"></path><polygon points="12 2 2 7 22 7 12 2"></polygon></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Big 4 Bank (CBA, Westpac, ANZ, NAB)</div>
                   <div class="card-subtext">Prime targets for external competitor rate matching & cashbacks</div>
@@ -1309,7 +1442,9 @@
 
             <div class="option-card" onclick="pickRefiLender('mid', 'Mid-Tier Bank (Macquarie, ING, Bankwest, Suncorp)')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏢</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Mid-Tier Bank (Macquarie, ING, Bankwest, Suncorp)</div>
                   <div class="card-subtext">Great products with alternative pricing discounts</div>
@@ -1320,7 +1455,9 @@
 
             <div class="option-card" onclick="pickRefiLender('nonbank', 'Non-Bank / Online Lender')">
               <div class="card-left">
-                <div class="card-icon-wrap">💻</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Non-Bank, Credit Union or Online Lender</div>
                   <div class="card-subtext">Pepper, Liberty, Athena, Tiimely, Heritage</div>
@@ -1344,7 +1481,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickInvestPortfolio('own-home', 'Homeowner with Equity')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏠</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">I own my home with equity</div>
                   <div class="card-subtext">Ready to leverage equity into my 1st or 2nd investment</div>
@@ -1355,7 +1494,9 @@
 
             <div class="option-card" onclick="pickInvestPortfolio('rentvest', 'Rentvestor (Renting home, buying investment)')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏙️</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">I rent where I live & want to "Rentvest"</div>
                   <div class="card-subtext">Buy where I can afford, rent where I want to live</div>
@@ -1366,7 +1507,9 @@
 
             <div class="option-card" onclick="pickInvestPortfolio('multi', 'Multiple Properties (3+ Portfolio)')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏢</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M19 21v-4"></path><path d="M19 11V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Experienced Investor (Own 2+ Properties)</div>
                   <div class="card-subtext">Need specialist multi-bank servicing & cashflow expansion</div>
@@ -1388,7 +1531,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickInvestStrategy('growth', 'High Capital Growth (Metro)')">
               <div class="card-left">
-                <div class="card-icon-wrap">📈</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">High Capital Growth</div>
                   <div class="card-subtext">Metro freestanding homes with strong historical land appreciation</div>
@@ -1399,7 +1544,9 @@
 
             <div class="option-card" onclick="pickInvestStrategy('yield', 'High Rental Yield / Positive Cashflow')">
               <div class="card-left">
-                <div class="card-icon-wrap">💵</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">High Rental Cashflow & Yield</div>
                   <div class="card-subtext">Regional, dual-occupancy, rooming house, or NDIS/SDA</div>
@@ -1410,7 +1557,9 @@
 
             <div class="option-card" onclick="pickInvestStrategy('tax', 'Tax Optimization / Negative Gearing')">
               <div class="card-left">
-                <div class="card-icon-wrap">🛡️</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Tax Deduction & Negative Gearing</div>
                   <div class="card-subtext">Offset high taxable personal salary with depreciation deductions</div>
@@ -1443,7 +1592,7 @@
           </div>
 
           <div class="micro-feedback-box">
-            <span>💡</span>
+            <svg class="micro-feedback-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
             <div>
               <strong>Rental Shading Policy:</strong> We factor in ~$650/week projected rental income to boost your serviceability borrowing buffer by ~$110k.
             </div>
@@ -1465,7 +1614,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickInvestStructure('io-uncrossed', 'Interest-Only + Uncrossed Security')">
               <div class="card-left">
-                <div class="card-icon-wrap">🛡️</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Interest-Only (5-Yr) & Uncrossed Security</div>
                   <div class="card-subtext">Maximize cashflow, tax deductions & prevent lender cross-collateralization</div>
@@ -1476,7 +1627,9 @@
 
             <div class="option-card" onclick="pickInvestStructure('pi', 'Principal & Interest (P&I)')">
               <div class="card-left">
-                <div class="card-icon-wrap">📉</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Principal & Interest (Lower Rate Tier)</div>
                   <div class="card-subtext">Pay down the loan balance with lower interest margins</div>
@@ -1500,7 +1653,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickCommType('res-abn', 'Residential Home Loan using ABN/Business Income')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏡</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Residential Home Loan (Using ABN Income)</div>
                   <div class="card-subtext">Self-employed borrower buying personal home or investment property</div>
@@ -1511,7 +1666,9 @@
 
             <div class="option-card" onclick="pickCommType('comm-prop', 'Commercial Property Purchase (Warehouse/Office)')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏢</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"></path><path d="M3 21h18"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Commercial Property Purchase</div>
                   <div class="card-subtext">Warehouse, industrial factory, office, medical suite, or retail</div>
@@ -1522,7 +1679,9 @@
 
             <div class="option-card" onclick="pickCommType('equip-working', 'Equipment / Asset / Working Capital')">
               <div class="card-left">
-                <div class="card-icon-wrap">🚚</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Equipment, Vehicles & Working Capital</div>
                   <div class="card-subtext">Trucks, machinery, fit-out finance, or revolving overdraft</div>
@@ -1544,7 +1703,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickCommAbn('2plus', '2+ Years Active ABN')">
               <div class="card-left">
-                <div class="card-icon-wrap">🏆</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">2+ Years Active ABN & GST</div>
                   <div class="card-subtext">Eligible for both major banks and wholesale non-bank panels</div>
@@ -1555,7 +1716,9 @@
 
             <div class="option-card" onclick="pickCommAbn('1year', '1–2 Years ABN (Fast Alt-Doc)')">
               <div class="card-left">
-                <div class="card-icon-wrap">⚡</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">1–2 Years Active ABN</div>
                   <div class="card-subtext">Requires Alt-Doc / 12-Month BAS lenders without 2-year tax wait</div>
@@ -1566,7 +1729,9 @@
 
             <div class="option-card" onclick="pickCommAbn('under1', 'Less than 1 Year / New Entity')">
               <div class="card-left">
-                <div class="card-icon-wrap">🌱</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Less than 12 Months ABN</div>
                   <div class="card-subtext">Specialist / Private lending or prior industry experience credit policy</div>
@@ -1588,7 +1753,9 @@
           <div class="options-grid">
             <div class="option-card" onclick="pickCommDocs('bas', '12 Months BAS & Business Bank Statements')">
               <div class="card-left">
-                <div class="card-icon-wrap">📊</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">12 Months BAS Statements (Alt-Doc)</div>
                   <div class="card-subtext">No completed tax return required • Fast approval turnaround</div>
@@ -1599,7 +1766,9 @@
 
             <div class="option-card" onclick="pickCommDocs('full', '2 Years Full Company & Personal Tax Returns')">
               <div class="card-left">
-                <div class="card-icon-wrap">📑</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Full 2 Years Tax Returns & Financials</div>
                   <div class="card-subtext">Standard Full-Doc bank rate discounts unlocked</div>
@@ -1610,7 +1779,9 @@
 
             <div class="option-card" onclick="pickCommDocs('acct', 'Accountant Declaration Letter')">
               <div class="card-left">
-                <div class="card-icon-wrap">✍️</div>
+                <div class="card-icon-wrap">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                </div>
                 <div class="card-text-group">
                   <div class="card-label">Accountant Letter / Low-Doc</div>
                   <div class="card-subtext">Certified accountant certificate of capacity & cashflow</div>
@@ -1656,7 +1827,9 @@
             <div class="radar-pulse-ring"></div>
             <div class="radar-pulse-ring"></div>
             <div class="radar-pulse-ring"></div>
-            <div class="radar-core">⚡</div>
+            <div class="radar-core">
+              <svg class="svg-icon-lg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
           </div>
 
           <div>
@@ -1678,49 +1851,123 @@
       <!-- ================= UNIVERSAL OUTCOME DOSSIER ================= -->
       <section class="scene" id="scene-outcome">
         <div class="liven-white-card">
-          <div class="scene-tag" style="color: var(--liven-green);">🌿 ASSESSMENT MATCH READY</div>
-          <h2 class="scene-title" id="outcome-heading">Your Tailored Lending Scenario is Ready</h2>
-          <p class="scene-desc" id="outcome-subhead">Based on your exact numbers, here is your calculated borrowing capability & rate tier:</p>
-
-          <div class="metrics-grid">
-            <div class="metric-pill-box">
-              <div class="label" id="metric-label-1">Est. Borrowing Power</div>
-              <div class="val" id="res-metric-1">$780k – $860k</div>
+          <div class="dossier-results-wrap">
+            
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <div>
+                <div class="scene-tag">TOP 2 AUDITED MATCHES</div>
+                <h2 class="scene-title" id="outcome-heading" style="margin-top:4px;">Top 2 Verified Brokers for Your Scenario</h2>
+                <p class="scene-desc" id="outcome-subhead">Independently verified and matched to your scenario with clean ASIC records and highest Best Interests Duty ratings.</p>
+              </div>
             </div>
-            <div class="metric-pill-box">
-              <div class="label" id="metric-label-2">Indicative Best Rate</div>
-              <div class="val" style="color: var(--liven-green);" id="res-metric-2">5.74% p.a.</div>
+
+            <!-- TWO MATCHED BROKER CARDS (STYLE MATCHING labliven.html) -->
+            <div class="matched-brokers-grid">
+              
+              <!-- OPTION A -->
+              <div class="matched-broker-card" style="border-top-color:#f59e0b;">
+                <div class="broker-option-badge" style="background:#fffbeb; color:#b45309;">OPTION A &middot; SYDNEY CBD</div>
+                <div class="broker-header-row">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=140&q=80" alt="Marcus Vance" class="broker-avatar-img">
+                  <div>
+                    <div class="broker-name-h">Talk To A Broker</div>
+                    <div class="broker-sub-id">Lead: <strong>Marcus Vance</strong> (ACL #483921)</div>
+                  </div>
+                </div>
+
+                <div style="background:#f8fafc; border-left:3px solid #f59e0b; padding:12px 14px; border-radius:10px; font-size:0.84rem; color:#334155; margin-bottom:14px; line-height:1.45;" id="opt-a-desc">
+                  Ranked #1 audited specialist in Sydney for borrowing capacity optimization, First Home schemes, and 48-hour formal credit clearance.
+                </div>
+
+                <div class="broker-stat-box-row">
+                  <div class="mini-stat-cell">
+                    <div class="mini-stat-val" style="color:var(--liven-green);">99.4%</div>
+                    <div class="mini-stat-lbl">Settlement Rate</div>
+                  </div>
+                  <div class="mini-stat-cell">
+                    <div class="mini-stat-val">11 Days</div>
+                    <div class="mini-stat-lbl">Avg Turnaround</div>
+                  </div>
+                  <div class="mini-stat-cell">
+                    <div class="mini-stat-val" style="color:#0284c7;">1.5 Hrs</div>
+                    <div class="mini-stat-lbl">Response Time</div>
+                  </div>
+                  <div class="mini-stat-cell">
+                    <div class="mini-stat-val">98 / 100</div>
+                    <div class="mini-stat-lbl">Trust Score</div>
+                  </div>
+                </div>
+
+                <a href="broker/marcus-vance.html" class="broker-profile-cta-btn" style="background:#f59e0b;">View Marcus Vance Profile &rsaquo;</a>
+              </div>
+
+              <!-- OPTION B -->
+              <div class="matched-broker-card alt-accent" style="border-top-color:#0284c7;">
+                <div class="broker-option-badge" style="background:#f0f9ff; color:#0369a1;">OPTION B &middot; SYDNEY EAST</div>
+                <div class="broker-header-row">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=140&q=80" alt="David Tran" class="broker-avatar-img">
+                  <div>
+                    <div class="broker-name-h">Beat My Home Loan</div>
+                    <div class="broker-sub-id">Lead: <strong>David Chi Tran</strong> (ACL #511204)</div>
+                  </div>
+                </div>
+
+                <div style="background:#f8fafc; border-left:3px solid #0284c7; padding:12px 14px; border-radius:10px; font-size:0.84rem; color:#334155; margin-bottom:14px; line-height:1.45;" id="opt-b-desc">
+                  Recognized senior credit strategist specialized in low-deposit loans, rate restructure, and access to 22 bank credit panels.
+                </div>
+
+                <div class="broker-stat-box-row">
+                  <div class="mini-stat-cell">
+                    <div class="mini-stat-val" style="color:var(--liven-green);">98.9%</div>
+                    <div class="mini-stat-lbl">Settlement Rate</div>
+                  </div>
+                  <div class="mini-stat-cell">
+                    <div class="mini-stat-val">12 Days</div>
+                    <div class="mini-stat-lbl">Avg Turnaround</div>
+                  </div>
+                  <div class="mini-stat-cell">
+                    <div class="mini-stat-val" style="color:#0284c7;">2.0 Hrs</div>
+                    <div class="mini-stat-lbl">Response Time</div>
+                  </div>
+                  <div class="mini-stat-cell">
+                    <div class="mini-stat-val">97 / 100</div>
+                    <div class="mini-stat-lbl">Trust Score</div>
+                  </div>
+                </div>
+
+                <a href="broker/david-chi-tran.html" class="broker-profile-cta-btn blue">View David Tran Profile &rsaquo;</a>
+              </div>
+
             </div>
-          </div>
 
-          <div class="micro-feedback-box">
-            <span>🛡️</span>
-            <div id="outcome-strategy-text">
-              <strong>Strategy Unlocked:</strong> Tier-1 Major + Non-Bank Alt-Doc panel with zero LMI penalty and priority express SLA approval.
+            <!-- Calculated Metrics Summary -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px;">
+              <div class="mini-stat-cell" style="padding:14px; border-radius:var(--radius-xl);">
+                <div style="font-size:0.75rem; color:#64748b; text-transform:uppercase; font-weight:700;" id="metric-label-1">Est. Borrowing Power</div>
+                <div style="font-family:var(--font-display); font-size:1.45rem; font-weight:800; color:var(--liven-dark); margin-top:2px;" id="res-metric-1">$780k – $860k</div>
+              </div>
+              <div class="mini-stat-cell" style="padding:14px; border-radius:var(--radius-xl);">
+                <div style="font-size:0.75rem; color:#64748b; text-transform:uppercase; font-weight:700;" id="metric-label-2">Indicative Best Rate</div>
+                <div style="font-family:var(--font-display); font-size:1.45rem; font-weight:800; color:var(--liven-green); margin-top:2px;" id="res-metric-2">5.64% p.a.</div>
+              </div>
             </div>
-          </div>
 
-          <div class="broker-match-preview">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Specialist" class="broker-avatar">
-            <div>
-              <div style="font-weight: 800; font-size: 1rem; color: var(--liven-dark);" id="matched-broker-name">Marcus Vance (CRN #482910)</div>
-              <div style="font-size: 0.8rem; color: var(--liven-gray);" id="matched-broker-creds">Top-Rated ASIC Verified Specialist • 5.0 ★ (184 Reviews)</div>
-              <div style="font-size: 0.76rem; color: var(--liven-green); font-weight: 700; margin-top: 2px;">✓ $0 Fee Pledge (Paid by lender at settlement)</div>
+            <!-- Instant Dispatch Lead Form -->
+            <div style="background:var(--liven-gray-light); border:1.5px solid var(--liven-border); border-radius:var(--radius-2xl); padding:20px; display:flex; flex-direction:column; gap:10px;">
+              <div style="font-weight:800; font-size:1rem; color:var(--liven-dark);">Get your full pre-approval breakdown sent to you:</div>
+              <input type="text" class="funnel-input" id="lead-name" placeholder="Your Full Name (e.g. Alex Henderson)">
+              <input type="tel" class="funnel-input" id="lead-phone" placeholder="Mobile Number (e.g. 0412 345 678)">
+              <input type="email" class="funnel-input" id="lead-email" placeholder="Email Address for Borrowing Dossier">
+              
+              <button class="primary-cta-btn" onclick="submitLead()" style="margin-top:4px;">
+                <span>Unlock Full Borrowing Dossier →</span>
+              </button>
             </div>
-          </div>
 
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <input type="text" class="funnel-input" id="lead-name" placeholder="Your Full Name (e.g. Alex Henderson)">
-            <input type="tel" class="funnel-input" id="lead-phone" placeholder="Mobile Number (e.g. 0412 345 678)">
-            <input type="email" class="funnel-input" id="lead-email" placeholder="Email Address for Borrowing Dossier">
-          </div>
+            <div style="text-align:center; font-size:0.75rem; color:var(--liven-gray);">
+              Strictly protected by Australian Privacy Principles (APP) &middot; Zero Spam Guarantee &middot; $0 Broker Fee
+            </div>
 
-          <button class="primary-cta-btn" onclick="submitLead()">
-            <span>Unlock Full Borrowing Dossier →</span>
-          </button>
-
-          <div style="text-align: center; font-size: 0.75rem; color: var(--liven-gray);">
-            🔒 Strictly protected by Australian Privacy Principles (APP) • Zero Spam Guarantee
           </div>
         </div>
       </section>
@@ -1729,14 +1976,14 @@
       <!-- ================= CELEBRATION ================= -->
       <section class="scene" id="scene-success">
         <div class="liven-white-card" style="text-align: center; gap: 20px;">
-          <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--liven-green); color:#fff; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 10px auto 0; box-shadow: 0 10px 30px rgba(92, 167, 1, 0.4);">
-            ✓
+          <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--liven-green); color:#fff; display: flex; align-items: center; justify-content: center; margin: 10px auto 0; box-shadow: 0 10px 30px rgba(92, 167, 1, 0.4);">
+            <svg class="svg-icon-lg" style="stroke:#fff; width:36px; height:36px;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </div>
           <h2 class="scene-title">Dossier Dispatched!</h2>
           <p class="scene-desc" id="success-desc">We have generated your tailored Australian lending assessment and sent a priority copy to your mobile & email.</p>
 
           <div class="micro-feedback-box" style="text-align: left;">
-            <span>📱</span>
+            <svg class="micro-feedback-icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
             <div>
               <strong>Instant SMS Verification Sent:</strong> Your matched senior credit specialist will review your exact numbers and provide your formal approval strategy within 15 minutes.
             </div>
@@ -1752,72 +1999,8 @@
   </main>
 
 
-  <!-- JAVASCRIPT ENGINE -->
+  <!-- JAVASCRIPT ENGINE (NO SOUND, STRICT CLEAN LOGIC) -->
   <script>
-    let audioCtx = null;
-    let soundEnabled = true;
-
-    function initAudio() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-    }
-
-    function playSwooshSound(pitch = 280) {
-      if (!soundEnabled) return;
-      try {
-        initAudio();
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = "sine";
-        osc.frequency.setValueAtTime(pitch, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(pitch * 2.2, audioCtx.currentTime + 0.22);
-        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.22);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.23);
-      } catch (e) {}
-    }
-
-    function playSuccessSound() {
-      if (!soundEnabled) return;
-      try {
-        initAudio();
-        const notes = [523.25, 659.25, 783.99, 1046.50];
-        notes.forEach((freq, idx) => {
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = "triangle";
-          osc.frequency.setValueAtTime(freq, audioCtx.currentTime + (idx * 0.08));
-          gain.gain.setValueAtTime(0.15, audioCtx.currentTime + (idx * 0.08));
-          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (idx * 0.08) + 0.35);
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start(audioCtx.currentTime + (idx * 0.08));
-          osc.stop(audioCtx.currentTime + (idx * 0.08) + 0.36);
-        });
-      } catch (e) {}
-    }
-
-    function toggleSound() {
-      soundEnabled = !soundEnabled;
-      const btn = document.getElementById("sound-btn");
-      const icon = document.getElementById("sound-icon");
-      const text = document.getElementById("sound-text");
-      if (soundEnabled) {
-        btn.classList.add("on");
-        icon.innerText = "🔊";
-        text.innerText = "Sound ON";
-        playSwooshSound(440);
-      } else {
-        btn.classList.remove("on");
-        icon.innerText = "🔇";
-        text.innerText = "Sound OFF";
-      }
-    }
-
     const appState = {
       flow: "buy",
       history: ["scene-0"],
@@ -1911,8 +2094,6 @@
       const nextEl = document.getElementById(targetSceneId);
       if (!currentEl || !nextEl) return;
 
-      playSwooshSound(isBack ? 220 : 360);
-
       currentEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
       nextEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
 
@@ -1960,8 +2141,6 @@
         
         const currentEl = document.getElementById(currentSceneId);
         const prevEl = document.getElementById(prevSceneId);
-
-        playSwooshSound(220);
 
         currentEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
         prevEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
@@ -2282,7 +2461,6 @@
           line.innerText = item.text;
           terminal.appendChild(line);
           terminal.scrollTop = terminal.scrollHeight;
-          playSwooshSound(280 + (logIdx * 55));
           logIdx++;
         } else {
           clearInterval(interval);
@@ -2301,12 +2479,11 @@
       const val1 = document.getElementById("res-metric-1");
       const label2 = document.getElementById("metric-label-2");
       const val2 = document.getElementById("res-metric-2");
-      const strat = document.getElementById("outcome-strategy-text");
-      const brokerName = document.getElementById("matched-broker-name");
-      const brokerCreds = document.getElementById("matched-broker-creds");
+      const optA = document.getElementById("opt-a-desc");
+      const optB = document.getElementById("opt-b-desc");
 
       if (appState.flow === "buy") {
-        heading.innerText = "Your Home Buying Sanctuary Plan";
+        heading.innerText = "Top 2 Verified Brokers for Your Home Purchase";
         subhead.innerText = `Calibrated for ${appState.buyPropertyLabel} in ${appState.buyState} with ${appState.buyDepositPct}% deposit:`;
         label1.innerText = "Est. Borrowing Power";
         const base = Math.round(appState.buyPrice * 0.95);
@@ -2314,23 +2491,15 @@
         val1.innerText = `$${(base/1000).toFixed(0)}k – $${(high/1000).toFixed(0)}k`;
 
         label2.innerText = "Indicative Prime Rate";
-        let r = "5.74% p.a.";
-        if (appState.buyDepositPct >= 20) r = "5.64% p.a.";
+        let r = "5.64% p.a.";
         if (appState.buyIncome === "medico") r = "5.59% p.a.";
         val2.innerText = r;
 
-        if (appState.buyIncome === "medico") {
-          strat.innerHTML = "<strong>Doctor / Medico Advantage:</strong> 90–95% LVR approved with 100% LMI fee waiver ($0 insurance penalty) and wholesale tier rate.";
-        } else if (appState.buyDepositPct === 5) {
-          strat.innerHTML = "<strong>Federal 5% Scheme Quota:</strong> Priority fast-track to avoid $18k+ in LMI under the First Home Guarantee quota.";
-        } else {
-          strat.innerHTML = "<strong>Tier-1 Major Bank Panel:</strong> Pre-approval routed to lender with fastest 48-hour formal credit turnaround.";
-        }
-        brokerName.innerText = "Marcus Vance (CRN #482910)";
-        brokerCreds.innerText = "First Home & Residential Specialist • 5.0 ★ (184 Reviews)";
+        optA.innerHTML = `<strong>Priority Specialization:</strong> Ranked #1 audited specialist in ${appState.buyState} for borrowing capacity optimization, First Home schemes, and 48-hour formal pre-approval clearance.`;
+        optB.innerHTML = `<strong>Scenario Match:</strong> Recognized senior credit strategist specialized in ${appState.buyDepositPct}% deposit lending, rate restructure, and access to 22 bank credit panels.`;
 
       } else if (appState.flow === "refi") {
-        heading.innerText = "Your Rate Cut & Cashflow Sanctuary";
+        heading.innerText = "Top 2 Verified Refinance Specialists";
         subhead.innerText = `Calculated on $${appState.refiLoanBal.toLocaleString("en-AU")} remaining balance on $${appState.refiHomeVal.toLocaleString("en-AU")} property:`;
         
         label1.innerText = "Est. Annual Savings";
@@ -2342,12 +2511,11 @@
 
         const max80 = Math.round(appState.refiHomeVal * 0.8);
         const eq = Math.max(0, max80 - appState.refiLoanBal);
-        strat.innerHTML = `<strong>Rate Drop & Cashflow Relief:</strong> Saving ~$${monthlySavings.toLocaleString("en-AU")}/month ($${(monthlySavings * 12).toLocaleString("en-AU")}/year) + ~$${eq.toLocaleString("en-AU")} usable equity buffer and up to $2,000 bank cashback.`;
-        brokerName.innerText = "David Chi Tran (CRN #510492)";
-        brokerCreds.innerText = "Refinance & Debt Restructuring Specialist • 5.0 ★ (216 Reviews)";
+        optA.innerHTML = `<strong>Rate Squeeze Lead:</strong> Direct negotiation with major bank pricing desks saving ~$${monthlySavings.toLocaleString("en-AU")}/mo plus $2k–$3k cashback rebate.`;
+        optB.innerHTML = `<strong>Equity Specialist:</strong> Unlocks ~$${eq.toLocaleString("en-AU")} usable equity buffer for renovations or investment at 80% LVR without LMI penalties.`;
 
       } else if (appState.flow === "invest") {
-        heading.innerText = "Your Investment Portfolio Blueprint";
+        heading.innerText = "Top 2 Strategic Investor Credit Desks";
         subhead.innerText = `Structured for $${appState.investBudget.toLocaleString("en-AU")} investment purchase with tax-effective leverage:`;
 
         label1.innerText = "Portfolio Capacity";
@@ -2357,12 +2525,11 @@
         label2.innerText = "Investor Rate Tier";
         val2.innerText = "5.84% p.a. (IO)";
 
-        strat.innerHTML = "<strong>Standalone Uncrossed Structure:</strong> 5-Year Interest-Only facility with offset account to maximize tax deductions while keeping family home unencumbered.";
-        brokerName.innerText = "Marcus Vance (CRN #482910)";
-        brokerCreds.innerText = "Strategic Property Investor Specialist • 5.0 ★ (184 Reviews)";
+        optA.innerHTML = `<strong>Tax-Effective Structure:</strong> 5-Year Interest-Only uncrossed standalone facility maximizing deductible interest and protecting personal residence.`;
+        optB.innerHTML = `<strong>Portfolio Growth:</strong> Multi-bank servicing matrix factoring in 80% rental shading to allow sequential property acquisition.`;
 
       } else {
-        heading.innerText = "Your Commercial & ABN Financing Facility";
+        heading.innerText = "Top 2 Commercial & ABN Specialists";
         subhead.innerText = `Matched for ${appState.commTypeLabel} with ${appState.commDocsLabel}:`;
 
         label1.innerText = "Facility Approval Size";
@@ -2371,9 +2538,8 @@
         label2.innerText = "Commercial Rate Tier";
         val2.innerText = "6.14% p.a.";
 
-        strat.innerHTML = `<strong>Alt-Doc Policy Matrix:</strong> Approved using 12-Month BAS add-backs with non-bank commercial panel bypassing full 2-year tax return delays.`;
-        brokerName.innerText = "Hunter Galloway Commercial (ACL #389104)";
-        brokerCreds.innerText = "Commercial & Alt-Doc ABN Specialist • 5.0 ★ (340 Reviews)";
+        optA.innerHTML = `<strong>Alt-Doc Authority:</strong> 12-Month BAS statements & accountant declaration approvals bypassing traditional 2-year tax return bottlenecks.`;
+        optB.innerHTML = `<strong>Commercial Credit:</strong> Specialized in commercial warehouses, industrial assets, and business cashflow facilities up to $5M.`;
       }
     }
 
@@ -2386,7 +2552,6 @@
         return;
       }
 
-      playSuccessSound();
       triggerConfetti();
 
       document.getElementById("success-desc").innerText = 
@@ -2411,7 +2576,7 @@
       const particles = [];
       const colors = ["#5ca701", "#7dd322", "#2a83cb", "#54a7e6", "#ffffff", "#f59e0b"];
 
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 90; i++) {
         particles.push({
           x: canvas.width / 2,
           y: canvas.height / 2,

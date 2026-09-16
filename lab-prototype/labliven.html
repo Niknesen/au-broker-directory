@@ -1559,34 +1559,37 @@
   </section>
 
   <!-- ============================================================ -->
-  <!-- 4. GOALS: LOAN OUTCOMES CARDS (Relevant Broker Goals)        -->
+  <!-- 4. OUTCOME-DRIVEN SECTION: WHAT ARE YOU TRYING TO MAKE HAPPEN?-->
   <!-- ============================================================ -->
   <section class="section-goals" id="goals">
     <div class="goals-scenic-card">
       <div class="goals-content-inner">
-        <span class="section-tag-pill" style="background: rgba(255,255,255,0.25); color:#fff;">Loan Outcomes</span>
-        <h2 class="goals-title">What kind of home loan<br>are you looking for?</h2>
+        <span class="section-tag-pill" style="background: rgba(255,255,255,0.25); color:#fff;">Possibilities</span>
+        <h2 class="goals-title" style="margin-bottom: 14px;">What are you trying to make happen?</h2>
+        <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.92); margin-bottom: 48px; max-width: 680px; margin-left: auto; margin-right: auto; line-height: 1.5; font-weight: 500;">
+          Tell us what you want to achieve. We’ll help connect you with the right broker.
+        </p>
         
         <div class="goals-pills-grid">
           
-          <!-- Outcome 1: First Home -->
+          <!-- Card 1: Buy a home -->
           <div class="goal-white-pill" onclick="openDiagnosticModal('buy')">
             <div class="goal-pill-left">
               <div class="goal-icon-box tile-badge-blue">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 2l-2 2m-1.5 1.5L14 9l-1.5-1.5-2 2 1.5 1.5-2 2 1.5 1.5-2 2L6 20a4 4 0 1 1-5.66-5.66L12 2.66l2 2 1.5-1.5 2 2 1.5-1.5 2 2z"></path>
-                  <circle cx="7.5" cy="16.5" r="1.5" fill="currentColor"></circle>
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
                 </svg>
               </div>
               <div class="goal-text-col">
-                <span class="goal-heading">Buy my first home</span>
-                <span class="goal-subtext">5% deposit & stamp duty grants</span>
+                <span class="goal-heading">Buy a home</span>
+                <span class="goal-subtext">First home, next home or investment property</span>
               </div>
             </div>
             <span style="color:#94a3b8; font-weight:800; font-size:1.2rem;">&rsaquo;</span>
           </div>
 
-          <!-- Outcome 2: Refinance -->
+          <!-- Card 2: Lower my repayments -->
           <div class="goal-white-pill" onclick="openDiagnosticModal('refi')">
             <div class="goal-pill-left">
               <div class="goal-icon-box tile-badge-orange">
@@ -1595,77 +1598,83 @@
                 </svg>
               </div>
               <div class="goal-text-col">
-                <span class="goal-heading">Refinance for a lower rate</span>
-                <span class="goal-subtext">Claw back $600–$1,200 / month</span>
+                <span class="goal-heading">Lower my repayments</span>
+                <span class="goal-subtext">Refinance, reduce interest or restructure debt</span>
               </div>
             </div>
             <span style="color:#94a3b8; font-weight:800; font-size:1.2rem;">&rsaquo;</span>
           </div>
 
-          <!-- Outcome 3: Self-Employed / ABN -->
+          <!-- Card 3: Grow my business -->
           <div class="goal-white-pill" onclick="openDiagnosticModal('abn')">
             <div class="goal-pill-left">
               <div class="goal-icon-box tile-badge-purple">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                  <circle cx="12" cy="14" r="1.5" fill="currentColor"></circle>
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                  <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
                 </svg>
               </div>
               <div class="goal-text-col">
-                <span class="goal-heading">Self-employed & ABN loan</span>
-                <span class="goal-subtext">1-year tax returns & low-doc cash flow</span>
+                <span class="goal-heading">Grow my business</span>
+                <span class="goal-subtext">Funding, working capital or expansion</span>
               </div>
             </div>
             <span style="color:#94a3b8; font-weight:800; font-size:1.2rem;">&rsaquo;</span>
           </div>
 
-          <!-- Outcome 4: Investment Property -->
-          <div class="goal-white-pill" onclick="openDiagnosticModal('upsize')">
+          <!-- Card 4: Buy a car or equipment -->
+          <div class="goal-white-pill" onclick="openDiagnosticModal('asset')">
+            <div class="goal-pill-left">
+              <div class="goal-icon-box tile-badge-orange" style="background:linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color:#d97706; border-color:#fde68a;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="3" width="15" height="13" rx="2"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <div class="goal-text-col">
+                <span class="goal-heading">Buy a car or equipment</span>
+                <span class="goal-subtext">Vehicle, machinery and asset finance</span>
+              </div>
+            </div>
+            <span style="color:#94a3b8; font-weight:800; font-size:1.2rem;">&rsaquo;</span>
+          </div>
+
+          <!-- Card 5: Invest in property -->
+          <div class="goal-white-pill" onclick="openDiagnosticModal('invest')">
             <div class="goal-pill-left">
               <div class="goal-icon-box tile-badge-green">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="18" y1="20" x2="18" y2="10"></line>
                   <line x1="12" y1="20" x2="12" y2="4"></line>
                   <line x1="6" y1="20" x2="6" y2="14"></line>
+                  <line x1="2" y1="20" x2="22" y2="20"></line>
                 </svg>
               </div>
               <div class="goal-text-col">
-                <span class="goal-heading">Investment property loan</span>
-                <span class="goal-subtext">Maximize borrowing capacity & equity</span>
+                <span class="goal-heading">Invest in property</span>
+                <span class="goal-subtext">Build your portfolio or use existing equity</span>
               </div>
             </div>
             <span style="color:#94a3b8; font-weight:800; font-size:1.2rem;">&rsaquo;</span>
           </div>
 
-          <!-- Outcome 5: Family Upsize -->
-          <div class="goal-white-pill" onclick="openDiagnosticModal('upsize')">
+          <!-- Card 6: Something more complex -->
+          <div class="goal-white-pill" onclick="openDiagnosticModal('complex')">
             <div class="goal-pill-left">
-              <div class="goal-icon-box tile-badge-green">
+              <div class="goal-icon-box tile-badge-blue" style="background:linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 100%); color:#4338ca; border-color:#c7d2fe;">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
                 </svg>
               </div>
               <div class="goal-text-col">
-                <span class="goal-heading">Upsize for a growing family</span>
-                <span class="goal-subtext">Bridge finance & release equity</span>
-              </div>
-            </div>
-            <span style="color:#94a3b8; font-weight:800; font-size:1.2rem;">&rsaquo;</span>
-          </div>
-
-          <!-- Outcome 6: Fast Pre-Approval -->
-          <div class="goal-white-pill" onclick="openDiagnosticModal('buy')">
-            <div class="goal-pill-left">
-              <div class="goal-icon-box tile-badge-orange">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-              </div>
-              <div class="goal-text-col">
-                <span class="goal-heading">Fast auction pre-approval</span>
-                <span class="goal-subtext">Unconditional clearance in 48 hours</span>
+                <span class="goal-heading">Something more complex</span>
+                <span class="goal-subtext">Self-employed, commercial or unusual finance needs</span>
               </div>
             </div>
             <span style="color:#94a3b8; font-weight:800; font-size:1.2rem;">&rsaquo;</span>
