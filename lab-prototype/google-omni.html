@@ -1,0 +1,3176 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Brokers Australia — Find & Check Up on Verified Australian Brokers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #fbfbfa;
+      --surface: #ffffff;
+      --surface-subtle: #f5f5f2;
+      --border: #e6e6e0;
+      --border-dark: #d0d0c8;
+      
+      --ink: #111827;
+      --ink-gray: #4b5563;
+      --ink-muted: #6b7280;
+      --ink-dim: #9ca3af;
+      
+      --cobalt: #0071e3;
+      --cobalt-dark: #0077ed;
+      --cobalt-soft: #f0f9ff;
+      
+      --gold: #d97706;
+      --gold-soft: #fffbeb;
+      --gold-border: #fde68a;
+      
+      --emerald: #059669;
+      --emerald-dark: #065f46;
+      --emerald-soft: #ecfdf5;
+      --rose: #e11d48;
+      --rose-soft: #fff1f2;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-xl: 36px;
+      --radius-lg: 28px;
+      --radius: 20px;
+      --radius-sm: 12px;
+      --shadow-apple: 0 30px 70px -20px rgba(17, 24, 39, 0.07), 0 0 1px 1px rgba(17, 24, 39, 0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg-subtle);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .main-body-container {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      padding-bottom: 140px;
+    }
+
+    /* Subtle Paper Texture Noise */
+    .paper-texture-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Top Lab Switcher Bar */
+    .lab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px 24px;
+      background: #0e1626;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      flex-wrap: wrap;
+    }
+    .lab-pill {
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+      background: #111d35;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .lab-pill:hover, .lab-pill.active {
+      background: var(--cobalt);
+      color: #fff;
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    /* CONTINUOUS MOVING FINANCIAL TICKER MARQUEE */
+    .ticker-marquee-wrap {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      height: 38px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marqueeScroll 35s linear infinite;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      letter-spacing: 0.03em;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-segment {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding-right: 24px;
+    }
+    .ticker-dot-live {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+      margin-right: 6px;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 48px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 41px;
+      z-index: 100;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-logo-seal {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--ink);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: #ffffff;
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* Hero Section */
+    .hero-center {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 20px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .hero-center h1 {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--ink);
+      letter-spacing: -0.035em;
+      margin-bottom: 14px;
+    }
+    .hero-center h1 .highlight-blue {
+      color: var(--cobalt);
+      font-family: inherit;
+      font-weight: 700;
+    }
+    .hero-center p {
+      font-size: 1.15rem;
+      color: var(--ink-muted);
+      max-width: 660px;
+      margin: 0 auto 28px;
+      line-height: 1.5;
+    }
+
+    /* GOOGLE-STYLE FLOATING OMNIBAR SECTION (STATE A) */
+    .google-search-section {
+      max-width: 860px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      position: relative;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .google-search-section.hidden {
+      display: none;
+    }
+
+    .matchmaker-tooltip-cue {
+      position: absolute;
+      right: 32px;
+      top: -30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--cobalt);
+      animation: floatTooltip 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes floatTooltip {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-4px); }
+    }
+
+    /* Google Omnibar Container */
+    .google-omnibar-box {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      padding: 6px 8px 6px 22px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .google-omnibar-box:focus-within {
+      border-color: var(--cobalt);
+      box-shadow: 0 20px 50px rgba(0, 113, 227, 0.12), 0 0 0 3px rgba(0, 113, 227, 0.1);
+    }
+    
+    /* Clean Vector Icons (Zero Emojis) */
+    .svg-icon {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .svg-icon-solid {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .omnibar-search-icon {
+      color: var(--ink-muted);
+      margin-right: 8px;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .omnibar-input {
+      flex: 1;
+      min-width: 180px;
+      border: none;
+      background: transparent;
+      padding: 12px 12px 12px 4px;
+      font-family: var(--font-sans);
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .omnibar-input:focus { outline: none; }
+    .omnibar-input::placeholder {
+      color: var(--ink-dim);
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+
+    /* The "Match Me with Broker" Button with SHIMMER LIGHT BEAM ANIMATION */
+    .btn-ai-mode-pill {
+      background: linear-gradient(135deg, #111827 0%, #1e293b 100%);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(17, 24, 39, 0.2);
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .btn-ai-mode-pill::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -100%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 80%,
+        transparent 100%
+      );
+      transform: rotate(25deg);
+      animation: lightShimmerSweep 3.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes lightShimmerSweep {
+      0%, 20% { left: -100%; }
+      60%, 100% { left: 200%; }
+    }
+
+    .btn-ai-mode-pill:hover {
+      background: var(--cobalt);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 113, 227, 0.35);
+      transform: scale(1.02);
+    }
+    .sparkle-icon {
+      font-size: 1rem;
+      color: #38bdf8;
+    }
+
+    /* 4 REAL-WORLD CHIPS (CLEAN VECTOR ICONS) */
+    .google-suggestion-chips-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .google-chip-btn {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--ink-gray);
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .google-chip-btn .svg-icon {
+      width: 15px;
+      height: 15px;
+      color: var(--ink-muted);
+    }
+    .google-chip-btn:hover {
+      background: var(--surface-subtle);
+      border-color: var(--ink);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+    .google-chip-btn:hover .svg-icon {
+      color: var(--cobalt);
+    }
+
+    /* FLOATING LIVE 3-RESULT SEARCH DROP */
+    .live-search-drop-stack {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .search-result-entry {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .search-result-entry:hover {
+      border-color: var(--ink);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    .res-v-line { border-left: 4px solid var(--emerald); }
+    .res-u-line { border-left: 4px solid var(--rose); }
+
+    .badge-v-clean {
+      background: var(--emerald-soft);
+      color: var(--emerald-dark);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .badge-u-clean {
+      background: var(--rose-soft);
+      color: var(--rose);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    /* THE LIVING AI BLOB DIAGNOSTIC CONSOLE (STATE B) */
+    .ai-console-wrapper {
+      max-width: 980px;
+      margin: 0 auto 90px;
+      padding: 0 24px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ai-console-wrapper.hidden {
+      display: none;
+    }
+
+    .console-card {
+      background: var(--paper-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-apple);
+      padding: 28px 40px 28px;
+      position: relative;
+    }
+
+    .console-top-action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .apple-back-search-btn {
+      color: var(--cobalt);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .apple-back-search-btn:hover {
+      color: var(--cobalt-dark);
+      text-decoration: underline;
+    }
+
+    /* CLEAN LEFT-TO-RIGHT ORDERED CRITERIA RIBBON */
+    .progress-selections-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0 16px;
+      height: 44px;
+      margin-bottom: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      overflow: hidden;
+      white-space: nowrap;
+      gap: 8px;
+    }
+    .selections-left-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+    .selections-right-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+      flex-shrink: 0;
+    }
+    .tappable-chip {
+      background: #ffffff;
+      border: 1px solid var(--border-dark);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .tappable-chip:hover {
+      background: var(--cobalt-soft);
+      border-color: var(--cobalt);
+      color: var(--cobalt);
+    }
+    .chip-edit-icon { font-size: 0.65rem; color: var(--ink-muted); }
+
+    .progress-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    .p-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border-dark);
+      transition: all 0.3s ease;
+    }
+    .p-dot.done {
+      background: var(--emerald);
+      box-shadow: 0 0 6px var(--emerald);
+    }
+    .p-dot.current {
+      background: var(--cobalt);
+      box-shadow: 0 0 6px var(--cobalt);
+      transform: scale(1.3);
+    }
+
+    /* 75% ATTENTION: HEROIC SPACIOUS AI ARENA (620PX HIGH) */
+    .ai-hero-arena {
+      position: relative;
+      height: 620px;
+      background: #fafaf7;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .subtle-pulse {
+      animation: subtleHaptic 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    @keyframes subtleHaptic {
+      0% { transform: scale(1); }
+      40% { transform: scale(0.99); }
+      100% { transform: scale(1); }
+    }
+
+    /* Fluid Organic Liquid Blob (620px Massive) */
+    .floating-ai-blob {
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      border-radius: 48% 52% 68% 32% / 42% 54% 46% 58%;
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.65) 0%, rgba(236, 72, 153, 0.5) 45%, rgba(16, 185, 129, 0.65) 85%);
+      filter: blur(48px);
+      opacity: 0.88;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1;
+      pointer-events: none;
+      animation: continuousOrganicMorph 9s ease-in-out infinite alternate;
+    }
+    @keyframes continuousOrganicMorph {
+      0% {
+        border-radius: 48% 52% 68% 32% / 42% 54% 46% 58%;
+        transform: translate(0px, 0px) scale(1) rotate(0deg);
+      }
+      33% {
+        border-radius: 62% 38% 44% 56% / 50% 60% 40% 50%;
+        transform: translate(16px, -18px) scale(1.06) rotate(120deg);
+      }
+      66% {
+        border-radius: 35% 65% 58% 42% / 65% 35% 65% 35%;
+        transform: translate(-18px, 16px) scale(0.96) rotate(240deg);
+      }
+      100% {
+        border-radius: 54% 46% 38% 62% / 44% 56% 44% 56%;
+        transform: translate(0px, 0px) scale(1) rotate(360deg);
+      }
+    }
+
+    .blob-shockwave {
+      animation: blobShock 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    @keyframes blobShock {
+      0% { transform: scale(0.94); filter: blur(30px) drop-shadow(0 0 35px #38bdf8); }
+      50% { transform: scale(1.15) rotate(15deg); filter: blur(52px) drop-shadow(0 0 65px #10b981); }
+      100% { transform: scale(1); filter: blur(48px); }
+    }
+
+    /* Center Intellect Core Orb (380px 2X BIGGER) */
+    .center-intellect-orb {
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(28px);
+      border: 3px solid rgba(255, 255, 255, 1);
+      border-radius: 50%;
+      width: 380px;
+      height: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      box-shadow: 0 25px 65px rgba(0,0,0,0.08), inset 0 2px 0 rgba(255,255,255,1);
+      user-select: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: orbLevitate 4s ease-in-out infinite alternate;
+    }
+    @keyframes orbLevitate {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
+    }
+    .center-intellect-orb:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 32px 75px rgba(2, 132, 199, 0.22);
+    }
+    .center-intellect-orb.ready-state {
+      background: linear-gradient(135deg, #111827 0%, #1e293b 100%);
+      border-color: #38bdf8;
+      color: #ffffff;
+      box-shadow: 0 0 60px rgba(56, 189, 248, 0.6), inset 0 0 25px rgba(56, 189, 248, 0.4);
+      animation: pulseReadyState 1.4s infinite alternate;
+    }
+    @keyframes pulseReadyState {
+      0% { transform: scale(1); box-shadow: 0 0 35px rgba(56, 189, 248, 0.5); }
+      100% { transform: scale(1.05); box-shadow: 0 0 80px rgba(16, 185, 129, 0.85); }
+    }
+
+    .orb-step-tag {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--cobalt);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .ready-state .orb-step-tag { color: #38bdf8; }
+
+    .orb-main-text {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-top: 10px;
+    }
+    .ready-state .orb-main-text {
+      color: #ffffff;
+      font-size: 1.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* 4 FLOATING CORNER SATELLITE CHOICE CARDS */
+    .satellite-card-item {
+      position: absolute;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 12px 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, border-color 0.25s;
+      user-select: none;
+    }
+    .satellite-card-item .sat-icon-wrap {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-muted);
+      transition: color 0.2s;
+    }
+    .satellite-card-item .sat-icon-wrap .svg-icon {
+      width: 20px;
+      height: 20px;
+    }
+    .satellite-card-item:hover {
+      transform: scale(1.06);
+      border-color: var(--cobalt);
+      box-shadow: 0 14px 35px rgba(2, 132, 199, 0.18);
+      background: #ffffff;
+    }
+    .satellite-card-item:hover .sat-icon-wrap {
+      color: var(--cobalt);
+    }
+    .satellite-card-item:active {
+      transform: scale(0.97);
+    }
+    .sat-title { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+    .sat-sub { font-size: 0.75rem; color: var(--ink-muted); font-weight: 500; }
+    
+    .sat-key-badge {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-dark);
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 6px;
+      margin-left: 4px;
+    }
+    .satellite-card-item:hover .sat-key-badge {
+      background: var(--cobalt);
+      color: #fff;
+      border-color: var(--cobalt);
+    }
+
+    /* JURISDICTION STATE SELECTOR */
+    .location-selector-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 0 4px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .location-pills-list {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .loc-pill-btn {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--ink-gray);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .loc-pill-btn:hover {
+      border-color: var(--cobalt);
+      color: var(--ink);
+    }
+    .loc-pill-btn.active {
+      background: var(--ink);
+      color: #ffffff;
+      border-color: var(--ink);
+    }
+
+    /* 20% ATTENTION: COMPACT DRAGGABLE DETENT LINES */
+    .sliders-compact-panel {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px 24px 18px;
+    }
+    .slider-compact-row {
+      margin-bottom: 16px;
+    }
+    .slider-compact-row:last-child { margin-bottom: 0; }
+    
+    .compact-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .compact-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--ink-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .compact-readout {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--cobalt);
+      background: #ffffff;
+      padding: 2px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    /* Continuous Drag Rail */
+    .drag-rail-track {
+      position: relative;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+    }
+    .drag-rail-track:active { cursor: grabbing; }
+
+    .rail-bar-bg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--border-dark);
+      border-radius: 999px;
+      pointer-events: none;
+    }
+    .rail-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cobalt), var(--emerald));
+      border-radius: 999px;
+      width: 0%;
+      pointer-events: none;
+    }
+
+    .stops-layer {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+    .stop-dot-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--border-dark);
+      z-index: 2;
+    }
+
+    .drag-puck {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      width: 24px;
+      height: 24px;
+      background: var(--emerald);
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4), 0 0 0 1px rgba(0,0,0,0.08);
+      z-index: 10;
+      cursor: grab;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .drag-puck:hover {
+      transform: translate(-50%, -50%) scale(1.25);
+    }
+    .drag-puck:active {
+      cursor: grabbing;
+      transform: translate(-50%, -50%) scale(1.35);
+      box-shadow: 0 0 15px var(--emerald);
+    }
+
+    .rail-labels-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      pointer-events: none;
+    }
+
+    /* 5-SECOND VERIFICATION SEQUENCE OVERLAY */
+    .scavenger-terminal-overlay {
+      display: none;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-apple);
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scavenger-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+    .countdown-timer-box {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .broker-scavenge-stream-box {
+      background: #090e1a;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin: 20px 0 24px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .stream-card-ticker {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: #f8fafc;
+      transition: all 0.08s ease;
+    }
+
+    .verification-stages-list {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 26px;
+      margin-bottom: 24px;
+    }
+    .stage-item-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      opacity: 0.35;
+      transition: opacity 0.3s, color 0.3s;
+    }
+    .stage-item-line:last-child { margin-bottom: 0; }
+    .stage-item-line.active-stage {
+      opacity: 1;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .stage-item-line.verified-stage {
+      opacity: 1;
+      color: var(--emerald-dark);
+      font-weight: 800;
+    }
+
+    .master-progress-track {
+      height: 8px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+    .master-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cobalt), var(--emerald));
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* DUAL CARDS REVEAL */
+    .dual-champions-reveal-wrap {
+      display: none;
+      animation: carveOutSmooth 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes carveOutSmooth {
+      0% { opacity: 0; transform: scale(0.94) translateY(30px); }
+      100% { opacity: 1; transform: scale(1) translateY(0px); }
+    }
+
+    .reveal-header-bar {
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+    }
+    .reveal-title-wrap h2 {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+    .reveal-editorial-subhead {
+      font-size: 1.05rem;
+      color: var(--ink-gray);
+      margin-top: 8px;
+      max-width: 680px;
+      line-height: 1.5;
+    }
+
+    .apple-link-adjust {
+      color: var(--cobalt);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: color 0.15s;
+    }
+    .apple-link-adjust:hover {
+      color: var(--cobalt-dark);
+      text-decoration: underline;
+    }
+    .apple-link-adjust span.chevron {
+      font-size: 1.1rem;
+      line-height: 1;
+      transition: transform 0.15s;
+    }
+    .apple-link-adjust:hover span.chevron {
+      transform: translateX(2px);
+    }
+
+    .dual-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+
+    .champ-choice-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-apple);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+    .champ-choice-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 35px 70px rgba(17, 24, 39, 0.1);
+      border-color: var(--ink);
+    }
+    
+    .card-pathway-a { border-top: 4px solid var(--gold); }
+    .card-pathway-b { border-top: 4px solid var(--cobalt); }
+
+    .pathway-tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+    .tag-path-a { background: var(--gold-soft); border: 1px solid var(--gold-border); color: #92400e; }
+    .tag-path-b { background: var(--cobalt-soft); border: 1px solid rgba(2, 132, 199, 0.3); color: var(--cobalt); }
+
+    .card-broker-header {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .card-broker-photo {
+      width: 76px;
+      height: 76px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .card-broker-name h3 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+    .card-broker-name p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      margin-top: 3px;
+    }
+
+    .card-verification-notes {
+      background: var(--surface-subtle);
+      border-left: 3px solid var(--border-dark);
+      padding: 14px 16px;
+      border-radius: 0 10px 10px 0;
+      font-size: 0.88rem;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 24px;
+    }
+    .card-pathway-a .card-verification-notes { border-left-color: var(--gold); }
+    .card-pathway-b .card-verification-notes { border-left-color: var(--cobalt); }
+
+    .card-verification-notes strong {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .card-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .mini-stat-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      border-radius: 10px;
+    }
+    .mini-stat-box .v { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--ink); }
+    .mini-stat-box .l { font-size: 0.7rem; color: var(--ink-muted); font-weight: 600; margin-top: 2px; }
+
+    .btn-apple-pill {
+      display: block;
+      width: 100%;
+      background: var(--cobalt);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 15px 24px;
+      border-radius: 999px;
+      border: none;
+      text-align: center;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .champ-choice-card:hover .btn-apple-pill {
+      background: var(--cobalt-dark);
+      box-shadow: 0 6px 18px rgba(0, 113, 227, 0.3);
+    }
+
+    /* Apple-Style Claim Profile Button */
+    .btn-claim-profile {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border-dark);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-claim-profile:hover {
+      background: var(--surface-subtle);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    /* Modal Styles */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-window {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      max-width: 580px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 36px 36px 32px;
+      box-shadow: 0 35px 80px rgba(0,0,0,0.25), 0 0 1px 1px rgba(0,0,0,0.05);
+      transform: scale(0.95) translateY(12px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .modal-backdrop.active .modal-window {
+      transform: scale(1) translateY(0);
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .modal-close-btn:hover {
+      background: var(--ink);
+      color: #ffffff;
+      border-color: var(--ink);
+    }
+    .modal-broker-header {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    .modal-broker-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .modal-chips-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+    .modal-chip {
+      background: #ffffff;
+      border: 1px solid var(--border-dark);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .watchdog-banner {
+      background: var(--emerald-soft);
+      border: 1px solid rgba(5, 150, 105, 0.25);
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 22px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--emerald-dark);
+      line-height: 1.4;
+    }
+    .modal-form-group {
+      margin-bottom: 14px;
+    }
+    .modal-form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .modal-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: var(--bg-subtle);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--ink);
+      transition: all 0.2s;
+    }
+    .modal-input:focus {
+      outline: none;
+      border-color: var(--cobalt);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.12);
+    }
+    .modal-submit-btn {
+      width: 100%;
+      background: var(--cobalt);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 15px 24px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 113, 227, 0.25);
+    }
+    .modal-submit-btn:hover {
+      background: var(--cobalt-dark);
+      box-shadow: 0 8px 24px rgba(0, 113, 227, 0.35);
+      transform: translateY(-1px);
+    }
+    .claim-search-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .claim-search-card:hover {
+      border-color: var(--cobalt);
+      background: var(--surface-subtle);
+      transform: translateY(-1px);
+    }
+    .sla-timer-display {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--emerald-dark);
+      background: var(--emerald-soft);
+      padding: 10px 20px;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 12px 0 16px;
+      border: 1px solid rgba(5, 150, 105, 0.2);
+    }
+
+    /* Apple-Tier Minimalist Footer */
+    .apple-footer {
+      margin-top: auto;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      padding: 60px 40px 40px;
+      color: var(--ink-muted);
+      font-size: 0.85rem;
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer-col-links h4 {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+    .footer-col-links a {
+      display: block;
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      margin-bottom: 8px;
+      transition: color 0.15s;
+    }
+    .footer-col-links a:hover {
+      color: var(--cobalt);
+    }
+    .footer-bottom-bar {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--ink-dim);
+    }
+
+    @media (max-width: 960px) {
+      .footer-top-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .lab-nav {
+        padding: 8px 12px;
+        gap: 6px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+      }
+      .lab-pill {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        flex-shrink: 0;
+      }
+      .navbar {
+        padding: 14px 16px;
+      }
+      .brand-title {
+        font-size: 1.05rem;
+      }
+      .btn-claim-profile {
+        padding: 6px 12px;
+        font-size: 0.78rem;
+      }
+      .hero-center {
+        padding: 28px 16px 16px;
+      }
+      .hero-center h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+      .hero-center p {
+        font-size: 0.98rem;
+        margin-bottom: 20px;
+      }
+      .google-search-section {
+        padding: 0 14px;
+        margin-bottom: 40px;
+      }
+      .matchmaker-tooltip-cue {
+        position: static;
+        margin-bottom: 8px;
+        justify-content: center;
+        font-size: 0.72rem;
+        text-align: center;
+      }
+      .google-omnibar-box {
+        flex-wrap: wrap;
+        border-radius: 20px;
+        padding: 10px 14px;
+        gap: 6px;
+      }
+      .omnibar-input {
+        font-size: 0.98rem;
+        min-width: 140px;
+        width: 100%;
+        padding: 8px 0;
+      }
+      .btn-ai-mode-pill {
+        width: 100%;
+        justify-content: center;
+        padding: 11px 16px;
+        font-size: 0.88rem;
+        margin-top: 4px;
+      }
+      .google-suggestion-chips-row {
+        gap: 6px;
+        margin-top: 12px;
+      }
+      .google-chip-btn {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+      }
+      .search-result-entry {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 16px;
+      }
+      .search-result-entry > div:last-child {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var(--border);
+        padding-top: 10px;
+      }
+      .ai-console-wrapper {
+        padding: 0 12px;
+        margin-bottom: 40px;
+      }
+      .console-card {
+        padding: 20px 14px;
+        border-radius: 20px;
+      }
+      .progress-selections-bar {
+        height: auto;
+        min-height: 40px;
+        padding: 8px 12px;
+        flex-wrap: wrap;
+        gap: 6px;
+        white-space: normal;
+        border-radius: 16px;
+      }
+      .selections-left-group {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .selections-right-group {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 4px;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        padding-top: 4px;
+      }
+      .ai-hero-arena {
+        height: auto !important;
+        min-height: unset;
+        flex-direction: column;
+        padding: 24px 14px;
+        gap: 16px;
+      }
+      .floating-ai-blob {
+        width: 300px;
+        height: 300px;
+        filter: blur(36px);
+        opacity: 0.7;
+      }
+      .center-intellect-orb {
+        width: 220px;
+        height: 220px;
+        padding: 18px;
+      }
+      .orb-step-tag {
+        font-size: 0.72rem;
+      }
+      .orb-main-text {
+        font-size: 1.1rem;
+        line-height: 1.2;
+      }
+      #satellites-rack {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        z-index: 20;
+        position: relative;
+      }
+      .satellite-card-item {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 10px 14px;
+        border-radius: 14px;
+        box-sizing: border-box;
+      }
+      .location-selector-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .location-pills-list {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+      }
+      .loc-pill-btn {
+        flex-shrink: 0;
+        font-size: 0.72rem;
+        padding: 4px 10px;
+      }
+      .sliders-compact-panel {
+        padding: 16px 14px;
+        border-radius: 16px;
+      }
+      .compact-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .rail-labels-row {
+        font-size: 0.62rem;
+        gap: 2px;
+      }
+      .scavenger-terminal-overlay {
+        padding: 24px 16px;
+        border-radius: 20px;
+      }
+      .scavenger-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .stream-card-ticker {
+        font-size: 0.82rem;
+      }
+      .verification-stages-list {
+        padding: 14px 14px;
+        font-size: 0.75rem;
+      }
+      .reveal-header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .reveal-title-wrap h2 {
+        font-size: 1.5rem;
+      }
+      .reveal-editorial-subhead {
+        font-size: 0.9rem;
+      }
+      .dual-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .champ-choice-card {
+        padding: 22px 18px;
+        border-radius: 20px;
+      }
+      .card-broker-header {
+        gap: 12px;
+      }
+      .card-broker-photo {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+      }
+      .card-broker-name h3 {
+        font-size: 1.2rem;
+      }
+      .modal-backdrop {
+        padding: 12px;
+      }
+      .modal-window {
+        padding: 24px 16px 20px;
+        border-radius: 20px;
+        max-height: 92vh;
+      }
+      .apple-footer {
+        padding: 40px 20px 30px;
+      }
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-bottom-bar {
+        font-size: 0.72rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-center h1 {
+        font-size: 1.75rem;
+      }
+      .card-broker-name h3 {
+        font-size: 1.1rem;
+      }
+      .sat-title {
+        font-size: 0.88rem;
+      }
+      .sat-sub {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <div class="paper-texture-overlay"></div>
+
+  <!-- TOP LAB SELECTOR -->
+  <div class="lab-nav">
+    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
+    <a href="immersive-funnel.html" class="lab-pill" style="border-color:#38bdf8; color:#7dd3fc; background:rgba(56,189,248,0.15);">⚡ 3D Tunnel Funnel (New)</a>
+    <a href="google-omni.html" class="lab-pill active">Level 1: Homepage (Omnibar + AI)</a>
+    <a href="state/nsw.html" class="lab-pill">Level 2: State Hub (NSW)</a>
+    <a href="suburbs/sydney.html" class="lab-pill">Level 3: District Hub (Top 3)</a>
+    <a href="broker/mortgage-pros-sample.html" class="lab-pill">Level 4: Directory Dossier</a>
+    <a href="broker/david-chi-tran.html" class="lab-pill" style="border-color:#f59e0b; color:#fbbf24;">Option A: VSL (David)</a>
+    <a href="broker/marcus-vance.html" class="lab-pill" style="border-color:#38bdf8; color:#7dd3fc;">Option B: VSL (Marcus)</a>
+  </div>
+
+  <!-- CONTINUOUS MOVING FINANCIAL MARKET TICKER -->
+  <div class="ticker-marquee-wrap">
+    <div class="ticker-track">
+      <div class="ticker-segment">
+        <span><span class="ticker-dot-live"></span>INDEX: <strong>25,419 VERIFIED AUSTRALIAN BROKERS</strong></span>
+        <span>•</span>
+        <span>STANDARD: <strong>ASIC BEST INTERESTS DUTY (BID) COMPLIANT</strong></span>
+        <span>•</span>
+        <span>APRA BUFFER: <strong>3.00% SERVICING AUDIT ACTIVE</strong></span>
+        <span>•</span>
+        <span>INDEPENDENT VERIFICATION BUREAU: <strong>0% PAY-TO-RANK BIAS</strong></span>
+        <span>•</span>
+        <span>REAL-TIME PANEL CHECK: <strong>42 APRA ACCREDITED LENDERS</strong></span>
+        <span>•</span>
+      </div>
+      <div class="ticker-segment">
+        <span><span class="ticker-dot-live"></span>INDEX: <strong>25,419 VERIFIED AUSTRALIAN BROKERS</strong></span>
+        <span>•</span>
+        <span>STANDARD: <strong>ASIC BEST INTERESTS DUTY (BID) COMPLIANT</strong></span>
+        <span>•</span>
+        <span>APRA BUFFER: <strong>3.00% SERVICING AUDIT ACTIVE</strong></span>
+        <span>•</span>
+        <span>INDEPENDENT VERIFICATION BUREAU: <strong>0% PAY-TO-RANK BIAS</strong></span>
+        <span>•</span>
+        <span>REAL-TIME PANEL CHECK: <strong>42 APRA ACCREDITED LENDERS</strong></span>
+        <span>•</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="google-omni.html" class="brand-wrap">
+      <div class="brand-logo-seal">B</div>
+      <span class="brand-title">Best Brokers Australia</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <a href="#claim" onclick="openClaimModal(); return false;" class="btn-claim-profile">
+        <svg class="svg-icon" viewBox="0 0 24 24" style="width:14px; height:14px; color:var(--cobalt);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <span>Claim Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="main-body-container">
+  <!-- HERO SECTION -->
+  <section class="hero-center">
+    <div class="hero-eyebrow">
+      Independent Search & Verification
+    </div>
+    <h1>Find & Check Up on<br><span class="highlight-blue">Verified Australian Brokers.</span></h1>
+    <p>Compare independent Trust Scores, verify lender panel diversity, and match with the top accredited specialists for your exact scenario.</p>
+  </section>
+
+  <!-- 1. GOOGLE-STYLE FLOATING OMNIBAR SECTION (DEFAULT ENTRANCE) -->
+  <div class="google-search-section" id="google-search-deck">
+    
+    <!-- SUBTLE TOOLTIP LINE POINTING TO MATCH BUTTON -->
+    <div class="matchmaker-tooltip-cue" id="match-tooltip">
+      <span>Don't have a broker? Click here to match your scenario</span>
+      <span>↴</span>
+    </div>
+
+    <!-- GOOGLE-STYLE OMNIBAR WITH INTEGRATED SHIMMERING "MATCH ME WITH BROKER" PILL -->
+    <div class="google-omnibar-box">
+      <span class="omnibar-search-icon">
+        <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </span>
+      <input type="text" id="google-input" class="omnibar-input" placeholder="Search broker name, firm, or suburb..." oninput="handleGoogleType(this.value)">
+      
+      <!-- SHIMMERING LIGHT BEAM AI-MODE BUTTON -->
+      <button class="btn-ai-mode-pill" onclick="expandAIMatchmaker()">
+        <span class="sparkle-icon">✦</span>
+        <span>Match Me with Broker</span>
+      </button>
+    </div>
+
+    <!-- 4 REAL-WORLD CLICKABLE SEARCH CHIPS (CLEAN VECTOR ICONS) -->
+    <div class="google-suggestion-chips-row">
+      <button class="google-chip-btn" onclick="applySearchChip('Mortgage Brokers Sydney')">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span>Mortgage Brokers Sydney</span>
+      </button>
+      <button class="google-chip-btn" onclick="applySearchChip('First Home Buyers')">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span>First Home Buyers</span>
+      </button>
+      <button class="google-chip-btn" onclick="applySearchChip('Refinance Home Loans')">
+        <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+        <span>Refinance Home Loans</span>
+      </button>
+      <button class="google-chip-btn" onclick="applySearchChip('Commercial & Business')">
+        <svg class="svg-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        <span>Commercial & Business</span>
+      </button>
+    </div>
+
+    <!-- LIVE 3-RESULT FLOATING STACK AS YOU TYPE OR CLICK CHIP -->
+    <div class="live-search-drop-stack" id="google-search-results"></div>
+
+  </div>
+
+  <!-- 2. THE LIVING AI BLOB DIAGNOSTIC CONSOLE (POPS UP IN PLACE OF SEARCH DECK) -->
+  <div class="ai-console-wrapper hidden" id="ai-console-wrap">
+    
+    <div class="console-card" id="master-console">
+      
+      <!-- TOP ACTION BAR: BACK TO SEARCH -->
+      <div class="console-top-action-bar">
+        <a class="apple-back-search-btn" onclick="collapseAIMatchmaker()">
+          <span>‹ Back to Search</span>
+        </a>
+        <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-muted); font-weight:700;">
+          LIVING AI LENDING ENGINE
+        </div>
+      </div>
+
+      <!-- STABLE NON-JUMPING CRITERIA RIBBON (LEFT-TO-RIGHT POPULATION) -->
+      <div class="progress-selections-bar">
+        <div class="selections-left-group" id="chips-container">
+          <span style="color:var(--ink-muted); font-weight:600; font-family:var(--font-sans); margin-right:6px;">Your Criteria:</span>
+        </div>
+        <div class="selections-right-group">
+          <div id="sliders-chips-container" style="display:flex; gap:6px;"></div>
+          <div class="progress-dots">
+            <div class="p-dot current" id="dot-1"></div>
+            <div class="p-dot" id="dot-2"></div>
+            <div class="p-dot" id="dot-3"></div>
+            <div class="p-dot" id="dot-ready"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 75% ATTENTION: HEROIC SPACIOUS AI ARENA (620PX TALL, 380PX CIRCLE) -->
+      <div class="ai-hero-arena" id="ai-arena">
+        <div class="floating-ai-blob" id="hero-blob"></div>
+
+        <div class="center-intellect-orb" id="center-orb" onclick="handleOrbClick()">
+          <div class="orb-step-tag" id="orb-step-indicator">STEP 1 OF 3: INTENT</div>
+          <div class="orb-main-text" id="orb-question-display">What is your primary lending mission?</div>
+        </div>
+
+        <div id="satellites-rack"></div>
+      </div>
+
+      <!-- STATE / JURISDICTION SELECTOR -->
+      <div class="location-selector-bar">
+        <span style="font-size:0.78rem; font-weight:800; color:var(--ink-gray); text-transform:uppercase; letter-spacing:0.05em;">State Jurisdiction:</span>
+        <div class="location-pills-list">
+          <button class="loc-pill-btn active" onclick="setCityHub(0, 'Sydney, NSW')">NSW / Sydney</button>
+          <button class="loc-pill-btn" onclick="setCityHub(1, 'Melbourne, VIC')">VIC / Melbourne</button>
+          <button class="loc-pill-btn" onclick="setCityHub(2, 'Brisbane, QLD')">QLD / Brisbane</button>
+          <button class="loc-pill-btn" onclick="setCityHub(3, 'Perth, WA')">WA / Perth</button>
+          <button class="loc-pill-btn" onclick="setCityHub(4, 'Adelaide, SA')">SA / Adelaide</button>
+          <button class="loc-pill-btn" onclick="setCityHub(5, 'National / All Australia')">National Online</button>
+        </div>
+      </div>
+
+      <!-- 20% ATTENTION: COMPACT DRAGGABLE DETENT LINES -->
+      <div class="sliders-compact-panel">
+        
+        <div class="slider-compact-row">
+          <div class="compact-header">
+            <span class="compact-title">1. Deposit & Equity Position (Drag Puck)</span>
+            <span class="compact-readout" id="readout-deposit">5% – 10% (Federal Scheme)</span>
+          </div>
+          
+          <div class="drag-rail-track" id="track-deposit">
+            <div class="rail-bar-bg"><div class="rail-bar-fill" id="fill-deposit" style="width:0%;"></div></div>
+            <div class="stops-layer">
+              <div class="stop-dot-indicator"></div>
+              <div class="stop-dot-indicator"></div>
+              <div class="stop-dot-indicator"></div>
+              <div class="stop-dot-indicator"></div>
+              <div class="stop-dot-indicator"></div>
+            </div>
+            <div class="drag-puck" id="puck-deposit" style="left:0%;"></div>
+          </div>
+
+          <div class="rail-labels-row">
+            <span>5% Low Deposit</span>
+            <span>10% Low LMI</span>
+            <span>20% Prime (80% LVR)</span>
+            <span>Guarantor</span>
+            <span>Property Equity</span>
+          </div>
+        </div>
+
+        <div class="slider-compact-row">
+          <div class="compact-header">
+            <span class="compact-title">2. Settlement Timeline & Urgency (Drag Puck)</span>
+            <span class="compact-readout" id="readout-urgency">Urgent (<14 Days / Auction)</span>
+          </div>
+          
+          <div class="drag-rail-track" id="track-urgency">
+            <div class="rail-bar-bg"><div class="rail-bar-fill" id="fill-urgency" style="width:0%;"></div></div>
+            <div class="stops-layer">
+              <div class="stop-dot-indicator"></div>
+              <div class="stop-dot-indicator"></div>
+              <div class="stop-dot-indicator"></div>
+              <div class="stop-dot-indicator"></div>
+              <div class="stop-dot-indicator"></div>
+            </div>
+            <div class="drag-puck" id="puck-urgency" style="left:0%;"></div>
+          </div>
+
+          <div class="rail-labels-row">
+            <span><14d (Auction)</span>
+            <span>30d (Contract)</span>
+            <span>60d (Pre-Approval)</span>
+            <span>3-6m (Planning)</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 5-SECOND VERIFICATION SEQUENCE OVERLAY -->
+    <div class="scavenger-terminal-overlay" id="scavenger-overlay">
+      <div class="scavenger-header">
+        <div>
+          <span style="color:var(--cobalt); font-weight:800;">VERIFICATION ENGINE:</span>
+          <span>SEARCHING & CHECKING 25,419 REGISTERED BROKERS...</span>
+        </div>
+      </div>
+
+      <div class="broker-scavenge-stream-box">
+        <div class="stream-card-ticker" id="stream-text">
+          Checking #04,892: Sydney Metro Finance... [High single-bank concentration]
+        </div>
+      </div>
+
+      <div class="verification-stages-list">
+        <div class="stage-item-line" id="audit-stage-1">
+          <span>●</span>
+          <span>STAGE 1: Searching ASIC Register for accredited ACL and Credit Representatives...</span>
+        </div>
+        <div class="stage-item-line" id="audit-stage-2">
+          <span>●</span>
+          <span>STAGE 2: Evaluating lender panel diversity and special policy desks...</span>
+        </div>
+        <div class="stage-item-line" id="audit-stage-3">
+          <span>●</span>
+          <span>STAGE 3: Auditing verified settlement track record & turnaround speed...</span>
+        </div>
+        <div class="stage-item-line" id="audit-stage-4">
+          <span>●</span>
+          <span>STAGE 4: Verifying service level standards & independent Trust Scores...</span>
+        </div>
+        <div class="stage-item-line" id="audit-stage-5">
+          <span>●</span>
+          <span>STAGE 5: Isolating the top 2 verified specialists for your scenario...</span>
+        </div>
+
+        <div class="master-progress-track">
+          <div class="master-progress-fill" id="audit-progress-bar"></div>
+        </div>
+      </div>
+
+      <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-dim);">
+        VERIFICATION HASH #841-AU-2025 • INDEPENDENT DIRECTORY STANDARD
+      </div>
+    </div>
+
+    <!-- DUAL REVEAL -->
+    <div class="dual-champions-reveal-wrap" id="dual-champions-reveal">
+      
+      <div class="reveal-header-bar">
+        <div class="reveal-title-wrap">
+          <h2>Top 2 Verified Brokers for Your Scenario</h2>
+          <p class="reveal-editorial-subhead" id="synthesis-summary-text">
+            These two accredited brokerages have been independently verified and matched to your specific scenario in Sydney, NSW. Both hold clean ASIC licensing records and adhere to the highest Best Interests Duty standards.
+          </p>
+        </div>
+        
+        <a class="apple-link-adjust" onclick="reopenConsole()">
+          <span>Adjust criteria</span>
+          <span class="chevron">›</span>
+        </a>
+      </div>
+
+      <div class="dual-cards-grid" id="dual-cards-container">
+        <!-- Dynamic Option A and Option B cards injected here -->
+      </div>
+
+    </div>
+
+  </div>
+  </main>
+
+  <!-- APPLE-TIER MINIMALIST FOOTER -->
+  <footer class="apple-footer">
+    <div class="footer-inner">
+      <div class="footer-top-grid">
+        <div class="footer-col-main">
+          <div class="brand-wrap" style="margin-bottom:14px;">
+            <div class="brand-logo-seal" style="width:28px; height:28px; font-size:0.95rem;">B</div>
+            <span class="brand-title" style="font-size:1.15rem;">Best Brokers Australia</span>
+          </div>
+          <p style="color:var(--ink-muted); font-size:0.85rem; max-width:340px; line-height:1.5;">
+            Independent consumer directory and broker verification bureau. We audit Australian credit licensees for Best Interests Duty (BID) compliance and lender panel transparency.
+          </p>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Directory Hubs</h4>
+          <a href="suburbs/sydney.html">Sydney Mortgage Brokers</a>
+          <a href="suburbs/melbourne.html">Melbourne Mortgage Brokers</a>
+          <a href="suburbs/brisbane.html">Brisbane Mortgage Brokers</a>
+          <a href="suburbs/perth.html">Perth Mortgage Brokers</a>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Verification</h4>
+          <a href="#" onclick="alert('Trust Scoring Model V4.2 — 3-factor weighting of lender concentration, settlement speed, and ASIC dispute registry.'); return false;">Trust Scoring Model</a>
+          <a href="#" onclick="alert('ASIC Registry Synchronization Active (Daily Sync at 04:00 AEST)'); return false;">ASIC Licence Check</a>
+          <a href="#" onclick="alert('APRA Buffer Standards — 3.00% Servicing Stress Buffer compliance verified.'); return false;">APRA Buffer Standards</a>
+          <a href="#claim" onclick="openClaimModal(); return false;">Claim Your Profile</a>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Consumer Protection</h4>
+          <a href="#" onclick="alert('Independent Consumer Protection Network'); return false;">Consumer Enforcer Pledge</a>
+          <a href="#" onclick="alert('Zero Pay-To-Rank Policy'); return false;">Zero Pay-To-Rank Policy</a>
+          <a href="#" onclick="alert('Privacy Policy: No phone number resale.'); return false;">Privacy Policy</a>
+          <a href="#" onclick="alert('Terms of Service'); return false;">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2025 Best Brokers Australia. All rights reserved. Independent Australian credit verification bureau.</p>
+        <p style="color:var(--ink-dim); font-size:0.75rem; margin-top:4px;">
+          Information provided is general in nature and does not constitute personal financial or credit advice under the National Consumer Credit Protection Act 2009.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CLAIM PROFILE & ASIC AUDIT PORTAL MODAL -->
+  <div class="modal-backdrop" id="claim-modal" onclick="handleBackdropClick(event, 'claim-modal')">
+    <div class="modal-window">
+      <button class="modal-close-btn" onclick="closeModal('claim-modal')">&times;</button>
+      
+      <div id="claim-step-1">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div class="brand-logo-seal" style="width:28px; height:28px; font-size:0.9rem;">B</div>
+          <span style="font-family:var(--font-mono); font-size:0.8rem; font-weight:800; color:var(--cobalt);">ASIC BROKER VERIFICATION BUREAU</span>
+        </div>
+        <h2 style="font-family:var(--font-display); font-size:1.6rem; font-weight:700; color:var(--ink); line-height:1.2;">
+          Claim Profile & Submit for Independent Audit
+        </h2>
+        <p style="color:var(--ink-muted); font-size:0.9rem; margin:8px 0 20px;">
+          Search our index of 25,419 Australian credit licensees and representatives to claim your profile, verify your panel diversity, and activate the Watchdog Trust Shield.
+        </p>
+
+        <div class="modal-form-group">
+          <label class="modal-form-label">Search Entity Name, Broker Name, or ACL / CRN</label>
+          <input type="text" class="modal-input" id="claim-search-input" placeholder="e.g. 483921, Marcus Vance, Talk To A Broker, Apex..." oninput="handleClaimSearch(this.value)">
+        </div>
+
+        <div id="claim-search-results-list" style="margin-top:14px;">
+          <!-- Live results populate here -->
+        </div>
+      </div>
+
+      <div id="claim-step-2" style="display:none;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+          <a onclick="backToClaimStep1()" style="color:var(--cobalt); font-size:0.85rem; font-weight:600; cursor:pointer;">‹ Back to search</a>
+        </div>
+        
+        <div style="background:var(--surface-subtle); border:1px solid var(--border); border-radius:16px; padding:18px; margin-bottom:20px;">
+          <span class="badge-v-clean" id="claim-selected-status">ASIC Record Matched</span>
+          <h3 id="claim-selected-title" style="font-family:var(--font-display); font-size:1.3rem; font-weight:700; color:var(--ink); margin-top:6px;">Talk To A Broker</h3>
+          <p id="claim-selected-sub" style="color:var(--ink-muted); font-size:0.85rem;">Lead: Marcus Vance • ACL #483921 • Sydney NSW</p>
+        </div>
+
+        <form onsubmit="submitClaimVerification(event)">
+          <div class="modal-form-group">
+            <label class="modal-form-label">Your Official Business Email</label>
+            <input type="email" class="modal-input" id="claim-email" placeholder="name@brokerage.com.au (Must match ASIC record domain)" required>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;" class="modal-form-group">
+            <div>
+              <label class="modal-form-label">Contact Name</label>
+              <input type="text" class="modal-input" id="claim-contact-name" placeholder="Principal Broker Name" required>
+            </div>
+            <div>
+              <label class="modal-form-label">Direct Mobile</label>
+              <input type="tel" class="modal-input" id="claim-phone" placeholder="0400 000 000" required>
+            </div>
+          </div>
+
+          <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:12px; padding:12px 16px; margin-bottom:18px; font-size:0.8rem; color:#92400e;">
+            <strong>Verification Requirement:</strong> You agree to uphold the ASIC Best Interests Duty (BID), provide accredited lender panel documentation, and maintain our platform 1.5-hour SLA standard.
+          </div>
+
+          <button type="submit" class="modal-submit-btn">
+            Submit for 24-Hour Express Verification Audit
+          </button>
+        </form>
+      </div>
+
+      <div id="claim-step-3" style="display:none; text-align:center; padding:16px 0;">
+        <div style="width:64px; height:64px; border-radius:50%; background:var(--emerald-soft); border:2px solid var(--emerald); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; color:var(--emerald);">
+          <svg class="svg-icon svg-icon-solid" viewBox="0 0 24 24" style="width:32px; height:32px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg>
+        </div>
+        <h3 style="font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--ink);">Audit Verification Ticket Created</h3>
+        <p style="color:var(--ink-muted); font-size:0.9rem; margin-top:8px; max-width:440px; margin-left:auto; margin-right:auto;">
+          A verification link has been sent to your business email. Our audit team will cross-reference your ASIC credit registration and APRA lender panel within 24 business hours.
+        </p>
+        <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--emerald-dark); font-weight:700; margin:16px 0;">
+          TICKET #BBA-AUDIT-2025-9412
+        </div>
+        <button onclick="closeModal('claim-modal')" class="btn-apple-pill" style="max-width:200px; margin:16px auto 0;">
+          Close Portal
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // FLATICON-STYLE SVG VECTOR ICONS REGISTRY
+    const ICONS = {
+      home: `<svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`,
+      upgrade: `<svg class="svg-icon" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>`,
+      investor: `<svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+      refinance: `<svg class="svg-icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>`,
+      abn: `<svg class="svg-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+      payg: `<svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`,
+      doctor: `<svg class="svg-icon" viewBox="0 0 24 24"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path><circle cx="20" cy="10" r="2"></circle></svg>`,
+      contractor: `<svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
+      clean: `<svg class="svg-icon svg-icon-solid" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+      minor: `<svg class="svg-icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+      impaired: `<svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
+      fresh: `<svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12c0-2.8 1.15-5.33 3-7.14"></path><path d="M12 6v6l4 2"></path></svg>`
+    };
+
+    // DYNAMIC REGIONAL BROKER PARTNERS REPOSITORY
+    const REGIONAL_BROKER_PARTNERS = {
+      "Sydney, NSW": {
+        optionA: {
+          name: "Beat My Home Loan",
+          lead: "David Chi Tran",
+          acl: "CR #475681 | ACL #389328",
+          tag: "Option A • Sydney & Parramatta (Gold)",
+          location: "Sydney & Parramatta, NSW",
+          photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/david-chi-tran.html",
+          notes: "Accredited Senior Specialist Desk for Investor & Self-Employed Loan Restructuring, unadvertised Tier-1 bank rate discounts, and rapid APRA servicing approval.",
+          stats: { settlement: "99.8%", turnaround: "8 Days", response: "1.0 Hour", trustScore: "99 / 100" }
+        },
+        optionB: {
+          name: "Talk To A Broker",
+          lead: "Marcus Vance",
+          acl: "ACL #483921",
+          tag: "Option B • Sydney CBD (Cobalt)",
+          location: "Sydney CBD, NSW",
+          photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/marcus-vance.html",
+          notes: "Ranked #1 audited specialist in Sydney CBD for fast-track 48-hour auction pre-approvals and wholesale tier-1 margin discount negotiations.",
+          stats: { settlement: "99.4%", turnaround: "11 Days", response: "1.5 Hours", trustScore: "98 / 100" }
+        }
+      },
+      "Melbourne, VIC": {
+        optionA: {
+          name: "Melbourne Capital Advisory",
+          lead: "David Chen",
+          acl: "ACL #392810",
+          tag: "Option A • Melbourne CBD",
+          location: "Melbourne CBD, VIC",
+          photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/mortgage-broker-melbourne-cbd.html",
+          notes: "Melbourne's top-rated specialist for commercial and residential lending, doctor & professional LMI waivers, and fast-track APRA servicing approvals.",
+          stats: { settlement: "99.1%", turnaround: "10 Days", response: "1.5 Hours", trustScore: "97 / 100" }
+        },
+        optionB: {
+          name: "Inovayt Finance",
+          lead: "Nick Reilly",
+          acl: "ACL #430155",
+          tag: "Option B • Melbourne South",
+          location: "Melbourne, VIC",
+          photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/mortgage-broker-melbourne-cbd.html",
+          notes: "Established Victorian brokerage specializing in holistic wealth structuring, first home grants, and non-bank alternative income desks.",
+          stats: { settlement: "98.6%", turnaround: "13 Days", response: "2.0 Hours", trustScore: "95 / 100" }
+        }
+      },
+      "Brisbane, QLD": {
+        optionA: {
+          name: "Hunter Galloway Mortgage Advisors",
+          lead: "Nathan Vecchio",
+          acl: "ACL #463901",
+          tag: "Option A • Brisbane City",
+          location: "Brisbane City, QLD",
+          photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/hunter-galloway-brisbane.html",
+          notes: "Queensland's leading first home buyer and upgrader mortgage specialists with over 1,200 5-star reviews and priority Tier-1 bank credit SLAs.",
+          stats: { settlement: "99.6%", turnaround: "9 Days", response: "1.5 Hours", trustScore: "99 / 100" }
+        },
+        optionB: {
+          name: "North Brisbane Home Loans",
+          lead: "Pat Dwyer",
+          acl: "ACL #389201",
+          tag: "Option B • Brisbane North",
+          location: "Brisbane, QLD",
+          photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/hunter-galloway-brisbane.html",
+          notes: "Specialists in low-deposit lending, self-employed tax structures, and Queensland regional property acquisitions.",
+          stats: { settlement: "98.7%", turnaround: "12 Days", response: "2.0 Hours", trustScore: "95 / 100" }
+        }
+      },
+      "Perth, WA": {
+        optionA: {
+          name: "Orange Finance",
+          lead: "Joel Quartermaine",
+          acl: "ACL #492810",
+          tag: "Option A • Perth CBD",
+          location: "Perth, WA",
+          photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/orange-finance-perth.html",
+          notes: "Western Australia's premier independent brokerage specializing in Keystart exits, mining & FIFO income assessments, and property investment portfolios.",
+          stats: { settlement: "99.2%", turnaround: "11 Days", response: "1.5 Hours", trustScore: "97 / 100" }
+        },
+        optionB: {
+          name: "Perth Mortgage Specialists",
+          lead: "Sarah Jenkins",
+          acl: "ACL #441209",
+          tag: "Option B • Subiaco WA",
+          location: "Perth, WA",
+          photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/orange-finance-perth.html",
+          notes: "Renowned for first home buyers, construction drawdowns, and flexible ABN alt-doc financing solutions across WA.",
+          stats: { settlement: "98.5%", turnaround: "13 Days", response: "2.0 Hours", trustScore: "94 / 100" }
+        }
+      },
+      "Adelaide, SA": {
+        optionA: {
+          name: "Adelaide Lending Group",
+          lead: "Matthew Thomas",
+          acl: "ACL #381902",
+          tag: "Option A • Adelaide CBD",
+          location: "Adelaide, SA",
+          photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/talk-to-a-broker-sydney.html",
+          notes: "South Australia's trusted independent advisory for Homestart conversions, investor tax minimization, and 1-year tax return approvals.",
+          stats: { settlement: "99.0%", turnaround: "12 Days", response: "1.5 Hours", trustScore: "96 / 100" }
+        },
+        optionB: {
+          name: "South Coast Finance",
+          lead: "Elena Rossi",
+          acl: "ACL #472190",
+          tag: "Option B • Glenelg SA",
+          location: "Adelaide, SA",
+          photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/mortgage-pros-sample.html",
+          notes: "Dedicated customer advocate for home upgraders, low-deposit family guarantees, and rapid settlement turnaround times.",
+          stats: { settlement: "98.4%", turnaround: "14 Days", response: "2.0 Hours", trustScore: "94 / 100" }
+        }
+      },
+      "National / All Australia": {
+        optionA: {
+          name: "Mortgage Pros",
+          lead: "Eric & Patrick",
+          acl: "ASIC Rep #518290",
+          tag: "Option A • National Digital",
+          location: "National Online / NSW",
+          photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/mortgage-pros-sample.html",
+          notes: "National digital lending desk with 38 accredited lenders. Flawless 5.0-star rating across 1,500+ client settlements with 1.5-hour response priority.",
+          stats: { settlement: "99.4%", turnaround: "11 Days", response: "1.5 Hours", trustScore: "98 / 100" }
+        },
+        optionB: {
+          name: "Talk To A Broker",
+          lead: "Marcus Vance",
+          acl: "ACL #483921",
+          tag: "Option B • National Prime",
+          location: "National Digital / Sydney",
+          photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80",
+          dossierUrl: "broker/talk-to-a-broker-sydney.html",
+          notes: "National complex lending specialist with direct access to non-bank credit assessors and emergency auction pre-clearance desks.",
+          stats: { settlement: "98.9%", turnaround: "11 Days", response: "1.5 Hours", trustScore: "98 / 100" }
+        }
+      }
+    };
+
+    // SEARCH DATABASE FOR REAL-TIME TYPING & CHIP SEARCH
+    const SEARCH_DATABASE = [
+      { name: "Beat My Home Loan", lead: "David Chi Tran", acl: "CR #475681 | ACL #389328", location: "Sydney & Parramatta, NSW", score: "99 / 100", verified: true, dossierUrl: "broker/david-chi-tran.html", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80", tags: ["sydney", "parramatta", "david tran", "david chi tran", "beat my home loan", "first home", "refinance", "investor", "self-employed", "mortgage brokers sydney"] },
+      { name: "Talk To A Broker", lead: "Marcus Vance", acl: "ACL #483921", location: "Sydney CBD, NSW", score: "98 / 100", verified: true, dossierUrl: "broker/marcus-vance.html", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80", tags: ["sydney", "first home", "refinance", "commercial", "mortgage brokers sydney"] },
+      { name: "Mortgage Pros", lead: "Eric & Patrick", acl: "ASIC Rep #518290", location: "North Strathfield, NSW", score: "78 / 100", verified: false, dossierUrl: "broker/mortgage-pros-sample.html", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80", tags: ["sydney", "strathfield", "first home", "refinance", "mortgage brokers sydney"] },
+      { name: "Atelier Wealth", lead: "Aaron Christie-David", acl: "ACL #412099", location: "Sydney, NSW", score: "96 / 100", verified: true, dossierUrl: "broker/atelier-wealth-sydney.html", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80", tags: ["sydney", "first home", "first home buyers", "mortgage brokers sydney"] },
+      { name: "Hunter Galloway Mortgage Advisors", lead: "Nathan Vecchio", acl: "ACL #463901", location: "Brisbane City, QLD", score: "99 / 100", verified: true, dossierUrl: "broker/hunter-galloway-brisbane.html", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80", tags: ["brisbane", "first home", "first home buyers"] },
+      { name: "Melbourne Capital Advisory", lead: "David Chen", acl: "ACL #392810", location: "Melbourne CBD, VIC", score: "97 / 100", verified: true, dossierUrl: "broker/mortgage-broker-melbourne-cbd.html", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80", tags: ["melbourne", "refinance", "refinance home loans", "commercial"] },
+      { name: "Orange Finance", lead: "Joel Quartermaine", acl: "ACL #492810", location: "Perth, WA", score: "97 / 100", verified: true, dossierUrl: "broker/orange-finance-perth.html", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80", tags: ["perth", "refinance", "first home", "wa"] },
+      { name: "Apex Finance Solutions", lead: "Credit Rep", acl: "Unverified", location: "Sydney, NSW", score: "Unverified", verified: false, note: "88% single-bank concentration risk", tags: ["sydney", "mortgage brokers sydney"] },
+      { name: "Coastal Home Loans", lead: "Credit Rep", acl: "Unverified", location: "Bondi, NSW", score: "Unverified", verified: false, note: "Audit not completed", tags: ["sydney", "mortgage brokers sydney"] }
+    ];
+
+    // SIMULATED ASIC CLAIMABLE DIRECTORY (25K REGISTRY SAMPLE)
+    const ASIC_REGISTRY_SAMPLE = [
+      { id: "483921", name: "Talk To A Broker Pty Ltd", lead: "Marcus Vance", acl: "ACL #483921", state: "NSW", status: "Verified Partner", claimed: true },
+      { id: "518290", name: "Mortgage Pros Financial", lead: "Eric & Patrick", acl: "ASIC Rep #518290", state: "NSW", status: "Verified Partner", claimed: true },
+      { id: "412099", name: "Atelier Wealth Management", lead: "Aaron Christie-David", acl: "ACL #412099", state: "NSW", status: "Verified Partner", claimed: true },
+      { id: "463901", name: "Hunter Galloway Mortgage Advisors", lead: "Nathan Vecchio", acl: "ACL #463901", state: "QLD", status: "Verified Partner", claimed: true },
+      { id: "392810", name: "Melbourne Capital Advisory", lead: "David Chen", acl: "ACL #392810", state: "VIC", status: "Verified Partner", claimed: true },
+      { id: "492810", name: "Orange Finance WA", lead: "Joel Quartermaine", acl: "ACL #492810", state: "WA", status: "Verified Partner", claimed: true },
+      { id: "339102", name: "Apex Finance Solutions", lead: "Principal Broker", acl: "ACL #339102", state: "NSW", status: "Unverified Public Index", claimed: false },
+      { id: "351980", name: "Coastal Home Loans Sydney", lead: "Authorised Rep", acl: "ACL #351980", state: "NSW", status: "Unverified Public Index", claimed: false },
+      { id: "389201", name: "North Brisbane Home Loans", lead: "Pat Dwyer", acl: "ACL #389201", state: "QLD", status: "Verified Partner", claimed: true },
+      { id: "441209", name: "Perth Mortgage Specialists", lead: "Sarah Jenkins", acl: "ACL #441209", state: "WA", status: "Verified Partner", claimed: true }
+    ];
+
+    function handleGoogleType(query) {
+      const container = document.getElementById('google-search-results');
+      if (!query || query.trim().length === 0) {
+        container.innerHTML = "";
+        return;
+      }
+
+      const q = query.toLowerCase().trim();
+      const matches = SEARCH_DATABASE.filter(b => 
+        b.name.toLowerCase().includes(q) || 
+        b.lead.toLowerCase().includes(q) || 
+        b.location.toLowerCase().includes(q) ||
+        (b.tags && b.tags.some(t => t.includes(q)))
+      );
+
+      if (matches.length === 0) {
+        container.innerHTML = `
+          <div style="background:#ffffff; border:1px solid var(--border); border-radius:16px; padding:18px; text-align:center; color:var(--ink-muted); font-size:0.9rem;">
+            No broker records found for "${query}". Click [Match Me with Broker] to match your scenario.
+          </div>
+        `;
+        return;
+      }
+
+      const top3 = matches.slice(0, 3);
+
+      container.innerHTML = top3.map(m => {
+        if (m.verified) {
+          return `
+            <div class="search-result-entry res-v-line" onclick="window.location.href='${m.dossierUrl}'">
+              <div style="display:flex; gap:14px; align-items:center;">
+                <img src="${m.img}" alt="${m.lead}" style="width:44px; height:44px; border-radius:10px; object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80'">
+                <div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <strong style="font-size:1rem; color:var(--ink);">${m.name}</strong>
+                    <span class="badge-v-clean">✓ Verified</span>
+                  </div>
+                  <div style="color:var(--ink-muted); font-size:0.8rem;">Lead: ${m.lead} • ${m.location}</div>
+                </div>
+              </div>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="text-align:right;">
+                  <div style="font-family:var(--font-display); font-size:1.15rem; font-weight:800; color:var(--emerald);">${m.score}</div>
+                  <div style="font-size:0.65rem; color:var(--ink-muted); font-weight:700; text-transform:uppercase;">Trust Score</div>
+                </div>
+                <a class="apple-link-adjust" style="font-size:0.85rem;">
+                  <span>View Details</span>
+                  <span class="chevron">›</span>
+                </a>
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="search-result-entry res-u-line" onclick="window.location.href='broker/mortgage-pros-sample.html'">
+              <div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <strong style="font-size:1rem; color:var(--ink);">${m.name}</strong>
+                  <span class="badge-u-clean">Public Index</span>
+                </div>
+                <div style="color:var(--ink-muted); font-size:0.8rem;">${m.location} • ${m.note}</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="text-align:right;">
+                  <div style="font-family:var(--font-display); font-size:1.05rem; font-weight:800; color:var(--rose);">Unverified</div>
+                </div>
+                <a class="apple-link-adjust" style="color:var(--rose); font-size:0.85rem;">
+                  <span>Inspect</span>
+                  <span class="chevron">›</span>
+                </a>
+              </div>
+            </div>
+          `;
+        }
+      }).join('');
+    }
+
+    function applySearchChip(queryText) {
+      const input = document.getElementById('google-input');
+      input.value = queryText;
+      input.focus();
+      handleGoogleType(queryText);
+    }
+
+    function expandAIMatchmaker() {
+      const searchDeck = document.getElementById('google-search-deck');
+      const consoleWrap = document.getElementById('ai-console-wrap');
+
+      searchDeck.style.opacity = '0';
+      searchDeck.style.transform = 'scale(0.96)';
+
+      setTimeout(() => {
+        searchDeck.classList.add('hidden');
+        consoleWrap.classList.remove('hidden');
+        window.scrollTo({ top: consoleWrap.offsetTop - 60, behavior: 'smooth' });
+      }, 250);
+    }
+
+    function collapseAIMatchmaker() {
+      const searchDeck = document.getElementById('google-search-deck');
+      const consoleWrap = document.getElementById('ai-console-wrap');
+
+      consoleWrap.classList.add('hidden');
+      searchDeck.classList.remove('hidden');
+
+      setTimeout(() => {
+        searchDeck.style.opacity = '1';
+        searchDeck.style.transform = 'scale(1)';
+        window.scrollTo({ top: searchDeck.offsetTop - 60, behavior: 'smooth' });
+      }, 50);
+    }
+
+    // AI BLOB ENGINE
+    const BLOB_QUESTIONS = [
+      {
+        stepNum: 1,
+        tag: "STEP 1 OF 3: INTENT",
+        question: "What is your primary lending mission?",
+        options: [
+          { key: "first-home", iconSvg: ICONS.home, title: "First Home Buyer", sub: "5% Scheme & Grants", num: "1", color: "#10b981", transform: "rotate(45deg) scale(1.08)", label: "First Home", pos: "top: 28px; left: 28px;" },
+          { key: "upgrade", iconSvg: ICONS.upgrade, title: "Upgrader / Next Home", sub: "Bridging & Transition", num: "2", color: "#0284c7", transform: "rotate(135deg) scale(1.04)", label: "Upgrader", pos: "top: 28px; right: 28px;" },
+          { key: "investor", iconSvg: ICONS.investor, title: "Property Investor", sub: "Equity & Buffers", num: "3", color: "#8b5cf6", transform: "rotate(225deg) scale(1.1)", label: "Investor", pos: "bottom: 28px; right: 28px;" },
+          { key: "refinance", iconSvg: ICONS.refinance, title: "Rate Squeeze / Refi", sub: "Lower Bank Margins", num: "4", color: "#ec4899", transform: "rotate(315deg) scale(1.15)", label: "Refinance", pos: "bottom: 28px; left: 28px;" }
+        ]
+      },
+      {
+        stepNum: 2,
+        tag: "STEP 2 OF 3: INCOME",
+        question: "How do you earn income?",
+        options: [
+          { key: "abn", iconSvg: ICONS.abn, title: "1-Yr ABN / Solo", sub: "Alt-Doc & BAS Accept", num: "1", color: "#0284c7", transform: "rotate(90deg) scale(1.14)", label: "1-Yr ABN", pos: "top: 28px; left: 28px;" },
+          { key: "payg", iconSvg: ICONS.payg, title: "Standard Full PAYG", sub: "Permanent Payslips", num: "2", color: "#10b981", transform: "rotate(180deg) scale(1.0)", label: "Full PAYG", pos: "top: 28px; right: 28px;" },
+          { key: "doctor", iconSvg: ICONS.doctor, title: "Doctor / Lawyer", sub: "90-95% LMI Fee Waiver", num: "3", color: "#f59e0b", transform: "rotate(270deg) scale(1.08)", label: "Doctor/Pro", pos: "bottom: 28px; right: 28px;" },
+          { key: "contractor", iconSvg: ICONS.contractor, title: "Casual / Gig Work", sub: "Short Tenure / Flexible", num: "4", color: "#6366f1", transform: "rotate(360deg) scale(1.12)", label: "Contractor", pos: "bottom: 28px; left: 28px;" }
+        ]
+      },
+      {
+        stepNum: 3,
+        tag: "STEP 3 OF 3: CREDIT",
+        question: "How is your credit score?",
+        options: [
+          { key: "clean", iconSvg: ICONS.clean, title: "Spotless (700+)", sub: "Prime Fast Lane", num: "1", color: "#10b981", transform: "rotate(45deg) scale(1.12)", label: "Clean 700+", pos: "top: 28px; left: 28px;" },
+          { key: "minor", iconSvg: ICONS.minor, title: "Minor Dings", sub: "Late Bills / Afterpay", num: "2", color: "#f59e0b", transform: "rotate(135deg) scale(1.06)", label: "Minor Dings", pos: "top: 28px; right: 28px;" },
+          { key: "impaired", iconSvg: ICONS.impaired, title: "Impaired / Default", sub: "Non-Bank Specialist", num: "3", color: "#ef4444", transform: "rotate(225deg) scale(1.1)", label: "Impaired", pos: "bottom: 28px; right: 28px;" },
+          { key: "fresh", iconSvg: ICONS.fresh, title: "Fresh / First Loan", sub: "No Prior History", num: "4", color: "#0284c7", transform: "rotate(315deg) scale(1.08)", label: "Fresh Credit", pos: "bottom: 28px; left: 28px;" }
+        ]
+      }
+    ];
+
+    const STREAM_MESSAGES = [
+      "Checking #04,892: Sydney Metro Finance... [High single-bank concentration]",
+      "Checking #11,204: Apex Home Loans... [Limited Alt-Doc panel]",
+      "Checking #16,842: Coastal Credit Group... [Standard turnaround 14 days]",
+      "Checking #22,910: Australian Lending Solutions... [Standard retail broker]",
+      "MATCH FOUND: Option A Specialist... [ASIC BID Compliant 100%]",
+      "MATCH FOUND: Option B Specialist... [ASIC BID Compliant 100%]",
+      "VERIFICATION COMPLETE: Top 2 Verified Specialists Isolated"
+    ];
+
+    let currentBlobStep = 0;
+    let selectedChips = [];
+    let selectedParams = {
+      mission: 'first-home',
+      missionLabel: 'First Home',
+      income: 'abn',
+      incomeLabel: '1-Yr ABN',
+      credit: 'clean',
+      depositLabel: '5% Low Deposit',
+      urgencyLabel: '<14d Auction',
+      cityLabel: 'Sydney, NSW'
+    };
+
+    let currentActiveBroker = null;
+    let slaTimerInterval = null;
+
+    function renderBlobStep() {
+      const qData = BLOB_QUESTIONS[currentBlobStep];
+      const orb = document.getElementById('center-orb');
+      
+      updateDots();
+      updateChipsRibbon();
+
+      if (currentBlobStep < 3) {
+        orb.classList.remove('ready-state');
+        document.getElementById('orb-step-indicator').innerText = qData.tag;
+        document.getElementById('orb-question-display').innerText = qData.question;
+
+        const rack = document.getElementById('satellites-rack');
+        rack.innerHTML = qData.options.map(opt => `
+          <div class="satellite-card-item" style="${opt.pos}" onclick="pickBlobChoice('${opt.key}', '${opt.transform}', '${opt.color}', '${opt.label}')">
+            <span class="sat-icon-wrap">${opt.iconSvg}</span>
+            <div>
+              <div class="sat-title">${opt.title}</div>
+              <div class="sat-sub">${opt.sub}</div>
+            </div>
+            <span class="sat-key-badge">${opt.num}</span>
+          </div>
+        `).join('');
+      } else {
+        orb.classList.add('ready-state');
+        document.getElementById('orb-step-indicator').innerText = "CRITERIA READY";
+        document.getElementById('orb-question-display').innerHTML = `
+          <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+            <svg class="svg-icon svg-icon-solid" viewBox="0 0 24 24" style="width:22px; height:22px; color:#38bdf8;"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/></svg>
+            <span>Click to Match with Best Broker</span>
+          </div>
+        `;
+        
+        document.getElementById('satellites-rack').innerHTML = `
+          <div style="position:absolute; bottom:18px; color:var(--ink-muted); font-size:0.8rem; font-family:var(--font-mono); font-weight:700;">
+            ● 3/3 CHOICES COMPLETE • TAP CIRCLE TO RUN VERIFICATION
+          </div>
+        `;
+
+        const blob = document.getElementById('hero-blob');
+        blob.style.transform = 'scale(1.15) rotate(720deg)';
+        blob.style.filter = 'blur(45px) drop-shadow(0 0 45px #38bdf8)';
+      }
+    }
+
+    function updateDots() {
+      for (let i = 1; i <= 3; i++) {
+        const dot = document.getElementById(`dot-${i}`);
+        dot.className = 'p-dot';
+        if (i < currentBlobStep + 1) dot.classList.add('done');
+        else if (i === currentBlobStep + 1) dot.classList.add('current');
+      }
+      const readyDot = document.getElementById('dot-ready');
+      readyDot.className = 'p-dot';
+      if (currentBlobStep >= 3) readyDot.classList.add('done');
+    }
+
+    function updateChipsRibbon() {
+      const container = document.getElementById('chips-container');
+      const sliderContainer = document.getElementById('sliders-chips-container');
+      
+      let html = '<span style="color:var(--ink-muted); font-weight:600; font-family:var(--font-sans); margin-right:6px;">Your Criteria:</span>';
+      
+      if (selectedChips.length === 0) {
+        html += '<span style="color:var(--ink-dim); font-size:0.75rem; font-family:var(--font-sans);">(Select options below)</span>';
+      } else {
+        selectedChips.forEach((c, idx) => {
+          html += `<span class="tappable-chip" onclick="jumpToStep(${idx})" title="Click to edit">${c} <span class="chip-edit-icon">✎</span></span>`;
+        });
+      }
+      container.innerHTML = html;
+
+      if (sliderContainer) {
+        sliderContainer.innerHTML = `
+          <span class="tappable-chip" id="chip-deposit-val" style="color:var(--cobalt);">${selectedParams.depositLabel}</span>
+          <span class="tappable-chip" id="chip-urgency-val" style="color:var(--cobalt);">${selectedParams.urgencyLabel}</span>
+          <span class="tappable-chip" id="chip-city-val" style="color:var(--ink); font-weight:700;">${selectedParams.cityLabel}</span>
+        `;
+      }
+    }
+
+    function jumpToStep(stepIdx) {
+      currentBlobStep = stepIdx;
+      selectedChips = selectedChips.slice(0, stepIdx);
+      renderBlobStep();
+    }
+
+    function pickBlobChoice(key, transformStyle, glowColor, chipLabel) {
+      if (currentBlobStep === 0) {
+        selectedParams.mission = key;
+        selectedParams.missionLabel = chipLabel;
+      }
+      if (currentBlobStep === 1) {
+        selectedParams.income = key;
+        selectedParams.incomeLabel = chipLabel;
+      }
+      if (currentBlobStep === 2) {
+        selectedParams.credit = key;
+      }
+
+      selectedChips[currentBlobStep] = chipLabel;
+
+      const arena = document.getElementById('ai-arena');
+      const blob = document.getElementById('hero-blob');
+
+      arena.classList.remove('subtle-pulse');
+      blob.classList.remove('blob-shockwave');
+      void arena.offsetWidth;
+      void blob.offsetWidth;
+
+      arena.classList.add('subtle-pulse');
+      blob.classList.add('blob-shockwave');
+
+      blob.style.transform = transformStyle;
+      blob.style.filter = `blur(45px) drop-shadow(0 0 30px ${glowColor})`;
+
+      currentBlobStep++;
+      renderBlobStep();
+    }
+
+    function handleOrbClick() {
+      if (currentBlobStep >= 3) {
+        start5SecScavengerSequence();
+      }
+    }
+
+    function setCityHub(idx, city) {
+      selectedParams.cityLabel = city;
+      document.querySelectorAll('.loc-pill-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+      const chip = document.getElementById('chip-city-val');
+      if (chip) chip.innerText = city;
+    }
+
+    function start5SecScavengerSequence() {
+      const consoleCard = document.getElementById('master-console');
+      const scavenger = document.getElementById('scavenger-overlay');
+
+      consoleCard.style.opacity = '0';
+      consoleCard.style.transform = 'scale(0.96)';
+
+      setTimeout(() => {
+        consoleCard.style.display = 'none';
+        scavenger.style.display = 'block';
+        window.scrollTo({ top: scavenger.offsetTop - 80, behavior: 'smooth' });
+
+        runScavengerAnimation();
+      }, 300);
+    }
+
+    function runScavengerAnimation() {
+      const durationMs = 5000;
+      const startTime = Date.now();
+      const progressBar = document.getElementById('audit-progress-bar');
+      const streamText = document.getElementById('stream-text');
+
+      let streamIndex = 0;
+      let lastStreamTime = Date.now();
+      let nextStreamDelay = 200;
+
+      const animInterval = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        const t = Math.min(1, elapsed / durationMs);
+
+        // Organic Non-Linear Computation Progress Curve
+        let progress = 0;
+        if (t < 0.22) {
+          progress = (t / 0.22) * 0.36;
+          nextStreamDelay = 180;
+        } else if (t < 0.48) {
+          const rel = (t - 0.22) / 0.26;
+          progress = 0.36 + (rel * 0.13);
+          nextStreamDelay = 550;
+        } else if (t < 0.72) {
+          const rel = (t - 0.48) / 0.24;
+          progress = 0.49 + (rel * 0.35);
+          nextStreamDelay = 140;
+        } else if (t < 0.88) {
+          const rel = (t - 0.72) / 0.16;
+          progress = 0.84 + (rel * 0.07);
+          nextStreamDelay = 400;
+        } else {
+          const rel = (t - 0.88) / 0.12;
+          progress = 0.91 + (rel * 0.09);
+          nextStreamDelay = 200;
+        }
+
+        progressBar.style.width = `${Math.min(100, progress * 100)}%`;
+
+        if (Date.now() - lastStreamTime > nextStreamDelay) {
+          lastStreamTime = Date.now();
+          streamIndex = (streamIndex + 1) % STREAM_MESSAGES.length;
+          streamText.innerText = STREAM_MESSAGES[streamIndex];
+        }
+
+        if (progress >= 0.20) markStage(1, true);
+        if (progress >= 0.42) markStage(2, true);
+        if (progress >= 0.65) markStage(3, true);
+        if (progress >= 0.85) markStage(4, true);
+        if (progress >= 0.98) markStage(5, true);
+
+        if (t >= 1) {
+          clearInterval(animInterval);
+          markStage(5, true);
+          progressBar.style.width = '100%';
+          setTimeout(revealDualChampions, 350);
+        }
+      }, 30);
+    }
+
+    function markStage(stageNum, isDone) {
+      const stageEl = document.getElementById(`audit-stage-${stageNum}`);
+      if (stageEl) {
+        stageEl.className = isDone ? 'stage-item-line verified-stage' : 'stage-item-line active-stage';
+        stageEl.querySelector('span:first-child').innerText = isDone ? '✓' : '●';
+      }
+    }
+
+    function renderDualCardsMarkup() {
+      const cityKey = selectedParams.cityLabel in REGIONAL_BROKER_PARTNERS ? selectedParams.cityLabel : "Sydney, NSW";
+      const regionData = REGIONAL_BROKER_PARTNERS[cityKey] || REGIONAL_BROKER_PARTNERS["Sydney, NSW"];
+      const optA = regionData.optionA;
+      const optB = regionData.optionB;
+
+      const container = document.getElementById('dual-cards-container');
+      container.innerHTML = `
+        <div class="champ-choice-card card-pathway-a" onclick="window.location.href='${optA.dossierUrl}'">
+          <div>
+            <span class="pathway-tag-pill tag-path-a">${optA.tag}</span>
+            
+            <div class="card-broker-header">
+              <img src="${optA.photo}" alt="${optA.lead}" class="card-broker-photo" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80'">
+              <div class="card-broker-name">
+                <h3>${optA.name}</h3>
+                <p>Lead: <strong>${optA.lead}</strong> (${optA.acl})</p>
+              </div>
+            </div>
+
+            <div class="card-verification-notes">
+              <strong>Scenario Specialization:</strong>
+              ${optA.notes}
+            </div>
+
+            <div class="card-stats-row">
+              <div class="mini-stat-box">
+                <div class="v" style="color:var(--emerald);">${optA.stats.settlement}</div>
+                <div class="l">Settlement Rate</div>
+              </div>
+              <div class="mini-stat-box">
+                <div class="v">${optA.stats.turnaround}</div>
+                <div class="l">Approval Turnaround</div>
+              </div>
+              <div class="mini-stat-box">
+                <div class="v" style="color:var(--cobalt);">${optA.stats.response}</div>
+                <div class="l">Response Priority</div>
+              </div>
+              <div class="mini-stat-box">
+                <div class="v">${optA.stats.trustScore}</div>
+                <div class="l">Trust Score</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button class="btn-apple-pill" onclick="event.stopPropagation(); window.location.href='${optA.dossierUrl}'">
+              View ${optA.lead}'s Profile & Details ›
+            </button>
+          </div>
+        </div>
+
+        <div class="champ-choice-card card-pathway-b" onclick="window.location.href='${optB.dossierUrl}'">
+          <div>
+            <span class="pathway-tag-pill tag-path-b">${optB.tag}</span>
+            
+            <div class="card-broker-header">
+              <img src="${optB.photo}" alt="${optB.lead}" class="card-broker-photo" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80'">
+              <div class="card-broker-name">
+                <h3>${optB.name}</h3>
+                <p>Lead: <strong>${optB.lead}</strong> (${optB.acl})</p>
+              </div>
+            </div>
+
+            <div class="card-verification-notes">
+              <strong>Scenario Specialization:</strong>
+              ${optB.notes}
+            </div>
+
+            <div class="card-stats-row">
+              <div class="mini-stat-box">
+                <div class="v" style="color:var(--emerald);">${optB.stats.settlement}</div>
+                <div class="l">Settlement Rate</div>
+              </div>
+              <div class="mini-stat-box">
+                <div class="v">${optB.stats.turnaround}</div>
+                <div class="l">Approval Turnaround</div>
+              </div>
+              <div class="mini-stat-box">
+                <div class="v" style="color:var(--cobalt);">${optB.stats.response}</div>
+                <div class="l">Response Priority</div>
+              </div>
+              <div class="mini-stat-box">
+                <div class="v">${optB.stats.trustScore}</div>
+                <div class="l">Trust Score</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button class="btn-apple-pill" onclick="event.stopPropagation(); window.location.href='${optB.dossierUrl}'">
+              View ${optB.lead}'s Profile & Details ›
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function revealDualChampions() {
+      const scavenger = document.getElementById('scavenger-overlay');
+      const dualReveal = document.getElementById('dual-champions-reveal');
+
+      document.getElementById('synthesis-summary-text').innerText = 
+        `These two accredited brokerages have been independently verified and matched to your specific scenario in ${selectedParams.cityLabel}. Both hold clean ASIC licensing records and adhere to the highest Best Interests Duty standards.`;
+
+      renderDualCardsMarkup();
+
+      scavenger.style.opacity = '0';
+      scavenger.style.transform = 'scale(0.96)';
+
+      setTimeout(() => {
+        scavenger.style.display = 'none';
+        dualReveal.style.display = 'block';
+        window.scrollTo({ top: dualReveal.offsetTop - 80, behavior: 'smooth' });
+      }, 350);
+    }
+
+    // MODAL INQUIRY HANDLERS
+    function openInquiryModalDirect(optKey) {
+      const cityKey = selectedParams.cityLabel in REGIONAL_BROKER_PARTNERS ? selectedParams.cityLabel : "Sydney, NSW";
+      const regionData = REGIONAL_BROKER_PARTNERS[cityKey] || REGIONAL_BROKER_PARTNERS["Sydney, NSW"];
+      const broker = optKey === 'optA' ? regionData.optionA : regionData.optionB;
+      openInquiryModal(broker);
+    }
+
+    function openInquiryModalForSearch(name, lead, acl, img, dossierUrl) {
+      const broker = {
+        name: name,
+        lead: lead,
+        acl: acl,
+        photo: img,
+        dossierUrl: dossierUrl || "broker/mortgage-pros-sample.html"
+      };
+      openInquiryModal(broker);
+    }
+
+    function openInquiryModal(broker) {
+      currentActiveBroker = broker;
+      
+      document.getElementById('inquiry-broker-avatar').src = broker.photo || 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80';
+      document.getElementById('inquiry-broker-name').innerText = broker.name;
+      document.getElementById('inquiry-broker-meta').innerText = `Lead: ${broker.lead} • ${broker.acl}`;
+      document.getElementById('inquiry-submit-broker-name').innerText = broker.lead;
+
+      document.getElementById('inquiry-chip-city').innerText = selectedParams.cityLabel;
+      document.getElementById('inquiry-chip-mission').innerText = selectedParams.missionLabel || "First Home";
+      document.getElementById('inquiry-chip-income').innerText = selectedParams.incomeLabel || "1-Yr ABN";
+      document.getElementById('inquiry-chip-deposit').innerText = selectedParams.depositLabel;
+      document.getElementById('inquiry-chip-urgency').innerText = selectedParams.urgencyLabel;
+
+      document.getElementById('inquiry-form-view').style.display = 'block';
+      document.getElementById('inquiry-success-view').style.display = 'none';
+
+      document.getElementById('inquiry-modal').classList.add('active');
+    }
+
+    function submitInquiryForm(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('lead-name').value;
+      const broker = currentActiveBroker || { name: "Mortgage Pros", lead: "Eric & Patrick", dossierUrl: "broker/mortgage-pros-sample.html" };
+
+      document.getElementById('success-broker-name').innerText = `${broker.lead} at ${broker.name}`;
+      document.getElementById('success-dossier-link').href = broker.dossierUrl || "broker/mortgage-pros-sample.html";
+
+      document.getElementById('inquiry-form-view').style.display = 'none';
+      document.getElementById('inquiry-success-view').style.display = 'block';
+
+      startSlaCountdown();
+    }
+
+    function startSlaCountdown() {
+      if (slaTimerInterval) clearInterval(slaTimerInterval);
+      let totalSeconds = 90 * 60; // 1.5 hours
+      const display = document.getElementById('sla-countdown-box');
+
+      slaTimerInterval = setInterval(() => {
+        totalSeconds--;
+        if (totalSeconds <= 0) {
+          clearInterval(slaTimerInterval);
+          display.innerText = "SLA DUE";
+          return;
+        }
+        const hours = Math.floor(totalSeconds / 3600);
+        const mins = Math.floor((totalSeconds % 3600) / 60);
+        const secs = totalSeconds % 60;
+        display.innerText = `${String(hours).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
+      }, 1000);
+    }
+
+    // CLAIM PROFILE PORTAL
+    function openClaimModal() {
+      document.getElementById('claim-step-1').style.display = 'block';
+      document.getElementById('claim-step-2').style.display = 'none';
+      document.getElementById('claim-step-3').style.display = 'none';
+      document.getElementById('claim-search-input').value = '';
+      handleClaimSearch('');
+      document.getElementById('claim-modal').classList.add('active');
+    }
+
+    function handleClaimSearch(q) {
+      const container = document.getElementById('claim-search-results-list');
+      const query = (q || '').toLowerCase().trim();
+
+      const list = query.length === 0 ? ASIC_REGISTRY_SAMPLE.slice(0, 4) : ASIC_REGISTRY_SAMPLE.filter(item => 
+        item.name.toLowerCase().includes(query) ||
+        item.lead.toLowerCase().includes(query) ||
+        item.acl.toLowerCase().includes(query) ||
+        item.state.toLowerCase().includes(query)
+      );
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div style="padding:16px; text-align:center; color:var(--ink-muted); font-size:0.85rem; background:var(--surface-subtle); border-radius:12px;">
+            No exact ASIC record found for "${q}". You can submit a manual ACL registration request.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(item => `
+        <div class="claim-search-card" onclick="selectClaimEntity('${item.id}')">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <strong style="font-size:0.95rem; color:var(--ink);">${item.name}</strong>
+              <span class="${item.claimed ? 'badge-v-clean' : 'badge-u-clean'}">${item.status}</span>
+            </div>
+            <div style="font-size:0.8rem; color:var(--ink-muted); margin-top:2px;">
+              Lead: ${item.lead} • ${item.acl} • ${item.state}
+            </div>
+          </div>
+          <button class="btn-claim-profile" style="font-size:0.75rem; pointer-events:none;">
+            Claim Profile ›
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function selectClaimEntity(id) {
+      const entity = ASIC_REGISTRY_SAMPLE.find(e => e.id === id) || ASIC_REGISTRY_SAMPLE[0];
+      
+      document.getElementById('claim-selected-title').innerText = entity.name;
+      document.getElementById('claim-selected-sub').innerText = `Lead: ${entity.lead} • ${entity.acl} • ${entity.state}`;
+      document.getElementById('claim-selected-status').innerText = entity.status;
+
+      document.getElementById('claim-step-1').style.display = 'none';
+      document.getElementById('claim-step-2').style.display = 'block';
+    }
+
+    function backToClaimStep1() {
+      document.getElementById('claim-step-2').style.display = 'none';
+      document.getElementById('claim-step-1').style.display = 'block';
+    }
+
+    function submitClaimVerification(e) {
+      e.preventDefault();
+      document.getElementById('claim-step-2').style.display = 'none';
+      document.getElementById('claim-step-3').style.display = 'block';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    function handleBackdropClick(e, modalId) {
+      if (e.target.id === modalId) {
+        closeModal(modalId);
+      }
+    }
+
+    function initDraggableRail(trackId, puckId, fillId, readoutId, stopsData, onUpdateCallback) {
+      const track = document.getElementById(trackId);
+      const puck = document.getElementById(puckId);
+      const fill = document.getElementById(fillId);
+      const readout = document.getElementById(readoutId);
+      let isDragging = false;
+      let lastIdx = -1;
+
+      function updateFromX(clientX) {
+        const rect = track.getBoundingClientRect();
+        let pct = (clientX - rect.left) / rect.width;
+        pct = Math.max(0, Math.min(1, pct));
+
+        let closestIdx = 0;
+        let minDist = 999;
+        stopsData.forEach((s, idx) => {
+          const stopPct = idx / (stopsData.length - 1);
+          const dist = Math.abs(pct - stopPct);
+          if (dist < minDist) {
+            minDist = dist;
+            closestIdx = idx;
+          }
+        });
+
+        puck.style.left = `${pct * 100}%`;
+        fill.style.width = `${pct * 100}%`;
+        readout.innerText = stopsData[closestIdx].label;
+
+        if (closestIdx !== lastIdx) {
+          lastIdx = closestIdx;
+          onUpdateCallback(closestIdx, stopsData[closestIdx].label);
+        }
+        return closestIdx;
+      }
+
+      function snapToClosest(clientX) {
+        const closestIdx = updateFromX(clientX);
+        const snapPct = (closestIdx / (stopsData.length - 1)) * 100;
+        puck.style.left = `${snapPct}%`;
+        fill.style.width = `${snapPct}%`;
+        readout.innerText = stopsData[closestIdx].label;
+      }
+
+      track.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        track.setPointerCapture(e.pointerId);
+        updateFromX(e.clientX);
+      });
+
+      track.addEventListener('pointermove', (e) => {
+        if (isDragging) {
+          updateFromX(e.clientX);
+        }
+      });
+
+      track.addEventListener('pointerup', (e) => {
+        if (isDragging) {
+          isDragging = false;
+          snapToClosest(e.clientX);
+        }
+      });
+    }
+
+    const DEPOSIT_STOPS = [
+      { label: "5% – 10% (Federal Scheme)", short: "5% Low Deposit" },
+      { label: "10% – 15% (Low LMI Desk)", short: "10% Low LMI" },
+      { label: "20%+ Healthy (Prime 80%)", short: "20% Prime" },
+      { label: "Family Guarantor (0% Cash)", short: "Guarantor" },
+      { label: "Existing Property Equity", short: "Equity" }
+    ];
+
+    const URGENCY_STOPS = [
+      { label: "Urgent (<14 Days / Auction)", short: "<14d Auction" },
+      { label: "30 Days (Under Contract)", short: "30d Contract" },
+      { label: "60 Days (Pre-Approval)", short: "60d Pre-App" },
+      { label: "3–6 Months (Planning)", short: "3-6m Planning" }
+    ];
+
+    function reopenConsole() {
+      const consoleCard = document.getElementById('master-console');
+      const dualReveal = document.getElementById('dual-champions-reveal');
+      const scavenger = document.getElementById('scavenger-overlay');
+
+      dualReveal.style.display = 'none';
+      scavenger.style.display = 'none';
+      consoleCard.style.display = 'block';
+      
+      currentBlobStep = 0;
+      selectedChips = [];
+      renderBlobStep();
+
+      for (let i = 1; i <= 5; i++) {
+        const stageEl = document.getElementById(`audit-stage-${i}`);
+        if (stageEl) {
+          stageEl.className = 'stage-item-line';
+          stageEl.querySelector('span:first-child').innerText = '●';
+        }
+      }
+
+      setTimeout(() => {
+        consoleCard.style.opacity = '1';
+        consoleCard.style.transform = 'scale(1)';
+        window.scrollTo({ top: consoleCard.offsetTop - 80, behavior: 'smooth' });
+      }, 50);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (['1', '2', '3', '4'].includes(e.key) && currentBlobStep < 3) {
+        const qData = BLOB_QUESTIONS[currentBlobStep];
+        const idx = parseInt(e.key) - 1;
+        if (qData.options[idx]) {
+          const opt = qData.options[idx];
+          pickBlobChoice(opt.key, opt.transform, opt.color, opt.label);
+        }
+      }
+      if (e.key === 'Escape') {
+        closeModal('inquiry-modal');
+        closeModal('claim-modal');
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBlobStep();
+      
+      initDraggableRail('track-deposit', 'puck-deposit', 'fill-deposit', 'readout-deposit', DEPOSIT_STOPS, (idx, label) => {
+        selectedParams.depositLabel = DEPOSIT_STOPS[idx].short;
+        const chip = document.getElementById('chip-deposit-val');
+        if (chip) chip.innerText = DEPOSIT_STOPS[idx].short;
+      });
+
+      initDraggableRail('track-urgency', 'puck-urgency', 'fill-urgency', 'readout-urgency', URGENCY_STOPS, (idx, label) => {
+        selectedParams.urgencyLabel = URGENCY_STOPS[idx].short;
+        const chip = document.getElementById('chip-urgency-val');
+        if (chip) chip.innerText = URGENCY_STOPS[idx].short;
+      });
+    });
+  </script>
+</body>
+</html>

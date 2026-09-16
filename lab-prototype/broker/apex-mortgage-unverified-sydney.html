@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Finance Solutions — Public ASIC Directory Record | Best Brokers Australia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --border: #e2e8f0;
+      --border-dark: #cbd5e1;
+      --ink: #0f172a;
+      --ink-gray: #334155;
+      --ink-muted: #64748b;
+      --cobalt: #0071e3;
+      --cobalt-soft: #f0f9ff;
+      --emerald: #059669;
+      --emerald-soft: #ecfdf5;
+      --rose: #e11d48;
+      --rose-soft: #fff1f2;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-subtle);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TOP LAB SWITCHER */
+    .lab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px 24px;
+      background: #0e1626;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      flex-wrap: wrap;
+    }
+    .lab-pill {
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+      background: #111d35;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .lab-pill:hover, .lab-pill.active {
+      background: var(--cobalt);
+      color: #fff;
+      border-color: #38bdf8;
+    }
+
+    /* TICKER */
+    .ticker-marquee-wrap {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      height: 38px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      padding: 0 20px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-logo-seal {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--ink);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .main-container {
+      max-width: 920px;
+      width: 100%;
+      margin: 32px auto 80px;
+      padding: 0 20px;
+      flex: 1 0 auto;
+    }
+
+    .public-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+
+    .status-badge-unverified {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--rose-soft);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      color: var(--rose);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .entity-header {
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+    .entity-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .entity-header p {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    /* THE BBA INTERCEPT CARD */
+    .intercept-safe-card {
+      background: linear-gradient(135deg, #0a192f 0%, #0f172a 100%);
+      border: 2px solid #38bdf8;
+      border-radius: 20px;
+      padding: 28px;
+      color: #ffffff;
+      margin: 28px 0;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+    }
+    .intercept-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid #38bdf8;
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .intercept-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .intercept-desc {
+      font-size: 0.92rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+    .btn-switch-champion {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cobalt);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 113, 227, 0.4);
+    }
+    .btn-switch-champion:hover {
+      background: #0077ed;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 113, 227, 0.5);
+    }
+
+    .warning-notice-box {
+      background: var(--rose-soft);
+      border: 1px solid rgba(225, 29, 72, 0.2);
+      border-radius: 14px;
+      padding: 16px 20px;
+      font-size: 0.88rem;
+      color: #9f1239;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .directory-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 0.88rem;
+    }
+    .directory-data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .directory-data-table td:first-child {
+      font-weight: 700;
+      color: var(--ink-gray);
+      width: 35%;
+      background: var(--bg-subtle);
+    }
+
+    .apple-footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 14px 16px; }
+      .public-card { padding: 22px 16px; border-radius: 20px; }
+      .intercept-safe-card { padding: 20px 16px; }
+      .intercept-title { font-size: 1.25rem; }
+      .btn-switch-champion { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP LAB SELECTOR -->
+  <div class="lab-nav">
+    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
+    <a href="../google-omni.html" class="lab-pill">Level 1: Homepage</a>
+    <a href="../state/nsw.html" class="lab-pill">Level 2: State (NSW)</a>
+    <a href="../suburbs/sydney.html" class="lab-pill">Level 3: District Hub</a>
+    <a href="apex-mortgage-unverified-sydney.html" class="lab-pill active">Level 4A: Unverified Public Record</a>
+    <a href="david-chi-tran.html" class="lab-pill" style="background:var(--cobalt); color:#fff; border-color:#38bdf8;">Level 4B: VSL Dossier (David Chi Tran)</a>
+  </div>
+
+  <div class="ticker-marquee-wrap">
+    <span>INDEX NOTICE: 25,419 PUBLIC ENTITY RECORDS • 0% PAY-TO-RANK BIAS • BEST INTERESTS DUTY AUDIT ACTIVE</span>
+  </div>
+
+  <nav class="navbar">
+    <a href="../google-omni.html" class="brand-wrap">
+      <div class="brand-logo-seal">B</div>
+      <span class="brand-title">Best Brokers Australia</span>
+    </a>
+    <a href="../google-omni.html#claim" style="font-size:0.85rem; color:var(--cobalt); font-weight:700; text-decoration:none;">
+      Claim This Entity Profile ➔
+    </a>
+  </nav>
+
+  <main class="main-container">
+    
+    <div class="public-card">
+      <span class="status-badge-unverified">⚠️ Public Directory Record • Unaudited</span>
+
+      <div class="entity-header">
+        <h1>Apex Finance Solutions</h1>
+        <p>Public ASIC Index Record • Credit Representative • Sydney, NSW</p>
+      </div>
+
+      <!-- WARNING NOTICE -->
+      <div class="warning-notice-box">
+        <strong>⚠️ Quality Charter Audit Notice:</strong> This brokerage has not completed the BBA 4-factor Conflict of Interest audit. It is not currently covered by our 1.5-hour SLA response guarantee, Tier-1 APRA panel verification, or dispute arbitration.
+      </div>
+
+      <!-- THE CONVERSION INTERCEPT CARD -->
+      <div class="intercept-safe-card">
+        <span class="intercept-tag">✦ Recommended Safe Alternative for Sydney & NSW</span>
+        <h2 class="intercept-title">Connect with Beat My Home Loan (David Chi Tran)</h2>
+        <p class="intercept-desc">
+          Skip the risk of single-lender bias. David Chi Tran is our #1 BBA Accredited Senior Specialist Desk for Investor & Self-Employed Loan Restructuring, backed by Tier-1 APRA bank access and 100% free borrower service.
+        </p>
+        <a href="david-chi-tran.html" class="btn-switch-champion">
+          <span>⚡ View Accredited VSL Dossier & Book Strategy Session</span>
+          <span>➔</span>
+        </a>
+      </div>
+
+      <!-- ASIC PUBLIC DATA TABLE -->
+      <h3 style="font-size:1.05rem; font-weight:800; color:var(--ink); margin-top:28px; margin-bottom:10px;">
+        Public ASIC Regulatory Summary
+      </h3>
+      <table class="directory-data-table">
+        <tr>
+          <td>Entity Legal Name</td>
+          <td>Apex Finance Solutions Pty Ltd</td>
+        </tr>
+        <tr>
+          <td>ASIC Licensing Status</td>
+          <td>Public Record Index (Authorised Rep)</td>
+        </tr>
+        <tr>
+          <td>BBA Quality Charter</td>
+          <td><span style="color:var(--rose); font-weight:700;">Unaudited / Unverified</span></td>
+        </tr>
+        <tr>
+          <td>Lender Panel Transparency</td>
+          <td>Not submitted for audit</td>
+        </tr>
+        <tr>
+          <td>Primary Operating Region</td>
+          <td>Sydney Metro, NSW</td>
+        </tr>
+      </table>
+
+      <!-- CLAIM FOOTER -->
+      <div style="margin-top:36px; padding-top:20px; border-top:1px solid var(--border); text-align:center; font-size:0.85rem; color:var(--ink-muted);">
+        Are you the principal broker at Apex Finance Solutions? 
+        <a href="../google-omni.html#claim" style="color:var(--cobalt); font-weight:700; text-decoration:none;">Claim profile and submit for BBA Accreditation ➔</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="apple-footer">
+    <p>© 2026 Best Brokers Australia • Independent Broker Verification Bureau • NCCP Act & BID Compliant</p>
+  </footer>
+
+</body>
+</html>

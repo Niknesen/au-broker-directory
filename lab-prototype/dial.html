@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotary Dial & Detent Slider — Best Brokers Tactile Lab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    .lab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 24px;
+      background: #0b1120;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      flex-wrap: wrap;
+    }
+    .lab-pill {
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+      background: #131d33;
+      transition: all 0.2s;
+    }
+    .lab-pill:hover, .lab-pill.active {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+    
+    /* Rotary Studio Container */
+    .dial-studio {
+      max-width: 900px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .dial-console {
+      background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0c1322 100%);
+      border: 1px solid #334155;
+      border-radius: 28px;
+      padding: 40px 32px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
+      position: relative;
+    }
+
+    /* Rotary Dial Widget */
+    .dial-wrap {
+      width: 320px;
+      height: 320px;
+      margin: 0 auto 30px;
+      position: relative;
+      user-select: none;
+      touch-action: none;
+    }
+    .dial-outer-ring {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #090e1a;
+      border: 4px solid #1e293b;
+      box-shadow: 0 0 30px rgba(0,0,0,0.9), inset 0 0 20px rgba(0,0,0,0.8);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dial-notch {
+      position: absolute;
+      width: 4px;
+      height: 14px;
+      background: #334155;
+      border-radius: 2px;
+      transform-origin: 50% 150px;
+    }
+    .dial-notch.active {
+      background: #38bdf8;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+    .dial-label-item {
+      position: absolute;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #64748b;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100px;
+      text-align: center;
+    }
+    .dial-label-item.selected {
+      color: #38bdf8;
+      font-size: 0.85rem;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+    }
+    
+    .dial-core-knob {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #334155 0%, #0f172a 100%);
+      border: 3px solid #475569;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7), inset 0 2px 4px rgba(255,255,255,0.3);
+      cursor: grab;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .dial-core-knob:active { cursor: grabbing; }
+    .dial-pointer {
+      position: absolute;
+      top: 12px;
+      width: 8px;
+      height: 24px;
+      background: #38bdf8;
+      border-radius: 4px;
+      box-shadow: 0 0 12px #38bdf8;
+    }
+    .dial-center-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #e2e8f0;
+      background: #090e1a;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #334155;
+    }
+
+    /* Detent Sliders */
+    .slider-track-wrap {
+      background: #090e1a;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 24px;
+      margin-top: 24px;
+      text-align: left;
+    }
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .detent-bar {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding: 10px 0;
+    }
+    .detent-rail {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: #1e293b;
+      border-radius: 999px;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    .detent-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0284c7, #10b981);
+      border-radius: 999px;
+      width: 40%;
+      transition: width 0.2s ease;
+    }
+    .detent-node {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .detent-puck {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 3px solid #475569;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    .detent-node:hover .detent-puck {
+      border-color: #38bdf8;
+      transform: scale(1.15);
+    }
+    .detent-node.active .detent-puck {
+      background: #10b981;
+      border-color: #fff;
+      box-shadow: 0 0 15px #10b981;
+      transform: scale(1.25);
+    }
+    .detent-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #64748b;
+      margin-top: 10px;
+      transition: color 0.2s;
+    }
+    .detent-node.active .detent-label {
+      color: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LAB SELECTOR NAVBAR -->
+  <div class="lab-nav">
+    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
+    <a href="ai-nexus.html" class="lab-pill">✨ AI Apple-Nexus Hybrid (New)</a>
+    <a href="dial.html" class="lab-pill active">1. Rotary Dial & Detent Slider</a>
+    <a href="tumbler.html" class="lab-pill">2. 3D Tumbler Vault</a>
+    <a href="constellation.html" class="lab-pill">3. Radial Constellation & Arcade</a>
+    <a href="index.html" class="lab-pill">4. Precision Console</a>
+  </div>
+
+  <div class="dial-studio">
+    <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(56,189,248,0.12); color:#38bdf8; padding:6px 16px; border-radius:999px; font-weight:800; font-size:0.8rem; margin-bottom:16px;">
+      🔘 PHYSICAL TACTILE CONCEPT 1
+    </div>
+    <h1 style="font-size:2.4rem; font-weight:800; color:#fff; margin-bottom:10px;">The Precision Rotary Deck</h1>
+    <p style="color:var(--text-muted); max-width:640px; margin:0 auto 36px;">Turn the heavy calibrated dial to select your mission, then snap the magnetic detent sliders to tune your borrowing profile.</p>
+
+    <div class="dial-console">
+      
+      <!-- ROTARY DIAL SECTION -->
+      <h3 style="font-size:1.1rem; color:#fff; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:20px;">
+        1. Select Lending Mission (Turn Dial)
+      </h3>
+
+      <div class="dial-wrap" id="dial-container">
+        <div class="dial-outer-ring">
+          
+          <!-- Notches and Labels -->
+          <div class="dial-notch" style="transform: rotate(0deg);"></div>
+          <div class="dial-notch" style="transform: rotate(72deg);"></div>
+          <div class="dial-notch" style="transform: rotate(144deg);"></div>
+          <div class="dial-notch" style="transform: rotate(216deg);"></div>
+          <div class="dial-notch" style="transform: rotate(288deg);"></div>
+
+          <div class="dial-label-item selected" style="top:10px;" onclick="setDialDegree(0, 'First Home (5% Scheme)')">🏠 FIRST HOME</div>
+          <div class="dial-label-item" style="top:110px; right:5px;" onclick="setDialDegree(72, 'Next Home / Upgrader')">🚀 UPGRADER</div>
+          <div class="dial-label-item" style="bottom:25px; right:35px;" onclick="setDialDegree(144, 'Property Investor')">📈 INVESTOR</div>
+          <div class="dial-label-item" style="bottom:25px; left:35px;" onclick="setDialDegree(216, 'Rate Squeeze / Refi')">✂️ REFINANCE</div>
+          <div class="dial-label-item" style="top:110px; left:5px;" onclick="setDialDegree(288, 'Construction Build')">🏗️ BUILD</div>
+
+          <!-- Knob -->
+          <div class="dial-core-knob" id="knob" onclick="rotateNextDial()">
+            <div class="dial-pointer"></div>
+            <div class="dial-center-badge" id="knob-readout">FIRST HOME</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DETENT SLIDER 1: DEPOSIT / LVR -->
+      <div class="slider-track-wrap">
+        <div class="slider-header">
+          <span style="color:#fff;">2. Deposit / LVR Position</span>
+          <span style="color:#10b981; font-family:var(--font-mono);" id="deposit-val-readout">5% – 10% (First Home Scheme)</span>
+        </div>
+        <div class="detent-bar">
+          <div class="detent-rail"><div class="detent-fill" id="deposit-fill" style="width:0%;"></div></div>
+          
+          <div class="detent-node active" onclick="setDepositDetent(0, '5% – 10% (First Home Scheme)', '0%')">
+            <div class="detent-puck"></div>
+            <span class="detent-label">5% Low</span>
+          </div>
+          <div class="detent-node" onclick="setDepositDetent(1, '10% – 15% (Low LMI Desk)', '25%')">
+            <div class="detent-puck"></div>
+            <span class="detent-label">10% Low LMI</span>
+          </div>
+          <div class="detent-node" onclick="setDepositDetent(2, '20%+ Healthy (Prime 80% LVR)', '50%')">
+            <div class="detent-puck"></div>
+            <span class="detent-label">20% Prime</span>
+          </div>
+          <div class="detent-node" onclick="setDepositDetent(3, 'Family Guarantor (0% Cash)', '75%')">
+            <div class="detent-puck"></div>
+            <span class="detent-label">Guarantor</span>
+          </div>
+          <div class="detent-node" onclick="setDepositDetent(4, 'Existing Property Equity', '100%')">
+            <div class="detent-puck"></div>
+            <span class="detent-label">Equity</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DETENT SLIDER 2: INCOME TYPE -->
+      <div class="slider-track-wrap">
+        <div class="slider-header">
+          <span style="color:#fff;">3. Income Structure</span>
+          <span style="color:#38bdf8; font-family:var(--font-mono);" id="income-val-readout">Self-Employed / 1-Year ABN</span>
+        </div>
+        <div class="detent-bar">
+          <div class="detent-rail"><div class="detent-fill" id="income-fill" style="width:33%;"></div></div>
+          
+          <div class="detent-node" onclick="setIncomeDetent(0, 'Standard Full-Time PAYG', '0%')">
+            <div class="detent-puck"></div>
+            <span class="detent-label">PAYG Full-Time</span>
+          </div>
+          <div class="detent-node active" onclick="setIncomeDetent(1, 'Self-Employed / 1-Year ABN', '33%')">
+            <div class="detent-puck"></div>
+            <span class="detent-label">💼 1-Yr ABN</span>
+          </div>
+          <div class="detent-node" onclick="setIncomeDetent(2, 'Doctor / Lawyer (LMI Waiver)', '66%')">
+            <div class="detent-puck"></div>
+            <span class="detent-label">🩺 Professional</span>
+          </div>
+          <div class="detent-node" onclick="setIncomeDetent(3, 'Contractor / Casual Freelance', '100%')">
+            <div class="detent-puck"></div>
+            <span class="detent-label">⚡ Contractor</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRIGGER BUTTON -->
+      <div style="margin-top:32px;">
+        <button class="btn-primary" onclick="alert('Configuration Locked! Matched with Sydney #1 Audited Champion: Marcus Vance (Talk To A Broker).');">
+          ⚡ Lock Tuned Profile & Reveal #1 Champion
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let dialIndex = 0;
+    const dialOptions = [
+      { deg: 0, text: "FIRST HOME", label: "First Home (5% Scheme)" },
+      { deg: 72, text: "UPGRADER", label: "Next Home / Upgrader" },
+      { deg: 144, text: "INVESTOR", label: "Property Investor" },
+      { deg: 216, text: "REFINANCE", label: "Rate Squeeze / Refi" },
+      { deg: 288, text: "BUILD", label: "Construction Build" }
+    ];
+
+    function rotateNextDial() {
+      dialIndex = (dialIndex + 1) % dialOptions.length;
+      setDialDegree(dialOptions[dialIndex].deg, dialOptions[dialIndex].label);
+    }
+
+    function setDialDegree(deg, label) {
+      const knob = document.getElementById('knob');
+      knob.style.transform = `rotate(${deg}deg)`;
+      
+      const opt = dialOptions.find(o => o.deg === deg) || { text: "CUSTOM" };
+      document.getElementById('knob-readout').innerText = opt.text;
+      
+      document.querySelectorAll('.dial-label-item').forEach((el, idx) => {
+        el.classList.toggle('selected', dialOptions[idx] && dialOptions[idx].deg === deg);
+      });
+    }
+
+    function setDepositDetent(idx, label, width) {
+      document.getElementById('deposit-val-readout').innerText = label;
+      document.getElementById('deposit-fill').style.width = width;
+      
+      const bar = document.querySelectorAll('.slider-track-wrap')[0];
+      bar.querySelectorAll('.detent-node').forEach((node, i) => {
+        node.classList.toggle('active', i === idx);
+      });
+    }
+
+    function setIncomeDetent(idx, label, width) {
+      document.getElementById('income-val-readout').innerText = label;
+      document.getElementById('income-fill').style.width = width;
+      
+      const bar = document.querySelectorAll('.slider-track-wrap')[1];
+      bar.querySelectorAll('.detent-node').forEach((node, i) => {
+        node.classList.toggle('active', i === idx);
+      });
+    }
+  </script>
+</body>
+</html>

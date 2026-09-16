@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radial Constellation & Arcade Mode — Best Brokers Tactile Lab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    .lab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 24px;
+      background: #0b1120;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      flex-wrap: wrap;
+    }
+    .lab-pill {
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+      background: #131d33;
+      transition: all 0.2s;
+    }
+    .lab-pill:hover, .lab-pill.active {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+
+    .constellation-wrapper {
+      max-width: 900px;
+      margin: 30px auto 60px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    /* Arcade HUD */
+    .arcade-hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #090e1a;
+      border: 1px solid #1e293b;
+      padding: 12px 24px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+    .arcade-key-badge {
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #38bdf8;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 800;
+      margin-right: 4px;
+    }
+
+    /* Constellation Stage */
+    .stage-canvas {
+      width: 100%;
+      height: 480px;
+      background: radial-gradient(circle at 50% 50%, #172554 0%, #070a12 70%);
+      border: 1px solid #1e293b;
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Center Nexus Core */
+    .nexus-core {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #0284c7 0%, #0f172a 100%);
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 50px rgba(56, 189, 248, 0.5), inset 0 0 30px rgba(56, 189, 248, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+      padding: 16px;
+      text-align: center;
+      animation: floatCore 4s ease-in-out infinite;
+    }
+    @keyframes floatCore {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-6px) scale(1.02); }
+    }
+    .nexus-step-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #7dd3fc;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .nexus-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+      margin-top: 4px;
+      line-height: 1.2;
+    }
+
+    /* Orbiting Satellites */
+    .satellite-node {
+      position: absolute;
+      background: rgba(15, 23, 42, 0.9);
+      border: 2px solid #334155;
+      padding: 12px 18px;
+      border-radius: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 20;
+      backdrop-filter: blur(10px);
+    }
+    .satellite-node:hover {
+      border-color: #10b981;
+      background: #0f291e;
+      transform: scale(1.15) !important;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+    }
+    .satellite-node .key-tag {
+      background: #090e1a;
+      border: 1px solid #475569;
+      color: #f59e0b;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .satellite-node .name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+      text-align: left;
+    }
+    .satellite-node .sub {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    /* Screen shake on keypress */
+    .shake {
+      animation: screenShake 0.15s cubic-bezier(.36,.07,.19,.97) both;
+    }
+    @keyframes screenShake {
+      10%, 90% { transform: translate3d(-1px, 0, 0); }
+      20%, 80% { transform: translate3d(2px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+      40%, 60% { transform: translate3d(3px, 0, 0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LAB SELECTOR NAVBAR -->
+  <div class="lab-nav">
+    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
+    <a href="ai-nexus.html" class="lab-pill">✨ AI Apple-Nexus Hybrid (New)</a>
+    <a href="dial.html" class="lab-pill">1. Rotary Dial & Detent Slider</a>
+    <a href="tumbler.html" class="lab-pill">2. 3D Tumbler Vault</a>
+    <a href="constellation.html" class="lab-pill active">3. Radial Constellation & Arcade</a>
+    <a href="index.html" class="lab-pill">4. Precision Console</a>
+  </div>
+
+  <div class="constellation-wrapper">
+    <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(245,158,11,0.12); color:#f59e0b; padding:6px 16px; border-radius:999px; font-weight:800; font-size:0.8rem; margin-bottom:16px;">
+      🪐 PHYSICAL TACTILE CONCEPT 3
+    </div>
+    <h1 style="font-size:2.4rem; font-weight:800; color:#fff; margin-bottom:10px;">The Radial Constellation & Arcade</h1>
+    <p style="color:var(--text-muted); max-width:680px; margin:0 auto 24px;">Click orbiting constellation nodes OR hit number keys <span class="arcade-key-badge">1</span><span class="arcade-key-badge">2</span><span class="arcade-key-badge">3</span><span class="arcade-key-badge">4</span> on your keyboard for 3-second rapid completion.</p>
+
+    <!-- ARCADE HUD -->
+    <div class="arcade-hud">
+      <div>
+        <span style="color:#10b981;">● KEYBOARD SENSORS ACTIVE</span>
+        <span style="color:#64748b; margin-left:12px;">PRESS 1–5 TO WARP</span>
+      </div>
+      <div id="speedrun-timer" style="color:#f59e0b; font-weight:800;">
+        ⏱️ SPEEDRUN: READY
+      </div>
+    </div>
+
+    <!-- CONSTELLATION STAGE -->
+    <div class="stage-canvas" id="stage">
+      
+      <!-- CENTER CORE -->
+      <div class="nexus-core">
+        <div class="nexus-step-tag" id="core-step">STEP 1 OF 5</div>
+        <div class="nexus-title" id="core-title">WHAT IS YOUR MISSION?</div>
+      </div>
+
+      <!-- ORBITING SATELLITES (INJECTED BY JS) -->
+      <div id="satellites-container"></div>
+
+    </div>
+
+    <div style="margin-top:24px; color:var(--text-dim); font-size:0.85rem;">
+      Tip: Keep your hands on the keyboard numbers to complete the entire diagnostic in 4 seconds flat.
+    </div>
+  </div>
+
+  <script>
+    const STAGES = [
+      {
+        step: 1,
+        title: "WHAT IS YOUR MISSION?",
+        options: [
+          { key: "1", name: "🏠 First Home", sub: "5% Deposit Scheme", pos: "top: 30px; left: 50%; transform: translateX(-50%);" },
+          { key: "2", name: "🚀 Upgrader", sub: "Bridging Finance", pos: "top: 130px; right: 40px;" },
+          { key: "3", name: "📈 Investor", sub: "Equity Cash-Out", pos: "bottom: 40px; right: 100px;" },
+          { key: "4", name: "✂️ Refinance", sub: "Rate Squeeze", pos: "bottom: 40px; left: 100px;" },
+          { key: "5", name: "🏗️ Build", sub: "Progress Drawdown", pos: "top: 130px; left: 40px;" }
+        ]
+      },
+      {
+        step: 2,
+        title: "HOW DO YOU EARN?",
+        options: [
+          { key: "1", name: "👔 PAYG Salary", sub: "Prime 80% Fast Lane", pos: "top: 40px; left: 120px;" },
+          { key: "2", name: "💼 1-Year ABN", sub: "Alt-Doc / BAS Accept", pos: "top: 40px; right: 120px;" },
+          { key: "3", name: "🩺 Doctor/Lawyer", sub: "90-95% LMI Waiver", pos: "bottom: 50px; right: 120px;" },
+          { key: "4", name: "⚡ Contractor", sub: "Casual / Gigs", pos: "bottom: 50px; left: 120px;" }
+        ]
+      },
+      {
+        step: 3,
+        title: "DEPOSIT POSITION?",
+        options: [
+          { key: "1", name: "🛡️ 5% Low Deposit", sub: "Federal Scheme", pos: "top: 50px; left: 50%; transform: translateX(-50%);" },
+          { key: "2", name: "💎 20% Healthy", sub: "Prime 80% Max Discount", pos: "top: 200px; right: 60px;" },
+          { key: "3", name: "🤝 Guarantor", sub: "Parents' Equity", pos: "bottom: 50px; right: 120px;" },
+          { key: "4", name: "🏡 Equity", sub: "Property Cash-Out", pos: "bottom: 50px; left: 120px;" }
+        ]
+      },
+      {
+        step: 4,
+        title: "CREDIT PROFILE?",
+        options: [
+          { key: "1", name: "✨ Clean (700+)", sub: "Tier-1 Fast Lane", pos: "top: 60px; left: 50%; transform: translateX(-50%);" },
+          { key: "2", name: "⚠️ Minor Dings", sub: "Afterpay / Late Bills", pos: "bottom: 70px; right: 100px;" },
+          { key: "3", name: "🚨 Impaired", sub: "Non-Bank Specialist", pos: "bottom: 70px; left: 100px;" }
+        ]
+      },
+      {
+        step: 5,
+        title: "TARGET LOCATION?",
+        options: [
+          { key: "1", name: "🔥 Sydney Urgent", sub: "<14 Days BDM Lane", pos: "top: 40px; left: 100px;" },
+          { key: "2", name: "🧭 Sydney Plan", sub: "1–3 Months Strategy", pos: "top: 40px; right: 100px;" },
+          { key: "3", name: "🏙️ Melbourne", sub: "VIC Fast Track", pos: "bottom: 50px; right: 120px;" },
+          { key: "4", name: "☀️ Brisbane QLD", sub: "QLD Fast Track", pos: "bottom: 50px; left: 120px;" }
+        ]
+      }
+    ];
+
+    let currentStageIndex = 0;
+    let timerStarted = false;
+    let startTime = 0;
+    let timerInterval = null;
+
+    function renderStage() {
+      const stageData = STAGES[currentStageIndex];
+      document.getElementById('core-step').innerText = `STEP ${stageData.step} OF 5`;
+      document.getElementById('core-title').innerText = stageData.title;
+
+      const container = document.getElementById('satellites-container');
+      container.innerHTML = stageData.options.map(opt => `
+        <div class="satellite-node" style="${opt.pos}" onclick="triggerChoice('${opt.key}')">
+          <span class="key-tag">${opt.key}</span>
+          <div>
+            <div class="name">${opt.name}</div>
+            <div class="sub">${opt.sub}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function triggerChoice(key) {
+      if (!timerStarted) {
+        timerStarted = true;
+        startTime = Date.now();
+        timerInterval = setInterval(() => {
+          const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+          document.getElementById('speedrun-timer').innerText = `⏱️ SPEEDRUN: ${elapsed}s`;
+        }, 50);
+      }
+
+      // Screen shake effect
+      const stage = document.getElementById('stage');
+      stage.classList.remove('shake');
+      void stage.offsetWidth; // trigger reflow
+      stage.classList.add('shake');
+
+      if (currentStageIndex < STAGES.length - 1) {
+        currentStageIndex++;
+        renderStage();
+      } else {
+        clearInterval(timerInterval);
+        const finalTime = ((Date.now() - startTime) / 1000).toFixed(2);
+        alert(`⚡ SPEEDRUN COMPLETE IN ${finalTime}s!\n\n👑 Matched with Sydney #1 Champion: Marcus Vance (Talk To A Broker) — Trust Score 98/100.`);
+      }
+    }
+
+    // Global Key Listener for 1, 2, 3, 4, 5
+    document.addEventListener('keydown', (e) => {
+      if (['1', '2', '3', '4', '5'].includes(e.key)) {
+        triggerChoice(e.key);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderStage();
+    });
+  </script>
+</body>
+</html>

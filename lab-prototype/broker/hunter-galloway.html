@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hunter Galloway (Nathan Vecchio) — Verified Mortgage Broker | Best Brokers Australia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #fbfbfa;
+      --surface: #ffffff;
+      --surface-subtle: #f5f5f2;
+      --border: #e6e6e0;
+      --border-dark: #d0d0c8;
+      
+      --ink: #111827;
+      --ink-gray: #4b5563;
+      --ink-muted: #6b7280;
+      --ink-dim: #9ca3af;
+      
+      --cobalt: #0071e3;
+      --cobalt-dark: #0077ed;
+      --cobalt-soft: #f0f9ff;
+      
+      --gold: #d97706;
+      --gold-soft: #fffbeb;
+      --gold-border: #fde68a;
+      
+      --emerald: #059669;
+      --emerald-dark: #065f46;
+      --emerald-soft: #ecfdf5;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius: 18px;
+      --radius-sm: 10px;
+      --shadow-apple: 0 30px 70px -20px rgba(17, 24, 39, 0.07), 0 0 1px 1px rgba(17, 24, 39, 0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg-subtle);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .paper-texture-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Top Lab Switcher Bar */
+    .lab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px 24px;
+      background: #0e1626;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      flex-wrap: wrap;
+    }
+    .lab-pill {
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+      background: #111d35;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .lab-pill:hover, .lab-pill.active {
+      background: var(--cobalt);
+      color: #fff;
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Continuous Financial Market Ticker */
+    .ticker-marquee-wrap {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      height: 38px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marqueeScroll 35s linear infinite;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      letter-spacing: 0.03em;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-segment {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding-right: 24px;
+    }
+    .ticker-dot-live {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+      margin-right: 6px;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 41px;
+      z-index: 100;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-logo-seal {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--ink);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: #ffffff;
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .dossier-layout {
+      max-width: 980px;
+      margin: 36px auto 90px;
+      padding: 0 24px;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .breadcrumbs-nav a {
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .breadcrumbs-nav a:hover { color: var(--cobalt); }
+
+    /* HERO PROFILE CARD */
+    .profile-hero-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-apple);
+      padding: 40px 44px 36px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .hero-top-row {
+      display: grid;
+      grid-template-columns: 100px 1fr 190px;
+      gap: 26px;
+      align-items: center;
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .broker-avatar-lg {
+      width: 96px;
+      height: 96px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+
+    .broker-title-info h1 {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+    .broker-meta-line {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .badge-acl {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .hero-score-dock {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px 18px;
+      text-align: center;
+    }
+    .hero-score-dock .score-val {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--emerald);
+      line-height: 1;
+    }
+    .hero-score-dock .score-lbl {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 3px;
+    }
+    .google-stars-line {
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* WARM HUMAN NARRATIVE */
+    .human-bio-narrative {
+      font-size: 1.02rem;
+      color: var(--ink-gray);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+    .human-bio-narrative p {
+      margin-bottom: 14px;
+    }
+    .human-bio-narrative p:last-child { margin-bottom: 0; }
+
+    /* CLEAN CONNECT BLOCK */
+    .connection-reassurance-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+    }
+    .connect-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .connect-heading {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .free-tag-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--emerald-dark);
+      background: var(--emerald-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .connect-subtext {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+
+    .connect-action-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-connect-pill {
+      background: var(--cobalt);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-connect-pill:hover {
+      background: var(--cobalt-dark);
+      box-shadow: 0 6px 18px rgba(0, 113, 227, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .apple-link-text {
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .apple-link-text:hover {
+      color: var(--cobalt);
+      text-decoration: underline;
+    }
+
+    /* AUDIT & PERFORMANCE METRICS GRID */
+    .performance-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .perf-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .perf-box .p-val {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .perf-box .p-lbl {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* SECTION CARDS */
+    .section-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-apple);
+    }
+    .section-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .specialties-pills-wrap {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .spec-pill {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+
+    .suburbs-serviced-list {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .suburb-tag-link {
+      color: var(--ink);
+      font-size: 0.82rem;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 5px 12px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+    .suburb-tag-link:hover {
+      border-color: var(--cobalt);
+      color: var(--cobalt);
+    }
+
+    /* VERIFIED GOOGLE CLIENT REVIEWS */
+    .review-item-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-bottom: 14px;
+    }
+    .review-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .reviewer-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .review-stars {
+      color: #f59e0b;
+      font-size: 0.85rem;
+    }
+    .review-text-body {
+      font-size: 0.92rem;
+      color: var(--ink-gray);
+      line-height: 1.55;
+    }
+
+    /* DATA PROVENANCE */
+    .provenance-card {
+      background: #fafaf7;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 28px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .provenance-card strong { color: var(--ink); }
+
+    /* FOOTER */
+    .apple-footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      padding: 60px 40px 40px;
+      color: var(--ink-muted);
+      font-size: 0.85rem;
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer-col-links h4 {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+    .footer-col-links a {
+      display: block;
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      margin-bottom: 8px;
+      transition: color 0.15s;
+    }
+    .footer-col-links a:hover { color: var(--cobalt); }
+    .footer-bottom-bar {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      font-size: 0.78rem;
+      color: var(--ink-dim);
+    }
+
+    @media (max-width: 860px) {
+      .hero-top-row { grid-template-columns: 1fr; text-align: center; }
+      .broker-avatar-lg { margin: 0 auto; }
+      .performance-stats-grid { grid-template-columns: 1fr 1fr; }
+      .provenance-card { grid-template-columns: 1fr; }
+      .footer-top-grid { grid-template-columns: 1fr 1fr; }
+      .connect-action-row { flex-direction: column; align-items: stretch; }
+    }
+
+    @media (max-width: 768px) {
+      .lab-nav {
+        padding: 8px 12px;
+        gap: 6px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+      }
+      .lab-pill {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        flex-shrink: 0;
+      }
+      .navbar {
+        padding: 14px 16px;
+      }
+      .brand-title {
+        font-size: 1.05rem;
+      }
+      .page-container {
+        padding: 0 16px;
+        margin: 16px auto 50px;
+      }
+      .apple-footer {
+        padding: 40px 20px 30px;
+      }
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .performance-stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <div class="paper-texture-overlay"></div>
+
+  <!-- TOP LAB SELECTOR -->
+  <div class="lab-nav">
+    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ 4-TIER JOURNEY:</span>
+    <a href="../index.html" class="lab-pill">L1: Homepage</a>
+    <a href="../states/qld.html" class="lab-pill">L2: QLD State Hub</a>
+    <a href="../suburbs/brisbane-city.html" class="lab-pill">L3: Brisbane City Hub</a>
+    <a href="hunter-galloway.html" class="lab-pill active">L4: Broker Dossier</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../index.html" class="brand-wrap">
+      <div class="brand-logo-seal">B</div>
+      <span class="brand-title">Best Brokers Australia</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <a href="#claim" onclick="alert('Broker Verification Portal: Verify your identity to manage this profile.'); return false;" style="font-size:0.85rem; color:var(--ink-muted); font-weight:600; text-decoration:none;">
+        Claim Profile
+      </a>
+    </div>
+  </nav>
+
+  <div class="dossier-layout">
+    
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs-nav">
+      <a href="../index.html">Home</a>
+      <span>/</span>
+      <a href="../states/qld.html">Queensland (QLD)</a>
+      <span>/</span>
+      <a href="../suburbs/brisbane-city.html">Brisbane City</a>
+      <span>/</span>
+      <span style="color:var(--ink); font-weight:600;">Hunter Galloway</span>
+    </div>
+
+    <!-- 1. HERO PROFILE CARD -->
+    <div class="profile-hero-card">
+      
+      <div class="hero-top-row">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80" alt="Nathan Vecchio" class="broker-avatar-lg">
+        
+        <div class="broker-title-info">
+          <h1>Hunter Galloway</h1>
+          <div class="broker-meta-line">
+            <span>Lead Specialist: <strong>Nathan Vecchio</strong></span>
+            <span>•</span>
+            <span>Brisbane City, QLD</span>
+            <span>•</span>
+            <span class="badge-acl">ACL #463901</span>
+          </div>
+        </div>
+
+        <div class="hero-score-dock">
+          <div class="score-val">99 / 100</div>
+          <div class="score-lbl">Audited Trust Score</div>
+          <div class="google-stars-line">★ 5.0 (2,497 Reviews)</div>
+        </div>
+      </div>
+
+      <!-- 2. WARM HUMAN NARRATIVE (3 REALISTIC PARAGRAPHS) -->
+      <div class="human-bio-narrative">
+        <p>
+          Founded in Brisbane City, Hunter Galloway is an independent mortgage advisory firm led by senior broker Nathan Vecchio. Over the past decade, Nathan and his team have grown into one of Queensland’s most consistently recognized brokerages, specializing in residential home purchases, first-home buyer grants, and property investment portfolios.
+        </p>
+        <p>
+          Holding a direct Australian Credit Licence (#463901) and accredited with over 30 leading bank and non-bank lenders, the brokerage focuses on navigating tight pre-approval turnarounds and government low-deposit schemes without unnecessary bureaucracy. Their dedicated credit analysis desk pre-screens every application to ensure first-round approvals with major lenders like CBA, Macquarie, and Suncorp.
+        </p>
+        <p>
+          Across more than 2,400 independently audited client reviews, Hunter Galloway maintains a 99.6% settlement approval rate. Their advisory approach emphasizes clear, upfront communication—modeling loan structures, buffer interest rates, and ongoing property equity strategies for long-term wealth creation.
+        </p>
+      </div>
+
+      <!-- 3. REASSURING DIRECT CONNECTION BLOCK -->
+      <div class="connection-reassurance-card">
+        <div class="connect-header-row">
+          <span class="connect-heading">Connect with Hunter Galloway</span>
+          <span class="free-tag-badge">100% Free Service</span>
+        </div>
+
+        <p class="connect-subtext">
+          Submit a direct inquiry to Nathan Vecchio. When you connect through Best Brokers Australia, your request is logged under our platform oversight—ensuring priority 1.5-hour turnaround and access to our independent support team.
+        </p>
+
+        <div class="connect-action-row">
+          <button class="btn-connect-pill" onclick="alert('Inquiry dispatched to Nathan Vecchio at Hunter Galloway! Your 1.5-hour response priority is active.');">
+            Send Inquiry to Hunter Galloway
+          </button>
+          
+          <a class="apple-link-text" onclick="alert('Office Address: Level 10/95 N Quay, Brisbane City QLD 4000\nDirect Phone: (07) 3554 1015\nEmail: hello@huntergalloway.com.au');">
+            <span>View direct office & phone details</span>
+            <span style="font-size:1.1rem; line-height:1;">›</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. AUDITED PERFORMANCE METRICS -->
+      <div class="performance-stats-grid">
+        <div class="perf-box">
+          <div class="p-val" style="color:var(--emerald);">99.6%</div>
+          <div class="p-lbl">Settlement Approval Rate</div>
+        </div>
+        <div class="perf-box">
+          <div class="p-val">9 Days</div>
+          <div class="p-lbl">Avg Approval Turnaround</div>
+        </div>
+        <div class="perf-box">
+          <div class="p-val" style="color:var(--cobalt);">45 Mins</div>
+          <div class="p-lbl">Response Priority</div>
+        </div>
+        <div class="perf-box">
+          <div class="p-val">0 Strikes</div>
+          <div class="p-lbl">ASIC Dispute Record (5 Yrs)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 5. SPECIALTIES, ACCREDITATIONS & SUBURBS -->
+    <div class="section-card">
+      <h3>Specialization & Lending Capabilities</h3>
+      <div class="specialties-pills-wrap">
+        <span class="spec-pill">First Home Buyer Grants</span>
+        <span class="spec-pill">5% Federal Home Guarantee</span>
+        <span class="spec-pill">Self-Employed ABN Lending</span>
+        <span class="spec-pill">Property Investor Portfolios</span>
+        <span class="spec-pill">Medical & Professional LMI Waivers</span>
+        <span class="spec-pill">Fast-Track 48h Approvals</span>
+      </div>
+
+      <h4 style="font-size:0.95rem; font-weight:700; color:var(--ink); margin-bottom:12px;">Primary Suburbs Serviced in Brisbane</h4>
+      <div class="suburbs-serviced-list">
+        <a href="../suburbs/brisbane-city.html" class="suburb-tag-link">Brisbane City</a>
+        <a href="../suburbs/brisbane-city.html" class="suburb-tag-link">Fortitude Valley</a>
+        <a href="../suburbs/brisbane-city.html" class="suburb-tag-link">Spring Hill</a>
+        <a href="../suburbs/brisbane-city.html" class="suburb-tag-link">New Farm</a>
+        <a href="../suburbs/brisbane-city.html" class="suburb-tag-link">South Brisbane</a>
+        <a href="../suburbs/brisbane-city.html" class="suburb-tag-link">Toowong</a>
+        <a href="../suburbs/brisbane-city.html" class="suburb-tag-link">Paddington</a>
+      </div>
+    </div>
+
+    <!-- 6. VERIFIED GOOGLE CLIENT REVIEWS -->
+    <div class="section-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <div>
+          <h3>Verified Client Feedback</h3>
+          <p style="color:var(--ink-muted); font-size:0.9rem;">Mirrored in real time from Google Places API.</p>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--emerald);">
+          2,497 VERIFIED REVIEWS
+        </div>
+      </div>
+
+      <div class="review-item-card">
+        <div class="review-meta-row">
+          <span class="reviewer-name">David M. • First Home Buyer</span>
+          <span class="review-stars">★★★★★</span>
+        </div>
+        <p class="review-text-body">
+          "Nathan and the Hunter Galloway team were exceptional. We had a tight auction deadline in Brisbane and Nathan secured our pre-approval with Macquarie inside 48 hours. The entire process was seamless."
+        </p>
+      </div>
+
+      <div class="review-item-card">
+        <div class="review-meta-row">
+          <span class="reviewer-name">Sarah & Tim P. • Refinance & Equity</span>
+          <span class="review-stars">★★★★★</span>
+        </div>
+        <p class="review-text-body">
+          "Refinanced two properties and extracted equity for our next investment. Nathan laid out a 5-year loan strategy that reduced our repayments by $640 a month. Clear, professional, and zero fluff."
+        </p>
+      </div>
+    </div>
+
+    <!-- 7. DATA PROVENANCE -->
+    <div class="provenance-card">
+      <div>
+        <strong>ASIC Entity Verification ID:</strong> ACL #463901<br>
+        <strong>Lending Association:</strong> MFAA Accredited Brokerage<br>
+        <strong>Trust Algorithm Version:</strong> Published 3-Factor Audit V4.2
+      </div>
+      <div>
+        <strong>Best Interests Duty (BID):</strong> Verified Compliant<br>
+        <strong>Last Independent Audit:</strong> September 2026<br>
+        <strong>Platform Governance:</strong> <a href="#" style="color:var(--cobalt);">Report an Inaccuracy or Dispute ›</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="apple-footer">
+    <div class="footer-inner">
+      <div class="footer-top-grid">
+        <div class="footer-col-main">
+          <div class="brand-wrap" style="margin-bottom:14px;">
+            <div class="brand-logo-seal" style="width:28px; height:28px; font-size:0.95rem;">B</div>
+            <span class="brand-title" style="font-size:1.15rem;">Best Brokers Australia</span>
+          </div>
+          <p style="color:var(--ink-muted); font-size:0.85rem; max-width:340px; line-height:1.5;">
+            Independent consumer directory and broker verification bureau.
+          </p>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Directory Hubs</h4>
+          <a href="../suburbs/brisbane-city.html">Brisbane Mortgage Brokers</a>
+          <a href="../suburbs/sydney.html">Sydney Mortgage Brokers</a>
+          <a href="../suburbs/melbourne.html">Melbourne Mortgage Brokers</a>
+          <a href="../suburbs/perth.html">Perth Mortgage Brokers</a>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Verification</h4>
+          <a href="#">Trust Scoring Model</a>
+          <a href="#">ASIC Licence Check</a>
+          <a href="#">Claim Profile</a>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Consumer Protection</h4>
+          <a href="#">Consumer Pledge</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2025 Best Brokers Australia. Independent Australian credit verification bureau.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

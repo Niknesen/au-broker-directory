@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Brokers in New South Wales (NSW Verified State Directory 2026)</title>
+  <meta name="description" content="Compare 5,840 accredited, ASIC-compliant mortgage brokers in NSW. Independent Trust Scores, regional district hubs, and verified lender panels.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --border-dark: #cbd5e1;
+      
+      --ink: #0f172a;
+      --ink-gray: #334155;
+      --ink-muted: #64748b;
+      --ink-dim: #94a3b8;
+      
+      --navy-dark: #0a192f;
+      --navy-btn: #0f1e36;
+      --cobalt: #0071e3;
+      --cobalt-dark: #0077ed;
+      --cobalt-soft: #f0f9ff;
+      
+      --gold: #d97706;
+      --gold-soft: #fffbeb;
+      --gold-border: #fde68a;
+      
+      --emerald: #059669;
+      --emerald-dark: #047857;
+      --emerald-soft: #ecfdf5;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .paper-texture-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* TOP 4-LEVEL LAB SWITCHER */
+    .lab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px 24px;
+      background: #0e1626;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      flex-wrap: wrap;
+    }
+    .lab-pill {
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+      background: #111d35;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .lab-pill:hover, .lab-pill.active {
+      background: var(--cobalt);
+      color: #fff;
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    .ticker-marquee-wrap {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      height: 38px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marqueeScroll 35s linear infinite;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      letter-spacing: 0.03em;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-segment {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding-right: 24px;
+    }
+    .ticker-dot-live {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+      margin-right: 6px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 41px;
+      z-index: 100;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-logo-seal {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--ink);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: #ffffff;
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .btn-claim-profile {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border-dark);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-claim-profile:hover { background: var(--bg); border-color: var(--ink); }
+
+    /* PAGE LAYOUT */
+    .page-main-container {
+      max-width: 1180px;
+      width: 100%;
+      margin: 28px auto 80px;
+      padding: 0 24px;
+      flex: 1 0 auto;
+    }
+
+    .breadcrumbs-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .breadcrumbs-nav a { color: var(--ink-muted); text-decoration: none; }
+    .breadcrumbs-nav a:hover { color: var(--cobalt); }
+
+    .state-hero-box {
+      margin-bottom: 36px;
+    }
+    .state-eyebrow-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--cobalt);
+      background: var(--cobalt-soft);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 113, 227, 0.2);
+      margin-bottom: 12px;
+    }
+    .state-hero-box h1 {
+      font-family: var(--font-display);
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .state-hero-box p {
+      font-size: 1.05rem;
+      color: var(--ink-gray);
+      max-width: 820px;
+      line-height: 1.6;
+    }
+
+    .stats-4col-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .stat-metric-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-subtle);
+    }
+    .stat-metric-card .val {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat-metric-card .lbl {
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+      font-weight: 700;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* SECTION CARD WRAPPER */
+    .section-card-wrapper {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px 36px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-subtle);
+    }
+    .section-card-wrapper h2 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .section-card-wrapper .section-subhead {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+    }
+
+    /* TOP REGIONAL METRO CHAMPIONS (3 CARDS) */
+    .metro-champions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .metro-champ-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+    }
+    .metro-champ-card:hover {
+      background: #ffffff;
+      border-color: var(--ink);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+    .metro-champ-top {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .metro-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .metro-name h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .metro-name p {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    /* DISTRICT DIRECTORY DIRECT LINKS GRID */
+    .district-clusters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .cluster-box h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--ink);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cluster-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .district-nav-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--ink-gray);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .district-nav-link:hover {
+      background: #ffffff;
+      color: var(--cobalt);
+      border: 1px solid var(--border-dark);
+      padding-left: 14px;
+    }
+    .district-nav-link .broker-cnt {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      font-weight: 700;
+    }
+
+    /* APPLE FOOTER */
+    .apple-footer {
+      margin-top: auto;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      padding: 60px 40px 40px;
+      color: var(--ink-muted);
+      font-size: 0.85rem;
+    }
+    .footer-inner { max-width: 1180px; margin: 0 auto; }
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer-col-links h4 {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+    .footer-col-links a {
+      display: block;
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      margin-bottom: 8px;
+      transition: color 0.15s;
+    }
+    .footer-col-links a:hover { color: var(--cobalt); }
+    .footer-bottom-bar {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      font-size: 0.78rem;
+      color: var(--ink-dim);
+    }
+
+    @media (max-width: 960px) {
+      .metro-champions-grid { grid-template-columns: 1fr; }
+      .district-clusters-grid { grid-template-columns: 1fr; }
+      .stats-4col-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .lab-nav {
+        padding: 8px 12px;
+        gap: 6px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+      }
+      .lab-pill {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        flex-shrink: 0;
+      }
+      .navbar {
+        padding: 14px 16px;
+      }
+      .brand-title {
+        font-size: 1.05rem;
+      }
+      .btn-claim-profile {
+        padding: 6px 12px;
+        font-size: 0.78rem;
+      }
+      .page-main-container {
+        padding: 0 16px;
+        margin: 16px auto 50px;
+      }
+      .state-hero-box h1 {
+        font-size: 1.95rem;
+        line-height: 1.15;
+      }
+      .state-hero-box p {
+        font-size: 0.95rem;
+      }
+      .section-card-wrapper {
+        padding: 20px 16px;
+        border-radius: 20px;
+        margin-bottom: 24px;
+      }
+      .section-card-wrapper h2 {
+        font-size: 1.25rem;
+      }
+      .section-card-wrapper .section-subhead {
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+      .stat-metric-card {
+        padding: 14px 14px;
+        border-radius: 14px;
+      }
+      .stat-metric-card .val {
+        font-size: 1.35rem;
+      }
+      .stat-metric-card .lbl {
+        font-size: 0.68rem;
+      }
+      .metro-champ-card {
+        padding: 18px 16px;
+        border-radius: 16px;
+      }
+      .metro-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+      }
+      .metro-name h3 {
+        font-size: 1rem;
+      }
+      .district-nav-link {
+        padding: 8px 12px;
+        font-size: 0.82rem;
+      }
+      .apple-footer {
+        padding: 40px 20px 30px;
+      }
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-bottom-bar {
+        font-size: 0.72rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-4col-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .state-hero-box h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="paper-texture-overlay"></div>
+
+  <!-- TOP 4-LEVEL LAB SWITCHER -->
+  <div class="lab-nav">
+    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
+    <a href="../google-omni.html" class="lab-pill">Level 1: Homepage (Omnibar + AI)</a>
+    <a href="nsw.html" class="lab-pill active">Level 2: State Hub (NSW)</a>
+    <a href="../suburbs/sydney.html" class="lab-pill">Level 3: District Hub (Top 3)</a>
+    <a href="../broker/mortgage-pros-sample.html" class="lab-pill">Level 4: Directory Dossier</a>
+    <a href="../broker/david-chi-tran.html" class="lab-pill" style="border-color:#f59e0b; color:#fbbf24;">Option A: VSL (David)</a>
+    <a href="../broker/marcus-vance.html" class="lab-pill" style="border-color:#38bdf8; color:#7dd3fc;">Option B: VSL (Marcus)</a>
+  </div>
+
+  <div class="ticker-marquee-wrap">
+    <div class="ticker-track">
+      <div class="ticker-segment">
+        <span><span class="ticker-dot-live"></span>NSW INDEX: <strong>5,840 VERIFIED MORTGAGE BROKERS</strong></span>
+        <span>•</span>
+        <span>STANDARDS: <strong>ASIC BEST INTERESTS DUTY (BID) ACTIVE</strong></span>
+        <span>•</span>
+        <span>STAMP DUTY: <strong>NSW FIRST HOME BUYER $800k EXEMPTION APPLIED</strong></span>
+        <span>•</span>
+        <span>APRA BUFFER: <strong>3.00% SERVICING STRESS AUDIT</strong></span>
+        <span>•</span>
+      </div>
+      <div class="ticker-segment">
+        <span><span class="ticker-dot-live"></span>NSW INDEX: <strong>5,840 VERIFIED MORTGAGE BROKERS</strong></span>
+        <span>•</span>
+        <span>STANDARDS: <strong>ASIC BEST INTERESTS DUTY (BID) ACTIVE</strong></span>
+        <span>•</span>
+        <span>STAMP DUTY: <strong>NSW FIRST HOME BUYER $800k EXEMPTION APPLIED</strong></span>
+        <span>•</span>
+        <span>APRA BUFFER: <strong>3.00% SERVICING STRESS AUDIT</strong></span>
+        <span>•</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <a href="../google-omni.html" class="brand-wrap">
+      <div class="brand-logo-seal">B</div>
+      <span class="brand-title">Best Brokers Australia</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <a href="../google-omni.html#claim" class="btn-claim-profile">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--cobalt);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Claim Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="page-main-container">
+    
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs-nav">
+      <a href="../google-omni.html">Home</a>
+      <span>/</span>
+      <a href="#">Mortgage Brokers</a>
+      <span>/</span>
+      <span style="color:var(--ink); font-weight:600;">New South Wales (NSW)</span>
+    </div>
+
+    <!-- STATE HERO -->
+    <div class="state-hero-box">
+      <div class="state-eyebrow-badge">
+        <span>STATE JURISDICTION DIRECTORY • 5,840 ACCREDITED BROKERS</span>
+      </div>
+
+      <h1>Mortgage Brokers in New South Wales</h1>
+      <p>
+        Compare 5,840 ASIC-accredited mortgage brokers across Sydney, Newcastle, Wollongong, and regional NSW. Every firm is independently audited for lender panel independence, clean regulatory licensing, and 1.5-hour priority turnaround.
+      </p>
+
+      <div class="stats-4col-grid">
+        <div class="stat-metric-card">
+          <div class="val">5,840</div>
+          <div class="lbl">Brokers in NSW</div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="val" style="color:var(--gold);">4.95 ★</div>
+          <div class="lbl">Avg State Rating</div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="val">42 Lenders</div>
+          <div class="lbl">APRA Panels Checked</div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="val" style="color:var(--emerald);">100% Free</div>
+          <div class="lbl">Borrower Service (BID)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP REGIONAL METRO CHAMPIONS -->
+    <div class="section-card-wrapper">
+      <h2>Top Audited Champions by Major NSW Metro Hubs</h2>
+      <p class="section-subhead">Our independent bureau isolates the #1 rated mortgage brokerage in key New South Wales districts:</p>
+
+      <div class="metro-champions-grid">
+        <!-- METRO 1: BEAT MY HOME LOAN (DAVID CHI TRAN) -->
+        <a href="../broker/david-chi-tran.html" class="metro-champ-card" style="border-top: 4px solid var(--gold);">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.72rem; font-weight:800; color:#92400e; margin-bottom:10px;">
+              ✦ #1 BBA ACCREDITED SPECIALIST DESK
+            </div>
+            <div class="metro-champ-top">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80" alt="David Chi Tran" class="metro-avatar">
+              <div class="metro-name">
+                <h3>Beat My Home Loan</h3>
+                <p>David Chi Tran • CR #475681</p>
+              </div>
+            </div>
+            <p style="font-size:0.84rem; color:var(--ink-gray); line-height:1.45; margin-bottom:12px;">
+              Specialist Desk for Investor & Self-Employed Loan Restructuring, tier-1 APRA bank rate discounts, and rapid digital settlement.
+            </p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; font-weight:700; color:var(--cobalt); border-top:1px solid var(--border); padding-top:10px;">
+            <span>99/100 Trust Score</span>
+            <span>View Partner VSL Dossier ›</span>
+          </div>
+        </a>
+
+        <!-- METRO 2: SYDNEY CBD -->
+        <a href="../broker/marcus-vance.html" class="metro-champ-card" style="border-top: 4px solid var(--cobalt);">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.72rem; font-weight:800; color:var(--cobalt); margin-bottom:10px;">
+              #1 SYDNEY CBD CHAMPION
+            </div>
+            <div class="metro-champ-top">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80" alt="Marcus Vance" class="metro-avatar">
+              <div class="metro-name">
+                <h3>Talk To A Broker</h3>
+                <p>Marcus Vance • ACL #483921</p>
+              </div>
+            </div>
+            <p style="font-size:0.84rem; color:var(--ink-gray); line-height:1.45; margin-bottom:12px;">
+              Sydney CBD's top-audited firm for complex 1-year ABN financials and rapid auction pre-approvals.
+            </p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; font-weight:700; color:var(--cobalt); border-top:1px solid var(--border); padding-top:10px;">
+            <span>98/100 Trust Score</span>
+            <span>View Partner VSL Dossier ›</span>
+          </div>
+        </a>
+
+        <!-- METRO 3: SYDNEY INNER WEST -->
+        <a href="../broker/mortgage-pros-sample.html" class="metro-champ-card">
+          <div>
+            <div style="font-family:var(--font-mono); font-size:0.72rem; font-weight:800; color:var(--ink-muted); margin-bottom:10px;">
+              #1 INNER WEST CHAMPION
+            </div>
+            <div class="metro-champ-top">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80" alt="Mortgage Pros" class="metro-avatar">
+              <div class="metro-name">
+                <h3>Mortgage Pros</h3>
+                <p>Eric & Patrick • ASIC #518290</p>
+              </div>
+            </div>
+            <p style="font-size:0.84rem; color:var(--ink-gray); line-height:1.45; margin-bottom:12px;">
+              Specialists in 5% First Home Guarantee schemes, SMSF property, and fast-track digital lodgments.
+            </p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; font-weight:700; color:var(--cobalt); border-top:1px solid var(--border); padding-top:10px;">
+            <span>98/100 Trust Score</span>
+            <span>View Broker Dossier ›</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- COMPLETE DISTRICT & SUBURB DIRECTORY GRID -->
+    <div class="section-card-wrapper">
+      <h2>Explore NSW Mortgage Broker Districts (Level 3 Hubs)</h2>
+      <p class="section-subhead">Select a local district to view the Top 9 audited champions and local repayment benchmarks:</p>
+
+      <div class="district-clusters-grid">
+        
+        <!-- CLUSTER 1: SYDNEY CBD & INNER CITY -->
+        <div class="cluster-box">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--cobalt);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Sydney City & Inner East</span>
+          </h3>
+          <ul class="cluster-links-list">
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Sydney CBD</span> <span class="broker-cnt">205</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Bondi Junction</span> <span class="broker-cnt">54</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Surry Hills</span> <span class="broker-cnt">42</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Paddington</span> <span class="broker-cnt">38</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Barangaroo</span> <span class="broker-cnt">46</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Double Bay</span> <span class="broker-cnt">29</span></a></li>
+          </ul>
+        </div>
+
+        <!-- CLUSTER 2: INNER WEST & WESTERN SYDNEY -->
+        <div class="cluster-box">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--cobalt);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Inner West & Parramatta</span>
+          </h3>
+          <ul class="cluster-links-list">
+            <li><a href="../suburbs/parramatta.html" class="district-nav-link"><span>Parramatta</span> <span class="broker-cnt">103</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>North Strathfield</span> <span class="broker-cnt">18</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Strathfield & Concord</span> <span class="broker-cnt">34</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Burwood & Rhodes</span> <span class="broker-cnt">41</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Balmain & Leichhardt</span> <span class="broker-cnt">32</span></a></li>
+            <li><a href="../suburbs/parramatta.html" class="district-nav-link"><span>Blacktown & West</span> <span class="broker-cnt">58</span></a></li>
+          </ul>
+        </div>
+
+        <!-- CLUSTER 3: NORTH SHORE & REGIONAL NSW -->
+        <div class="cluster-box">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--cobalt);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>North Shore & Regional NSW</span>
+          </h3>
+          <ul class="cluster-links-list">
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>North Sydney</span> <span class="broker-cnt">94</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Chatswood</span> <span class="broker-cnt">48</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Newcastle & Hunter</span> <span class="broker-cnt">62</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Wollongong & Illawarra</span> <span class="broker-cnt">44</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Central Coast</span> <span class="broker-cnt">51</span></a></li>
+            <li><a href="../suburbs/sydney.html" class="district-nav-link"><span>Tweed Heads & North</span> <span class="broker-cnt">26</span></a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- APPLE FOOTER -->
+  <footer class="apple-footer">
+    <div class="footer-inner">
+      <div class="footer-top-grid">
+        <div class="footer-col-main">
+          <div class="brand-wrap" style="margin-bottom:14px;">
+            <div class="brand-logo-seal" style="width:28px; height:28px; font-size:0.95rem;">B</div>
+            <span class="brand-title" style="font-size:1.15rem;">Best Brokers Australia</span>
+          </div>
+          <p style="color:var(--ink-muted); font-size:0.85rem; max-width:340px; line-height:1.5;">
+            Independent consumer directory and broker verification bureau. We audit Australian credit licensees for Best Interests Duty (BID) compliance and lender panel transparency.
+          </p>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Directory Hubs</h4>
+          <a href="../suburbs/sydney.html">Sydney Mortgage Brokers</a>
+          <a href="../suburbs/melbourne.html">Melbourne Mortgage Brokers</a>
+          <a href="../suburbs/brisbane.html">Brisbane Mortgage Brokers</a>
+          <a href="../suburbs/perth.html">Perth Mortgage Brokers</a>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Verification</h4>
+          <a href="#" onclick="alert('Trust Scoring Model'); return false;">Trust Scoring Model</a>
+          <a href="#" onclick="alert('ASIC Licence Check'); return false;">ASIC Licence Check</a>
+          <a href="#" onclick="alert('APRA Buffer Standards'); return false;">APRA Buffer Standards</a>
+          <a href="../google-omni.html#claim">Claim Your Profile</a>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Consumer Protection</h4>
+          <a href="#" onclick="alert('Consumer Enforcer Pledge'); return false;">Consumer Enforcer Pledge</a>
+          <a href="#" onclick="alert('Zero Pay-To-Rank Policy'); return false;">Zero Pay-To-Rank Policy</a>
+          <a href="#" onclick="alert('Privacy Policy'); return false;">Privacy Policy</a>
+          <a href="#" onclick="alert('Terms of Service'); return false;">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2025 Best Brokers Australia. All rights reserved. Independent Australian credit verification bureau.</p>
+        <p style="color:var(--ink-dim); font-size:0.75rem; margin-top:4px;">
+          Information provided is general in nature and does not constitute personal financial or credit advice under the National Consumer Credit Protection Act 2009.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

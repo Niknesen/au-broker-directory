@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Vault Tumbler — Best Brokers Tactile Lab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    .lab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 24px;
+      background: #0b1120;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      flex-wrap: wrap;
+    }
+    .lab-pill {
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+      background: #131d33;
+      transition: all 0.2s;
+    }
+    .lab-pill:hover, .lab-pill.active {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Tumbler Vault Deck */
+    .vault-container {
+      max-width: 960px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .vault-chassis {
+      background: linear-gradient(180deg, #1e293b 0%, #0c1220 100%);
+      border: 2px solid #334155;
+      border-radius: 32px;
+      padding: 40px 24px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.9), inset 0 2px 4px rgba(255,255,255,0.1);
+      position: relative;
+    }
+
+    .tumblers-rack {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin: 32px 0;
+      perspective: 1000px;
+    }
+    .tumbler-col {
+      background: #080d1a;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      padding: 16px 10px;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 10px 20px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .tumbler-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    
+    /* Drum Window */
+    .drum-window {
+      height: 120px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(0,0,0,0.4);
+      border-radius: 12px;
+      border: 1px solid #1e293b;
+    }
+    .drum-lens {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 44px;
+      transform: translateY(-50%);
+      border-top: 1px solid #38bdf8;
+      border-bottom: 1px solid #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+      pointer-events: none;
+      z-index: 5;
+    }
+    .drum-strip {
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .drum-item {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+    .drum-item.active {
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    }
+    
+    .tumbler-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .btn-flick {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #94a3b8;
+      width: 36px;
+      height: 32px;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+    .btn-flick:hover {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+    }
+
+    /* Master Lever */
+    .lever-bar {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .btn-vault-lock {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #022c22;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 18px 36px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s;
+    }
+    .btn-vault-lock:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 45px rgba(16, 185, 129, 0.7);
+    }
+    .btn-spin-all {
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #e2e8f0;
+      font-weight: 700;
+      padding: 18px 24px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-spin-all:hover {
+      border-color: #38bdf8;
+      background: #334155;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LAB SELECTOR NAVBAR -->
+  <div class="lab-nav">
+    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
+    <a href="ai-nexus.html" class="lab-pill">✨ AI Apple-Nexus Hybrid (New)</a>
+    <a href="dial.html" class="lab-pill">1. Rotary Dial & Detent Slider</a>
+    <a href="tumbler.html" class="lab-pill active">2. 3D Tumbler Vault</a>
+    <a href="constellation.html" class="lab-pill">3. Radial Constellation & Arcade</a>
+    <a href="index.html" class="lab-pill">4. Precision Console</a>
+  </div>
+
+  <div class="vault-container">
+    <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(16,185,129,0.12); color:#10b981; padding:6px 16px; border-radius:999px; font-weight:800; font-size:0.8rem; margin-bottom:16px;">
+      🎰 PHYSICAL TACTILE CONCEPT 2
+    </div>
+    <h1 style="font-size:2.4rem; font-weight:800; color:#fff; margin-bottom:10px;">The 3D Vault Tumbler</h1>
+    <p style="color:var(--text-muted); max-width:680px; margin:0 auto 36px;">Flick the precision tumbler drums to align your exact 5-variable lending combination. Crack the vault to reveal your #1 Audited Broker.</p>
+
+    <div class="vault-chassis">
+      
+      <!-- 5 CYLINDER REELS -->
+      <div class="tumblers-rack">
+        
+        <!-- CYLINDER 1: MISSION -->
+        <div class="tumbler-col" id="col-goal">
+          <div class="tumbler-label">1. Mission</div>
+          <div class="drum-window">
+            <div class="drum-lens"></div>
+            <div class="drum-strip" id="strip-goal" style="transform: translateY(38px);">
+              <div class="drum-item">🏠 1st Home</div>
+              <div class="drum-item">🚀 Upgrader</div>
+              <div class="drum-item">📈 Investor</div>
+              <div class="drum-item">✂️ Refinance</div>
+              <div class="drum-item">🏗️ Build</div>
+            </div>
+          </div>
+          <div class="tumbler-controls">
+            <button class="btn-flick" onclick="flickDrum('goal', -1)">▲</button>
+            <button class="btn-flick" onclick="flickDrum('goal', 1)">▼</button>
+          </div>
+        </div>
+
+        <!-- CYLINDER 2: INCOME -->
+        <div class="tumbler-col" id="col-income">
+          <div class="tumbler-label">2. Income</div>
+          <div class="drum-window">
+            <div class="drum-lens"></div>
+            <div class="drum-strip" id="strip-income" style="transform: translateY(38px);">
+              <div class="drum-item">👔 PAYG Full</div>
+              <div class="drum-item">💼 1-Yr ABN</div>
+              <div class="drum-item">🩺 Doctor Pro</div>
+              <div class="drum-item">⚡ Contractor</div>
+            </div>
+          </div>
+          <div class="tumbler-controls">
+            <button class="btn-flick" onclick="flickDrum('income', -1)">▲</button>
+            <button class="btn-flick" onclick="flickDrum('income', 1)">▼</button>
+          </div>
+        </div>
+
+        <!-- CYLINDER 3: DEPOSIT -->
+        <div class="tumbler-col" id="col-deposit">
+          <div class="tumbler-label">3. Deposit</div>
+          <div class="drum-window">
+            <div class="drum-lens"></div>
+            <div class="drum-strip" id="strip-deposit" style="transform: translateY(38px);">
+              <div class="drum-item">🛡️ 5% Scheme</div>
+              <div class="drum-item">💰 10% Low</div>
+              <div class="drum-item">💎 20% Prime</div>
+              <div class="drum-item">🤝 Guarantor</div>
+              <div class="drum-item">🏡 Equity</div>
+            </div>
+          </div>
+          <div class="tumbler-controls">
+            <button class="btn-flick" onclick="flickDrum('deposit', -1)">▲</button>
+            <button class="btn-flick" onclick="flickDrum('deposit', 1)">▼</button>
+          </div>
+        </div>
+
+        <!-- CYLINDER 4: CREDIT -->
+        <div class="tumbler-col" id="col-credit">
+          <div class="tumbler-label">4. Credit</div>
+          <div class="drum-window">
+            <div class="drum-lens"></div>
+            <div class="drum-strip" id="strip-credit" style="transform: translateY(38px);">
+              <div class="drum-item">✨ Clean 700+</div>
+              <div class="drum-item">⚠️ Minor Dings</div>
+              <div class="drum-item">🚨 Impaired</div>
+            </div>
+          </div>
+          <div class="tumbler-controls">
+            <button class="btn-flick" onclick="flickDrum('credit', -1)">▲</button>
+            <button class="btn-flick" onclick="flickDrum('credit', 1)">▼</button>
+          </div>
+        </div>
+
+        <!-- CYLINDER 5: LOCATION / SPEED -->
+        <div class="tumbler-col" id="col-city">
+          <div class="tumbler-label">5. Hub & Speed</div>
+          <div class="drum-window">
+            <div class="drum-lens"></div>
+            <div class="drum-strip" id="strip-city" style="transform: translateY(38px);">
+              <div class="drum-item">🔥 Sydney <14d</div>
+              <div class="drum-item">🧭 Sydney 1-3m</div>
+              <div class="drum-item">🔥 Melb <14d</div>
+              <div class="drum-item">☀️ Brisbane</div>
+              <div class="drum-item">🌊 Perth WA</div>
+            </div>
+          </div>
+          <div class="tumbler-controls">
+            <button class="btn-flick" onclick="flickDrum('city', -1)">▲</button>
+            <button class="btn-flick" onclick="flickDrum('city', 1)">▼</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MASTER ACTIONS -->
+      <div class="lever-bar">
+        <button class="btn-vault-lock" onclick="crackVault()">
+          🔓 CRACK VAULT & UNLOCK #1 CHAMPION
+        </button>
+        <button class="btn-spin-all" onclick="randomizeTumblers()">
+          🎲 RANDOMIZE TEST COMBINATION
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const reels = {
+      goal: { idx: 0, max: 5 },
+      income: { idx: 1, max: 4 },
+      deposit: { idx: 0, max: 5 },
+      credit: { idx: 0, max: 3 },
+      city: { idx: 0, max: 5 }
+    };
+
+    function flickDrum(key, dir) {
+      reels[key].idx = (reels[key].idx + dir + reels[key].max) % reels[key].max;
+      updateDrum(key);
+    }
+
+    function updateDrum(key) {
+      const offset = 38 - (reels[key].idx * 44);
+      const strip = document.getElementById('strip-' + key);
+      strip.style.transform = `translateY(${offset}px)`;
+      
+      strip.querySelectorAll('.drum-item').forEach((item, i) => {
+        item.classList.toggle('active', i === reels[key].idx);
+      });
+    }
+
+    function randomizeTumblers() {
+      Object.keys(reels).forEach(k => {
+        reels[k].idx = Math.floor(Math.random() * reels[k].max);
+        updateDrum(k);
+      });
+    }
+
+    function crackVault() {
+      alert("🔓 VAULT COMBINATION CRACKED!\n\nPolicy Desk Verified: Sydney CBD Self-Employed & Low Deposit Specialist.\n\nMatched with #1 Champion: Marcus Vance (Talk To A Broker) — Trust Score: 98/100.");
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Object.keys(reels).forEach(updateDrum);
+    });
+  </script>
+</body>
+</html>
