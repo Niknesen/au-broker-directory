@@ -1,0 +1,2477 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Your Home & Loan Matcher — Best Brokers Australia</title>
+  <meta name="description" content="Find your home and financial sanctuary. Matched across 35+ Australian banks with 100% ASIC Best Interests Duty compliance.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --liven-green: #5ca701;
+      --liven-green-hover: #4e8f00;
+      --liven-green-soft: #edf8e1;
+      --liven-green-border: #b8e68a;
+      --liven-dark: #1b2932;
+      --liven-navy: #0d1e2b;
+      --liven-gray: #486d84;
+      --liven-gray-light: #f4f7f9;
+      --liven-border: #e6edf2;
+      
+      --sky-top: #2a83cb;
+      --sky-mid: #54a7e6;
+      --sky-light: #cce7fc;
+      
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-4xl: 44px;
+      --radius-3xl: 34px;
+      --radius-2xl: 26px;
+      --radius-xl: 20px;
+      --radius-lg: 16px;
+      --radius-sm: 10px;
+      --radius-full: 9999px;
+      
+      --shadow-liven: 0 20px 60px rgba(13, 30, 43, 0.08), 0 4px 20px rgba(0, 0, 0, 0.04);
+      --shadow-card: 0 8px 30px rgba(13, 30, 43, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      background: linear-gradient(180deg, #2a83cb 0%, #4da0e2 25%, #7ec2f4 55%, #cde8fd 85%, #f4f8fc 100%);
+      color: var(--liven-dark);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Roofline Graphic Silhouette at Background Base */
+    .roofline-bg {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 130px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' fill='%23ffffff'%3E%3Cpath d='M0,160 L0,110 L120,60 L240,110 L280,95 L340,65 L400,95 L460,50 L560,110 L680,40 L800,110 L920,55 L960,75 L1040,35 L1160,105 L1260,50 L1380,110 L1440,85 L1440,160 Z' fill='%23ffffff'/%3E%3Cpath d='M80,60 L95,60 L95,35 L80,35 Z M640,40 L655,40 L655,20 L640,20 Z M1010,35 L1025,35 L1025,15 L1010,15 Z' fill='%23ffffff' opacity='0.7'/%3E%3C/svg%3E") bottom center/cover no-repeat;
+    }
+
+    /* Top Lab Switcher Bar */
+    .lab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 9px 16px;
+      background: #0d1720;
+      border-bottom: 1px solid #1a2734;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+    .lab-pill {
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #94a3b8;
+      border: 1px solid #1a2734;
+      background: #15222e;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .lab-pill:hover, .lab-pill.active {
+      background: var(--liven-green);
+      color: #ffffff;
+      border-color: #7dd322;
+      box-shadow: 0 0 14px rgba(92, 167, 1, 0.4);
+    }
+
+    /* Audio Toggle Pill */
+    .audio-toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 900;
+      background: #ffffff;
+      border: 1px solid var(--liven-border);
+      color: var(--liven-gray);
+      border-radius: var(--radius-full);
+      padding: 9px 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transition: all 0.2s;
+    }
+    .audio-toggle-btn:hover {
+      color: var(--liven-green);
+      border-color: var(--liven-green);
+      transform: translateY(-2px);
+    }
+    .audio-toggle-btn.on {
+      color: var(--liven-green);
+      border-color: var(--liven-green);
+      background: #ffffff;
+    }
+
+    /* 3D Viewport Stage */
+    .viewport-3d {
+      perspective: 1200px;
+      perspective-origin: 50% 45%;
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 20px 16px 60px;
+      z-index: 10;
+    }
+
+    /* Floating White Navbar Pill */
+    .funnel-header-pill {
+      background: #ffffff;
+      border-radius: var(--radius-full);
+      padding: 8px 16px 8px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(13, 30, 43, 0.1);
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 50;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--liven-gray-light);
+      border: 1px solid var(--liven-border);
+      color: var(--liven-dark);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-8px);
+    }
+    .back-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+    .back-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .brand-logo-wrap {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--liven-green);
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .brand-logo-wrap span {
+      color: var(--liven-dark);
+    }
+    .live-policy-pill {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      background: var(--liven-green-soft);
+      color: var(--liven-green);
+      border: 1px solid var(--liven-green-border);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Progress Bar */
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 12%;
+      background: linear-gradient(90deg, var(--liven-green), #7dd322);
+      border-radius: 99px;
+      transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 0 10px rgba(92, 167, 1, 0.5);
+    }
+
+    /* Scene Container */
+    .scene-container {
+      position: relative;
+      flex: 1;
+      min-height: 540px;
+      transform-style: preserve-3d;
+    }
+
+    /* 3D Scene Base */
+    .scene {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate3d(0, 0, -220px) scale(0.85);
+      filter: blur(10px);
+      transition: 
+        transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.45s ease,
+        filter 0.45s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .scene.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0px);
+      z-index: 10;
+    }
+
+    .scene.exit-forward {
+      transform: translate3d(0, 0, 240px) scale(1.22);
+      opacity: 0;
+      filter: blur(12px);
+      pointer-events: none;
+    }
+
+    .scene.exit-backward {
+      transform: translate3d(0, 0, -240px) scale(0.8);
+      opacity: 0;
+      filter: blur(12px);
+      pointer-events: none;
+    }
+
+    .scene.enter-forward {
+      transform: translate3d(0, 0, -240px) scale(0.8);
+      opacity: 0;
+      filter: blur(12px);
+    }
+
+    .scene.enter-backward {
+      transform: translate3d(0, 0, 240px) scale(1.22);
+      opacity: 0;
+      filter: blur(12px);
+    }
+
+    /* Liven White Sanctuary Card (Main Card Envelope) */
+    .liven-white-card {
+      background: #ffffff;
+      border-radius: var(--radius-3xl);
+      padding: 30px 28px;
+      box-shadow: var(--shadow-liven);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Scene Titles */
+    .scene-tag {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--liven-green);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .scene-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--liven-dark);
+    }
+    .scene-desc {
+      font-size: 0.95rem;
+      color: var(--liven-gray);
+      line-height: 1.5;
+    }
+
+    /* Micro-Feedback Box */
+    .micro-feedback-box {
+      background: var(--liven-green-soft);
+      border: 1.5px solid var(--liven-green-border);
+      border-radius: var(--radius-lg);
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: #274d08;
+      line-height: 1.45;
+      animation: feedbackPulse 0.4s ease-out;
+    }
+    .micro-feedback-box strong {
+      color: #1f3d05;
+    }
+    @keyframes feedbackPulse {
+      0% { opacity: 0; transform: translateY(-4px) scale(0.98); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Options Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .options-grid.cols-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* Liven Option Card */
+    .option-card {
+      background: #ffffff;
+      border: 1.5px solid var(--liven-border);
+      border-radius: var(--radius-2xl);
+      padding: 18px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      min-height: 74px;
+      user-select: none;
+      box-shadow: 0 4px 12px rgba(13, 30, 43, 0.03);
+    }
+    .option-card:hover {
+      border-color: var(--liven-green);
+      background: #fcfdfd;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(92, 167, 1, 0.12);
+    }
+    .option-card:active {
+      transform: scale(0.975);
+    }
+    .option-card.selected {
+      border-color: var(--liven-green);
+      background: var(--liven-green-soft);
+      box-shadow: 0 6px 20px rgba(92, 167, 1, 0.18);
+    }
+    .option-card.selected .card-radio {
+      border-color: var(--liven-green);
+      background: var(--liven-green);
+    }
+    .option-card.selected .card-radio::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .card-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+    }
+    .card-icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-lg);
+      background: var(--liven-gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .option-card:hover .card-icon-wrap {
+      background: var(--liven-green-soft);
+    }
+    .card-text-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .card-label {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--liven-dark);
+      letter-spacing: -0.01em;
+    }
+    .card-subtext {
+      font-size: 0.82rem;
+      color: var(--liven-gray);
+      line-height: 1.35;
+    }
+
+    .card-radio {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      background: #ffffff;
+    }
+    .card-radio::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffffff;
+      opacity: 0;
+      transform: scale(0.3);
+      transition: all 0.2s;
+    }
+
+    /* Photo Cards */
+    .photo-card {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      height: 155px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .photo-card:hover img {
+      transform: scale(1.08);
+    }
+    .photo-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(13, 30, 43, 0.85) 85%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 14px;
+      gap: 2px;
+    }
+    .photo-card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .photo-card-sub {
+      font-size: 0.75rem;
+      color: #e2e8f0;
+    }
+    .photo-card.selected {
+      border-color: var(--liven-green);
+      box-shadow: 0 0 24px rgba(92, 167, 1, 0.4);
+    }
+
+    /* Sliders & Amount Displays */
+    .amount-display-box {
+      background: var(--liven-gray-light);
+      border: 1px solid var(--liven-border);
+      border-radius: var(--radius-2xl);
+      padding: 22px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .amount-num-huge {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--liven-dark);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .amount-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 99px;
+      background: #cbd5e1;
+      outline: none;
+      cursor: pointer;
+    }
+    .amount-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--liven-green);
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 14px rgba(92, 167, 1, 0.5);
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .amount-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .chips-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .chips-row::-webkit-scrollbar { display: none; }
+    .chip-btn {
+      flex: 1;
+      white-space: nowrap;
+      background: #ffffff;
+      border: 1.5px solid var(--liven-border);
+      color: var(--liven-gray);
+      padding: 10px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chip-btn:hover {
+      border-color: var(--liven-green);
+      color: var(--liven-dark);
+    }
+    .chip-btn.active {
+      background: var(--liven-green);
+      color: #ffffff;
+      border-color: var(--liven-green);
+      box-shadow: 0 4px 14px rgba(92, 167, 1, 0.3);
+    }
+
+    /* State Pills */
+    .states-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .state-pill {
+      background: #ffffff;
+      border: 1.5px solid var(--liven-border);
+      border-radius: var(--radius-lg);
+      padding: 14px 8px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--liven-dark);
+    }
+    .state-pill:hover {
+      border-color: var(--liven-green);
+    }
+    .state-pill.selected {
+      background: var(--liven-green);
+      border-color: var(--liven-green);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(92, 167, 1, 0.3);
+    }
+
+    /* Text Inputs */
+    .funnel-input {
+      width: 100%;
+      background: #ffffff;
+      border: 1.5px solid var(--liven-border);
+      border-radius: var(--radius-xl);
+      padding: 16px 20px;
+      font-size: 1rem;
+      color: var(--liven-dark);
+      font-family: var(--font-main);
+      outline: none;
+      transition: all 0.2s;
+    }
+    .funnel-input:focus {
+      border-color: var(--liven-green);
+      box-shadow: 0 0 16px rgba(92, 167, 1, 0.2);
+    }
+
+    /* Chunky Liven CTA Buttons */
+    .primary-cta-btn {
+      background: var(--liven-green);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 18px 36px;
+      font-size: 1.08rem;
+      font-weight: 800;
+      font-family: var(--font-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      box-shadow: 0 10px 28px rgba(78, 143, 0, 0.35);
+      transition: all 0.2s;
+    }
+    .primary-cta-btn:hover {
+      background: var(--liven-green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(78, 143, 0, 0.45);
+    }
+    .primary-cta-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Radar Scanner (Liven Style) */
+    .radar-circle-wrap {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto;
+    }
+    .radar-pulse-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid var(--liven-green);
+      animation: radarRings 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+    .radar-pulse-ring:nth-child(2) { animation-delay: -0.6s; }
+    .radar-pulse-ring:nth-child(3) { animation-delay: -1.2s; }
+    @keyframes radarRings {
+      0% { transform: scale(0.6); opacity: 1; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+    .radar-core {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: var(--liven-green);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 6px 20px rgba(92, 167, 1, 0.4);
+      z-index: 2;
+    }
+    .scanner-log-terminal {
+      width: 100%;
+      background: var(--liven-navy);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #7dd322;
+      text-align: left;
+      height: 90px;
+      overflow-y: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .log-line { opacity: 0.9; }
+    .log-line.highlight { color: #ffffff; font-weight: 700; }
+
+    /* Dossier Metrics */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .metric-pill-box {
+      background: var(--liven-gray-light);
+      border: 1px solid var(--liven-border);
+      border-radius: var(--radius-xl);
+      padding: 14px;
+    }
+    .metric-pill-box .label {
+      font-size: 0.74rem;
+      color: var(--liven-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+    }
+    .metric-pill-box .val {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--liven-dark);
+      margin-top: 2px;
+    }
+
+    .broker-match-preview {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--liven-gray-light);
+      border: 1px solid var(--liven-border);
+      border-radius: var(--radius-xl);
+      padding: 14px;
+    }
+    .broker-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--liven-green);
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @media (max-width: 480px) {
+      .viewport-3d { padding: 12px 10px 40px; }
+      .liven-white-card { padding: 22px 18px; }
+      .scene-title { font-size: 1.5rem; }
+      .amount-num-huge { font-size: 2.2rem; }
+      .photo-card { height: 130px; }
+      .options-grid.cols-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP LAB SELECTOR -->
+  <div class="lab-nav">
+    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">🕹️ TACTILE LAB:</span>
+    <a href="labliven.html" class="lab-pill">🌿 Liven Sanctuary Hub</a>
+    <a href="liven-test.html" class="lab-pill active">⚡ Liven 3D Matcher</a>
+    <a href="google-omni.html" class="lab-pill">Level 1: Google Omni</a>
+    <a href="state/nsw.html" class="lab-pill">Level 2: State Hub</a>
+    <a href="broker/david-chi-tran.html" class="lab-pill">VSL: David Tran</a>
+    <a href="broker/marcus-vance.html" class="lab-pill">VSL: Marcus Vance</a>
+  </div>
+
+  <!-- SOUND TOGGLE -->
+  <button class="audio-toggle-btn on" id="sound-btn" onclick="toggleSound()">
+    <span id="sound-icon">🔊</span>
+    <span id="sound-text">Sound ON</span>
+  </button>
+
+  <div class="roofline-bg"></div>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- 3D TUNNEL VIEWPORT -->
+  <main class="viewport-3d">
+
+    <!-- TOP FLOATING HEADER PILL -->
+    <header class="funnel-header-pill">
+      <button class="back-btn" id="back-btn" onclick="navigateBack()">
+        ← Back
+      </button>
+
+      <div class="brand-logo-wrap">
+        Best<span>Brokers</span>
+      </div>
+
+      <div class="live-policy-pill">
+        <span>●</span> ASIC BID COMPLIANT
+      </div>
+    </header>
+
+    <!-- PROGRESS TRACK -->
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-bar"></div>
+    </div>
+
+    <!-- 3D SCENE STACK -->
+    <div class="scene-container">
+
+      <!-- ================= SCENE 0: UNIVERSAL ENTRY / 4-PILLAR ROUTER ================= -->
+      <section class="scene active" id="scene-0">
+        <div class="liven-white-card">
+          <div class="scene-tag">🌿 60-SECOND FINANCIAL SANCTUARY MATCH</div>
+          <h1 class="scene-title">What is your #1 lending mission today?</h1>
+          <p class="scene-desc">Stop carrying the loan stress alone. Select your scenario to scan 35+ Australian bank panels with zero credit score impact.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="startFlow('buy')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏡</div>
+                <div class="card-text-group">
+                  <div class="card-label">I want to buy a home</div>
+                  <div class="card-subtext">First home buyer, next home upgrader, or building</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="startFlow('refi')">
+              <div class="card-left">
+                <div class="card-icon-wrap">📉</div>
+                <div class="card-text-group">
+                  <div class="card-label">I want to refinance & slash my rate</div>
+                  <div class="card-subtext">Lower repayments, cash out equity, or debt consolidation</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="startFlow('invest')">
+              <div class="card-left">
+                <div class="card-icon-wrap">📈</div>
+                <div class="card-text-group">
+                  <div class="card-label">I want to invest & build wealth</div>
+                  <div class="card-subtext">Extract equity, rentvesting, or scale property portfolio</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="startFlow('commercial')">
+              <div class="card-left">
+                <div class="card-icon-wrap">💼</div>
+                <div class="card-text-group">
+                  <div class="card-label">Self-Employed / Commercial Finance</div>
+                  <div class="card-subtext">1-yr ABN Alt-Doc, commercial warehouses, or working capital</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+
+          <div class="micro-feedback-box" style="margin-top: 4px;">
+            <span>🛡️</span>
+            <div>
+              <strong>100% ASIC Best Interests Duty (BID) Guarantee:</strong> Brokers are legally mandated to work exclusively for your benefit, not bank profits.
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= FLOW 1: BUY A HOME ================= -->
+      <!-- BUY 1: STAGE -->
+      <section class="scene" id="scene-buy-stage">
+        <div class="liven-white-card">
+          <div class="scene-tag">HOME BUYER • STEP 1 OF 5</div>
+          <h2 class="scene-title">Where are you in your home buying journey?</h2>
+          <p class="scene-desc">This lets us calibrate pre-qualification urgency and formal approval turnaround speed.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickBuyStage('browsing', 'Researching Capacity')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🔍</div>
+                <div class="card-text-group">
+                  <div class="card-label">Looking at listings & calculating budget</div>
+                  <div class="card-subtext">Planning ahead 3–6 months out</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickBuyStage('inspecting', 'Attending Open Homes')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏘️</div>
+                <div class="card-text-group">
+                  <div class="card-label">Actively inspecting properties & bidding</div>
+                  <div class="card-subtext">Need solid pre-approval within 30–60 days</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickBuyStage('signed', 'Contract Signed / Auction')">
+              <div class="card-left">
+                <div class="card-icon-wrap">✍️</div>
+                <div class="card-text-group">
+                  <div class="card-label">Signed contract / Auction coming up</div>
+                  <div class="card-subtext">Urgent formal finance clause (<5 days SLA)</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+
+          <div class="micro-feedback-box" id="buy-stage-feedback" style="display: none;">
+            <span>💡</span>
+            <div id="buy-stage-feedback-text"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUY 2: PROPERTY TYPE -->
+      <section class="scene" id="scene-buy-property">
+        <div class="liven-white-card">
+          <div class="scene-tag">HOME BUYER • STEP 2 OF 5</div>
+          <h2 class="scene-title">What type of home are you targeting?</h2>
+          <p class="scene-desc">Lenders offer specific rate discounts and LVR advantages depending on dwelling structure.</p>
+
+          <div class="options-grid cols-2">
+            <div class="photo-card" onclick="pickBuyProperty('house', 'Freestanding House')">
+              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="House">
+              <div class="photo-card-overlay">
+                <div class="photo-card-title">
+                  <span>House</span>
+                  <span class="card-radio"></span>
+                </div>
+                <div class="photo-card-sub">Freestanding & land</div>
+              </div>
+            </div>
+
+            <div class="photo-card" onclick="pickBuyProperty('unit', 'Apartment / Strata')">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" alt="Apartment">
+              <div class="photo-card-overlay">
+                <div class="photo-card-title">
+                  <span>Apartment</span>
+                  <span class="card-radio"></span>
+                </div>
+                <div class="photo-card-sub">Strata & inner-city</div>
+              </div>
+            </div>
+
+            <div class="photo-card" onclick="pickBuyProperty('townhouse', 'Townhouse / Duplex')">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Townhouse">
+              <div class="photo-card-overlay">
+                <div class="photo-card-title">
+                  <span>Townhouse</span>
+                  <span class="card-radio"></span>
+                </div>
+                <div class="photo-card-sub">Low strata or community title</div>
+              </div>
+            </div>
+
+            <div class="photo-card" onclick="pickBuyProperty('build', 'House & Land / Build')">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Construction">
+              <div class="photo-card-overlay">
+                <div class="photo-card-title">
+                  <span>Build / Land</span>
+                  <span class="card-radio"></span>
+                </div>
+                <div class="photo-card-sub">Progress draw construction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUY 3: BUDGET & DEPOSIT -->
+      <section class="scene" id="scene-buy-financials">
+        <div class="liven-white-card">
+          <div class="scene-tag">HOME BUYER • STEP 3 OF 5</div>
+          <h2 class="scene-title">What is your estimated budget & deposit?</h2>
+          <p class="scene-desc">Live calculation of Loan-to-Value (LVR), Lenders Mortgage Insurance (LMI), and government scheme caps.</p>
+
+          <div class="amount-display-box">
+            <div style="font-size: 0.85rem; color: var(--liven-gray); font-weight: 700;">TARGET PROPERTY PRICE</div>
+            <div class="amount-num-huge" id="buy-price-display">$850,000</div>
+            
+            <input type="range" min="350000" max="3000000" step="25000" value="850000" class="amount-slider" id="buy-price-slider" oninput="updateBuyPrice(this.value)">
+
+            <div class="chips-row">
+              <button class="chip-btn" onclick="setBuyPricePreset(550000)">$550k</button>
+              <button class="chip-btn active" onclick="setBuyPricePreset(850000)">$850k</button>
+              <button class="chip-btn" onclick="setBuyPricePreset(1200000)">$1.2M</button>
+              <button class="chip-btn" onclick="setBuyPricePreset(1800000)">$1.8M+</button>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.88rem; font-weight: 800;">
+              <span>ESTIMATED DEPOSIT SAVINGS</span>
+              <span style="color: var(--liven-green);" id="buy-deposit-display">20% ($170,000)</span>
+            </div>
+
+            <div class="chips-row">
+              <button class="chip-btn" id="bdep-5" onclick="setBuyDeposit(5)">5% (Grant Route)</button>
+              <button class="chip-btn" id="bdep-10" onclick="setBuyDeposit(10)">10%</button>
+              <button class="chip-btn active" id="bdep-20" onclick="setBuyDeposit(20)">20% (Zero LMI)</button>
+              <button class="chip-btn" id="bdep-30" onclick="setBuyDeposit(30)">30%+</button>
+            </div>
+          </div>
+
+          <div class="micro-feedback-box" id="buy-finance-feedback">
+            <span>🎯</span>
+            <div id="buy-finance-feedback-text">
+              <strong>20% Deposit (80% LVR):</strong> You bypass Lenders Mortgage Insurance (saving approx. $16,400) and qualify for top-tier discounted bank rates.
+            </div>
+          </div>
+
+          <button class="primary-cta-btn" onclick="advanceScene()">
+            <span>Next: State & Grants →</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- BUY 4: STATE & POSTCODE -->
+      <section class="scene" id="scene-buy-location">
+        <div class="liven-white-card">
+          <div class="scene-tag">HOME BUYER • STEP 4 OF 5</div>
+          <h2 class="scene-title">Which state are you buying in?</h2>
+          <p class="scene-desc">State policies dictate stamp duty concessions and first home owner grant thresholds.</p>
+
+          <div class="states-grid">
+            <div class="state-pill selected" onclick="pickBuyState('NSW')">NSW</div>
+            <div class="state-pill" onclick="pickBuyState('VIC')">VIC</div>
+            <div class="state-pill" onclick="pickBuyState('QLD')">QLD</div>
+            <div class="state-pill" onclick="pickBuyState('WA')">WA</div>
+            <div class="state-pill" onclick="pickBuyState('SA')">SA</div>
+            <div class="state-pill" onclick="pickBuyState('TAS')">TAS</div>
+            <div class="state-pill" onclick="pickBuyState('ACT')">ACT</div>
+            <div class="state-pill" onclick="pickBuyState('NT')">NT</div>
+          </div>
+
+          <div>
+            <input type="text" class="funnel-input" id="buy-postcode-input" placeholder="Enter target suburb or postcode (e.g. 2150, Parramatta)" value="Sydney, NSW">
+          </div>
+
+          <div class="micro-feedback-box" id="buy-state-feedback">
+            <span>🏛️</span>
+            <div id="buy-state-feedback-text">
+              <strong>NSW First Home Policy:</strong> Full transfer stamp duty exemption up to $800,000 and concessions up to $1,000,000.
+            </div>
+          </div>
+
+          <button class="primary-cta-btn" onclick="advanceScene()">
+            <span>Next: Income Assessment →</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- BUY 5: INCOME -->
+      <section class="scene" id="scene-buy-income">
+        <div class="liven-white-card">
+          <div class="scene-tag">HOME BUYER • STEP 5 OF 5</div>
+          <h2 class="scene-title">How do you earn your income?</h2>
+          <p class="scene-desc">Different lenders have wildly varying servicing policies for PAYG, ABN, and professions.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickBuyIncome('payg', 'Standard PAYG Employee')">
+              <div class="card-left">
+                <div class="card-icon-wrap">👔</div>
+                <div class="card-text-group">
+                  <div class="card-label">Standard Full / Part-Time PAYG</div>
+                  <div class="card-subtext">Permanent employment with regular payslips</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickBuyIncome('abn', 'Self-Employed / 1-Yr ABN')">
+              <div class="card-left">
+                <div class="card-icon-wrap">💼</div>
+                <div class="card-text-group">
+                  <div class="card-label">Self-Employed / Sole Trader / Company</div>
+                  <div class="card-subtext">1-yr ABN, BAS statements, Alt-Doc</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickBuyIncome('medico', 'Doctor / Lawyer / Mining Pro')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🩺</div>
+                <div class="card-text-group">
+                  <div class="card-label">Doctor, Lawyer or Mining Professional</div>
+                  <div class="card-subtext">Eligible for 90–95% LMI Fee Waivers ($0 LMI)</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickBuyIncome('casual', 'Casual / Contractor / Gig')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🔀</div>
+                <div class="card-text-group">
+                  <div class="card-label">Contractor, Casual or Overtime Heavy</div>
+                  <div class="card-subtext">Needs flexible non-standard shading</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= FLOW 2: REFINANCE & RATE SLASH ================= -->
+      <!-- REFI 1: OBJECTIVE -->
+      <section class="scene" id="scene-refi-goal">
+        <div class="liven-white-card">
+          <div class="scene-tag">REFINANCE • STEP 1 OF 4</div>
+          <h2 class="scene-title">What is your primary refinancing goal?</h2>
+          <p class="scene-desc">We match bank panels specifically to maximize your rate cut, equity release, or cashback bonus.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickRefiGoal('lower-rate', 'Slash Monthly Repayments')">
+              <div class="card-left">
+                <div class="card-icon-wrap">📉</div>
+                <div class="card-text-group">
+                  <div class="card-label">Slash my interest rate & monthly repayments</div>
+                  <div class="card-subtext">Reduce monthly cashflow squeeze & interest bill</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickRefiGoal('cashout', 'Cash-out Equity for Renovations/Investing')">
+              <div class="card-left">
+                <div class="card-icon-wrap">💰</div>
+                <div class="card-text-group">
+                  <div class="card-label">Cash-out home equity</div>
+                  <div class="card-subtext">Fund renovations, personal buffer, or property deposit</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickRefiGoal('consolidate', 'Debt Consolidation')">
+              <div class="card-left">
+                <div class="card-icon-wrap">💳</div>
+                <div class="card-text-group">
+                  <div class="card-label">Consolidate high-interest debts</div>
+                  <div class="card-subtext">Roll car loans & credit cards into a low 5% home rate</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickRefiGoal('offset', 'Add 100% Offset / Split Loan')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🔄</div>
+                <div class="card-text-group">
+                  <div class="card-label">Switch to 100% Offset Account / Split Loan</div>
+                  <div class="card-subtext">Park savings to reduce daily mortgage interest</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REFI 2: NUMBERS -->
+      <section class="scene" id="scene-refi-numbers">
+        <div class="liven-white-card">
+          <div class="scene-tag">REFINANCE • STEP 2 OF 4</div>
+          <h2 class="scene-title">What is your home value and loan balance?</h2>
+          <p class="scene-desc">Live calculation of your usable equity buffer and loan-to-value ratio (LVR).</p>
+
+          <div class="amount-display-box">
+            <div style="font-size: 0.85rem; color: var(--liven-gray); font-weight: 700;">CURRENT ESTIMATED PROPERTY VALUE</div>
+            <div class="amount-num-huge" id="refi-val-display">$950,000</div>
+            <input type="range" min="400000" max="3500000" step="25000" value="950000" class="amount-slider" id="refi-val-slider" oninput="updateRefiVal(this.value)">
+
+            <div class="chips-row">
+              <button class="chip-btn" onclick="setRefiVal(650000)">$650k</button>
+              <button class="chip-btn active" onclick="setRefiVal(950000)">$950k</button>
+              <button class="chip-btn" onclick="setRefiVal(1400000)">$1.4M</button>
+              <button class="chip-btn" onclick="setRefiVal(2000000)">$2.0M+</button>
+            </div>
+          </div>
+
+          <div class="amount-display-box">
+            <div style="font-size: 0.85rem; color: var(--liven-gray); font-weight: 700;">REMAINING MORTGAGE BALANCE</div>
+            <div class="amount-num-huge" style="color: var(--liven-green);" id="refi-loan-display">$620,000</div>
+            <input type="range" min="150000" max="2500000" step="20000" value="620000" class="amount-slider" id="refi-loan-slider" oninput="updateRefiLoan(this.value)">
+          </div>
+
+          <div class="micro-feedback-box" id="refi-equity-feedback">
+            <span>💰</span>
+            <div id="refi-equity-feedback-text">
+              <strong>Usable Equity: ~$140,000 (at 80% LVR)</strong> with zero LMI fee. You qualify for Tier-1 major bank refinance rates.
+            </div>
+          </div>
+
+          <button class="primary-cta-btn" onclick="advanceScene()">
+            <span>Next: Current Interest Rate →</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- REFI 3: CURRENT RATE -->
+      <section class="scene" id="scene-refi-rate">
+        <div class="liven-white-card">
+          <div class="scene-tag">REFINANCE • STEP 3 OF 4</div>
+          <h2 class="scene-title">What interest rate are you paying right now?</h2>
+          <p class="scene-desc">Most Australian banks quietly expand profit margins on existing loans after year 2.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickRefiRate(6.65, 'Above 6.50% (High Margin)')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🔴</div>
+                <div class="card-text-group">
+                  <div class="card-label">Above 6.50% p.a.</div>
+                  <div class="card-subtext">Overpaying significantly compared to current market specials</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickRefiRate(6.25, '6.15% – 6.49%')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🟡</div>
+                <div class="card-text-group">
+                  <div class="card-label">6.15% – 6.49% p.a.</div>
+                  <div class="card-subtext">Standard retail bank loyalty tax tier</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickRefiRate(5.95, '5.85% – 6.14%')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🟢</div>
+                <div class="card-text-group">
+                  <div class="card-label">5.85% – 6.14% p.a.</div>
+                  <div class="card-subtext">Competitive, but cashback or lower tier rates still available</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickRefiRate(6.30, 'Not Sure / Standard Variable')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🔍</div>
+                <div class="card-text-group">
+                  <div class="card-label">I'm not sure / need a rate audit</div>
+                  <div class="card-subtext">We'll benchmark against the top 35 lenders for you</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+
+          <div class="micro-feedback-box" id="refi-savings-box" style="display: none;">
+            <span>⚡</span>
+            <div id="refi-savings-text"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REFI 4: CURRENT LENDER -->
+      <section class="scene" id="scene-refi-lender">
+        <div class="liven-white-card">
+          <div class="scene-tag">REFINANCE • STEP 4 OF 4</div>
+          <h2 class="scene-title">Who is your current mortgage with?</h2>
+          <p class="scene-desc">Allows us to isolate fast-track external refinance rebate cashback policies ($2k–$3k).</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickRefiLender('big4', 'Big 4 Bank (CBA, Westpac, ANZ, NAB)')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏦</div>
+                <div class="card-text-group">
+                  <div class="card-label">Big 4 Bank (CBA, Westpac, ANZ, NAB)</div>
+                  <div class="card-subtext">Prime targets for external competitor rate matching & cashbacks</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickRefiLender('mid', 'Mid-Tier Bank (Macquarie, ING, Bankwest, Suncorp)')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏢</div>
+                <div class="card-text-group">
+                  <div class="card-label">Mid-Tier Bank (Macquarie, ING, Bankwest, Suncorp)</div>
+                  <div class="card-subtext">Great products with alternative pricing discounts</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickRefiLender('nonbank', 'Non-Bank / Online Lender')">
+              <div class="card-left">
+                <div class="card-icon-wrap">💻</div>
+                <div class="card-text-group">
+                  <div class="card-label">Non-Bank, Credit Union or Online Lender</div>
+                  <div class="card-subtext">Pepper, Liberty, Athena, Tiimely, Heritage</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= FLOW 3: INVESTOR & EQUITY ================= -->
+      <!-- INVEST 1: PORTFOLIO -->
+      <section class="scene" id="scene-invest-portfolio">
+        <div class="liven-white-card">
+          <div class="scene-tag">INVESTOR • STEP 1 OF 4</div>
+          <h2 class="scene-title">What is your current property portfolio?</h2>
+          <p class="scene-desc">Different lenders provide significantly higher borrowing capacity when utilizing rental shading buffers.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickInvestPortfolio('own-home', 'Homeowner with Equity')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏠</div>
+                <div class="card-text-group">
+                  <div class="card-label">I own my home with equity</div>
+                  <div class="card-subtext">Ready to leverage equity into my 1st or 2nd investment</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickInvestPortfolio('rentvest', 'Rentvestor (Renting home, buying investment)')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏙️</div>
+                <div class="card-text-group">
+                  <div class="card-label">I rent where I live & want to "Rentvest"</div>
+                  <div class="card-subtext">Buy where I can afford, rent where I want to live</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickInvestPortfolio('multi', 'Multiple Properties (3+ Portfolio)')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏢</div>
+                <div class="card-text-group">
+                  <div class="card-label">Experienced Investor (Own 2+ Properties)</div>
+                  <div class="card-subtext">Need specialist multi-bank servicing & cashflow expansion</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INVEST 2: STRATEGY -->
+      <section class="scene" id="scene-invest-strategy">
+        <div class="liven-white-card">
+          <div class="scene-tag">INVESTOR • STEP 2 OF 4</div>
+          <h2 class="scene-title">What is your investment strategy focus?</h2>
+          <p class="scene-desc">Loan structuring (Interest-Only vs P&I) should strictly follow your tax and yield goals.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickInvestStrategy('growth', 'High Capital Growth (Metro)')">
+              <div class="card-left">
+                <div class="card-icon-wrap">📈</div>
+                <div class="card-text-group">
+                  <div class="card-label">High Capital Growth</div>
+                  <div class="card-subtext">Metro freestanding homes with strong historical land appreciation</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickInvestStrategy('yield', 'High Rental Yield / Positive Cashflow')">
+              <div class="card-left">
+                <div class="card-icon-wrap">💵</div>
+                <div class="card-text-group">
+                  <div class="card-label">High Rental Cashflow & Yield</div>
+                  <div class="card-subtext">Regional, dual-occupancy, rooming house, or NDIS/SDA</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickInvestStrategy('tax', 'Tax Optimization / Negative Gearing')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🛡️</div>
+                <div class="card-text-group">
+                  <div class="card-label">Tax Deduction & Negative Gearing</div>
+                  <div class="card-subtext">Offset high taxable personal salary with depreciation deductions</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INVEST 3: BUDGET & EQUITY -->
+      <section class="scene" id="scene-invest-budget">
+        <div class="liven-white-card">
+          <div class="scene-tag">INVESTOR • STEP 3 OF 4</div>
+          <h2 class="scene-title">What is your target investment purchase budget?</h2>
+          <p class="scene-desc">Calculate borrowing power with 80% rental income shading added back.</p>
+
+          <div class="amount-display-box">
+            <div style="font-size: 0.85rem; color: var(--liven-gray); font-weight: 700;">INVESTMENT PURCHASE PRICE</div>
+            <div class="amount-num-huge" id="invest-budget-display">$750,000</div>
+            <input type="range" min="400000" max="2500000" step="25000" value="750000" class="amount-slider" id="invest-budget-slider" oninput="updateInvestBudget(this.value)">
+
+            <div class="chips-row">
+              <button class="chip-btn" onclick="setInvestBudget(550000)">$550k</button>
+              <button class="chip-btn active" onclick="setInvestBudget(750000)">$750k</button>
+              <button class="chip-btn" onclick="setInvestBudget(1100000)">$1.1M</button>
+              <button class="chip-btn" onclick="setInvestBudget(1600000)">$1.6M+</button>
+            </div>
+          </div>
+
+          <div class="micro-feedback-box">
+            <span>💡</span>
+            <div>
+              <strong>Rental Shading Policy:</strong> We factor in ~$650/week projected rental income to boost your serviceability borrowing buffer by ~$110k.
+            </div>
+          </div>
+
+          <button class="primary-cta-btn" onclick="advanceScene()">
+            <span>Next: Loan Structuring →</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- INVEST 4: STRUCTURING -->
+      <section class="scene" id="scene-invest-structure">
+        <div class="liven-white-card">
+          <div class="scene-tag">INVESTOR • STEP 4 OF 4</div>
+          <h2 class="scene-title">What loan structure do you prefer?</h2>
+          <p class="scene-desc">Protecting your family home and keeping tax deductions clean.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickInvestStructure('io-uncrossed', 'Interest-Only + Uncrossed Security')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🛡️</div>
+                <div class="card-text-group">
+                  <div class="card-label">Interest-Only (5-Yr) & Uncrossed Security</div>
+                  <div class="card-subtext">Maximize cashflow, tax deductions & prevent lender cross-collateralization</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickInvestStructure('pi', 'Principal & Interest (P&I)')">
+              <div class="card-left">
+                <div class="card-icon-wrap">📉</div>
+                <div class="card-text-group">
+                  <div class="card-label">Principal & Interest (Lower Rate Tier)</div>
+                  <div class="card-subtext">Pay down the loan balance with lower interest margins</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= FLOW 4: COMMERCIAL & ABN ================= -->
+      <!-- COMM 1: TYPE -->
+      <section class="scene" id="scene-comm-type">
+        <div class="liven-white-card">
+          <div class="scene-tag">COMMERCIAL & ABN • STEP 1 OF 4</div>
+          <h2 class="scene-title">What type of finance does your business require?</h2>
+          <p class="scene-desc">Matching you with accredited commercial and Alt-Doc specialists across non-bank and private panels.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickCommType('res-abn', 'Residential Home Loan using ABN/Business Income')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏡</div>
+                <div class="card-text-group">
+                  <div class="card-label">Residential Home Loan (Using ABN Income)</div>
+                  <div class="card-subtext">Self-employed borrower buying personal home or investment property</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickCommType('comm-prop', 'Commercial Property Purchase (Warehouse/Office)')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏢</div>
+                <div class="card-text-group">
+                  <div class="card-label">Commercial Property Purchase</div>
+                  <div class="card-subtext">Warehouse, industrial factory, office, medical suite, or retail</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickCommType('equip-working', 'Equipment / Asset / Working Capital')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🚚</div>
+                <div class="card-text-group">
+                  <div class="card-label">Equipment, Vehicles & Working Capital</div>
+                  <div class="card-subtext">Trucks, machinery, fit-out finance, or revolving overdraft</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMM 2: ABN TENURE -->
+      <section class="scene" id="scene-comm-abn">
+        <div class="liven-white-card">
+          <div class="scene-tag">COMMERCIAL & ABN • STEP 2 OF 4</div>
+          <h2 class="scene-title">How long has your ABN been registered and GST active?</h2>
+          <p class="scene-desc">Helps isolate whether you need standard 2-year full doc or 1-year Alt-Doc specialist lending.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickCommAbn('2plus', '2+ Years Active ABN')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🏆</div>
+                <div class="card-text-group">
+                  <div class="card-label">2+ Years Active ABN & GST</div>
+                  <div class="card-subtext">Eligible for both major banks and wholesale non-bank panels</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickCommAbn('1year', '1–2 Years ABN (Fast Alt-Doc)')">
+              <div class="card-left">
+                <div class="card-icon-wrap">⚡</div>
+                <div class="card-text-group">
+                  <div class="card-label">1–2 Years Active ABN</div>
+                  <div class="card-subtext">Requires Alt-Doc / 12-Month BAS lenders without 2-year tax wait</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickCommAbn('under1', 'Less than 1 Year / New Entity')">
+              <div class="card-left">
+                <div class="card-icon-wrap">🌱</div>
+                <div class="card-text-group">
+                  <div class="card-label">Less than 12 Months ABN</div>
+                  <div class="card-subtext">Specialist / Private lending or prior industry experience credit policy</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMM 3: DOCS -->
+      <section class="scene" id="scene-comm-docs">
+        <div class="liven-white-card">
+          <div class="scene-tag">COMMERCIAL & ABN • STEP 3 OF 4</div>
+          <h2 class="scene-title">What documentation can you provide for income verification?</h2>
+          <p class="scene-desc">Different lenders provide write-backs for depreciation, interest, and director salaries.</p>
+
+          <div class="options-grid">
+            <div class="option-card" onclick="pickCommDocs('bas', '12 Months BAS & Business Bank Statements')">
+              <div class="card-left">
+                <div class="card-icon-wrap">📊</div>
+                <div class="card-text-group">
+                  <div class="card-label">12 Months BAS Statements (Alt-Doc)</div>
+                  <div class="card-subtext">No completed tax return required • Fast approval turnaround</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickCommDocs('full', '2 Years Full Company & Personal Tax Returns')">
+              <div class="card-left">
+                <div class="card-icon-wrap">📑</div>
+                <div class="card-text-group">
+                  <div class="card-label">Full 2 Years Tax Returns & Financials</div>
+                  <div class="card-subtext">Standard Full-Doc bank rate discounts unlocked</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+
+            <div class="option-card" onclick="pickCommDocs('acct', 'Accountant Declaration Letter')">
+              <div class="card-left">
+                <div class="card-icon-wrap">✍️</div>
+                <div class="card-text-group">
+                  <div class="card-label">Accountant Letter / Low-Doc</div>
+                  <div class="card-subtext">Certified accountant certificate of capacity & cashflow</div>
+                </div>
+              </div>
+              <div class="card-radio"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMM 4: LOAN SIZE -->
+      <section class="scene" id="scene-comm-amount">
+        <div class="liven-white-card">
+          <div class="scene-tag">COMMERCIAL & ABN • STEP 4 OF 4</div>
+          <h2 class="scene-title">What is your target commercial / business facility?</h2>
+          <p class="scene-desc">Calculated against non-bank servicing multipliers and security LVR limits.</p>
+
+          <div class="amount-display-box">
+            <div style="font-size: 0.85rem; color: var(--liven-gray); font-weight: 700;">TARGET FACILITY AMOUNT</div>
+            <div class="amount-num-huge" id="comm-amount-display">$900,000</div>
+            <input type="range" min="200000" max="5000000" step="50000" value="900000" class="amount-slider" id="comm-amount-slider" oninput="updateCommAmount(this.value)">
+
+            <div class="chips-row">
+              <button class="chip-btn" onclick="setCommAmount(400000)">$400k</button>
+              <button class="chip-btn active" onclick="setCommAmount(900000)">$900k</button>
+              <button class="chip-btn" onclick="setCommAmount(1750000)">$1.75M</button>
+              <button class="chip-btn" onclick="setCommAmount(3500000)">$3.5M+</button>
+            </div>
+          </div>
+
+          <button class="primary-cta-btn" onclick="startScannerSequence()">
+            <span>Scan 35+ Business & Commercial Panels →</span>
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ================= UNIVERSAL SCANNER ================= -->
+      <section class="scene" id="scene-scanner">
+        <div class="liven-white-card" style="text-align: center; gap: 20px;">
+          <div class="radar-circle-wrap">
+            <div class="radar-pulse-ring"></div>
+            <div class="radar-pulse-ring"></div>
+            <div class="radar-pulse-ring"></div>
+            <div class="radar-core">⚡</div>
+          </div>
+
+          <div>
+            <h2 class="scene-title" id="scanner-title" style="font-size: 1.5rem; margin-bottom: 6px;">Analyzing 35+ Australian Lending Panels...</h2>
+            <p class="scene-desc" id="scanner-desc">Cross-referencing your scenario with APRA servicing buffers & verified ASIC specialists.</p>
+          </div>
+
+          <div class="scanner-log-terminal" id="scanner-terminal">
+            <div class="log-line">> Initializing APRA credit guideline matrix...</div>
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--liven-green); font-weight: 700;" id="scan-progress-num">
+            SCANNING: 15%
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= UNIVERSAL OUTCOME DOSSIER ================= -->
+      <section class="scene" id="scene-outcome">
+        <div class="liven-white-card">
+          <div class="scene-tag" style="color: var(--liven-green);">🌿 ASSESSMENT MATCH READY</div>
+          <h2 class="scene-title" id="outcome-heading">Your Tailored Lending Scenario is Ready</h2>
+          <p class="scene-desc" id="outcome-subhead">Based on your exact numbers, here is your calculated borrowing capability & rate tier:</p>
+
+          <div class="metrics-grid">
+            <div class="metric-pill-box">
+              <div class="label" id="metric-label-1">Est. Borrowing Power</div>
+              <div class="val" id="res-metric-1">$780k – $860k</div>
+            </div>
+            <div class="metric-pill-box">
+              <div class="label" id="metric-label-2">Indicative Best Rate</div>
+              <div class="val" style="color: var(--liven-green);" id="res-metric-2">5.74% p.a.</div>
+            </div>
+          </div>
+
+          <div class="micro-feedback-box">
+            <span>🛡️</span>
+            <div id="outcome-strategy-text">
+              <strong>Strategy Unlocked:</strong> Tier-1 Major + Non-Bank Alt-Doc panel with zero LMI penalty and priority express SLA approval.
+            </div>
+          </div>
+
+          <div class="broker-match-preview">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Specialist" class="broker-avatar">
+            <div>
+              <div style="font-weight: 800; font-size: 1rem; color: var(--liven-dark);" id="matched-broker-name">Marcus Vance (CRN #482910)</div>
+              <div style="font-size: 0.8rem; color: var(--liven-gray);" id="matched-broker-creds">Top-Rated ASIC Verified Specialist • 5.0 ★ (184 Reviews)</div>
+              <div style="font-size: 0.76rem; color: var(--liven-green); font-weight: 700; margin-top: 2px;">✓ $0 Fee Pledge (Paid by lender at settlement)</div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="text" class="funnel-input" id="lead-name" placeholder="Your Full Name (e.g. Alex Henderson)">
+            <input type="tel" class="funnel-input" id="lead-phone" placeholder="Mobile Number (e.g. 0412 345 678)">
+            <input type="email" class="funnel-input" id="lead-email" placeholder="Email Address for Borrowing Dossier">
+          </div>
+
+          <button class="primary-cta-btn" onclick="submitLead()">
+            <span>Unlock Full Borrowing Dossier →</span>
+          </button>
+
+          <div style="text-align: center; font-size: 0.75rem; color: var(--liven-gray);">
+            🔒 Strictly protected by Australian Privacy Principles (APP) • Zero Spam Guarantee
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= CELEBRATION ================= -->
+      <section class="scene" id="scene-success">
+        <div class="liven-white-card" style="text-align: center; gap: 20px;">
+          <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--liven-green); color:#fff; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 10px auto 0; box-shadow: 0 10px 30px rgba(92, 167, 1, 0.4);">
+            ✓
+          </div>
+          <h2 class="scene-title">Dossier Dispatched!</h2>
+          <p class="scene-desc" id="success-desc">We have generated your tailored Australian lending assessment and sent a priority copy to your mobile & email.</p>
+
+          <div class="micro-feedback-box" style="text-align: left;">
+            <span>📱</span>
+            <div>
+              <strong>Instant SMS Verification Sent:</strong> Your matched senior credit specialist will review your exact numbers and provide your formal approval strategy within 15 minutes.
+            </div>
+          </div>
+
+          <button class="primary-cta-btn" onclick="resetFunnel()" style="margin-top: 8px;">
+            <span>Run Another Scenario ↺</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playSwooshSound(pitch = 280) {
+      if (!soundEnabled) return;
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(pitch, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(pitch * 2.2, audioCtx.currentTime + 0.22);
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.22);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.23);
+      } catch (e) {}
+    }
+
+    function playSuccessSound() {
+      if (!soundEnabled) return;
+      try {
+        initAudio();
+        const notes = [523.25, 659.25, 783.99, 1046.50];
+        notes.forEach((freq, idx) => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime + (idx * 0.08));
+          gain.gain.setValueAtTime(0.15, audioCtx.currentTime + (idx * 0.08));
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (idx * 0.08) + 0.35);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(audioCtx.currentTime + (idx * 0.08));
+          osc.stop(audioCtx.currentTime + (idx * 0.08) + 0.36);
+        });
+      } catch (e) {}
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const btn = document.getElementById("sound-btn");
+      const icon = document.getElementById("sound-icon");
+      const text = document.getElementById("sound-text");
+      if (soundEnabled) {
+        btn.classList.add("on");
+        icon.innerText = "🔊";
+        text.innerText = "Sound ON";
+        playSwooshSound(440);
+      } else {
+        btn.classList.remove("on");
+        icon.innerText = "🔇";
+        text.innerText = "Sound OFF";
+      }
+    }
+
+    const appState = {
+      flow: "buy",
+      history: ["scene-0"],
+      
+      buyStage: "browsing",
+      buyStageLabel: "Researching Capacity",
+      buyProperty: "house",
+      buyPropertyLabel: "Freestanding House",
+      buyPrice: 850000,
+      buyDepositPct: 20,
+      buyState: "NSW",
+      buyPostcode: "2000, Sydney",
+      buyIncome: "payg",
+      buyIncomeLabel: "Standard Full PAYG",
+
+      refiGoal: "lower-rate",
+      refiGoalLabel: "Slash Monthly Repayments",
+      refiHomeVal: 950000,
+      refiLoanBal: 620000,
+      refiCurrentRate: 6.25,
+      refiRateLabel: "6.15% - 6.49%",
+      refiLender: "big4",
+      refiLenderLabel: "Big 4 Bank",
+
+      investPortfolio: "own-home",
+      investPortfolioLabel: "Homeowner with Equity",
+      investStrategy: "growth",
+      investStrategyLabel: "Capital Growth",
+      investBudget: 750000,
+      investStructure: "io-uncrossed",
+      investStructureLabel: "Interest-Only & Uncrossed",
+
+      commType: "res-abn",
+      commTypeLabel: "Residential via ABN",
+      commAbnTenure: "2plus",
+      commAbnLabel: "2+ Years ABN",
+      commDocs: "bas",
+      commDocsLabel: "12-Month BAS Statements",
+      commAmount: 900000
+    };
+
+    const FLOW_SEQUENCES = {
+      buy: [
+        "scene-0",
+        "scene-buy-stage",
+        "scene-buy-property",
+        "scene-buy-financials",
+        "scene-buy-location",
+        "scene-buy-income",
+        "scene-scanner",
+        "scene-outcome",
+        "scene-success"
+      ],
+      refi: [
+        "scene-0",
+        "scene-refi-goal",
+        "scene-refi-numbers",
+        "scene-refi-rate",
+        "scene-refi-lender",
+        "scene-scanner",
+        "scene-outcome",
+        "scene-success"
+      ],
+      invest: [
+        "scene-0",
+        "scene-invest-portfolio",
+        "scene-invest-strategy",
+        "scene-invest-budget",
+        "scene-invest-structure",
+        "scene-scanner",
+        "scene-outcome",
+        "scene-success"
+      ],
+      commercial: [
+        "scene-0",
+        "scene-comm-type",
+        "scene-comm-abn",
+        "scene-comm-docs",
+        "scene-comm-amount",
+        "scene-scanner",
+        "scene-outcome",
+        "scene-success"
+      ]
+    };
+
+    function transitionScene(targetSceneId, isBack = false) {
+      const currentSceneId = appState.history[appState.history.length - 1];
+      if (currentSceneId === targetSceneId) return;
+
+      const currentEl = document.getElementById(currentSceneId);
+      const nextEl = document.getElementById(targetSceneId);
+      if (!currentEl || !nextEl) return;
+
+      playSwooshSound(isBack ? 220 : 360);
+
+      currentEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
+      nextEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
+
+      if (!isBack) {
+        currentEl.classList.add("exit-forward");
+        nextEl.classList.add("enter-forward");
+        appState.history.push(targetSceneId);
+      } else {
+        currentEl.classList.add("exit-backward");
+        nextEl.classList.add("enter-backward");
+      }
+
+      void nextEl.offsetWidth;
+
+      setTimeout(() => {
+        nextEl.classList.remove("enter-forward", "enter-backward");
+        nextEl.classList.add("active");
+        updateHeaderAndProgress();
+      }, 50);
+
+      setTimeout(() => {
+        currentEl.classList.remove("exit-forward", "exit-backward");
+      }, 580);
+    }
+
+    function advanceScene() {
+      const seq = FLOW_SEQUENCES[appState.flow];
+      const currentSceneId = appState.history[appState.history.length - 1];
+      const currentIdx = seq.indexOf(currentSceneId);
+      if (currentIdx !== -1 && currentIdx < seq.length - 1) {
+        const nextSceneId = seq[currentIdx + 1];
+        if (nextSceneId === "scene-scanner") {
+          transitionScene("scene-scanner");
+          startScannerSequence();
+        } else {
+          transitionScene(nextSceneId);
+        }
+      }
+    }
+
+    function navigateBack() {
+      if (appState.history.length > 1) {
+        const currentSceneId = appState.history.pop();
+        const prevSceneId = appState.history[appState.history.length - 1];
+        
+        const currentEl = document.getElementById(currentSceneId);
+        const prevEl = document.getElementById(prevSceneId);
+
+        playSwooshSound(220);
+
+        currentEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
+        prevEl.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward");
+
+        currentEl.classList.add("exit-backward");
+        prevEl.classList.add("enter-backward");
+
+        void prevEl.offsetWidth;
+
+        setTimeout(() => {
+          prevEl.classList.remove("enter-forward", "enter-backward");
+          prevEl.classList.add("active");
+          updateHeaderAndProgress();
+        }, 50);
+
+        setTimeout(() => {
+          currentEl.classList.remove("exit-forward", "exit-backward");
+        }, 580);
+      }
+    }
+
+    function updateHeaderAndProgress() {
+      const backBtn = document.getElementById("back-btn");
+      const progressBar = document.getElementById("progress-bar");
+      const currentSceneId = appState.history[appState.history.length - 1];
+
+      if (appState.history.length > 1 && currentSceneId !== "scene-scanner" && currentSceneId !== "scene-success") {
+        backBtn.classList.add("visible");
+      } else {
+        backBtn.classList.remove("visible");
+      }
+
+      const seq = FLOW_SEQUENCES[appState.flow] || FLOW_SEQUENCES.buy;
+      const currentIdx = seq.indexOf(currentSceneId);
+      if (currentIdx <= 0) {
+        progressBar.style.width = "12%";
+      } else {
+        const pct = Math.min(100, Math.max(15, (currentIdx / (seq.length - 1)) * 100));
+        progressBar.style.width = pct + "%";
+      }
+    }
+
+    function startFlow(flowKey) {
+      appState.flow = flowKey;
+      appState.history = ["scene-0"];
+      const firstStepId = FLOW_SEQUENCES[flowKey][1];
+      transitionScene(firstStepId);
+    }
+
+    // BUY
+    function pickBuyStage(stageKey, label) {
+      appState.buyStage = stageKey;
+      appState.buyStageLabel = label;
+
+      const fbBox = document.getElementById("buy-stage-feedback");
+      const fbText = document.getElementById("buy-stage-feedback-text");
+      fbBox.style.display = "flex";
+
+      if (stageKey === "signed") {
+        fbText.innerHTML = "<strong>Express SLA Priority:</strong> We will prioritize specialists holding 48-hour formal bank SLA approval turnarounds.";
+      } else if (stageKey === "inspecting") {
+        fbText.innerHTML = "<strong>Pre-Approval Ready:</strong> Protect yourself from missing out on auction weekend private treaties.";
+      } else {
+        fbText.innerHTML = "<strong>Borrowing Envelope:</strong> Lock in your maximum price ceiling before falling in love with a property.";
+      }
+
+      setTimeout(() => { advanceScene(); }, 350);
+    }
+
+    function pickBuyProperty(propKey, label) {
+      appState.buyProperty = propKey;
+      appState.buyPropertyLabel = label;
+      advanceScene();
+    }
+
+    function updateBuyPrice(val) {
+      appState.buyPrice = parseInt(val, 10);
+      document.getElementById("buy-price-display").innerText = "$" + appState.buyPrice.toLocaleString("en-AU");
+      recalcBuyDepositFeedback();
+    }
+
+    function setBuyPricePreset(val) {
+      document.getElementById("buy-price-slider").value = val;
+      updateBuyPrice(val);
+      document.querySelectorAll("#scene-buy-financials .chips-row .chip-btn").forEach(b => b.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+    }
+
+    function setBuyDeposit(pct) {
+      appState.buyDepositPct = pct;
+      ["bdep-5", "bdep-10", "bdep-20", "bdep-30"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove("active");
+      });
+      document.getElementById("bdep-" + pct).classList.add("active");
+      recalcBuyDepositFeedback();
+    }
+
+    function recalcBuyDepositFeedback() {
+      const depositVal = Math.round(appState.buyPrice * (appState.buyDepositPct / 100));
+      document.getElementById("buy-deposit-display").innerText = `${appState.buyDepositPct}% ($${depositVal.toLocaleString("en-AU")})`;
+
+      const fb = document.getElementById("buy-finance-feedback-text");
+      if (appState.buyDepositPct >= 20) {
+        fb.innerHTML = `<strong>${appState.buyDepositPct}% Deposit (80% LVR):</strong> You completely bypass LMI (saving approx. $${Math.round(appState.buyPrice * 0.022).toLocaleString("en-AU")}) and unlock wholesale discounted bank rates.`;
+      } else if (appState.buyDepositPct === 5) {
+        fb.innerHTML = "<strong>5% Low Deposit Scheme:</strong> You may qualify for the Federal Government Home Guarantee Scheme (5% deposit, $0 LMI) within state price limits.";
+      } else {
+        fb.innerHTML = `<strong>${appState.buyDepositPct}% Deposit (${100 - appState.buyDepositPct}% LVR):</strong> Moderate LMI tier with competitive major bank tier-2 cashbacks and sub-5.8% rates available.`;
+      }
+    }
+
+    function pickBuyState(st) {
+      appState.buyState = st;
+      document.querySelectorAll("#scene-buy-location .state-pill").forEach(p => p.classList.remove("selected"));
+      event.currentTarget.classList.add("selected");
+
+      const fb = document.getElementById("buy-state-feedback-text");
+      if (st === "NSW") {
+        fb.innerHTML = "<strong>NSW First Home Policy:</strong> Full transfer stamp duty exemption up to $800,000 and concessions up to $1,000,000.";
+      } else if (st === "VIC") {
+        fb.innerHTML = "<strong>VIC Stamp Duty Exemption:</strong> 100% stamp duty exemption up to $600,000, concessions up to $750,000.";
+      } else if (st === "QLD") {
+        fb.innerHTML = "<strong>QLD $30k First Home Grant:</strong> $30,000 grant for new builds and transfer duty relief up to $700,000.";
+      } else if (st === "WA") {
+        fb.innerHTML = "<strong>WA First Home Concession:</strong> Zero transfer duty up to $450,000 with reduced rates up to $600,000.";
+      } else {
+        fb.innerHTML = `<strong>${st} State Policies Applied:</strong> Local First Home Owner Grants & stamp duty concession brackets active.`;
+      }
+    }
+
+    function pickBuyIncome(incomeKey, label) {
+      appState.buyIncome = incomeKey;
+      appState.buyIncomeLabel = label;
+      advanceScene();
+    }
+
+    // REFINANCE
+    function pickRefiGoal(goalKey, label) {
+      appState.refiGoal = goalKey;
+      appState.refiGoalLabel = label;
+      advanceScene();
+    }
+
+    function updateRefiVal(val) {
+      appState.refiHomeVal = parseInt(val, 10);
+      document.getElementById("refi-val-display").innerText = "$" + appState.refiHomeVal.toLocaleString("en-AU");
+      recalcRefiEquity();
+    }
+
+    function setRefiVal(val) {
+      document.getElementById("refi-val-slider").value = val;
+      updateRefiVal(val);
+      document.querySelectorAll("#scene-refi-numbers .chips-row .chip-btn").forEach(b => b.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+    }
+
+    function updateRefiLoan(val) {
+      appState.refiLoanBal = parseInt(val, 10);
+      document.getElementById("refi-loan-display").innerText = "$" + appState.refiLoanBal.toLocaleString("en-AU");
+      recalcRefiEquity();
+    }
+
+    function recalcRefiEquity() {
+      const max80Loan = Math.round(appState.refiHomeVal * 0.8);
+      const usableEquity = Math.max(0, max80Loan - appState.refiLoanBal);
+      const lvr = Math.round((appState.refiLoanBal / appState.refiHomeVal) * 100);
+
+      const fb = document.getElementById("refi-equity-feedback-text");
+      if (usableEquity > 0) {
+        fb.innerHTML = `<strong>Usable Equity: ~$${usableEquity.toLocaleString("en-AU")}</strong> (at ${lvr}% LVR without LMI penalty). Perfect for renovations, debt consolidation, or cash buffer.`;
+      } else {
+        fb.innerHTML = `<strong>Current LVR: ${lvr}%:</strong> High equity tier eligible for specialized rate squeeze and fee waiver refinancing.`;
+      }
+    }
+
+    function pickRefiRate(rateVal, label) {
+      appState.refiCurrentRate = rateVal;
+      appState.refiRateLabel = label;
+
+      const fbBox = document.getElementById("refi-savings-box");
+      const fbText = document.getElementById("refi-savings-text");
+      fbBox.style.display = "flex";
+
+      const targetRate = 5.69;
+      const rateDiff = Math.max(0.3, rateVal - targetRate);
+      const monthlySavings = Math.round((appState.refiLoanBal * (rateDiff / 100)) / 12);
+      const annualSavings = monthlySavings * 12;
+
+      fbText.innerHTML = `<strong>Estimated Savings: ~$${monthlySavings.toLocaleString("en-AU")}/month ($${annualSavings.toLocaleString("en-AU")}/year)</strong> when switched to prime 5.69% tier.`;
+
+      setTimeout(() => { advanceScene(); }, 400);
+    }
+
+    function pickRefiLender(lenderKey, label) {
+      appState.refiLender = lenderKey;
+      appState.refiLenderLabel = label;
+      advanceScene();
+    }
+
+    // INVESTOR
+    function pickInvestPortfolio(portKey, label) {
+      appState.investPortfolio = portKey;
+      appState.investPortfolioLabel = label;
+      advanceScene();
+    }
+
+    function pickInvestStrategy(stratKey, label) {
+      appState.investStrategy = stratKey;
+      appState.investStrategyLabel = label;
+      advanceScene();
+    }
+
+    function updateInvestBudget(val) {
+      appState.investBudget = parseInt(val, 10);
+      document.getElementById("invest-budget-display").innerText = "$" + appState.investBudget.toLocaleString("en-AU");
+    }
+
+    function setInvestBudget(val) {
+      document.getElementById("invest-budget-slider").value = val;
+      updateInvestBudget(val);
+      document.querySelectorAll("#scene-invest-budget .chips-row .chip-btn").forEach(b => b.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+    }
+
+    function pickInvestStructure(structKey, label) {
+      appState.investStructure = structKey;
+      appState.investStructureLabel = label;
+      advanceScene();
+    }
+
+    // COMMERCIAL
+    function pickCommType(typeKey, label) {
+      appState.commType = typeKey;
+      appState.commTypeLabel = label;
+      advanceScene();
+    }
+
+    function pickCommAbn(abnKey, label) {
+      appState.commAbnTenure = abnKey;
+      appState.commAbnLabel = label;
+      advanceScene();
+    }
+
+    function pickCommDocs(docKey, label) {
+      appState.commDocs = docKey;
+      appState.commDocsLabel = label;
+      advanceScene();
+    }
+
+    function updateCommAmount(val) {
+      appState.commAmount = parseInt(val, 10);
+      document.getElementById("comm-amount-display").innerText = "$" + appState.commAmount.toLocaleString("en-AU");
+    }
+
+    function setCommAmount(val) {
+      document.getElementById("comm-amount-slider").value = val;
+      updateCommAmount(val);
+      document.querySelectorAll("#scene-comm-amount .chips-row .chip-btn").forEach(b => b.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+    }
+
+    // SCANNER & OUTCOME
+    function startScannerSequence() {
+      transitionScene("scene-scanner");
+
+      const terminal = document.getElementById("scanner-terminal");
+      const progressNum = document.getElementById("scan-progress-num");
+      const scanTitle = document.getElementById("scanner-title");
+      terminal.innerHTML = `<div class="log-line">> Initiating APRA lending matrices for [${appState.flow.toUpperCase()}]...</div>`;
+
+      let logs = [];
+      if (appState.flow === "buy") {
+        scanTitle.innerText = "Analyzing 35+ Home Buyer Bank Panels...";
+        logs = [
+          { pct: 25, text: `> Filtering 35+ bank panels for ${appState.buyPropertyLabel}...` },
+          { pct: 50, text: `> Calculating ${appState.buyState} First Home stamp duty relief...` },
+          { pct: 75, text: `> Evaluating ${appState.buyDepositPct}% LVR buffer & LMI waiver policy...` },
+          { pct: 90, text: `> Matching ASIC-licensed senior credit specialist (CRN verified)...` },
+          { pct: 100, text: `> MATCH COMPLETE: Optimal borrowing envelope generated.` }
+        ];
+      } else if (appState.flow === "refi") {
+        scanTitle.innerText = "Scanning 35+ Refinance Rate & Cashback Panels...";
+        logs = [
+          { pct: 25, text: `> Auditing current ${appState.refiCurrentRate}% rate vs market wholesale...` },
+          { pct: 50, text: `> Calculating equity release buffer (~$${Math.round(appState.refiHomeVal*0.8 - appState.refiLoanBal).toLocaleString("en-AU")})...` },
+          { pct: 75, text: `> Locating $2k–$3k direct refinance rebate specials...` },
+          { pct: 90, text: `> Matching accredited rate-negotiation broker specialist...` },
+          { pct: 100, text: `> MATCH COMPLETE: Annual savings & cashback strategy ready.` }
+        ];
+      } else if (appState.flow === "invest") {
+        scanTitle.innerText = "Scanning Multi-Bank Investor Servicing Panels...";
+        logs = [
+          { pct: 25, text: `> Factoring in 80% rental shading for $${appState.investBudget.toLocaleString("en-AU")} budget...` },
+          { pct: 50, text: `> Formulating uncrossed security standalone mortgage tranches...` },
+          { pct: 75, text: `> Optimizing 5-year Interest-Only tax deduction capacity...` },
+          { pct: 90, text: `> Matching property investment mortgage specialist...` },
+          { pct: 100, text: `> MATCH COMPLETE: Portfolio scaling scenario generated.` }
+        ];
+      } else {
+        scanTitle.innerText = "Scanning Commercial & Alt-Doc ABN Panels...";
+        logs = [
+          { pct: 25, text: `> Isolating ${appState.commAbnLabel} specialist non-bank panels...` },
+          { pct: 50, text: `> Applying ${appState.commDocsLabel} income add-back matrix...` },
+          { pct: 75, text: `> Verifying facility capacity for $${appState.commAmount.toLocaleString("en-AU")}...` },
+          { pct: 90, text: `> Matching commercial credit broker specialist...` },
+          { pct: 100, text: `> MATCH COMPLETE: Commercial & Alt-Doc facility matched.` }
+        ];
+      }
+
+      let logIdx = 0;
+      const interval = setInterval(() => {
+        if (logIdx < logs.length) {
+          const item = logs[logIdx];
+          progressNum.innerText = `SCANNING: ${item.pct}%`;
+          const line = document.createElement("div");
+          line.className = item.pct === 100 ? "log-line highlight" : "log-line";
+          line.innerText = item.text;
+          terminal.appendChild(line);
+          terminal.scrollTop = terminal.scrollHeight;
+          playSwooshSound(280 + (logIdx * 55));
+          logIdx++;
+        } else {
+          clearInterval(interval);
+          setTimeout(() => {
+            populateOutcomeDossier();
+            transitionScene("scene-outcome");
+          }, 600);
+        }
+      }, 450);
+    }
+
+    function populateOutcomeDossier() {
+      const heading = document.getElementById("outcome-heading");
+      const subhead = document.getElementById("outcome-subhead");
+      const label1 = document.getElementById("metric-label-1");
+      const val1 = document.getElementById("res-metric-1");
+      const label2 = document.getElementById("metric-label-2");
+      const val2 = document.getElementById("res-metric-2");
+      const strat = document.getElementById("outcome-strategy-text");
+      const brokerName = document.getElementById("matched-broker-name");
+      const brokerCreds = document.getElementById("matched-broker-creds");
+
+      if (appState.flow === "buy") {
+        heading.innerText = "Your Home Buying Sanctuary Plan";
+        subhead.innerText = `Calibrated for ${appState.buyPropertyLabel} in ${appState.buyState} with ${appState.buyDepositPct}% deposit:`;
+        label1.innerText = "Est. Borrowing Power";
+        const base = Math.round(appState.buyPrice * 0.95);
+        const high = Math.round(appState.buyPrice * 1.08);
+        val1.innerText = `$${(base/1000).toFixed(0)}k – $${(high/1000).toFixed(0)}k`;
+
+        label2.innerText = "Indicative Prime Rate";
+        let r = "5.74% p.a.";
+        if (appState.buyDepositPct >= 20) r = "5.64% p.a.";
+        if (appState.buyIncome === "medico") r = "5.59% p.a.";
+        val2.innerText = r;
+
+        if (appState.buyIncome === "medico") {
+          strat.innerHTML = "<strong>Doctor / Medico Advantage:</strong> 90–95% LVR approved with 100% LMI fee waiver ($0 insurance penalty) and wholesale tier rate.";
+        } else if (appState.buyDepositPct === 5) {
+          strat.innerHTML = "<strong>Federal 5% Scheme Quota:</strong> Priority fast-track to avoid $18k+ in LMI under the First Home Guarantee quota.";
+        } else {
+          strat.innerHTML = "<strong>Tier-1 Major Bank Panel:</strong> Pre-approval routed to lender with fastest 48-hour formal credit turnaround.";
+        }
+        brokerName.innerText = "Marcus Vance (CRN #482910)";
+        brokerCreds.innerText = "First Home & Residential Specialist • 5.0 ★ (184 Reviews)";
+
+      } else if (appState.flow === "refi") {
+        heading.innerText = "Your Rate Cut & Cashflow Sanctuary";
+        subhead.innerText = `Calculated on $${appState.refiLoanBal.toLocaleString("en-AU")} remaining balance on $${appState.refiHomeVal.toLocaleString("en-AU")} property:`;
+        
+        label1.innerText = "Est. Annual Savings";
+        const monthlySavings = Math.round((appState.refiLoanBal * (Math.max(0.35, appState.refiCurrentRate - 5.69) / 100)) / 12);
+        val1.innerText = `$${(monthlySavings * 12).toLocaleString("en-AU")}/yr`;
+
+        label2.innerText = "New Lower Rate Tier";
+        val2.innerText = "5.69% p.a.";
+
+        const max80 = Math.round(appState.refiHomeVal * 0.8);
+        const eq = Math.max(0, max80 - appState.refiLoanBal);
+        strat.innerHTML = `<strong>Rate Drop & Cashflow Relief:</strong> Saving ~$${monthlySavings.toLocaleString("en-AU")}/month ($${(monthlySavings * 12).toLocaleString("en-AU")}/year) + ~$${eq.toLocaleString("en-AU")} usable equity buffer and up to $2,000 bank cashback.`;
+        brokerName.innerText = "David Chi Tran (CRN #510492)";
+        brokerCreds.innerText = "Refinance & Debt Restructuring Specialist • 5.0 ★ (216 Reviews)";
+
+      } else if (appState.flow === "invest") {
+        heading.innerText = "Your Investment Portfolio Blueprint";
+        subhead.innerText = `Structured for $${appState.investBudget.toLocaleString("en-AU")} investment purchase with tax-effective leverage:`;
+
+        label1.innerText = "Portfolio Capacity";
+        const maxInvest = Math.round(appState.investBudget * 1.15);
+        val1.innerText = `$${(appState.investBudget/1000).toFixed(0)}k – $${(maxInvest/1000).toFixed(0)}k`;
+
+        label2.innerText = "Investor Rate Tier";
+        val2.innerText = "5.84% p.a. (IO)";
+
+        strat.innerHTML = "<strong>Standalone Uncrossed Structure:</strong> 5-Year Interest-Only facility with offset account to maximize tax deductions while keeping family home unencumbered.";
+        brokerName.innerText = "Marcus Vance (CRN #482910)";
+        brokerCreds.innerText = "Strategic Property Investor Specialist • 5.0 ★ (184 Reviews)";
+
+      } else {
+        heading.innerText = "Your Commercial & ABN Financing Facility";
+        subhead.innerText = `Matched for ${appState.commTypeLabel} with ${appState.commDocsLabel}:`;
+
+        label1.innerText = "Facility Approval Size";
+        val1.innerText = `$${(appState.commAmount/1000).toFixed(0)}k Facility`;
+
+        label2.innerText = "Commercial Rate Tier";
+        val2.innerText = "6.14% p.a.";
+
+        strat.innerHTML = `<strong>Alt-Doc Policy Matrix:</strong> Approved using 12-Month BAS add-backs with non-bank commercial panel bypassing full 2-year tax return delays.`;
+        brokerName.innerText = "Hunter Galloway Commercial (ACL #389104)";
+        brokerCreds.innerText = "Commercial & Alt-Doc ABN Specialist • 5.0 ★ (340 Reviews)";
+      }
+    }
+
+    function submitLead() {
+      const name = document.getElementById("lead-name").value.trim();
+      const phone = document.getElementById("lead-phone").value.trim();
+
+      if (!name || !phone) {
+        alert("Please enter your name and phone number to deliver your tailored borrowing dossier.");
+        return;
+      }
+
+      playSuccessSound();
+      triggerConfetti();
+
+      document.getElementById("success-desc").innerText = 
+        `Great job ${name.split(" ")[0]}! Your tailored Australian lending assessment has been dispatched.`;
+
+      transitionScene("scene-success");
+    }
+
+    function resetFunnel() {
+      appState.history = ["scene-0"];
+      document.querySelectorAll(".scene").forEach(s => s.classList.remove("active", "exit-forward", "exit-backward", "enter-forward", "enter-backward"));
+      document.getElementById("scene-0").classList.add("active");
+      updateHeaderAndProgress();
+    }
+
+    function triggerConfetti() {
+      const canvas = document.getElementById("confetti-canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+      const colors = ["#5ca701", "#7dd322", "#2a83cb", "#54a7e6", "#ffffff", "#f59e0b"];
+
+      for (let i = 0; i < 100; i++) {
+        particles.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          vx: (Math.random() - 0.5) * 18,
+          vy: (Math.random() - 0.5) * 18 - 4,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          alpha: 1,
+          rot: Math.random() * 360,
+          vRot: (Math.random() - 0.5) * 12
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let alive = false;
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.38;
+          p.alpha -= 0.012;
+          p.rot += p.vRot;
+
+          if (p.alpha > 0) {
+            alive = true;
+            ctx.save();
+            ctx.globalAlpha = p.alpha;
+            ctx.translate(p.x, p.y);
+            ctx.rotate((p.rot * Math.PI) / 180);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+            ctx.restore();
+          }
+        });
+
+        if (alive) {
+          requestAnimationFrame(render);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      render();
+    }
+
+    window.addEventListener("resize", () => {
+      const canvas = document.getElementById("confetti-canvas");
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" || e.key === "Backspace") {
+        if (document.activeElement.tagName !== "INPUT") {
+          navigateBack();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

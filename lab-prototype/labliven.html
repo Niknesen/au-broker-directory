@@ -160,13 +160,14 @@
     }
     .nav-item-link:hover { color: var(--liven-green); }
 
-    /* LIVEN PILL BUTTONS (Chunky, high vertical padding) */
+    /* LIVEN PILL BUTTONS (Chunky, tall height & generous vertical breathing room) */
     .nav-btn-green {
       background: var(--liven-green);
       color: #ffffff;
-      padding: 14px 30px;
+      padding: 16px 34px;
+      min-height: 52px;
       border-radius: var(--radius-full);
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       text-decoration: none;
       border: none;
@@ -175,13 +176,13 @@
       align-items: center;
       justify-content: center;
       transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
-      box-shadow: 0 4px 14px rgba(92, 167, 1, 0.35);
+      box-shadow: 0 4px 16px rgba(92, 167, 1, 0.38);
       line-height: 1;
     }
     .nav-btn-green:hover {
       background: var(--liven-green-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(92, 167, 1, 0.45);
+      box-shadow: 0 8px 24px rgba(92, 167, 1, 0.48);
     }
 
     /* Hero Two-Column Grid */
@@ -225,16 +226,20 @@
     .hero-cta-btn {
       background: var(--liven-green);
       color: #ffffff;
-      padding: 18px 46px;
+      padding: 22px 54px;
+      min-height: 62px;
       border-radius: var(--radius-full);
-      font-size: 1.15rem;
-      font-weight: 700;
+      font-size: 1.25rem;
+      font-weight: 800;
       text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 10px 28px rgba(78, 143, 0, 0.4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 32px rgba(78, 143, 0, 0.42);
       border: none;
       cursor: pointer;
       transition: all 0.2s;
+      line-height: 1;
     }
     .hero-cta-btn:hover {
       background: var(--liven-green-hover);
@@ -881,9 +886,10 @@
     .giant-feature-btn {
       background: #ffffff;
       color: var(--liven-green);
-      padding: 14px 30px;
+      padding: 16px 36px;
+      min-height: 54px;
       border-radius: var(--radius-full);
-      font-size: 0.98rem;
+      font-size: 1.02rem;
       font-weight: 800;
       text-decoration: none;
       display: inline-flex;
@@ -891,6 +897,7 @@
       gap: 6px;
       transition: transform 0.15s, background 0.15s, color 0.15s;
       box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      line-height: 1;
     }
     .giant-feature-btn:hover {
       background: var(--liven-green);
@@ -1342,7 +1349,7 @@
   <section class="section-how-it-works" id="how-it-works">
     <span class="section-tag-pill">How Best Brokers works</span>
     <h2 class="how-title">Just 60 seconds to match<br>your exact borrowing scenario</h2>
-    <button class="nav-btn-green" style="padding: 16px 38px; font-size: 1.1rem;" onclick="openDiagnosticModal()">Get started</button>
+    <button class="nav-btn-green" style="padding: 18px 44px; min-height: 58px; font-size: 1.15rem;" onclick="openDiagnosticModal()">Get started</button>
 
     <div class="how-large-card">
       <div class="how-visual-box">
@@ -1797,7 +1804,7 @@
       <div class="ambient-inner">
         <h2 class="ambient-h">See Best Brokers in action</h2>
         <p class="ambient-p">Join the thousands of Australians building a peaceful relationship with their home and finances.</p>
-        <button class="nav-btn-green" style="background:#ffffff; color:var(--liven-green); padding:18px 46px; font-weight:800; font-size:1.15rem;" onclick="openDiagnosticModal()">Get started</button>
+        <button class="nav-btn-green" style="background:#ffffff; color:var(--liven-green); padding:20px 52px; min-height:60px; font-weight:800; font-size:1.2rem;" onclick="openDiagnosticModal()">Get started</button>
       </div>
     </div>
   </section>
