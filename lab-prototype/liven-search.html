@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Search & Verify Australian Mortgage Brokers — Best Brokers Australia</title>
-  <meta name="description" content="Search 25,419 verified Australian mortgage brokers by name, firm, or suburb. Check independent trust scores and ASIC BID compliance.">
+  <meta name="description" content="Search verified Australian mortgage brokers by name, firm, or suburb. Check independent trust scores and ASIC BID compliance.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,23 +51,11 @@
       position: relative;
     }
 
-    .roofline-bg {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 130px;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.85;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' fill='%23ffffff'%3E%3Cpath d='M0,160 L0,110 L120,60 L240,110 L280,95 L340,65 L400,95 L460,50 L560,110 L680,40 L800,110 L920,55 L960,75 L1040,35 L1160,105 L1260,50 L1380,110 L1440,85 L1440,160 Z' fill='%23ffffff'/%3E%3Cpath d='M80,60 L95,60 L95,35 L80,35 Z M640,40 L655,40 L655,20 L640,20 Z M1010,35 L1025,35 L1025,15 L1010,15 Z' fill='%23ffffff' opacity='0.7'/%3E%3C/svg%3E") bottom center/cover no-repeat;
-    }
-
     /* Top Lab Switcher Bar */
     .lab-nav {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       padding: 9px 16px;
       background: #0d1720;
       border-bottom: 1px solid #1a2734;
@@ -77,9 +65,9 @@
       flex-wrap: wrap;
     }
     .lab-pill {
-      padding: 5px 14px;
+      padding: 6px 16px;
       border-radius: var(--radius-full);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: #94a3b8;
       border: 1px solid #1a2734;
@@ -91,59 +79,82 @@
       background: var(--liven-green);
       color: #ffffff;
       border-color: #7dd322;
-      box-shadow: 0 0 14px rgba(92, 167, 1, 0.4);
     }
 
     /* Main Container */
     .main-wrap {
       width: 100%;
-      max-width: 860px;
+      max-width: 1180px;
       margin: 0 auto;
       flex: 1;
       display: flex;
       flex-direction: column;
       position: relative;
-      padding: 24px 16px 80px;
+      padding: 24px 24px 80px;
       z-index: 10;
     }
 
-    /* Floating White Navbar Pill */
+    /* Floating White Navbar Pill (Drops back to labliven.html) */
     .floating-nav-pill {
       background: #ffffff;
       border-radius: var(--radius-full);
-      padding: 8px 14px 8px 24px;
+      padding: 10px 16px 10px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      box-shadow: 0 10px 30px rgba(13, 30, 43, 0.1);
-      margin-bottom: 24px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+      margin-bottom: 36px;
     }
     .brand-logo-wrap {
       font-family: var(--font-display);
-      font-size: 1.35rem;
+      font-size: 1.55rem;
       font-weight: 800;
       color: var(--liven-green);
       text-decoration: none;
       letter-spacing: -0.5px;
       display: flex;
       align-items: center;
-      gap: 2px;
+      gap: 6px;
+      white-space: nowrap;
     }
-    .brand-logo-wrap span {
+    .brand-logo-wrap span.brand-dark {
       color: var(--liven-dark);
     }
-    .nav-actions-group {
+    .brand-logo-wrap span.brand-au {
+      font-family: var(--font-main);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #0369a1;
+      background: #e0f2fe;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .nav-links-cluster {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 28px;
+      white-space: nowrap;
     }
+    .nav-item-link {
+      color: var(--liven-dark);
+      text-decoration: none;
+      font-size: 0.98rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .nav-item-link:hover { color: var(--liven-green); }
+
     .nav-btn-green {
       background: var(--liven-green);
       color: #ffffff;
-      padding: 10px 22px;
+      padding: 14px 30px;
+      min-height: 52px;
       border-radius: var(--radius-full);
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 700;
       text-decoration: none;
       border: none;
@@ -153,13 +164,30 @@
       justify-content: center;
       box-shadow: 0 4px 14px rgba(92, 167, 1, 0.35);
       transition: all 0.2s;
+      white-space: nowrap;
+      line-height: 1;
     }
     .nav-btn-green:hover {
       background: var(--liven-green-hover);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(92, 167, 1, 0.45);
     }
 
-    /* SVG Icon General Styling */
+    .nav-search-btn-active {
+      background: #edf8e1;
+      color: var(--liven-green);
+      border: 1.5px solid var(--liven-green-border);
+      width: 52px;
+      height: 52px;
+      min-height: 52px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* SVG Icon */
     .svg-icon {
       width: 20px;
       height: 20px;
@@ -174,18 +202,21 @@
     /* White Sanctuary Card */
     .liven-search-card {
       background: #ffffff;
-      border-radius: var(--radius-3xl);
-      padding: 36px 32px;
+      border-radius: var(--radius-4xl);
+      padding: 44px 40px;
       box-shadow: var(--shadow-liven);
       border: 1px solid rgba(255, 255, 255, 0.8);
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     .search-tag {
       font-family: var(--font-mono);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 800;
       color: var(--liven-green);
       letter-spacing: 0.08em;
@@ -193,17 +224,21 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      background: var(--liven-green-soft);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      width: fit-content;
     }
     .search-title {
       font-family: var(--font-display);
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.1;
       letter-spacing: -0.03em;
       color: var(--liven-dark);
     }
     .search-desc {
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: var(--liven-gray);
       line-height: 1.5;
     }
@@ -216,67 +251,89 @@
       background: #ffffff;
       border: 2px solid var(--liven-border);
       border-radius: var(--radius-full);
-      padding: 6px 8px 6px 20px;
-      box-shadow: 0 4px 20px rgba(13, 30, 43, 0.04);
-      transition: all 0.2s;
+      padding: 8px 10px 8px 24px;
+      box-shadow: 0 12px 36px rgba(13, 30, 43, 0.05);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .omnibar-input-wrap:focus-within {
       border-color: var(--liven-green);
-      box-shadow: 0 0 0 4px rgba(92, 167, 1, 0.15);
+      box-shadow: 0 16px 45px rgba(92, 167, 1, 0.18), 0 0 0 4px rgba(92, 167, 1, 0.1);
     }
     .search-icon-left {
-      color: var(--liven-gray);
+      color: #94a3b8;
       margin-right: 12px;
     }
     .omnibar-input {
       flex: 1;
       border: none;
       outline: none;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--liven-dark);
       font-family: var(--font-main);
+      font-size: 1.1rem;
+      color: var(--liven-dark);
+      font-weight: 600;
       background: transparent;
     }
     .omnibar-input::placeholder {
       color: #94a3b8;
       font-weight: 500;
     }
+
+    /* SHIMMERING LIGHT BEAM "MATCH ME" BUTTON (Beam sweeps every 3.5s) */
     .btn-matcher-pill {
       background: var(--liven-green);
       color: #ffffff;
       border: none;
       border-radius: var(--radius-full);
-      padding: 12px 22px;
-      font-size: 0.92rem;
+      padding: 14px 28px;
+      font-size: 0.98rem;
       font-weight: 800;
       font-family: var(--font-main);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
       cursor: pointer;
       text-decoration: none;
       transition: all 0.2s;
       flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(92, 167, 1, 0.35);
+    }
+    .btn-matcher-pill::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -100%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+      transform: rotate(25deg);
+      animation: shimmerBeam 3.5s infinite ease-in-out;
+    }
+    @keyframes shimmerBeam {
+      0% { left: -100%; }
+      35% { left: 200%; }
+      100% { left: 200%; }
     }
     .btn-matcher-pill:hover {
       background: var(--liven-green-hover);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(92, 167, 1, 0.45);
     }
 
     /* Suggestion Chips */
     .chips-cluster {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
     .search-chip {
       background: var(--liven-gray-light);
       border: 1.5px solid var(--liven-border);
       color: var(--liven-dark);
-      padding: 9px 16px;
+      padding: 10px 18px;
       border-radius: var(--radius-full);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
@@ -288,9 +345,10 @@
       border-color: var(--liven-green);
       background: var(--liven-green-soft);
       color: var(--liven-green);
+      transform: translateY(-1px);
     }
 
-    /* Results Drop-Stack */
+    /* Results Drop-Stack (Strictly 3 results) */
     .results-stack {
       display: flex;
       flex-direction: column;
@@ -325,36 +383,38 @@
     .broker-thumb {
       width: 58px;
       height: 58px;
-      border-radius: 16px;
+      border-radius: 14px;
       object-fit: cover;
-      border: 2px solid var(--liven-green);
+      border: 2px solid var(--liven-border);
+      flex-shrink: 0;
     }
     .broker-info-block {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
     }
     .broker-name {
       font-family: var(--font-display);
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 800;
       color: var(--liven-dark);
+      letter-spacing: -0.02em;
     }
     .broker-meta-tags {
-      font-size: 0.84rem;
+      font-size: 0.86rem;
       color: var(--liven-gray);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+      font-weight: 600;
     }
     .verified-asic-pill {
-      background: var(--liven-green-soft);
-      color: var(--liven-green);
-      border: 1px solid var(--liven-green-border);
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 800;
-      padding: 3px 8px;
+      color: var(--liven-green);
+      background: var(--liven-green-soft);
+      padding: 2px 8px;
       border-radius: var(--radius-full);
       display: inline-flex;
       align-items: center;
@@ -373,87 +433,89 @@
       font-size: 1.35rem;
       font-weight: 800;
       color: var(--liven-green);
+      line-height: 1;
     }
     .trust-score-lbl {
       font-size: 0.72rem;
-      color: #64748b;
-      text-transform: uppercase;
+      color: #94a3b8;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
     }
     .view-dossier-btn {
       background: var(--liven-gray-light);
-      border: 1.5px solid var(--liven-border);
       color: var(--liven-dark);
+      font-weight: 800;
+      font-size: 0.86rem;
       padding: 10px 18px;
       border-radius: var(--radius-full);
-      font-size: 0.85rem;
-      font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.2s;
+      transition: all 0.15s;
     }
     .result-broker-card:hover .view-dossier-btn {
       background: var(--liven-green);
       color: #ffffff;
-      border-color: var(--liven-green);
-    }
-
-    @media (max-width: 640px) {
-      .main-wrap { padding: 12px 10px 50px; }
-      .liven-search-card { padding: 24px 18px; }
-      .search-title { font-size: 1.65rem; }
-      .btn-matcher-pill span { display: none; }
-      .result-broker-card { flex-direction: column; align-items: flex-start; }
-      .broker-card-right { width: 100%; justify-content: space-between; margin-top: 8px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP LAB NAV -->
-  <div class="lab-nav">
-    <span style="font-weight:800; color:#fff; align-self:center; margin-right:8px;">TACTILE LAB:</span>
-    <a href="labliven.html" class="lab-pill">LabLiven Sanctuary Hub</a>
-    <a href="liven-search.html" class="lab-pill active">Check Up on Broker (Search)</a>
-    <a href="liven-test.html" class="lab-pill">Liven 3D Matcher</a>
-    <a href="google-omni.html" class="lab-pill">Google Omni</a>
-    <a href="state/nsw.html" class="lab-pill">Level 2: State Hub</a>
-    <a href="broker/david-chi-tran.html" class="lab-pill">VSL: David Tran</a>
-  </div>
-
-  <div class="roofline-bg"></div>
+  <!-- Top Lab Switcher Bar -->
+  <nav class="lab-nav">
+    <a href="labliven.html" class="lab-pill">🌿 LabLiven (Homepage)</a>
+    <a href="liven-search.html" class="lab-pill active">🔍 Check upon Broker (3-Result Search)</a>
+    <a href="liven-test.html" class="lab-pill" style="background:var(--liven-green); color:#fff; border-color:#7dd322;">⚡ Take 60s Test</a>
+    <a href="broker/david-chi-tran.html" class="lab-pill">🎬 David Chi Tran Desk</a>
+    <a href="calculator/index.html" class="lab-pill">🧮 Mortgage Calculator</a>
+  </nav>
 
   <main class="main-wrap">
-
-    <!-- FLOATING NAVBAR PILL -->
-    <header class="floating-nav-pill">
+    
+    <!-- Floating White Navbar (Drops back to labliven.html) -->
+    <nav class="floating-nav-pill">
       <a href="labliven.html" class="brand-logo-wrap">
-        best<span>brokers</span>
+        best<span class="brand-dark">brokers</span> <span class="brand-au">australia</span>
       </a>
-
-      <div class="nav-actions-group">
-        <a href="liven-test.html" class="nav-btn-green">
-          <span>Take 60s Test</span>
-        </a>
+      <div class="nav-links-cluster">
+        <a href="labliven.html#how-it-works" class="nav-item-link">How it works</a>
+        <a href="labliven.html#specialists" class="nav-item-link">Specialists</a>
+        <a href="labliven.html#goals" class="nav-item-link">Goals</a>
+        <a href="labliven.html#reviews" class="nav-item-link">Reviews</a>
+        <a href="labliven.html#features" class="nav-item-link">Features</a>
+        <a href="calculator/index.html" class="nav-item-link">Calculator</a>
+        <a href="labliven.html#faq" class="nav-item-link">FAQs</a>
       </div>
-    </header>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="liven-search.html" class="nav-search-btn-active" title="Search Brokers">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </a>
+        <a href="liven-test.html" class="nav-btn-green">Take 60s Test</a>
+      </div>
+    </nav>
 
-    <!-- WHITE SANCTUARY SEARCH CARD -->
+    <!-- SEARCH & VERIFICATION SANCTUARY CARD -->
     <div class="liven-search-card">
-      <div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
         <div class="search-tag">
-          <svg class="svg-icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <span>INDEPENDENT VERIFICATION BUREAU</span>
+          <svg class="svg-icon" style="width:14px;height:14px;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>16,917 Indexed Australian Brokers</span>
         </div>
-        <h1 class="search-title">Find & Check Up on Verified Australian Brokers</h1>
-        <p class="search-desc">Search 25,419 ASIC-registered brokers by name, brokerage firm, CRN/ACL, or suburb. Verify independent trust scores, panel size, and settlement records.</p>
+        <h1 class="search-title">Check up on any Australian broker</h1>
+        <p class="search-desc">Search ASIC-registered brokers by name, brokerage firm, CRN/ACL, or suburb. Verify independent trust scores, panel size, and settlement records.</p>
       </div>
 
       <!-- OMNIBAR SEARCH INPUT -->
       <div class="omnibar-input-wrap">
         <svg class="svg-icon search-icon-left" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         <input type="text" id="omni-search-input" class="omnibar-input" placeholder="Search broker name, firm, or suburb (e.g. Marcus Vance, Sydney, Parramatta)..." oninput="handleSearch(this.value)">
+        
+        <!-- SHIMMERING MATCH ME WITH BROKER BUTTON -->
         <a href="liven-test.html" class="btn-matcher-pill">
           <svg class="svg-icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           <span>Match Me</span>
@@ -480,7 +542,7 @@
         </button>
       </div>
 
-      <!-- RESULTS DROP STACK -->
+      <!-- RESULTS DROP STACK (STRICTLY 3 RESULTS) -->
       <div class="results-stack" id="search-results-list">
         <!-- Default Initial Verified Results -->
       </div>
@@ -524,7 +586,7 @@
         settlementRate: "99.6%",
         avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=80",
         specialty: "First Home Buyer & Commercial Panel",
-        dossierUrl: "broker/hunter-galloway.html"
+        dossierUrl: "broker/hunter-galloway-brisbane.html"
       },
       {
         id: "atelier-wealth",
@@ -564,7 +626,10 @@
         return;
       }
 
-      container.innerHTML = list.map(b => `
+      // STRICTLY CAPPED TO MAXIMUM 3 RESULTS AS REQUESTED
+      const top3 = list.slice(0, 3);
+
+      container.innerHTML = top3.map(b => `
         <a href="${b.dossierUrl}" class="result-broker-card">
           <div class="broker-card-left">
             <img src="${b.avatar}" alt="${b.name}" class="broker-thumb">
@@ -620,7 +685,7 @@
       handleSearch(text);
     }
 
-    // Initial render
+    // Initial render: 3 results
     renderResults(BROKERS_DB);
   </script>
 </body>
