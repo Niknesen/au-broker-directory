@@ -178,7 +178,46 @@
       transform: translateY(-2px);
     }
 
-    /* LIVEN PILL BUTTONS (Chunky, tall height & generous vertical breathing room) */
+    /* CAROUSEL CONTROLS & HORIZONTAL DRAG SCROLLING */
+    .carousel-arrow-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1.5px solid var(--liven-border);
+      background: #ffffff;
+      color: var(--liven-dark);
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      line-height: 1;
+      user-select: none;
+    }
+    .carousel-arrow-btn:hover {
+      background: var(--liven-green);
+      color: #ffffff;
+      border-color: var(--liven-green);
+      transform: scale(1.08);
+      box-shadow: 0 6px 18px rgba(92,167,1,0.3);
+    }
+    .carousel-nav-arrows {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .reviews-stream-horizontal, .features-giant-track, .blog-stream-horizontal {
+      cursor: grab;
+      user-select: none;
+      scroll-behavior: smooth;
+    }
+    .reviews-stream-horizontal:active, .features-giant-track:active, .blog-stream-horizontal:active {
+      cursor: grabbing;
+    }
     .nav-btn-green {
       background: var(--liven-green);
       color: #ffffff;
@@ -1753,10 +1792,16 @@
       <div style="font-size: 2.4rem; margin-bottom: 12px;">🇦🇺</div>
       <h2 class="how-title" style="margin-bottom: 12px;">What owners say about Best Brokers Australia</h2>
       <p style="color: #64748b; font-size: 1.15rem;">Real stories from Australian homeowners and business owners who got their finance sorted.</p>
+      
+      <!-- Arrow Controls -->
+      <div class="carousel-nav-arrows">
+        <button class="carousel-arrow-btn" onclick="scrollTrack('reviews-track', -360)" title="Scroll Left">&lsaquo;</button>
+        <button class="carousel-arrow-btn" onclick="scrollTrack('reviews-track', 360)" title="Scroll Right">&rsaquo;</button>
+      </div>
     </div>
 
     <!-- DENSE Horizontal Overflowing Reel Stream -->
-    <div class="reviews-stream-horizontal">
+    <div class="reviews-stream-horizontal" id="reviews-track">
       
       <!-- Video UGC Reel Card 1 -->
       <div class="tall-video-ugc-card" onclick="location.href='broker/david-chi-tran.html'">
@@ -1903,10 +1948,16 @@
       <p style="color: #64748b; font-size: 1.15rem; max-width: 720px; margin: 0 auto; line-height: 1.5; font-weight: 500;">
         Understand your numbers, explore your options, and find the right broker to help you move forward.
       </p>
+
+      <!-- Arrow Controls -->
+      <div class="carousel-nav-arrows">
+        <button class="carousel-arrow-btn" onclick="scrollTrack('features-track', -600)" title="Scroll Left">&lsaquo;</button>
+        <button class="carousel-arrow-btn" onclick="scrollTrack('features-track', 600)" title="Scroll Right">&rsaquo;</button>
+      </div>
     </div>
 
     <!-- Giant Horizontal Carousel Cards (6 Core Features) -->
-    <div class="features-giant-track">
+    <div class="features-giant-track" id="features-track">
       
       <!-- Feature 1: Best Match -->
       <div class="giant-feature-card">
@@ -2101,9 +2152,15 @@
       <span class="section-tag-pill">Guides & Insights</span>
       <h2 class="how-title" style="margin-bottom: 14px;">Learn more on the BBA Journal</h2>
       <p style="color: #64748b; font-size: 1.15rem;">Actionable tactical blueprints to protect your loan and build your sanctuary.</p>
+
+      <!-- Arrow Controls -->
+      <div class="carousel-nav-arrows">
+        <button class="carousel-arrow-btn" onclick="scrollTrack('blog-track', -360)" title="Scroll Left">&lsaquo;</button>
+        <button class="carousel-arrow-btn" onclick="scrollTrack('blog-track', 360)" title="Scroll Right">&rsaquo;</button>
+      </div>
     </div>
     
-    <div class="blog-stream-horizontal">
+    <div class="blog-stream-horizontal" id="blog-track">
       
       <!-- Card 1: How Much Can I Actually Borrow -->
       <a href="#" class="blog-entry">
@@ -2449,6 +2506,49 @@
     function showMatchResults() {
       window.location.href = 'liven-test.html';
     }
+
+    // Smooth Scroll by Arrow Buttons
+    function scrollTrack(trackId, offset) {
+      const track = document.getElementById(trackId);
+      if (track) {
+        track.scrollBy({ left: offset, behavior: 'smooth' });
+      }
+    }
+
+    // Universal Mouse Drag-to-Scroll for all 3 horizontal carousels
+    ['reviews-track', 'features-track', 'blog-track'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      el.addEventListener('mousedown', (e) => {
+        isDown = true;
+        el.style.cursor = 'grabbing';
+        startX = e.pageX - el.offsetLeft;
+        scrollLeft = el.scrollLeft;
+      });
+
+      el.addEventListener('mouseleave', () => {
+        isDown = false;
+        el.style.cursor = 'grab';
+      });
+
+      el.addEventListener('mouseup', () => {
+        isDown = false;
+        el.style.cursor = 'grab';
+      });
+
+      el.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - el.offsetLeft;
+        const walk = (x - startX) * 1.8; // scroll multiplier
+        el.scrollLeft = scrollLeft - walk;
+      });
+    });
   </script>
 </body>
 </html>
