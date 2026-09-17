@@ -97,6 +97,45 @@
       box-shadow: 0 18px 50px rgba(17, 41, 60, 0.14);
     }
 
+    /* Top-Left Australian Flag Corner Badge */
+    .hero-au-corner-badge {
+      position: absolute;
+      top: 36px;
+      left: 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      padding: 6px 16px 6px 8px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      z-index: 20;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .hero-au-corner-badge:hover {
+      background: rgba(255, 255, 255, 0.32);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+    .au-flag-circle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    @media (max-width: 1440px) {
+      .hero-au-corner-badge { display: none; }
+    }
+
     /* Floating White Navbar Pill */
     .floating-nav-pill {
       background: #ffffff;
@@ -1502,6 +1541,12 @@
   <!-- ============================================================ -->
   <section class="hero-sky-container">
     
+    <!-- Top-Left Corner Australian Flag Badge -->
+    <div class="hero-au-corner-badge">
+      <img src="assets/images/au-flag.png" alt="Australia" class="au-flag-circle">
+      <span>AUSTRALIA</span>
+    </div>
+
     <!-- Floating White Navbar -->
     <nav class="floating-nav-pill">
       <a href="labliven.html" class="nav-brand-logo">
@@ -1517,6 +1562,10 @@
         <a href="#faq" class="nav-item-link">FAQs</a>
       </div>
       <div style="display:flex; align-items:center; gap:12px;">
+        <div style="display:flex; align-items:center; gap:6px; background:#f4f8fa; padding:10px 14px; min-height:52px; border-radius:9999px; border:1.5px solid #e6edf2;" title="Australia">
+          <img src="assets/images/au-flag.png" alt="Australia" style="width:20px; height:20px; border-radius:50%; object-fit:cover; box-shadow:0 1px 3px rgba(0,0,0,0.15);">
+          <span style="font-size:0.82rem; font-weight:800; color:#1b2932; letter-spacing:0.3px;">AU</span>
+        </div>
         <a href="liven-search.html" class="nav-search-btn" title="Search & Check upon Broker" aria-label="Search brokers">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
