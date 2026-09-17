@@ -1067,7 +1067,7 @@
       margin-right: auto;
     }
 
-    /* REVIEWS IN MEDIA */
+    /* WHY CHOOSE BEST BROKERS (TRUST & VALUE CARDS) */
     .section-media-reviews {
       padding: 90px 24px;
       max-width: 1180px;
@@ -1090,23 +1090,36 @@
       padding: 36px 30px;
       text-align: left;
       box-shadow: 0 12px 32px rgba(27, 41, 50, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .media-card-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(27, 41, 50, 0.09);
     }
     .media-logo-text {
-      font-family: var(--font-display);
+      font-family: var(--font-mono);
       font-weight: 800;
-      font-size: 1.3rem;
-      letter-spacing: -0.3px;
-      margin-bottom: 20px;
-      color: var(--liven-dark);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      color: var(--liven-green);
+      background: var(--liven-green-soft);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      width: fit-content;
+      display: inline-block;
     }
     .media-h {
       font-weight: 800;
-      font-size: 1.18rem;
+      font-size: 1.25rem;
       margin-bottom: 8px;
       color: var(--liven-dark);
+      font-family: var(--font-display);
+      letter-spacing: -0.02em;
     }
     .media-p {
-      font-size: 0.94rem;
+      font-size: 0.98rem;
       color: #64748b;
       line-height: 1.5;
     }
@@ -2017,28 +2030,28 @@
     </div>
   </section>
 
-  <!-- REVIEWS IN MEDIA -->
+  <!-- WHY PEOPLE CHOOSE BEST BROKERS -->
   <section class="section-media-reviews">
     <div style="font-size: 2.4rem; margin-bottom: 12px;">🤝</div>
-    <h2 class="how-title" style="margin-bottom: 12px;">Reviews in media</h2>
+    <h2 class="how-title" style="margin-bottom: 12px;">Why people choose Best Brokers</h2>
     
     <div class="media-cards-grid">
       <div class="media-card-item">
-        <div class="media-logo-text">AFR &middot; Financial Review</div>
-        <div class="media-h">Like a pocket credit coach</div>
-        <div class="media-p">Best Brokers positions itself as an empathetic sanctuary companion, blending transparent broker audits with rapid scenario matching.</div>
+        <div class="media-logo-text">Less searching</div>
+        <div class="media-h">Stop figuring it out alone</div>
+        <div class="media-p">Tell us what you want. We’ll narrow down who can actually help.</div>
       </div>
 
       <div class="media-card-item">
-        <div class="media-logo-text">Sydney Morning Herald</div>
-        <div class="media-h">Feel more grounded</div>
-        <div class="media-p">It combines ASIC compliance data with a warm, human-first tone to steer families away from high-interest debt traps.</div>
+        <div class="media-logo-text">More possibility</div>
+        <div class="media-h">See what you can make happen</div>
+        <div class="media-p">Understand your options before assuming the answer is no.</div>
       </div>
 
       <div class="media-card-item">
-        <div class="media-logo-text">Money Magazine Australia</div>
-        <div class="media-h">A healthier financial dialogue</div>
-        <div class="media-p">Co-created with accredited Australian credit leaders, aiming to eliminate bank commission bias for ordinary home seekers.</div>
+        <div class="media-logo-text">The right person</div>
+        <div class="media-h">Get someone in your corner</div>
+        <div class="media-p">Meet brokers suited to your goal, situation and type of finance.</div>
       </div>
     </div>
   </section>
